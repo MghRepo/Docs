@@ -5,7 +5,7 @@
 ## Qu'est-ce que le Shell ?
 
 Le Shell est un programme qui permet d'interpréter les commandes de l'utilisateur.
-C'est l'un des tout premier moyen d'intéragir avec un ordinateur.  
+C'est l'un des tout premier moyen d'intéragir avec un ordinateur.
 Le shell est généralement plus puissant qu'une interface graphique utilisateur (GUI),
 dans le sens où il permet d'accéder très efficacement aux fonctionnalités interne du
 système d'exploitation (OS).
@@ -24,7 +24,7 @@ Dans le cadre du bash si aucune customisation n'a été faite il se décompose a
     [utilisateur@machine répertoire\ de\ travail]$
 
 Généralement un shell est fait pour passer des commandes, c'est à dire, exécuter des programmes
-avec ou sans arguments :  
+avec ou sans arguments :
 
     $ date
          sam. 09 mai 2020 17:36:09 CEST
@@ -53,9 +53,9 @@ On peut également échapper le caractère espace à l'aide d'un anti-slash :
 
 ## Les Chemins
 
-Le shell sait quel programme (dont un certain nombre sont installés avec l'OS) utiliser 
+Le shell sait quel programme (dont un certain nombre sont installés avec l'OS) utiliser
 et où celui-ci ce situe dans le système de fichier à l'aide de ce que l'on appelle une
-variable d'environnement.Une variable connue et renseignée dès le lancement du shell.
+variable d'environnement. Une variable connue et renseignée dès le lancement du shell.
 Il s'agit de la variable PATH :
 
     $ echo $PATH
@@ -103,6 +103,7 @@ Il existe un certain nombre de symbole permettant "d'expanser" des noms de répe
 - **..** : le répertoire parent du répertoire de travail
 - **-** : l'ancien répertoire de travail
 
+Par exemple :
     $ cd ~/test/
 
     $ pwd
@@ -144,7 +145,7 @@ Un des flags les plus utiles est --help :
     $ ls --help
 
 permet d'afficher l'aide de la commande *ls*.
- 
+
 Pour lire les usages, *...* signifie 1 ou plus et *[]* signifie que ce qui est dans les
 crochets est optionnel.
 En suit généralement une brève description de la commande et à la suite les potentiels flags
@@ -155,7 +156,7 @@ disponnibles.
 permet de lister au format long avec un nombre bien plus important d'information :
 
 - le type de fichier
-- les droits : utilisateur propriétaire, groupe principal du propriétaire, autres (user, group, others) 
+- les droits : utilisateur propriétaire, groupe principal du propriétaire, autres (user, group, others)
 - le nombre d'inodes (hard links)
 - l'utilisateur propriétaire
 - le groupe principal du propriétaire
