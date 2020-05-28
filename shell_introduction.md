@@ -7,7 +7,7 @@
 Le Shell est un programme qui permet d'interpréter les commandes de l'utilisateur.
 C'est l'un des tout premier moyen d'intéragir avec un ordinateur.
 Le shell est généralement plus puissant qu'une interface graphique utilisateur (GUI),
-dans le sens où il permet d'accéder très efficacement aux fonctionnalités interne du
+dans le sens où il permet d'accéder très efficacement aux fonctionnalités internes du
 système d'exploitation (OS).
 
 Souvent les outils textuels dont il dispose sont construit de manière à pouvoir être
@@ -299,7 +299,7 @@ Cet opérateur | permet de chaîner des programmes de façon à ce que la sortie
 
 La première commande affiche le dernier item de la liste de fichier du répertoire /.
 La deuxième affiche le pourcentage de l'entrée son des destinations (sinks) audio (enceintes, casques etc.)
-Cela a de multiple avantage notamment pour l'exploitation de fichiers de données.
+Cela a de multiples avantages notamment pour l'exploitation de fichiers de données.
 
 Une commande conçue pour fonctionner avec l'opérateur pipe est xargs.
 xargs lit l'entrée standard et passe chaque item en argument à la fonction suivante.
@@ -307,7 +307,7 @@ Un exemple d'application :
 
     $ ls *.txt | xargs wc
 
-La première commande liste l'ensemble des fichier .txt et wc compte le nombre de ligne de chacun des fichier passé en argument.
+La première commande liste l'ensemble des fichier .txt et wc compte le nombre de ligne de chacun des fichiers passés en argument.
 
 Pour savoir ce qu'une commande peut faire, savoir quelle est son utilisation généralement celle-ci implémente une option --help
 ou une référence (page) dans le man. man est une commande qui renvoit une section du manuel système. Pour plus de détail :
@@ -320,7 +320,7 @@ Pour reprendre l'opérateur | on peut afficher une page man et l'ouvrir au forma
 
     $ man ma_commande -Tpdf | zathura -
 
-Si on le souhaite (et on dispose d'un lecteur pdf)...
+Si on le souhaite (et qu'on dispose d'un lecteur pdf)...
 
 ## Un outil versatile et puissant
 
