@@ -104,6 +104,7 @@ Il existe un certain nombre de symbole permettant "d'expanser" des noms de répe
 - **-** : l'ancien répertoire de travail
 
 Par exemple :
+
     $ cd ~/test/
 
     $ pwd
@@ -219,14 +220,15 @@ ou plus facilement presser Ctrl + L.
 
 ---
 
-## Les Descripteurs de fichier et Tubes
+## Redirection d'entrée/sortie, descripteurs de fichier et tubes
 
 Comme il a été évoqué plus haut, l'une des caractéristiques les plus importante du shell est qu'il permet
 l'assemblage de multiples programmes via des flux. Cela permet de combiner les
 fonctionnalités de différents programmes afin d'executer une tâche spécifique.
 
 Pour intéragir avec ces flux le bash dispose de descripteurs de fichiers ou fd (pour file descriptor).
-Ceux-ci sont des chiffres utilisés comme référence abstraite vers un fichier ou une ressource d'entrée/sortie.
+Ceux-ci sont des chiffres utilisés comme référence abstraite vers un fichier ou une ressource d'entrée/sortie (e.g pipe, IPC etc.)
+Le terme de fichier est ici très large également (physique, virtuel, périphérique etc.)
 
 Par défaut 3 ressources disposant de fd sont ouverts :
 
@@ -272,12 +274,75 @@ Par exemple :
 
 redirige la stderr vers stdout.
 
-Pour ouvrir un fichier et pour affecter un descripteur de fichier :
+Pour ouvrir un fichier et affecter un descripteur de fichier :
 
     $ exec 3<> nom_fichier
 
-Enfin pour fermer le fichier :
+Et pour fermer le fichier :
 
     $ exec 3>&-
 
+Cela permet d'accéder au fichier :
 
+    $ exec 3<> nom_fichier
+    $ read <&3
+    $ read -n 4 <&3
+    $ echo -n . >&3
+    $ exec 3>&-
+
+Le script ci-dessus permet par exemple de remplacer le 4ème caractère de la deuxième ligne du fichier par un point.
+La où le shell se distingue réellement, c'est dans l'utilisation de pipe.
+Cet opérateur | permet de chaîner des programmes de façon à ce que la sortie de l'un devienne l'entrée d'un autre :
+
+    $ ls -l / | tail -n1
+    $ pactl list sink-inputs | rg Volume | awk '{print $5}'
+
+La première commande affiche le dernier item de la liste de fichier du répertoire /.
+La deuxième affiche le pourcentage de l'entrée son des destinations (sinks) audio (enceintes, casques etc.)
+Cela a de multiple avantage notamment pour l'exploitation de fichiers de données.
+
+Une commande conçue pour fonctionner avec l'opérateur pipe est xargs.
+xargs lit l'entrée standard et passe chaque item en argument à la fonction suivante.
+Un exemple d'application :
+
+    $ ls *.txt | xargs wc
+
+La première commande liste l'ensemble des fichier .txt et wc compte le nombre de ligne de chacun des fichier passé en argument.
+
+Pour savoir ce qu'une commande peut faire, savoir quelle est son utilisation généralement celle-ci implémente une option --help
+ou une référence (page) dans le man. man est une commande qui renvoit une section du manuel système. Pour plus de détail :
+
+    $ man man
+
+Appuyer sur q pour quitter.
+
+Pour reprendre l'opérateur | on peut afficher une page man et l'ouvrir au format pdf :
+
+    $ man ma_commande -Tpdf | zathura -
+
+Si on le souhaite (et on dispose d'un lecteur pdf)...
+
+## Un outil versatile et puissant
+
+Sur la plupart des système Unix-like, il existe un utilisateur root.
+Cet utilisateur a le droit d'accéder à l'ensemble des fichiers du système sans restriction (écriture, lecture, modification, suppression).
+Généralement il est dangeureux de se connecter en root sur une machine. De ce fait, on préfère donner des droits root à d'autres utilisateur
+mais uniquement sur des commandes spécifique. Pour cela on utilise l'utilitaire sudo.
+
+Par exemple, la luminosité d'un ordinateur portable apparaît dans un fichier système :
+
+    /sys/class/backlight/brightness
+
+En écrivant dans ce fichier on peut changer la luminosité de l'écran.
+Néanmoins, l'écriture doit être faite par root. En effet :
+
+    $ sudo find -L /sys/class/backlight --maxdepth 2 -name "*brightness"
+    $ sudo echo 3 >/sys/class/backlight/brightness
+
+Ne marche pas ! En effet, c'est le shell qui exécute l'écriture via >.
+sudo sur la commande echo est inutile. Pour contourner le problème on utilise un autre outil pour écrire le fichier :
+
+    $ echo 3 | sudo tee /sys/class/blacklight/brightness
+
+Puisque c'est le programme tee qui ouvre /sys pour l'écriture en tant que root, les permissions sont vérifiées.
+Un nombre de choses intéressantes se trouve sous /sys (contrôle des périphériques, les infos cpu, mémoire etc.)
