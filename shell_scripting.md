@@ -49,7 +49,7 @@ Les commande génèrent généralement une sortie via stdout, des erreurs via st
 permet de savoir le résultat d'exécution, qui peut être utilisé à la suite par d'autres scripts ou commandes.
 Généralement, une valeur de 0 signifie que tout c'est bien passé et tout autre valeur est une erreur.
 
-Néanmoins, ce code peut aussi être utilisé pou des commandes conditionnées en utilisant les opérateurs && (et)
+Néanmoins, ce code peut aussi être utilisé pour des commandes conditionnées en utilisant les opérateurs && (et)
 et || (ou). Les commandes peuvent également être séparées sur la même ligne avec le ;. La commande true aura toujours
 un code retour à 0 tandis que false aura toujours un code à 1. Exemples :
 
