@@ -5,7 +5,7 @@
 ## Scripts Shell
 
 La plupart des shells ont un langage de script qui leur est propre.
-Ce qui fait que le langage de script shell est différent de langage de script plus traditionnel
+Ce qui fait que le langage de script shell est différent de langages de scripts plus traditionnels
 c'est qu'il est avant tout fait pour de l'administration système. Créer des commandes pipes, écrire dans des fichiers,
 lire l'entrée standard etc. Dans cette section, le langage bash étant le plus répandu, c'est celui que nous utiliserons.
 
@@ -13,7 +13,7 @@ Pour assigner des variable en bash, on utilise la syntaxe foo=bar et on accède 
 $foo. "foo = bar" ne marche pas puisque le bash l'interprète comme l'appel du programme foo avec 2 arguments = et bar.
 En général dans les scripts shell le caractère espace sépare les arguments.
 
-Les chaînes de caractère en bash peuvent être définies à l'aide des délimiteurs ' et ", mais ils ne sont
+Les chaînes de caractères en bash peuvent être définies à l'aide des délimiteurs ' et ", mais ils ne sont
 pas équivalents. Les chaînes délimitées à l'aide de la simple quote sont des litéraux et ne substituent
 pas de variables contrairement aux chaînes délimitées à l'aide d'une double quote :
 
@@ -23,8 +23,8 @@ pas de variables contrairement aux chaînes délimitées à l'aide d'une double 
     $ echo '$foo'
         $foo
 
-Comme la plupart des langages de programmation, bash supporte des technique de contrôle du flux d'exécution tel que
-if, case, while et for. On peut également définir des fonction en bash qui peuvent prendre des arguments.
+Comme la plupart des langages de programmation, bash supporte des techniques de contrôle du flux d'exécution tel que
+if, case, while et for. On peut également définir des fonctions en bash qui peuvent prendre des arguments.
 Exemple :
 
     mcd () {
@@ -33,7 +33,7 @@ Exemple :
     }
 
 Ici $1 est le premier argument de la fonction. Contrairement aux autres langages de script, bash utilise
-un nombre assez important de variable spéciales qui font référence à des arguments, codes d'erreurs
+un nombre assez important de variables spéciales qui font référence à des arguments, codes d'erreurs
 etc. Voir liste ci-dessous :
 
     - $0 - Nom du script
@@ -41,15 +41,16 @@ etc. Voir liste ci-dessous :
     - $@ - Tous les arguments
     - $# - Nombre d'arguments
     - $? - Code retour de la commande précédente (très utile pour un match par exemple)
-    - $$ - Identifiant de processus (PID) du script courant.
+    - $$ - Identifiant de processus (PID) du shell courant.
+    - $! - Identifiant de processus (PID) de la dernière commande passée en background.
     - !! - Ensemble de la dernière commande passée (arguments inclus). Très utile si on a oublié le sudo (sudo !!).
     - $_ - Dernier argument de la dernière commande. Dans un shell interactif on peut également faire Esc suivi du point.
 
-Les commande génèrent généralement une sortie via stdout, des erreurs via stderr, et un code retour. Le code retour
+Les commandes génèrent généralement une sortie via stdout, des erreurs via stderr, et un code retour. Le code retour
 permet de savoir le résultat d'exécution, qui peut être utilisé à la suite par d'autres scripts ou commandes.
-Généralement, une valeur de 0 signifie que tout c'est bien passé et tout autre valeur est une erreur.
+Généralement, une valeur de 0 signifie que tout s'est bien passé et tout autre valeur est une erreur.
 
-Néanmoins, ce code peut aussi être utilisé pou des commandes conditionnées en utilisant les opérateurs && (et)
+Néanmoins, ce code peut aussi être utilisé pour des commandes conditionnées en utilisant les opérateurs && (et)
 et || (ou). Les commandes peuvent également être séparées sur la même ligne avec le ;. La commande true aura toujours
 un code retour à 0 tandis que false aura toujours un code à 1. Exemples :
 
@@ -77,7 +78,7 @@ Le bash permet également de substituer une commande de cette façon :
 
 Cette commande montre la différence entre fichiers dans les répertoires foo et bar.
 
-Puisque ça été relativement rapide, voyons un exemple que montre quelques trucs qu'on peut faire.
+Puisque cela a été relativement rapide, voyons un exemple que montre quelques trucs qu'on peut faire.
 Le script parcourera les arguments que nous lui donnerons, grep la chaîne foobar, et l'ajoutera comme
 commentaire ci celle-ci est absente.
 
