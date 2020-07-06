@@ -10,7 +10,7 @@ Le shell est généralement plus puissant qu'une interface graphique utilisateur
 dans le sens où il permet d'accéder très efficacement aux fonctionnalités internes du
 système d'exploitation (OS).
 
-Souvent les outils textuels dont il dispose sont construit de manière à pouvoir être
+Souvent les outils textuels dont il dispose sont construits de manière à pouvoir être
 composés. Ainsi de multiples assemblage permettent à la fois une simplicité dans
 la décomposition des tâches, et une facilité de mise en oeuvre dans l'automatisation.
 
@@ -54,7 +54,7 @@ On peut également échapper le caractère espace à l'aide d'un anti-slash :
 ## Les Chemins
 
 Le shell sait quel programme (dont un certain nombre sont installés avec l'OS) utiliser
-et où celui-ci ce situe dans le système de fichier à l'aide de ce que l'on appelle une
+et où celui-ci ce situe dans le système de fichiers à l'aide de ce que l'on appelle une
 variable d'environnement. Une variable connue et renseignée dès le lancement du shell.
 Il s'agit de la variable PATH :
 
@@ -69,15 +69,15 @@ lequel sera celui exécuté lors de l'appel par ce shell précisément :
     $ which echo
         /usr/bin/echo
 
-Les chemins sont la description des emplacements des fichiers dans l'achitecture du système de ficher.
-Sur Linux et MacOS, les répertoires sont séparés par des slash. Le premier slash sur la gauche
-symbolise le sommet du système de fichier (celui-ci étant hiérarchique) il est appelé root ou répertoire
+Les chemins sont la description des emplacements des fichiers dans l'achitecture du système de fichers.
+Sur Linux et MacOS, les répertoires sont séparés par des slashs. Le premier slash sur la gauche
+symbolise le sommet du système de fichiers (celui-ci étant hiérarchique) il est appelé root ou répertoire
 root, racine en français.
 Sous Windows les répertoires sont généralement séparés par des anti-slash et chaque partition est la
 racine de son propre système de fichier hierarchique. La partition est généralement désignée par une lettre
 de l'alphabet (C:\ D:\ etc.).
 
-Il existe 2 type de chemins :
+Il existe 2 types de chemins :
 
 - les chemins absolus : à partir de la racine.
 - les chemins relatifs : à partir du répertoire dans lequel on se situe.
@@ -96,7 +96,7 @@ en argument un chemin relatif ou absolu :
     $ pwd
         /home
 
-Il existe un certain nombre de symbole permettant "d'expanser" des noms de répertoires :
+Il existe un certain nombre de symboles permettant "d'expanser" des noms de répertoires :
 
 - **~** : le répertoire de l'utilisateur courant (ie : /home/admarouj)
 - **.** : le répertoire de travail
@@ -120,7 +120,7 @@ Par exemple :
     $ pwd
         /home/admarouj/test
 
-Cela permet de naviguer plus facilement à l'interieur du système de fichier.
+Cela permet de naviguer plus facilement à l'interieur du système de fichiers.
 
 > Note : Dans le cas de script shell, lors de l'appel d'un programme on évite les chemins relatifs
 > On préfère travailler avec la variable d'environnement PATH ou bien on donne le chemin absolu.
@@ -147,7 +147,7 @@ Un des flags les plus utiles est --help :
 
 permet d'afficher l'aide de la commande *ls*.
 
-Pour lire les usages, *...* signifie 1 ou plus et *[]* signifie que ce qui est dans les
+Pour lire les usages, *...* signifie 1 ou plus et *[ ]* signifie que ce qui est dans les
 crochets est optionnel.
 En suit généralement une brève description de la commande et à la suite les potentiels flags
 disponnibles.
@@ -156,7 +156,7 @@ disponnibles.
 
 permet de lister au format long avec un nombre bien plus important d'information :
 
-- le type de fichier
+- le type de fichiers
 - les droits : utilisateur propriétaire, groupe principal du propriétaire, autres (user, group, others)
 - le nombre d'inodes (hard links)
 - l'utilisateur propriétaire
@@ -166,11 +166,11 @@ permet de lister au format long avec un nombre bien plus important d'information
 
 Les droits s'organisent ainsi :
 
-- pour les fichier
+- pour les fichiers
     * r : read, autorise à lire le contenu du fichier
     * w : write, autorise à modifier le contenu du fichier
     * x : execute, autorise l'exécution du fichier
-- pour les répertoire
+- pour les répertoires
     * r : read, autorise à lister le contenu du répertoire
     * w : write, autorise la création de fichier, la modification du nom de fichier et la suppression de fichier
     * x : execute, autorise à traverser (entrer) dans le répertoire
@@ -204,7 +204,7 @@ Finalement pour créer un nouveau répertoire on utilise la commande :
 
     $ mkdir Mon\ Repertoire
 
-Pour avoir encore plus d'information sur une commande on peut se réferer aux pages de manuel de celle-ci :
+Pour avoir encore plus d'informations sur une commande on peut se réferer aux pages de manuel de celle-ci :
 
     $ man ls
 
@@ -222,7 +222,7 @@ ou plus facilement presser Ctrl + L.
 
 ## Redirection d'entrée/sortie, descripteurs de fichier et tubes
 
-Comme il a été évoqué plus haut, l'une des caractéristiques les plus importante du shell est qu'il permet
+Comme il a été évoqué plus haut, l'une des caractéristiques les plus importantes du shell est qu'il permet
 l'assemblage de multiples programmes via des flux. Cela permet de combiner les
 fonctionnalités de différents programmes afin d'executer une tâche spécifique.
 
@@ -297,7 +297,7 @@ Cet opérateur | permet de chaîner des programmes de façon à ce que la sortie
     $ ls -l / | tail -n1
     $ pactl list sink-inputs | rg Volume | awk '{print $5}'
 
-La première commande affiche le dernier item de la liste de fichier du répertoire /.
+La première commande affiche le dernier item de la liste de fichiers du répertoire /.
 La deuxième affiche le pourcentage de l'entrée son des destinations (sinks) audio (enceintes, casques etc.)
 Cela a de multiples avantages notamment pour l'exploitation de fichiers de données.
 
@@ -307,7 +307,7 @@ Un exemple d'application :
 
     $ ls *.txt | xargs wc
 
-La première commande liste l'ensemble des fichier .txt et wc compte le nombre de ligne de chacun des fichiers passés en argument.
+La première commande liste l'ensemble des fichiers .txt et wc compte le nombre de ligne de chacun des fichiers passés en argument.
 
 Pour savoir ce qu'une commande peut faire, savoir quelle est son utilisation généralement celle-ci implémente une option --help
 ou une référence (page) dans le man. man est une commande qui renvoit une section du manuel système. Pour plus de détail :
@@ -324,10 +324,10 @@ Si on le souhaite (et qu'on dispose d'un lecteur pdf)...
 
 ## Un outil versatile et puissant
 
-Sur la plupart des système Unix-like, il existe un utilisateur root.
+Sur la plupart des systèmes Unix-like, il existe un utilisateur root.
 Cet utilisateur a le droit d'accéder à l'ensemble des fichiers du système sans restriction (écriture, lecture, modification, suppression).
-Généralement il est dangeureux de se connecter en root sur une machine. De ce fait, on préfère donner des droits root à d'autres utilisateur
-mais uniquement sur des commandes spécifique. Pour cela on utilise l'utilitaire sudo.
+Généralement il est dangeureux de se connecter en root sur une machine. De ce fait, on préfère donner des droits root à d'autres utilisateurs
+mais uniquement sur des commandes spécifiques. Pour cela on utilise l'utilitaire sudo.
 
 Par exemple, la luminosité d'un ordinateur portable apparaît dans un fichier système :
 
