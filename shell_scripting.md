@@ -40,7 +40,7 @@ etc. Voir liste ci-dessous :
     - $1 à $9 - Arguments du script. $1 est le premier argument (resp. autres)
     - $@ - Tous les arguments
     - $# - Nombre d'arguments
-    - $? - Code retour de la commande précédente (très utile pour un match par exemple)
+    - $? - Code retour de la commande précédente (très utile pour une vérification par exemple)
     - $$ - Identifiant de processus (PID) du shell courant.
     - $! - Identifiant de processus (PID) de la dernière commande passée en background.
     - !! - Ensemble de la dernière commande passée (arguments inclus). Très utile si on a oublié le sudo (sudo !!).
@@ -70,7 +70,7 @@ contenu dans le script avant l'exécution de celui-ci. Par exemple, si on écrit
 
     for file in $(ls)
 
-Le shell appelera dans un premier temps ls et parcourera ces valeurs par la suite.
+Le shell appellera dans un premier temps ls et parcourera ses valeurs par la suite.
 
 Le bash permet également de substituer une commande de cette façon :
 
@@ -101,13 +101,13 @@ Dans un test on essaye généralement d'utiliser les doubles crochets, les chanc
 Même si cela n'est pas le standard POSIX.
 
 Lors de l'exécution de scripts, on devra souvent fournir des arguments semblables.
-Bash rend les choses plus faciles, "étendant" des expressions en supportant des expansions de nom de fichiers :
+Bash rend les choses plus faciles, "étendant" les expressions en supportant des expansions de nom de fichiers :
 
 - Joker - On peut utiliser *?* et *\** pour respectivement vérifier 1 ou n'importe quel nombre de caractère.
 Par exemple, soit les fichier *foo1* *foo2*, *foo10* et *bar*, la commande *rm foo?* supprimera *foo1* et *foo2*
 alors que *rm foo\** supprimera tout sauf *bar*/
 - Accolades *{}* - Quand il existe une sous-chaîne commune dans une série de commandes, on peut utiliser les accolades pour étendre automatiquement.
-Cela peut-être pratique pour déplacer ou convertir des fichiers/
+Cela peut-être pratique pour déplacer ou convertir des fichiers.
 
     convert image.{png,jpg}
     # Deviens
