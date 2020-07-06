@@ -285,8 +285,8 @@ Et pour fermer le fichier :
 Cela permet d'accéder au fichier :
 
     $ exec 3<> nom_fichier
-    $ read <&3 # Ce déplacer d'une ligne vers le bas
-    $ read -n 3 <&3 # Ce déplacer de 3 caractères
+    $ read <&3         # Se déplacer d'une ligne vers le bas
+    $ read -n 3 <&3    # Se déplacer de 3 caractères (en position 4)
     $ echo -n . >&3
     $ exec 3>&-
 
