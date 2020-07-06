@@ -109,6 +109,8 @@ alors que *rm foo\** supprimera tout sauf *bar*/
 - Accolades *{}* - Quand il existe une sous-chaîne commune dans une série de commandes, on peut utiliser les accolades pour étendre automatiquement.
 Cela peut-être pratique pour déplacer ou convertir des fichiers.
 
+Exemples :
+
     convert image.{png,jpg}
     # Deviens
     convert image.png image.jpg
@@ -132,8 +134,8 @@ Cela peut-être pratique pour déplacer ou convertir des fichiers.
     # ---
     # > y
 
-Les scripts ne doivent pas nécessairement écrit en bash pour être exécuté depuis le terminal.
-Par exemple, ce script python qui inverse les arguments qu'on lui fournit :
+Les scripts ne doivent pas nécessairement être écrit en bash pour être exécuté depuis le terminal.
+Exemple, ce script python qui inverse les arguments qu'on lui fournit :
 
     #!/usr/local/bin/python
     import sys
