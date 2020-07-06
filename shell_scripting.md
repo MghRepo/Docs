@@ -99,3 +99,57 @@ commentaire ci celle-ci est absente.
 Dans le test de comparaison on teste si $? est égal à 0. Bash implémente de nombreuses comparaisons de la sorte (voir man test).
 Dans un test on essaye généralement d'utiliser les doubles crochets, les chances de faire des erreurs sont moindres.
 Même si cela n'est pas le standard POSIX.
+
+Lors de l'exécution de scripts, on devra souvent fournir des arguments semblables.
+Bash rend les choses plus faciles, "étendant" des expressions en supportant des expansions de nom de fichiers :
+
+- Joker - On peut utiliser *?* et *\** pour respectivement vérifier 1 ou n'importe quel nombre de caractère.
+Par exemple, soit les fichier *foo1* *foo2*, *foo10* et *bar*, la commande *rm foo?* supprimera *foo1* et *foo2*
+alors que *rm foo\** supprimera tout sauf *bar*/
+- Accolades *{}* - Quand il existe une sous-chaîne commune dans une série de commandes, on peut utiliser les accolades pour étendre automatiquement.
+Cela peut-être pratique pour déplacer ou convertir des fichiers/
+
+    convert image.{png,jpg}
+    # Deviens
+    convert image.png image.jpg
+
+    cp /chemin/du/projet/{foo,bar,baz}.sh /nouveau_chemin
+    #Deviens
+    cp /chemin/du/projet/foo.sh /chemin/du/projet/bar.sh /chemin/du/projet/baz.sh /nouveau_chemin
+
+    # On peut également combiner des jokers
+    mv *{.py,.sh} repertoire
+
+    mkdir foo bar
+    # Après la création de ces 2 répertoire,
+    # La commande ci-dessous créé les fichiers foo/a foo/b, ...foo/h, bar/a, bar/b, ...
+    touch {foo, bar}/{a..h}
+    touch foo/x bar/y
+    # Montre la différence entre les fichiers contenus dans foo et ceux dans bar
+    diff <(ls foo) <(ls bar)
+    # Sors
+    # < x
+    # ---
+    # > y
+
+Les scripts ne doivent pas nécessairement écrit en bash pour être exécuté depuis le terminal.
+Par exemple, ce script python qui inverse les arguments qu'on lui fournit :
+
+    #!/usr/local/bin/python
+    import sys
+    for arg in reversed(sys.argv[1:]):
+        print(arg)
+
+Le noyau sait exécuter ce script avec le bon interpréteur grâce à l'inclusion du sheebang (la première ligne).
+C'est une bonne pratique que d'inclure les sheebangs en utilisant la commande env (pour des question de portabilité) : #!/usr/bin/env python
+env permet de résoudre où se trouve l'interpréteur via la variable d'environnement *PATH*.
+> Note : Pour savoir où se trouve la commande exécutée dans le système de fichiers hiérarchique standard, on peut utiliser la commande *which*.
+
+Quelques différences entre les fonctions shell et les scripts shell à garder en tête sont :
+
+- Les fonctions doivent être écrites dans le même langage shell, alors que les scripts n'ont pas cette contrainte. D'où l'utilité du sheebang.
+- Les fonctions sont chargées une fois que leur définition est lue. Les scripts sont chargés à chaque exécution.
+- Les fonctions sont exécutées dans le shell courant alors que les scripts exécutent leurs propres processus.
+Les fonctions peuvent donc modifier des variables d'environnement, par exemple changer le répertoire de travail.
+A ce titre, les scripts peuvent hériter de variables d'environnement ci celles-ci ont été exportées précedemment à l'aide du mot-clef *export*.
+- Comme avec n'importe quel langage de programmation, les fonctions sont des outils modulaire permettant une réutilisation et une meilleure clarté du code.
