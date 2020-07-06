@@ -344,5 +344,5 @@ sudo sur la commande echo est inutile. Pour contourner le problème on utilise u
 
     $ echo 3 | sudo tee /sys/class/blacklight/brightness
 
-Puisque c'est le programme tee qui ouvre /sys pour l'écriture en tant que root, les permissions sont vérifiées.
-Un nombre de choses intéressantes se trouve sous /sys (contrôle des périphériques, les infos cpu, mémoire etc.)
+Puisque c'est le programme tee qui ouvre */sys* pour l'écriture en tant que root, les permissions sont vérifiées.
+Un nombre de choses intéressantes se trouve sous */sys* (contrôle des périphériques, les infos cpu, mémoire etc.)
