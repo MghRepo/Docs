@@ -9,8 +9,8 @@ Ce qui fait que le langage de script shell est différent de langages de scripts
 c'est qu'il est avant tout fait pour de l'administration système. Créer des commandes pipes, écrire dans des fichiers,
 lire l'entrée standard etc. Dans cette section, le langage bash étant le plus répandu, c'est celui que nous utiliserons.
 
-Pour assigner des variable en bash, on utilise la syntaxe foo=bar et on accède au contenu de la variable avec
-$foo. "foo = bar" ne marche pas puisque le bash l'interprète comme l'appel du programme foo avec 2 arguments = et bar.
+Pour assigner des variable en bash, on utilise la syntaxe *foo=bar* et on accède au contenu de la variable avec
+*$foo*. *foo = bar* ne marche pas puisque le bash l'interprète comme l'appel du programme *foo* avec 2 arguments *=* et *bar*.
 En général dans les scripts shell le caractère espace sépare les arguments.
 
 Les chaînes de caractères en bash peuvent être définies à l'aide des délimiteurs ' et ", mais ils ne sont
@@ -143,8 +143,8 @@ Exemple, ce script python qui inverse les arguments qu'on lui fournit :
         print(arg)
 
 Le noyau sait exécuter ce script avec le bon interpréteur grâce à l'inclusion du sheebang (la première ligne).
-C'est une bonne pratique que d'inclure les sheebangs en utilisant la commande env (pour des question de portabilité) : #!/usr/bin/env python
-env permet de résoudre où se trouve l'interpréteur via la variable d'environnement *PATH*.
+C'est une bonne pratique que d'inclure les sheebangs en utilisant la commande *env* (pour des question de portabilité) : *#!/usr/bin/env python*
+*env* permet de résoudre où se trouve l'interpréteur via la variable d'environnement *PATH*.
 > Note : Pour savoir où se trouve la commande exécutée dans le système de fichiers hiérarchique standard, on peut utiliser la commande *which*.
 
 Quelques différences entre les fonctions shell et les scripts shell à garder en tête sont :
