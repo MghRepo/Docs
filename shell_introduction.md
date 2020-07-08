@@ -326,7 +326,7 @@ Si on le souhaite (et qu'on dispose d'un lecteur pdf)...
 
 Sur la plupart des systèmes Unix-like, il existe un utilisateur root.
 Cet utilisateur a le droit d'accéder à l'ensemble des fichiers du système sans restriction (écriture, lecture, modification, suppression).
-Généralement il est dangeureux de se connecter en root sur une machine. De ce fait, on préfère donner des droits root à d'autres utilisateurs
+Généralement il est dangereux de se connecter en root sur une machine. De ce fait, on préfère donner des droits root à d'autres utilisateurs
 mais uniquement sur des commandes spécifiques. Pour cela on utilise l'utilitaire sudo.
 
 Par exemple, la luminosité d'un ordinateur portable apparaît dans un fichier système :
