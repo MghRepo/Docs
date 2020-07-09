@@ -89,10 +89,10 @@ commentaire ci celle-ci est absente.
     echo "Exécution du program $0 avec $# arguments avec le pid $$"
 
     for fichier in $@; do
-        grep foobar $file 2>&1 >/dev/null
+        grep foobar $fichier 2>&1 >/dev/null
         if [[ $? -ne 0 ]]; then
             echo "Le fichier $fichier ne contient pas le mot foobar, ajout en cours !"
-            echo "# foobar" >> "$file"
+            echo "# foobar" >> "$fichier"
         fi
     done
 
