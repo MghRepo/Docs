@@ -105,7 +105,7 @@ Bash rend les choses plus faciles, "étendant" les expressions en supportant des
 
 - Joker - On peut utiliser *?* et *\** pour respectivement vérifier 1 ou n'importe quel nombre de caractère.
 Par exemple, soit les fichier *foo1* *foo2*, *foo10* et *bar*, la commande *rm foo?* supprimera *foo1* et *foo2*
-alors que *rm foo\** supprimera tout sauf *bar*/
+alors que *rm foo\** supprimera tout sauf *bar*.
 - Accolades *{}* - Quand il existe une sous-chaîne commune dans une série de commandes, on peut utiliser les accolades pour étendre automatiquement.
 Cela peut-être pratique pour déplacer ou convertir des fichiers.
 
