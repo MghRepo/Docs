@@ -36,14 +36,14 @@ l'état courant du programme.
 Dans un processeur, cet état correspod à la valeur du compter ordinal.
 
 Commandes à étiquettes :
-	- Sauts inconditionnels
-	- Sauts conditionnels
-	- Sous programmes, commandes de sorties de boucles
+	* Sauts inconditionnels
+	* Sauts conditionnels
+	* Sous programmes, commandes de sorties de boucles
 
 Commandes de blocs :
-	- Blocs d'instructions
-	- Alternatives (if, then, else, switch)
-	- Boucles (do, whilei, each)
+	* Blocs d'instructions
+	* Alternatives (if, then, else, switch)
+	* Boucles (do, whilei, each)
 
 ### Extensions de la notion de boucles
 
@@ -135,42 +135,42 @@ en parallèle.
 ### Exemples d'algorithmes de tri
 
 Algorithmes rapides T(n)=O(nlog n) :
-	- Tri fusion (merge sort) : Pour une entrée donnée, l'algorithme la divise en deux parties de tailles
+	* Tri fusion (merge sort) : Pour une entrée donnée, l'algorithme la divise en deux parties de tailles
 	similaires, trie chacune d'elles en utilisant le même algorithme, puis fusionne les deux parties triées. Il se prête aussi bien à des
 	implémenations sur listes que sur tableaux.
-	- Tri rapide (quicksort) : Une valeur est choisie comme pivot et les éléments plus petits que le pivot sont
+	* Tri rapide (quicksort) : Une valeur est choisie comme pivot et les éléments plus petits que le pivot sont
 	dissociés, par échanges successifs, des éléments plus grands que le pivot ; chacun de ces deux sous-ensembles est ensuite trié de la même
 	manière. On peut rendre la complexité quasiment indépendante des données en utilisant un pivot aléatoire ou en appliquant au tableau une
 	permutation aléatoire avant de le trier.
-	- Tris par tas (heap sort) : Il s'agit d'une amélioration du tri par sélection. L'idée est la même (insérer les élément un à un dans une structure déjà triée
+	* Tris par tas (heap sort) : Il s'agit d'une amélioration du tri par sélection. L'idée est la même (insérer les élément un à un dans une structure déjà triée
 	mais l'algorithme utilise une structure de tas, souvent implémentée au moyen d'un tableau.
-	- Introsort : Il s'agit d'un hybride du tri rapide et du tri par tas.
-	- Tri arborescent : L'idée est d'insérer les éléments un à un dans l'arbre binaire de recherche, puis de lire l'arbre selon un parcours en profondeur.
+	* Introsort : Il s'agit d'un hybride du tri rapide et du tri par tas.
+	* Tri arborescent : L'idée est d'insérer les éléments un à un dans l'arbre binaire de recherche, puis de lire l'arbre selon un parcours en profondeur.
 	Un arbre binaire de recherche(ABR) est un arbre binaire dans lequel chaque noeud possède une clé, telle que chaque noeud du sous-arbre *gauche* ait une
 	clé inférieure ou égale à celle du noeud considéré, et que chaque noeud du sous-arbre *droit* possède une clé supérieure ou égale à celle-ci.
-	- Smoothsort
+	* Smoothsort
 
 Algorithmes moyennement rapides :
-	- Tri de Shell (shell sort) : Ce tri repose sur le tri par insertion des sous-suites de l'entrée obtenues en prenant les éléments espacés d'un pas constant,
+	* Tri de Shell (shell sort) : Ce tri repose sur le tri par insertion des sous-suites de l'entrée obtenues en prenant les éléments espacés d'un pas constant,
 	pour une suite de pas prédéfinie. La complexité varie selon le choix de cette suite.
-	- Tri à peigne (comb sort) : Il s'agit d'une variante plus efficace du tri à bulles, ne comparant pas uniquement des éléments consécutifs. On peut dire qu'il
+	* Tri à peigne (comb sort) : Il s'agit d'une variante plus efficace du tri à bulles, ne comparant pas uniquement des éléments consécutifs. On peut dire qu'il
 	est au tri à bulles ce que le tri de Shell est au tri par insertion.
-	- Tri par insertion : Ce tri souvent utilisé naturellement pour trier des cartes à jouer : les valeurs sont insérées les unes après les autres dans une liste
+	* Tri par insertion : Ce tri souvent utilisé naturellement pour trier des cartes à jouer : les valeurs sont insérées les unes après les autres dans une liste
 	triée (initialement vide). C'est souvent le plus rapide et le plus utilisé pour trier les entrées de petite taille. Il est également efficace pour des
 	entrées déjà presque triées.
-	- Tri à bulles : L'algorithme consiste à parcourir l'entrée du début à la fin et pour chaque couple d'éléments consécutifs, à les intervertir s'ils sont mal
+	* Tri à bulles : L'algorithme consiste à parcourir l'entrée du début à la fin et pour chaque couple d'éléments consécutifs, à les intervertir s'ils sont mal
 	ordonnés. Cette opération est répétée jusqu'à ce que la structure soit triée (aucune intervention lors du dernier passage). Cet algorithme est
 	peu efficace et rarement utilisé en pratique ; son intêret est principalement pédagogique.
-	- Tri cocktail : Il s'agit d'une variante du tri à bulles dans laquelle l'entrée est alternativement parcourue dans les deux sens. S'il permet de traiter de
+	* Tri cocktail : Il s'agit d'une variante du tri à bulles dans laquelle l'entrée est alternativement parcourue dans les deux sens. S'il permet de traiter de
 	manière plus efficace quelques cas problématiques pour le tri à bulles, il reste essentiellement similaire à ce dernier et l'intérêt est encore une fois
 	principalement pédagogique.
-	- Tri pair-impair : Il s'agit d'une variante du tri à bulles, qui procède en comparant successivement tous les éléments d'index pairs avec les éléments
+	* Tri pair-impair : Il s'agit d'une variante du tri à bulles, qui procède en comparant successivement tous les éléments d'index pairs avec les éléments
 	d'index impairs qui les suivent, puis inversement. On va ainsi commencer en comparant le premier élément au second, le troisième au quatrième, etc.,
 	puis l'on comparera le second élément au troisième, le quatrième au cinquième. L'opération est répétée jusqu'à ce que la structure soit
 	triée.
 
 Algorithmes lents :
-	- Tri par selection :
+	* Tri par selection :
 
 ## Structures de données :
 
@@ -188,12 +188,12 @@ dernier élément.
 Voici les primitives communément utilisées pour manipuler les piles. Il n'existe pas de normalisation pour les
 primitives de manipulation de pile. Leurs noms sont donc indiqués de manière informelle. Seules les trois
 premières sont réellement indispensables, les autres pouvant s'en déduire :
-	- "Empiler" (push) : ajoute un élément sur la pile.
-	- "Depiler" (pull) : enlève un élément de la pile et le renvoie.
-	- "La pile est-elle vide ?" : renvoie vrai si la pile est vide, faux sinon.
-	- "Nombre d'éléments de la pile" : renvoie le nombre d'élément de la pile.
-	- "Quel est l'élément de tête ?" (peek ou top) : renvoie l'élément de tête sans le dépiler.
-	- "Vider la liste" (clear) : dépiler tous les éléments.
+	* "Empiler" (push) : ajoute un élément sur la pile.
+	* "Depiler" (pull) : enlève un élément de la pile et le renvoie.
+	* "La pile est-elle vide ?" : renvoie vrai si la pile est vide, faux sinon.
+	* "Nombre d'éléments de la pile" : renvoie le nombre d'élément de la pile.
+	* "Quel est l'élément de tête ?" (peek ou top) : renvoie l'élément de tête sans le dépiler.
+	* "Vider la liste" (clear) : dépiler tous les éléments.
 
 ### File
 
@@ -206,21 +206,20 @@ La théorie des files d'attente, élaborée pour le dimensionnement des réseau 
 disponibles, le temps d'occupation moyen du canal, et le temps d'attente à prévoir (Loi de Poisson).
 
 Cette structure est utilisée par exemple :
-	- en général, pour mémoriser temporairement des transactions qui doivent attendre pour être traitées ;
-	- les serveurs d'impression, qui traitent ainsi les requêtes dans l'ordre dans lequel elles arrivent, et les insèrent dans une file d'attente (spool)
-	- certains moteurs multitâches, dans les systèmes d'exploitation, qui doivent accorder du temps-machine à chaque tâche, sans en privilégier
+	* en général, pour mémoriser temporairement des transactions qui doivent attendre pour être traitées ;
+	* les serveurs d'impression, qui traitent ainsi les requêtes dans l'ordre dans lequel elles arrivent, et les insèrent dans une file d'attente (spool)
+	* certains moteurs multitâches, dans les systèmes d'exploitation, qui doivent accorder du temps-machine à chaque tâche, sans en privilégier
 	aucune ;
-	- un algorithme de parcours en largeur utilise une file pour mémoriser les noeuds visités ;
-	- pour créer toutes sortes de mémoires tampons (buffers) ;
-	- En gestion des stocks les algorithmes doivent respecter la gestion physique des stocks pour assurer la cohérence physique/valorisation.
+	* un algorithme de parcours en largeur utilise une file pour mémoriser les noeuds visités ;
+	* pour créer toutes sortes de mémoires tampons (buffers) ;
+	* En gestion des stocks les algorithmes doivent respecter la gestion physique des stocks pour assurer la cohérence physique/valorisation.
 
 Voici les primitives communément utilisées pour manipuler les files. Il n'existe pas de normalisation pour les primitives de manipulation de file. Leurs
-nom sont donc indiqués de manière informelle.
-
-	- "Enfiler" (enqueue) : ajouter un élément dans la file.
-	- "Defiler" (dequeue) : renvoie le prochain élément de la file, et le retire de la file.
-	- "La file est-elle vide ?" : renvoie "vrai" si la file est vide, "faux" sinon.
-	- "Nombre d'élément dans la file" : renvoie le nombre d'élément dans la file.
+nom sont donc indiqués de manière informelle :
+	* "Enfiler" (enqueue) : ajouter un élément dans la file.
+	* "Defiler" (dequeue) : renvoie le prochain élément de la file, et le retire de la file.
+	* "La file est-elle vide ?" : renvoie "vrai" si la file est vide, "faux" sinon.
+	* "Nombre d'élément dans la file" : renvoie le nombre d'élément dans la file.
 
 ### Liste
 
@@ -231,24 +230,24 @@ Voici les primitives communément utilisées pour manipuler des listes ; il n'ex
 leurs noms respectifs sont donc indiqués de manière informelle.
 
 Primitives de base :
-	- "Insérer" (Add) : ajoute un élément dans la liste ;
-	- "Retirer" (Remove) : retire un élément de la liste ;
-	- "La liste est-elle vide ?" (IsNull) : renvoie "vrai" si la liste est vide, "faux" sinon ;
-	- "Nombre d'éléments dans la liste (Length)" : renvoie le nombre d'éléments dans la liste.
+	* "Insérer" (Add) : ajoute un élément dans la liste ;
+	* "Retirer" (Remove) : retire un élément de la liste ;
+	* "La liste est-elle vide ?" (IsNull) : renvoie "vrai" si la liste est vide, "faux" sinon ;
+	* "Nombre d'éléments dans la liste (Length)" : renvoie le nombre d'éléments dans la liste.
 
 Primitives auxiliaires fréquemment rencontrées :
-	- "Premier" (First) : retourne le premier élément dans la liste ;
-	- "Dernier" (Last) : retourne le dernier élément dans la liste ;
-	- "Prochain" (Next) : retourne le prochain élémnet dans la liste ;
-	- "Précédent" (Previous) : retourne l'élément qui précède dans la liste ;
-	- "Cherche" (find) : cherche si un élément précis est contenu dans la liste et retourne sa position.
+	* "Premier" (First) : retourne le premier élément dans la liste ;
+	* "Dernier" (Last) : retourne le dernier élément dans la liste ;
+	* "Prochain" (Next) : retourne le prochain élémnet dans la liste ;
+	* "Précédent" (Previous) : retourne l'élément qui précède dans la liste ;
+	* "Cherche" (find) : cherche si un élément précis est contenu dans la liste et retourne sa position.
 
 Une liste est un conteneur d'éléments, où chaque élément contient la donnée, ainsi que d'autres informations permettant la récupération des
 données au sein de la liste. La nature (les types) de ces informations caractérise un type différent de liste.
 
 On peut distinguer, de manière générale, deux types de liste :
-	- les tableaux ;
-	- les listes chaînées.
+	* les tableaux ;
+	* les listes chaînées.
 
 Dans un tableau, l'accès à un élément se fait à l'aide d'un index qui représente l'emplacement de l'élément dans la
 structure.
@@ -267,9 +266,9 @@ une définition récursive. Ainsi, pour augmenter la taille d'une liste chaîné
 éléments, déjà présents au sein de la liste, vers le nouvel élément.
 
 Il existe deux grand types de liste chainée :
-	- les listes simplement chaînées : chaque élément dispose d'un pointeur sur l'élément suivant (ou successeur) de la liste. Le parcours se fait dans
+	* les listes simplement chaînées : chaque élément dispose d'un pointeur sur l'élément suivant (ou successeur) de la liste. Le parcours se fait dans
 	un seul sens ;
-	- les listes doublement chaînées : chaque élément dispose de deux pointeurs, respectivement sur l'élément suivant (ou successeur) et sur l'élément
+	* les listes doublement chaînées : chaque élément dispose de deux pointeurs, respectivement sur l'élément suivant (ou successeur) et sur l'élément
 	précédent (ou prédécesseur). Le parcours peut alors se faire dans deux sens, mutuellement opposés : de successeur en successeur, ou de
 	prédécesseur en prédécesseur.
 
@@ -282,8 +281,8 @@ En théorie de graphes, un arbre enraciné ou une arborescence est un graphe acy
 une unique racine, et tel que tous les noeuds sauf la racine ont un unique parent.
 
 Dans un arbre, on distingue deux catégories d'éléments :
-	- les *feuilles* (ou noeuds externes), éléments ne possédant pas de fil dans l'arbre ;
-	- les *noeuds* interne, éléments possédant des fils (sous-branches).
+	* les *feuilles* (ou noeuds externes), éléments ne possédant pas de fil dans l'arbre ;
+	* les *noeuds* interne, éléments possédant des fils (sous-branches).
 
 La *racine* de l'arbre est l'unique noeud ne possédant pas de parent. Les noeuds (les pères avec leurs fils) sont reliés entre eux par une *arête*. Selon le
 contexte, un noeud peut désigner un noeud interne ou externe (feuille) de l'arbre.
@@ -302,10 +301,10 @@ Les fichier et dossier dans un système de fichiers sont généralement organis�
 Les arbre sont en fait rarement utilisés en tant que tels, mais de nombreux types d'arbres avec une structure plus restrictive existent et sont
 couramment utilisés en algorithmique, notamment pour gérer des bases de données, ou pour l'indexation de fichiers. Ils permettent alors des
 recherches rapides et efficaces. Par exemple :
-	- Les arbres binaires dont chaque noeud a au plus deux fils : ils sont en fait utilisés sous forme d'arbres binaires de recherche, de tas, d'AVL, ou
+	* Les arbres binaires dont chaque noeud a au plus deux fils : ils sont en fait utilisés sous forme d'arbres binaires de recherche, de tas, d'AVL, ou
 	encore d'arbres rouge-noir. Les deux derniers exemples sont des cas particuliers d'arbres équilibrés, c'est à dire dont les sous-branches
 	ont presque la même hauteur.
-	- Les arbres n-aires qui sont une généralisation des arbres binaires : chaque noeud a au plus *n* fils. Les arbres 2-3-4 et les arbres B en sont des
+	* Les arbres n-aires qui sont une généralisation des arbres binaires : chaque noeud a au plus *n* fils. Les arbres 2-3-4 et les arbres B en sont des
 	exemples d'utilisation et sont eux aussi des arbres équilibrés.
 
 Pour construire un arbre à partir de cases ne contenant que des informations, on peut procéder de l'une des trois façons suivantes :
@@ -333,8 +332,8 @@ même hauteur dans l'arbre considéré. L'ordre de parcours d'un niveau donné e
 parcours des noeuds parents - noeuds de niveau immédiatement supérieur.
 
 Le *parcours en profondeur* est un parcours récursif sur un arbre. Dans le cas général, deux ordres sont possibles :
-	- Parcours en profondeur préfixe : dans ce mode de parcours, le noeud courant est traité avant ses descendants.
-	- Parcours en profondeur suffixe : dans ce mode de parcours, le noeud courant est traité après ses descendants.
+	* Parcours en profondeur préfixe : dans ce mode de parcours, le noeud courant est traité avant ses descendants.
+	* Parcours en profondeur suffixe : dans ce mode de parcours, le noeud courant est traité après ses descendants.
 
 Pour les arbres binaires, on peut également faire un *parcours infixe*, c'est à dire traiter le noeud courant entre les noeuds gauche et droit.
 
@@ -374,9 +373,9 @@ meilleure en terme d'accès aux éléments.
 
 Pour la suppression, on commence par rechercher la clé du noeud à supprimer dans l'arbre. Plusieurs cas sont à considérer, une fois que le noeud à
 supprimer a été trouvé à partir de sa clé :
-	- *Suppression d'une feuille* : Il suffit de l'enlever de l'arbre puisqu'elle n'a pas de fils.
-	- *Suppression de noeud avec un enfant* : Il faut l'enlever de l'arbre en le remplaçant par son fils.
-	- *Suppresson d'un noeud avec deux enfants* : Supposons que le noeud à supprimer soit appelé N. On échange le noeud N avec son sucesseur
+	* *Suppression d'une feuille* : Il suffit de l'enlever de l'arbre puisqu'elle n'a pas de fils.
+	* *Suppression de noeud avec un enfant* : Il faut l'enlever de l'arbre en le remplaçant par son fils.
+	* *Suppresson d'un noeud avec deux enfants* : Supposons que le noeud à supprimer soit appelé N. On échange le noeud N avec son sucesseur
 	le plus proche (le noeud le plus à gauche du sous-arbre droit) ou son plus proche prédécesseur (le noeud le plus à droite du sous-arbre gauche).
 	Cela permet de garder à la fin de l'opération une structure d'arbre binaire de recherche. Puis on applique à nouveau la procédure de suppression à N,
 	qui est maintenant une feuille ou un noeud avec un seul fils.
@@ -409,9 +408,9 @@ L'insertion et la suppression s'exécutent en O(h) où h est la hauteur de l'arb
 déséquilibré (un arbre peigne par exemple, dont la hauteur est linéaire en le nombre de clés), et on gagne donc en efficacité à équilibrer les arbres
 au cours de leur utilisation. Il existe des techniques pour obtenir des arbres équilibrés, c'est à dire une hauteur logarithmique en
 nombre d'éléments :
-	- les arbres AVL
-	- les arbres rouge-noir
-	- les B-arbres
+	* les arbres AVL
+	* les arbres rouge-noir
+	* les B-arbres
 
 ### Tas
 
@@ -457,8 +456,8 @@ Un compilateur effectue les opérations suivantes : analyse lexicale, pré-trait
 sémantique, et génération de code optimisé. La compilation est souvent suivie d'une étape d'édition de liens, pour générer un fichier exécutable.
 
 On distingue deux options de compilation :
-	- Ahead-of-time (AOT), où il faut compiler le programme avant de lancer l'application : la situation traditionnelle.
-	- Compilation à la volée (just-in-time, en abrégé JIT) : cette faculté est apparue dans les années 1980 (par exemple Tcl/Tk)
+	* Ahead-of-time (AOT), où il faut compiler le programme avant de lancer l'application : la situation traditionnelle.
+	* Compilation à la volée (just-in-time, en abrégé JIT) : cette faculté est apparue dans les années 1980 (par exemple Tcl/Tk)
 
 La tache principale d'un compilateur est de produire un code objet correct qui s'exécutera sur un ordinateur. La plupart des compilateurs permettent
 d'optimiser le code, c'est-à-dire qu'ils vont chercher à améliorer la vitesse d'exécution, ou réduire l'occupation mémoire du programme.
