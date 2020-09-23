@@ -28,7 +28,7 @@ suspension de l'exécution du programme en attendant un évenement externe : c'e
 instructions d'entrée sorties qui bloquent le flot d'exécution (mécanisme d'interruption avec stockage en mémoire tampon) jusqu'à ce que le
 périphérique concerné ait terminé de traiter les données.
 
-###Structures de contrôle itératives
+### Structures de contrôle itératives
 
 Ces instructions permettent de réaliser une machine à états finis, cela signifie que leur seul effet de bord est de modifier un registre qui correspond à
 l'état courant du programme.
@@ -101,7 +101,7 @@ implémentation polymorphe (différents types).
 Les algorithmes de tri sont souvent étudiés dans les cours d'algorithmique pour introduire des notions comme la complexité algorithmique ou la
 terminaison.
 
-###Critère de classification
+### Critère de classification
 
 La classification des algorithmes de tri est très importante, car elle permet de choisir l'algorithme le plus adapté au problème traité, tout en tenant
 compte des contraites imposées par celui-ci. Les principales caractéristiques qui permettent de différencier les algorithmes de tri, outre leur principe
@@ -132,7 +132,7 @@ Certains algorithmes permettent d'exploiter les capacités multitâches de la ma
 qui fonctionnent par insertion, peuvent être lancés sans connaître l'intégralité des données à trier; on peut alors trier et produire les données à trier
 en parallèle.
 
-###Exemples d'algorithmes de tri
+### Exemples d'algorithmes de tri
 
 Algorithmes rapides T(n)=O(nlog n) :
 	- Tri fusion (merge sort) : Pour une entrée donnée, l'algorithme la divise en deux parties de tailles
@@ -142,8 +142,8 @@ Algorithmes rapides T(n)=O(nlog n) :
 	dissociés, par échanges successifs, des éléments plus grands que le pivot ; chacun de ces deux sous-ensembles est ensuite trié de la même
 	manière. On peut rendre la complexité quasiment indépendante des données en utilisant un pivot aléatoire ou en appliquant au tableau une
 	permutation aléatoire avant de le trier.
-	- Tris par tas (heap sort) : Il s'agit d'une amélioration du tri par sélection. L'idée est la même (insérer les élément un à un dans une structure déjà triée, mais
-	l'algorithme utilise une structure de tas, souvent implémentée au moyen d'un tableau.
+	- Tris par tas (heap sort) : Il s'agit d'une amélioration du tri par sélection. L'idée est la même (insérer les élément un à un dans une structure déjà triée
+	mais l'algorithme utilise une structure de tas, souvent implémentée au moyen d'un tableau.
 	- Introsort : Il s'agit d'un hybride du tri rapide et du tri par tas.
 	- Tri arborescent : L'idée est d'insérer les éléments un à un dans l'arbre binaire de recherche, puis de lire l'arbre selon un parcours en profondeur.
 	Un arbre binaire de recherche(ABR) est un arbre binaire dans lequel chaque noeud possède une clé, telle que chaque noeud du sous-arbre *gauche* ait une
@@ -151,21 +151,21 @@ Algorithmes rapides T(n)=O(nlog n) :
 	- Smoothsort
 
 Algorithmes moyennement rapides :
-	- Tri de Shell (shell sort) : Ce tri repose sur le tri par insertion des sous-suites de l'entrée obtenues en prenant les éléments espacés d'un pas constant, pour une suite
-	de pas prédéfinie. La complexité varie selon le choix de cette suite.
-	- Tri à peigne (comb sort) : Il s'agit d'une variante plus efficace du tri à bulles, ne comparant pas uniquement des éléments consécutifs. On peut dire qu'il est au tri à
-	bulles ce que le tri de Shell est au tri par insertion.
-	- Tri par insertion : Ce tri souvent utilisé naturellement pour trier des cartes à jouer : les valeurs sont insérées les unes après les autres dans une liste triée
-	(initialement vide). C'est souvent le plus rapide et le plus utilisé pour trier les entrées de petite taille. Il est également efficace pour des
+	- Tri de Shell (shell sort) : Ce tri repose sur le tri par insertion des sous-suites de l'entrée obtenues en prenant les éléments espacés d'un pas constant,
+	pour une suite de pas prédéfinie. La complexité varie selon le choix de cette suite.
+	- Tri à peigne (comb sort) : Il s'agit d'une variante plus efficace du tri à bulles, ne comparant pas uniquement des éléments consécutifs. On peut dire qu'il
+	est au tri à bulles ce que le tri de Shell est au tri par insertion.
+	- Tri par insertion : Ce tri souvent utilisé naturellement pour trier des cartes à jouer : les valeurs sont insérées les unes après les autres dans une liste
+	triée (initialement vide). C'est souvent le plus rapide et le plus utilisé pour trier les entrées de petite taille. Il est également efficace pour des
 	entrées déjà presque triées.
 	- Tri à bulles : L'algorithme consiste à parcourir l'entrée du début à la fin et pour chaque couple d'éléments consécutifs, à les intervertir s'ils sont mal
 	ordonnés. Cette opération est répétée jusqu'à ce que la structure soit triée (aucune intervention lors du dernier passage). Cet algorithme est
 	peu efficace et rarement utilisé en pratique ; son intêret est principalement pédagogique.
-	- Tri cocktail : Il s'agit d'une variante du tri à bulles dans laquelle l'entrée est alternativement parcourue dans les deux sens. S'il permet de traiter de manière
-	plus efficace quelques cas problématiques pour le tri à bulles, il reste essentiellement similaire à ce dernier et l'intérêt est encore une fois
+	- Tri cocktail : Il s'agit d'une variante du tri à bulles dans laquelle l'entrée est alternativement parcourue dans les deux sens. S'il permet de traiter de
+	manière plus efficace quelques cas problématiques pour le tri à bulles, il reste essentiellement similaire à ce dernier et l'intérêt est encore une fois
 	principalement pédagogique.
-	- Tri pair-impair : Il s'agit d'une variante du tri à bulles, qui procède en comparant successivement tous les éléments d'index pairs avec les éléments d'index
-	impairs qui les suivent, puis inversement. On va ainsi commencer en comparant le premier élément au second, le troisième au quatrième, etc.,
+	- Tri pair-impair : Il s'agit d'une variante du tri à bulles, qui procède en comparant successivement tous les éléments d'index pairs avec les éléments
+	d'index impairs qui les suivent, puis inversement. On va ainsi commencer en comparant le premier élément au second, le troisième au quatrième, etc.,
 	puis l'on comparera le second élément au troisième, le quatrième au cinquième. L'opération est répétée jusqu'à ce que la structure soit
 	triée.
 
