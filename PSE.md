@@ -36,9 +36,9 @@ l'état courant du programme.
 Dans un processeur, cet état correspod à la valeur du compter ordinal.
 
 Commandes à étiquettes :
-	* Sauts inconditionnels
-	* Sauts conditionnels
-	* Sous programmes, commandes de sorties de boucles
+* Sauts inconditionnels
+* Sauts conditionnels
+* Sous programmes, commandes de sorties de boucles
 
 Commandes de blocs :
 	* Blocs d'instructions
