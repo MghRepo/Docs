@@ -1,6 +1,6 @@
-#Algorithmique et méthodes de programmation
+# Algorithmique et méthodes de programmation
 
-##Structures de contrôles :
+## Structures de contrôles :
 
 En programmation informatique, une structure de contrôle est une instruction particulière à un langage de programmation impératif pouvant dévier
 le flot de contrôle du programme la contenant lorsqu'elle est exécutée. Si, au plus bas niveau, l'éventail se limite généralement aux branchements et
@@ -9,7 +9,7 @@ boucles (while, do-while, for...) ou encore les appels de fonction. Outre les st
 des constructions de gestion d'exceptions (try-catch...) fréquemment trouvés dans les langages de haut niveau aux particularismes de certains
 langages comme les instructions différées (defer) de Go.
 
-###Structures de contrôle séquentielles :
+### Structures de contrôle séquentielles :
 
 Un programme informatique impératif est une suite d'instructions. Un registre interne de processeur, le compteur ordinal(PC), est chargé de
 mémoriser l'adresse de la prochaine instruction à exécuter.
@@ -45,7 +45,7 @@ Commandes de blocs :
 	- Alternatives (if, then, else, switch)
 	- Boucles (do, whilei, each)
 
-###Extensions de la notion de boucles
+### Extensions de la notion de boucles
 
 Un compteur permet de réaliser une boucle associée à une variable entière ou un pointeur qui sera incrémentée à chaque itération. Il est souvent
 utilisé pour exploiter les données d'une collection indexée (boucle for).
@@ -53,7 +53,7 @@ utilisé pour exploiter les données d'une collection indexée (boucle for).
 Un itérateur (ou curseur ou énumérateur) est un objet qui permet de réaliser une boucle parcourant tous les éléments contenus dans une structure
 de données.
 
-###Sous-programmes
+### Sous-programmes
 
 Un sous-programme permet la réutilisation d'une partie du code et ainsi le développement des algorithmes récursifs.
 
@@ -65,24 +65,24 @@ Il existe diverses extensions à la notion de procédure comme les coroutines (r
 fonctions de rappel (callback, traitement post-fonction), méthodes virtuelles (programmation par contrat, methode implémentée dans les classes héritées)
 Elles permettent de modifier dynamiquement, c'est à dire à l'exécution, la structure du flot d'exécution du programme.
 
-###Exceptions
+### Exceptions
 
 Tout programme en exécution peut être sujet à des erreurs pour lesquelles des stratégies de détection et de réparation sont possibles. Ces erreurs
 ne sont pas des bugs mais des conditions exceptionnelles dans le déroulement normal d'une partie d'un programme.
 
-###Programmation multitâche
+### Programmation multitâche
 
 Dans un système multitâche, plusieurs flots d'exécutions, appelés processus légers, s'exécutent simultanément.
 
 Il est alors nécessaire d'assurer la synchroisation de ces flots d'exécution. Dans la plupart des langages, cela est réalisé via des bibliothèques externes ;
 certains d'entre eux intègrent néanmoins des structures de contrôle permentant d'agir sur des tâches concourantes.
 
-###Programmation événementielle
+### Programmation événementielle
 
 La programmation évenementielle est une autre façon de contrôler le flot d'exécutions d'un programme. Il s'agit de créer des gestionnaires qui
 viendront s'abonner à une boucle mère, chargée d'aiguiller les évènements qui affectent le logiciel.
 
-##Algorithme de tri
+## Algorithme de tri
 
 Un algorithme de tri est, en informatique ou en mathématiques, un algorithme qui permet d'organiser une collection d'objets selon une relation
 d'ordre déterminée. Les objets à trier sont des éléments d'un ensemble muni d'un ordre total. Il est par exemple fréquent de trier des entier selon la
@@ -172,12 +172,12 @@ Algorithmes moyennement rapides :
 Algorithmes lents :
 	- Tri par selection :
 
-##Structures de données :
+## Structures de données :
 
 Une structure de données est une manière d'organiser les données pour les traiter plus facilement. Une structure de données est
 une mise en oeuvre concrète d'un type abstrait.
 
-###Pile
+### Pile
 
 Une pile est une structure de données fondée sur le principe "dernier arrivé, premier sorti" (LIFO),
 ce qui veut dire qu'en général, le dernier élément ajouté à la pile, sera le premier à en sortir.
@@ -195,7 +195,7 @@ premières sont réellement indispensables, les autres pouvant s'en déduire :
 	- "Quel est l'élément de tête ?" (peek ou top) : renvoie l'élément de tête sans le dépiler.
 	- "Vider la liste" (clear) : dépiler tous les éléments.
 
-###File
+### File
 
 Une file est une structure de donnée basée sur le principe de "premier entré, premier sorti" (FIFO),
 les premiers éléments ajoutés à la file seront les premier à en être retirés.
@@ -222,7 +222,7 @@ nom sont donc indiqués de manière informelle.
 	- "La file est-elle vide ?" : renvoie "vrai" si la file est vide, "faux" sinon.
 	- "Nombre d'élément dans la file" : renvoie le nombre d'élément dans la file.
 
-###Liste
+### Liste
 
 Une liste est une structure de données permettant de regrouper des données de manière à pouvoir y accéder librement
 (contrairement aux files et aux piles).
@@ -276,7 +276,7 @@ Il existe deux grand types de liste chainée :
 A cela on peut ajouter une propriété : le cycle. Cette fois-ci, la liste chaînée forme une boucle. Dès qu'on atteint la "fin" de la liste et qu'on désire
 continuer, on se retrouve sur le "premier" élément de la liste. Dans ce cas, la notion de début ou de fin de chaîne n'a plus de raison d'être.
 
-###Arbre enraciné
+### Arbre enraciné
 
 En théorie de graphes, un arbre enraciné ou une arborescence est un graphe acyclique orienté possédant
 une unique racine, et tel que tous les noeuds sauf la racine ont un unique parent.
@@ -338,7 +338,7 @@ Le *parcours en profondeur* est un parcours récursif sur un arbre. Dans le cas 
 
 Pour les arbres binaires, on peut également faire un *parcours infixe*, c'est à dire traiter le noeud courant entre les noeuds gauche et droit.
 
-###Arbre binaire de recherche
+### Arbre binaire de recherche
 
 Un arbre binaire de recherche ou ABR (en anglais, binary search tree ou BST) est
 une structure de données représentant un ensemble ou un tableau associatif dont les clefs appartiennent
@@ -413,7 +413,7 @@ nombre d'éléments :
 	- les arbres rouge-noir
 	- les B-arbres
 
-###Tas
+### Tas
 
 Un tas est une structure de données de type arbre tel que pour tous noeuds A et B de l'arbre tels que B soit un fils de A : clé(A)>=clé(B) (ou inversément).
 Les primitives du tas sont : enfiler et defiler.
@@ -423,7 +423,7 @@ Pour enfiler un élément, on le place comme feuille, puis on fait "remonter" l'
 Quand on défile un élément d'un tas, c'est toujours celui de priorité maximale. Il correspond donc à la racine du tas. L''opération peut conserver la
 structure de tas, avec une complexité de O(log n) ; en effet, il ne reste alors qu'à réordonner l'arbre privé de sa racine pour en faire un nouveau tas.
  
-##Programmation orientée objet
+## Programmation orientée objet
 
 La programmation orientée objet (POO), ou programmation par objet, est un paradigme de programmation informatique basé sur le
 concept *d'objets*, qui peuvent contenir du code et des données : les données sous la forme de champs (attributs
@@ -446,7 +446,7 @@ Il correspond donc, à peu de chose près, à l'interface de l'objet.
 Un objet peut appartenir à plus d'un type, c'est le *polymorphisme*, cela permet d'utiliser des objets de types différents là où est attendu un objet d'un
 certain type.
 
-##Compilation
+## Compilation
 
 Un compilateur est un programme qui transforme un code *source* en code *objet*. Généralement, le code source est écrit dans
 un langage de programmation (le langage source), il est de haut niveau d'abstraction, et facilement compréhensible par l'humain. Le code objet est
