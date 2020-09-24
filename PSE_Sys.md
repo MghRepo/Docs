@@ -107,15 +107,15 @@ critique avant d'y entrer et libère l'accès après y être sorti. Ce mécanism
 
 Ces mécanismes sont par exemple la barrière de synchronisation, l'usage conjoint des sémaphores et des verrous, les spinlock, le moniteur, les mutex.
 
-Barrière de synchronisation : Permet de garantir qu'un certain nombre de tâches aient passé un point spécifique. Ainsi, chaque tâche qui arrivera
+* *Barrière de synchronisation* : Permet de garantir qu'un certain nombre de tâches aient passé un point spécifique. Ainsi, chaque tâche qui arrivera
 sur cette barrière devra attendre jusqu'à ce que le nombre spécifié de tâches soient arrivées à cette barrière.
 Sémaphore : Variable partagée par différents "acteurs" qui garantit que ceux-ci ne peuvent accéder de façon séquentielle à travers des opérations
 atomiques, et constituela méthode utilisée couramment pour restreindre l'accès à des ressources partagées et synchroniser les processus dans un environnement
 de programmation concurrente.
-Verrous :
-Spinlocs :
-Moniteur :
-Mutex :
+* *Verrous* :
+* *Spinlocs* :
+* *Moniteur* :
+* *Mutex* :
 
 La connaissance des dépendances entre les données est fondamentale dans la mise en oeuvre d'algorithmes parallèles, d'autant qu'un calcul peut
 dépendre de plusieurs calculs préalables. Les *conditions de Bernstein* permettent de déterminer les conditions sur les données lorsque deux parties
