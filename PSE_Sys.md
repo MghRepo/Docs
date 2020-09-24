@@ -78,7 +78,7 @@ vérifiant ces propriétés.
 * *Earliest deadline first scheduling (EDF)* : C'est un algorithme d'ordonnancement préemptif à priorité dynamique, utilisé dans les systèmes temps réels.
 Il attribue une priorité à chaque requête en fonction de l'échéance de cette dernière selon la règle : Plus l'échéance d'une tâche est proche, plus sa
 priorité est grande. De cette manière, au plus vite le travail doit être réalisé, au plus il a des chances d'être exécuté.
-* *FIFO* : Les premières tâches ajoutés à la file seront les premières à être exécutées.
+* *FIFO* : Les premièrs processus ajoutés à la file seront les premières à être exécutés.
 * *Shortest job first (SJF, ou SJN-Shortest Job Next)* : Le choix se fait en fonction du temps d'exécution estimé du processus. Ainsi l'ordonnanceur va laisser
 passer en priorité le plus court des processus de la file d'attente.
 * *Completely Fair Scheduler* (CFS) : L'ordonnanceur des tâches pour le noyau Linux. Il gère l'allocation de ressource processeur pour l'exécution des processus,
