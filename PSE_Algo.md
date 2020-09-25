@@ -412,6 +412,35 @@ nombre d'éléments :
 * les arbres rouge-noir
 * les B-arbres
 
+
+### Arbre B
+
+Un arbre B est une structure de données en arbre équilibré. Les arbres B sont principalement mis en oeuvre dans les mécanismes de gestion de bases de
+données et de systèmes de fichiers. Ils stockent les données sous une forme triée et permettent une exécution des opérations d'insertion et de suppression
+en temps toujours logarithmique.
+
+Le principe est de permettre aux noeuds parents de posséder plus de deux noeuds enfants : c'est une généralisation de l'arbre binaire de recherche. Ce principe
+minimise la taille de l'arbre et réduit le nombre d'opérations d'équilibrage. De plus un B-arbre grandit à partir de la racine, contrairement à un arbre binaire
+de recherche qui croît à partir des feuilles.
+
+Un *arbre étiqueté* est un arbre tel qu'à chaque noeud on associe une étiquette ou clé (ou bien plusieurs étiquettes ou clés dna sle cas des arbres B) prise(s)
+dans un ensemble donné. Donc formellement un arbre étiqueté est un couple formé d'un graphe orienté, acyclique et connexe et d'une fonction d'étiquetage des arbres
+qui attribue à chaque noeud une étiquette ou une clé. Parmis les arbres étiquetés, un *arbre B* possède quelques propriétés spécifiques supplémentaires.
+
+Soit L et U deux entiers naturels non nuls tels que L<=U. En toute généralité, on définit alors un *L-U arbre B* de la manière suivante : chaque
+noeud, sauf la racine, possède un minimum de L-1 clés (appelées aussi éléments), un maximum de U-1 clés et au plus U fils. Pour chaque noeud
+interne -- noeud qui n'est pas une feuille --, le nombre de fils est toujours égal au nombre de clés augmenté d'une unité. Si *n* est le nombre de fils,
+alors on parle de *n*-noeud. Un L-U arbre B ne contient que des n-noeuds avec L<=n<=U. Souvent on choisit la configuration L=t et U=2xt : t est
+appelé le *degré minimal* de l'arbre B.
+
+De plus, la construction des arbres B garantit qu'un arbre B est toujour équilibré. Chaque clé d'un noeud interne est en fait une borne qui
+distingue les sous-arbres de ce noeud.
+
+Un arbre B est implémenté par un arbre enraciné. Un noeud *x* est étiqueté par :
+* Un entier *n* qui correspond au nombre de clefs contenues dans e noeud *x*
+* *n* clefs notées *c&#8321;,...,*
+### Arbre rouge-noir
+
 ### Tas
 
 Un tas est une structure de données de type arbre tel que pour tous noeuds A et B de l'arbre tels que B soit un fils de A : clé(A)>=clé(B) (ou inversément).
