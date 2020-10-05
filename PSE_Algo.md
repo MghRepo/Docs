@@ -440,7 +440,15 @@ Un arbre B est implémenté par un arbre enraciné. Un noeud *x* est étiqueté 
 * Un entier *n* qui correspond au nombre de clefs contenues dans e noeud *x*
 * *n* clefs notées *c&#8321;,...,c&#8345;*.
 * Un booléen indiquant si *x* est une feuille ou non.
-* *n+1* pointeurs notés *p&#8321;,...,p&#8345;&#8330;&#8321;*
+* *n+1* pointeurs notés *p&#8321;,...,p&#8345;&#8330;&#8321;* associés aux fils *f&#8321;,...,f&#8345;&#8330;&#8321;* de *x*.
+Une feuille ne contient pas de pointeurs.
+
+De plus, un arbre B vérifie ces propriétés :
+* Toutes les feuilles ont la même profondeur, à savoir la hauteur *h* de l'arbre.
+* Si *x* n'est pas une feuille :
+	+ Pour *2&#8804;i&#8804;n*, pour toute clef *k* du fils *f&#8305;* : *c&#8305;&#8331;&#8321;&#8804;k&#8804;c&#8305;*
+
+
 ### Arbre rouge-noir
 
 ### Tas
