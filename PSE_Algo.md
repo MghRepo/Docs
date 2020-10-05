@@ -446,7 +446,7 @@ Une feuille ne contient pas de pointeurs.
 De plus, un arbre B vérifie ces propriétés :
 * Toutes les feuilles ont la même profondeur, à savoir la hauteur *h* de l'arbre.
 * Si *x* n'est pas une feuille :
-	+ Pour *2&#8804;i&#8804;n*, pour toute clef *k* du fils *f&#8305;* : *c&#8305;&#8331;&#8321;&#8804;k&#8804;c&#8305;*
+	+ Pour *2&#8804;i&#8804;n*, pour toute clef *k* du fils *f&#7522;* : *c&#7522;&#8331;&#8321;&#8804;k&#8804;c&#7522;*
 
 
 ### Arbre rouge-noir
