@@ -525,6 +525,20 @@ mémoires inutilisées en remplissant au maximum un minimum de noeuds.
 
 ### Arbre rouge-noir
 
+Un **arbre bicolore**, ou **arbre rouge-noir** ou **arbre rouge et noir** est un type particulier d'arbre binaire de recherche
+équilibré. Chaque noeud de l'arbre possède en plus de ses données propres un attribut binaire qui est souvent interprété comme sa "couleur" (rouge ou noir).
+Cet attribut permet de garantir l'équilibre de l'arbre : lors de l'insertion ou de la suppression d'éléments, certaines propriétés sur les relations entre les
+noeuds et les couleurs doivent être maintenues, ce qui empêche l'arbre de devenir trop déséquilibré, y compris dans le pire des cas. Durant une insertion ou une
+suppression, les noeuds sont parfois réarrangés ou changent leur couleur afin que ces propriétés soient conservées.
+
+Le principal intérêt des arbres bicolores réside dans le fait que malgré les potentiels réarrangements ou coloriages des noeuds, la complexité (en le
+nombre d'éléments) des opérations d'insertion, de recherche et de suppression est logarithmique. De plus, cette structure est économe en mémoire
+puisqu'elle ne requiert qu'un bit supplémentaire d'information par élément par rapport à un arbre binaire classique.
+
+Un arbre bicolore est un cas particulier d'arbre binaire, une structure de donnée couramment utilisée en informatique pour organiser des données
+pouvant être comparées, par exemple des nombres ou des chaines de caractères.
+
+
 ### Tas
 
 Un tas est une structure de données de type arbre tel que pour tous noeuds A et B de l'arbre tels que B soit un fils de A : clé(A)&#8805;clé(B) (ou inversément).
