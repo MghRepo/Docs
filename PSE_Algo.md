@@ -635,7 +635,21 @@ suite sur le cas 3 est exponentiellement décroissante ; en moyenne le coût de 
 
 La suppression commence par une recherche du noeud à supprimer, comme dans un arbre binaire classique.
 
-On notera qu'on peut toujours se mettre dans le cas où le noeud à supprimer a *au plus* un enfant qui ne soit pas une feuille.
+On notera qu'on peut toujours se mettre dans le cas où le noeud à supprimer a *au plus* un enfant qui ne soit pas une feuille. Dans le
+cas où le noeud à retirer aurait deux enfants qui ne sont pas des feuilles, on recherchhe soit le plus grand élément du sous-arbre
+gauche (c'est à dire l'élément précédent immédiatement le noeud à supprimer dans l'ordre de l'arbre) soit le plus petit élément du
+sous-arbre droit (c'est à dire le successeur immédiat). La valeur du noeud à supprimer est remplacée par celle du prédécesseur ou
+du successeur, et c'est ce dernier noeud dont on vient de recopier la valeur qui est supprimé. On notera que la copie d'une valeur
+n'altère pas les propriétés bicolores de l'arbre.
+Le noeud qui sera effectivement supprimé de l'arbre aura donc au plus un seul enfant qui ne soit pas une feuille. On note M le noeud
+à supprimer. M a donc soit un enfant non-feuille (noté C) soit aucun (dans ce cas, on choisit l'une des feuilles pour C). Après la
+suppression, la position qu'occupait M dans l'arbre sera occupée par C.
+Dans le cas le plus simple, le noeud supprimé M est **rouge** : il suffit de le remplacer par son enfant C qui est nécessairement **noir** en
+vertu de la propriété 3. En retirant M, on ne change pas la hauteur-noire de l'arbre, donc les propriétés restent toutes respectées.
+Un autre cas simple se produit si le noeud supprimé M est **noir** mais que son enfant C est **rouge**. En supprimant M, on diminue la
+hauteur-noire de l'arbre, ce qui violerait la propriété 5. De plus le parent P de M pourrait être rouge : or C va remplacer M comme fils
+de P, ce qui pourrait également violer la propriété 3. On restaure ces propriétés simplement en coloriant C en **noir**.
+Le cas le plus compliqué se produit si le noeud supprimé M et son enfant C sont tous les deux **noirs**.
 
 ### Tas
 
