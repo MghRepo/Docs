@@ -633,7 +633,9 @@ des cas, on remontera jusqu'à atteindre la racine de l'arbre, c'est à dire le 
 changements de couleurs inférieur à la moitié de la hauteur de l'arbre, c'est à dire en *O(log n)*. En pratique la probabilité de tomber plusieurs fois de
 suite sur le cas 3 est exponentiellement décroissante ; en moyenne le coût de la correction des propriétés est donc presque constant.
 
-La suppression commence par une recherche du
+La suppression commence par une recherche du noeud à supprimer, comme dans un arbre binaire classique.
+
+On notera qu'on peut toujours se mettre dans le cas où le noeud à supprimer a *au plus* un enfant qui ne soit pas une feuille.
 
 ### Tas
 
