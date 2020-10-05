@@ -438,7 +438,9 @@ distingue les sous-arbres de ce noeud.
 
 Un arbre B est implémenté par un arbre enraciné. Un noeud *x* est étiqueté par :
 * Un entier *n* qui correspond au nombre de clefs contenues dans e noeud *x*
-* *n* clefs notées *c&#8320;,...,c&#8345;*
+* *n* clefs notées *c&#8321;,...,c&#8345;*.
+* Un booléen indiquant si *x* est une feuille ou non.
+* *n+1* pointeurs notés *p&#8321;,...,p&#8345;&#8330;&#8321;*
 ### Arbre rouge-noir
 
 ### Tas
