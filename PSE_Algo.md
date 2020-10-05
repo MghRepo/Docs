@@ -427,10 +427,10 @@ Un *arbre étiqueté* est un arbre tel qu'à chaque noeud on associe une étique
 dans un ensemble donné. Donc formellement un arbre étiqueté est un couple formé d'un graphe orienté, acyclique et connexe et d'une fonction d'étiquetage des arbres
 qui attribue à chaque noeud une étiquette ou une clé. Parmis les arbres étiquetés, un *arbre B* possède quelques propriétés spécifiques supplémentaires.
 
-Soit L et U deux entiers naturels non nuls tels que L<=U. En toute généralité, on définit alors un *L-U arbre B* de la manière suivante : chaque
+Soit L et U deux entiers naturels non nuls tels que L&#8804;U. En toute généralité, on définit alors un *L-U arbre B* de la manière suivante : chaque
 noeud, sauf la racine, possède un minimum de L-1 clés (appelées aussi éléments), un maximum de U-1 clés et au plus U fils. Pour chaque noeud
 interne -- noeud qui n'est pas une feuille --, le nombre de fils est toujours égal au nombre de clés augmenté d'une unité. Si *n* est le nombre de fils,
-alors on parle de *n*-noeud. Un L-U arbre B ne contient que des n-noeuds avec L<=n<=U. Souvent on choisit la configuration L=t et U=2xt : t est
+alors on parle de *n*-noeud. Un L-U arbre B ne contient que des n-noeuds avec L&#8804;n&#8804;U. Souvent on choisit la configuration L=t et U=2xt : t est
 appelé le *degré minimal* de l'arbre B.
 
 De plus, la construction des arbres B garantit qu'un arbre B est toujour équilibré. Chaque clé d'un noeud interne est en fait une borne qui
@@ -445,7 +445,7 @@ Un arbre B est implémenté par un arbre enraciné. Un noeud *x* est étiqueté 
 
 ### Tas
 
-Un tas est une structure de données de type arbre tel que pour tous noeuds A et B de l'arbre tels que B soit un fils de A : clé(A)>=clé(B) (ou inversément).
+Un tas est une structure de données de type arbre tel que pour tous noeuds A et B de l'arbre tels que B soit un fils de A : clé(A)&#8805;clé(B) (ou inversément).
 Les primitives du tas sont : enfiler et defiler.
 
 Pour enfiler un élément, on le place comme feuille, puis on fait "remonter" l'élément pour maintenir la priorité du tas. L'opération peut être réalisée en O(log n).
