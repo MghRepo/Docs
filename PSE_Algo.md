@@ -11,7 +11,7 @@ langages comme les instructions différées (defer) de Go.
 
 ### Structures de contrôle séquentielles :
 
-Un programme informatique impératif est une suite d'instructions. Un registre interne de processeur, le compteur ordinal(PC), est chargé de
+Un programme informatique impératif est une suite d'instructions. Un registre interne de processeur, le compteur ordinal (PC), est chargé de
 mémoriser l'adresse de la prochaine instruction à exécuter.
 
 La plupart des instructions d'un programme sont exécutées séquentiellement : après le traitement de l'instruction courante le compteur ordinal est
