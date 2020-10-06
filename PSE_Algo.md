@@ -228,7 +228,7 @@ Cette structure est utilisée par exemple :
 * En gestion des stocks les algorithmes doivent respecter la gestion physique des stocks pour assurer la cohérence physique/valorisation.
 
 Voici les primitives communément utilisées pour manipuler les files. Il n'existe pas de normalisation pour les primitives de manipulation de file. Leurs
-nom sont donc indiqués de manière informelle :
+noms sont donc indiqués de manière informelle :
 
 * Enfiler (*enqueue*) : ajouter un élément dans la file.
 * Defiler (*dequeue*) : renvoie le prochain élément de la file, et le retire de la file.
@@ -254,7 +254,7 @@ Primitives auxiliaires fréquemment rencontrées :
 
 * Premier (*First*) : retourne le premier élément dans la liste ;
 * Dernier (*Last*) : retourne le dernier élément dans la liste ;
-* Prochain (*Next*) : retourne le prochain élémnet dans la liste ;
+* Prochain (*Next*) : retourne le prochain élément dans la liste ;
 * Précédent (*Previous*) : retourne l'élément qui précède dans la liste ;
 * Cherche (*find*) : cherche si un élément précis est contenu dans la liste et retourne sa position.
 
@@ -275,7 +275,7 @@ leur taille en fonction de leur utilisation : on parle alors de
 tableau à taille dynamique. Mais leur implémentation utilise le principe des listes chaînées.
 Les tableaux peuvent également avoir plusieurs dimensions, représentées par une séquence d'indices. Dans ce cas, si n est la dimension du tableau
 (où n est un entier naturel non nul), les éléments du tableau de dimension 1 (le 1er indice de la séquence) pointent chacun vers un autre
-(sous-)tableau de dimension n-1.
+sous-tableau de dimension n-1.
 
 Contrairement à un tableau, la taille d'une liste chaînée n'a pas de limite autre que celle de la mémoire disponible. Cette limitation est
 franchie par le fait que chaque élément peut pointer, suivant le type de liste chaînée, vers un ou plusieurs éléments de la liste en utilisant
@@ -315,7 +315,7 @@ peut être très simple : un nombre entier, par exemple. Elle peut également ê
 de donnée, un pointeur, etc. Il est presque toujours obligatoire de pouvoir comparer les étiquettes selon une relation d'ordre total, afin d'implanter
 les algorithmes sur les arbres.
 
-Les fichier et dossier dans un système de fichiers sont généralement organisés sous forme arborescente.
+Les fichiers et dossiers dans un système de fichiers sont généralement organisés sous forme arborescente.
 
 Les arbre sont en fait rarement utilisés en tant que tels, mais de nombreux types d'arbres avec une structure plus restrictive existent et sont
 couramment utilisés en algorithmique, notamment pour gérer des bases de données, ou pour l'indexation de fichiers. Ils permettent alors des
