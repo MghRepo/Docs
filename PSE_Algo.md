@@ -363,6 +363,37 @@ Le *parcours en profondeur* est un parcours récursif sur un arbre. Dans le cas 
 
 Pour les arbres binaires, on peut également faire un *parcours infixe*, c'est à dire traiter le noeud courant entre les noeuds gauche et droit.
 
+Parcours préfixe :
+
+`visiterPréfixe(Arbre A) :
+	visiter (A)
+	Si nonVide (gauche(A))
+		visiterPréfixe(gauche(A))
+	Si nonVide (droite(A))
+		visiterPréfixe(droite(A))
+`
+
+Parcours suffixe :
+
+`
+visiterSuffixe(Arbre A) :
+	Si nonVide(gauche(A))
+		visiterSuffixe(gauche(A))
+	Si nonVide(droite(A))
+		visiterSuffixe(droite(A))
+	visiter(A)
+`
+
+Parcours infixe :
+
+`visiterInfixe(Arbre A) :
+	Si nonVide(gauche(A))
+		visiterInfixe(gauche(A))
+	visiter(A)
+	Si nonVide(droite(A))
+		visiterInfixe(droite(A))
+`
+
 ### Arbre binaire de recherche
 
 Un arbre binaire de recherche ou ABR (en anglais, binary search tree ou BST) est
@@ -687,10 +718,10 @@ Le cas le plus compliqué se produit si le noeud supprimé M et son enfant C son
 Un tas est une structure de données de type arbre tel que pour tous noeuds A et B de l'arbre tels que B soit un fils de A : clé(A)&#8805;clé(B) (ou inversément).
 Les primitives du tas sont : enfiler et defiler.
 
-Pour enfiler un élément, on le place comme feuille, puis on fait "remonter" l'élément pour maintenir la priorité du tas. L'opération peut être réalisée en O(log n).
+Pour enfiler un élément, on le place comme feuille, puis on fait "remonter" l'élément pour maintenir la priorité du tas. L'opération peut être réalisée en *O(log n)*.
 
 Quand on défile un élément d'un tas, c'est toujours celui de priorité maximale. Il correspond donc à la racine du tas. L'opération peut conserver la
-structure de tas, avec une complexité de O(log n) ; en effet, il ne reste alors qu'à réordonner l'arbre privé de sa racine pour en faire un nouveau tas.
+structure de tas, avec une complexité de *O(log n)* ; en effet, il ne reste alors qu'à réordonner l'arbre privé de sa racine pour en faire un nouveau tas.
  
 ## Programmation orientée objet
 
