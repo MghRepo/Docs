@@ -158,7 +158,7 @@ un les éléments suivants. On réordonne chaque fois un peu les éléments si n
 	+ Chaque noeud ne peut être supérieur à son noeud parent.
 	+ Le premier noeud enfant ne peut être supérieur au deuxième noeud enfant.
 	
-La deuxième étape consiste à retransformer l'arbre binaire en tableau trié. Chaque élément en partant de la droite est laisé tel quel car il s'agit de la
+La deuxième étape consiste à retransformer l'arbre binaire en tableau trié. Chaque élément en partant de la droite est laissé tel quel car il s'agit de la
 racine de l'arbre qui est déjà le plus grand élément, et l'arbre restant est réordonné si nécessaire. On fait ceci jusqu'à arriver à un tableau trié.
 
 Algorithmes moyennement rapides :
@@ -211,7 +211,7 @@ Leurs noms sont donc indiqués de manière informelle. Seules les trois premièr
 ### File
 
 Une file est une structure de donnée basée sur le principe de "premier entré, premier sorti" (FIFO),
-les premiers éléments ajoutés à la file seront les premier à en être retirés.
+les premiers éléments ajoutés à la file seront les premiers à en être retirés.
 
 Les queues servent à organiser le traitement séquentiel des blocs de données d'origines diverses.
 
@@ -221,20 +221,19 @@ disponibles, le temps d'occupation moyen du canal, et le temps d'attente à pré
 Cette structure est utilisée par exemple :
 
 * en général, pour mémoriser temporairement des transactions qui doivent attendre pour être traitées ;
-* les serveurs d'impression, qui traitent ainsi les requêtes dans l'ordre dans lequel elles arrivent, et les insèrent dans une file d'attente (spool)
-* certains moteurs multitâches, dans les systèmes d'exploitation, qui doivent accorder du temps-machine à chaque tâche, sans en privilégier
-aucune ;
+* les serveurs d'impression, qui traitent ainsi les requêtes dans l'ordre dans lequel elles arrivent, et les insèrent dans une file d'attente (spool) ;
+* certains moteurs multitâches, dans les systèmes d'exploitation, qui doivent accorder du temps-machine à chaque tâche, sans en privilégier aucune ;
 * un algorithme de parcours en largeur utilise une file pour mémoriser les noeuds visités ;
-* pour créer toutes sortes de mémoires tampons (buffers) ;
+* pour créer toutes sortes de mémoires tampons (*buffers*) ;
 * En gestion des stocks les algorithmes doivent respecter la gestion physique des stocks pour assurer la cohérence physique/valorisation.
 
 Voici les primitives communément utilisées pour manipuler les files. Il n'existe pas de normalisation pour les primitives de manipulation de file. Leurs
 nom sont donc indiqués de manière informelle :
 
-* "Enfiler" (enqueue) : ajouter un élément dans la file.
-* "Defiler" (dequeue) : renvoie le prochain élément de la file, et le retire de la file.
-* "La file est-elle vide ?" : renvoie "vrai" si la file est vide, "faux" sinon.
-* "Nombre d'élément dans la file" : renvoie le nombre d'élément dans la file.
+* Enfiler (*enqueue*) : ajouter un élément dans la file.
+* Defiler (*dequeue*) : renvoie le prochain élément de la file, et le retire de la file.
+* "La file est-elle vide ?" (*IsNull*) : renvoie "vrai" si la file est vide, "faux" sinon.
+* "Nombre d'élément dans la file" (*Length*) : renvoie le nombre d'élément dans la file.
 
 ### Liste
 
@@ -246,18 +245,18 @@ leurs noms respectifs sont donc indiqués de manière informelle.
 
 Primitives de base :
 
-* "Insérer" (Add) : ajoute un élément dans la liste ;
-* "Retirer" (Remove) : retire un élément de la liste ;
-* "La liste est-elle vide ?" (IsNull) : renvoie "vrai" si la liste est vide, "faux" sinon ;
-* "Nombre d'éléments dans la liste (Length)" : renvoie le nombre d'éléments dans la liste.
+* Insérer (*Add*) : ajoute un élément dans la liste ;
+* Retirer (*Remove*) : retire un élément de la liste ;
+* "La liste est-elle vide ?" (*IsNull*) : renvoie "vrai" si la liste est vide, "faux" sinon ;
+* "Nombre d'éléments dans la liste" (*Length*) : renvoie le nombre d'éléments dans la liste.
 
 Primitives auxiliaires fréquemment rencontrées :
 
-* "Premier" (First) : retourne le premier élément dans la liste ;
-* "Dernier" (Last) : retourne le dernier élément dans la liste ;
-* "Prochain" (Next) : retourne le prochain élémnet dans la liste ;
-* "Précédent" (Previous) : retourne l'élément qui précède dans la liste ;
-* "Cherche" (find) : cherche si un élément précis est contenu dans la liste et retourne sa position.
+* Premier (*First*) : retourne le premier élément dans la liste ;
+* Dernier (*Last*) : retourne le dernier élément dans la liste ;
+* Prochain (*Next*) : retourne le prochain élémnet dans la liste ;
+* Précédent (*Previous*) : retourne l'élément qui précède dans la liste ;
+* Cherche (*find*) : cherche si un élément précis est contenu dans la liste et retourne sa position.
 
 Une liste est un conteneur d'éléments, où chaque élément contient la donnée, ainsi que d'autres informations permettant la récupération des
 données au sein de la liste. La nature (les types) de ces informations caractérise un type différent de liste.
@@ -375,16 +374,14 @@ Un arbre binaire de recherche est un arbre binaire dans lequel chaque noeud poss
 clé inférieure ou égale à celle du noeud considéré, et que chaque noeud du sous-arbre *droit* possède une clé supérieure ou égale à celle-ci - selon
 la mise en oeuvre de l'ABR, on pourra interdire ou non des clés de valeur égale. Les noeuds que l'on ajoute deviennent des feuilles de l'arbre.
 
-La recherche dans un arbre binaire d'un noeud ayant une clé particulière est un procédé récursif. On
-commence par examiner la racine. Si la clé est la clé recherchée, l'algorithme se termine et renvoie la racine.
-Si elle est strictement inférieure, alors elle est dans le sous-arbre gauche, sur lequel on effectue alors
-récursivement la recherche. De même si la clé recherchée est strictement supérieure à la clé de la racine, la
-recherche continue dans le sous-arbre droit. Si on atteint une feuille dont la clé n'est pas celle recherchée, on
-sait alors que la clé recherchée n'appartient à aucun noeud, elle ne figure donc pas dans l'arbre de
-recherche. On peut comparer l'exploration d'un arbre binaire de recherche avec la recherche par dichotomie
-qui procède à peu près de la même manière sauf qu'elle accède directement à chaque élément d'un tableau
-au lieu de suivre les liens. La différence entre les deux algorithmes est que, dans la recherche dichotomique,
-on suppose avoir un critère de découpage de l'espace en deux parties que l'on n'a pas dans la recherche dans un arbre.
+La recherche dans un arbre binaire d'un noeud ayant une clé particulière est un procédé récursif. On commence par examiner la racine. Si la clé est la
+clé recherchée, l'algorithme se termine et renvoie la racine. Si elle est strictement inférieure, alors elle est dans le sous-arbre gauche, sur lequel
+on effectue alors récursivement la recherche. De même si la clé recherchée est strictement supérieure à la clé de la racine, la recherche continue dans
+le sous-arbre droit. Si on atteint une feuille dont la clé n'est pas celle recherchée, on sait alors que la clé recherchée n'appartient à aucun noeud,
+elle ne figure donc pas dans l'arbre de recherche. On peut comparer l'exploration d'un arbre binaire de recherche avec la recherche par dichotomie
+qui procède à peu près de la même manière sauf qu'elle accède directement à chaque élément d'un tableau au lieu de suivre les liens. La différence entre
+les deux algorithmes est que, dans la recherche dichotomique, on suppose avoir un critère de découpage de l'espace en deux parties que l'on n'a pas dans
+la recherche dans un arbre.
 
 Cette opération requiert un temps en O(log n) dans le cas moyen, mais O(n) dans le cas critique où l'arbre est complètement déséquilibré et
 ressemble à une liste chaînée. Ce problème est écarté si l'arbre est équilibré par rotation au fur et à mesure des insertions pouvant créer des listes
@@ -400,6 +397,7 @@ meilleure en terme d'accès aux éléments.
 
 Pour la suppression, on commence par rechercher la clé du noeud à supprimer dans l'arbre. Plusieurs cas sont à considérer, une fois que le noeud à
 supprimer a été trouvé à partir de sa clé :
+
 * *Suppression d'une feuille* : Il suffit de l'enlever de l'arbre puisqu'elle n'a pas de fils.
 * *Suppression de noeud avec un enfant* : Il faut l'enlever de l'arbre en le remplaçant par son fils.
 * *Suppresson d'un noeud avec deux enfants* : Supposons que le noeud à supprimer soit appelé N. On échange le noeud N avec son sucesseur
@@ -476,9 +474,11 @@ De plus, un arbre B vérifie ces propriétés :
 
 * Toutes les feuilles ont la même profondeur, à savoir la hauteur *h* de l'arbre.
 * Si *x* n'est pas une feuille :
+
 	+ pour *2&#8804;i&#8804;n*, pour toute clef *k* du fils *f&#7522;* : *c&#7522;&#8331;&#8321;&#8804;k&#8804;c&#7522;*.
 	+ pour toute clef *k* du fils *f&#8321;* : *k&#8804;c&#8321;*.
 	+ pour toute clef *k* du fils *f&#8345;&#8330;&#8321;* : *c&#8345;&#8804;k*.
+	
 * Si *x* n'est ni une feuille, ni la racine, *n* est compris entre L-1 et U-1.
 
 La plupart du temps, la configuration est telle que U = 2L. On parle alors d'arbre B d'ordre L.
