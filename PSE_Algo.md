@@ -170,7 +170,7 @@ puis l'on comparera le second élément au troisième, le quatrième au cinquiè
 triée.
 
 Algorithmes lents :
-* Tri par selection :
+* Tri par selection : Sur un tableau de *n* éléments on recherche l'élément le plus petit du tableau et on l'échange avec l'élément d'indice 0. Pui on recherche le deuxième plus petit et on l'échange avec l'élément d'indice 1. L'opération est répétée jusqu'à ce que la structure soit triée.
 
 ## Structures de données :
 
