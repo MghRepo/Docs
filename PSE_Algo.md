@@ -410,7 +410,7 @@ qui procède à peu près de la même manière sauf qu'elle accède directement 
 les deux algorithmes est que, dans la recherche dichotomique, on suppose avoir un critère de découpage de l'espace en deux parties que l'on n'a pas dans
 la recherche dans un arbre.
 
-Cette opération requiert un temps en O(log n) dans le cas moyen, mais O(n) dans le cas critique où l'arbre est complètement déséquilibré et
+Cette opération requiert un temps en *O(log n)* dans le cas moyen, mais *O(n)* dans le cas critique où l'arbre est complètement déséquilibré et
 ressemble à une liste chaînée. Ce problème est écarté si l'arbre est équilibré par rotation au fur et à mesure des insertions pouvant créer des listes
 trop longues.
 
@@ -439,7 +439,7 @@ exemple possible d'utiliser un facteur aléatoire : le programme aura une chance
 fils gauche.
 
 Dans tous les cas cette opération requiert de parcourir l'arbre de la racine jusqu'à une feuille : le temps d'exécution est donc proportionnel à la
-profondeur de l'arbre qui vaut n dans le pire des cas, d'où une complexité maximale O(n).
+profondeur de l'arbre qui vaut n dans le pire des cas, d'où une complexité maximale *O(n)*.
 
 On peut récupérer les clés d'un arbre binaire de recherche dans l'ordre croissant en réalisant un parcours infixe. Il faut concaténer dans cet ordre la
 liste triée obtenue récursivement par parcours du fils gauche à la racine puis à celle obtenue récursivement par parcours du fils droit. Il est possible de
@@ -450,13 +450,13 @@ On peut dès lors créer un algorithme de tri simple mais peu efficace, en insé
 recherche puis en parcourant de manière ordonnée cet arbre comme ci-dessus.
 
 Les arbres binaires de recherche peuvent servir d'implémentation au type abstrait de file de priorité. En effet, les opérations d'insertion d'une clé et
-de test au vide se font avec des complexités avantageuses (respectivement en O(log n) et en O(1)).
+de test au vide se font avec des complexités avantageuses (respectivement en *O(log n)* et en *O(1)*).
 Pour l'opération de suppression de la plus grande clé, il suffit de parcourir l'arbre depuis sa racine en choisissant le fils droit de chaque noeud, et de
 supprimer la feuille terminale. Cela demande un nombre d'opérations égal à la hauteur de l'arbre, donc une complexité logarithmique. L'avantage notoire de
 cette représentation d'une file de priorité est qu'avec un processus similaire, on dispose d'une opération de suppression de la plus petite clé en temps
 logarithmique également.
 
-L'insertion et la suppression s'exécutent en O(h) où h est la hauteur de l'arbre. Cela s'avère particulièrement coûteux quand l'arbre est très
+L'insertion et la suppression s'exécutent en *O(h)* où *h* est la hauteur de l'arbre. Cela s'avère particulièrement coûteux quand l'arbre est très
 déséquilibré (un arbre peigne par exemple, dont la hauteur est linéaire en le nombre de clés), et on gagne donc en efficacité à équilibrer les arbres
 au cours de leur utilisation. Il existe des techniques pour obtenir des arbres équilibrés, c'est à dire une hauteur logarithmique en
 nombre d'éléments :
@@ -480,10 +480,10 @@ Un *arbre étiqueté* est un arbre tel qu'à chaque noeud on associe une étique
 dans un ensemble donné. Donc formellement un arbre étiqueté est un couple formé d'un graphe orienté, acyclique et connexe et d'une fonction d'étiquetage des arbres
 qui attribue à chaque noeud une étiquette ou une clé. Parmis les arbres étiquetés, un *arbre B* possède quelques propriétés spécifiques supplémentaires.
 
-Soit L et U deux entiers naturels non nuls tels que L&#8804;U. En toute généralité, on définit alors un *L-U arbre B* de la manière suivante : chaque
-noeud, sauf la racine, possède un minimum de L-1 clés (appelées aussi éléments), un maximum de U-1 clés et au plus U fils. Pour chaque noeud
+Soit *L* et *U* deux entiers naturels non nuls tels que *L&#8804;U*. En toute généralité, on définit alors un *L-U arbre B* de la manière suivante : chaque
+noeud, sauf la racine, possède un minimum de *L-1* clés (appelées aussi éléments), un maximum de *U-1* clés et au plus *U* fils. Pour chaque noeud
 interne -- noeud qui n'est pas une feuille --, le nombre de fils est toujours égal au nombre de clés augmenté d'une unité. Si *n* est le nombre de fils,
-alors on parle de *n*-noeud. Un L-U arbre B ne contient que des n-noeuds avec L&#8804;n&#8804;U. Souvent on choisit la configuration L=t et U=2xt : t est
+alors on parle de *n*-noeud. Un *L-U* arbre B ne contient que des *n*-noeuds avec L&#8804;n&#8804;U. Souvent on choisit la configuration *L=t* et *U=2.t* : *t* est
 appelé le *degré minimal* de l'arbre B.
 
 De plus, la construction des arbres B garantit qu'un arbre B est toujour équilibré. Chaque clé d'un noeud interne est en fait une borne qui
@@ -508,7 +508,7 @@ De plus, un arbre B vérifie ces propriétés :
 	
 * Si *x* n'est ni une feuille, ni la racine, *n* est compris entre L-1 et U-1.
 
-La plupart du temps, la configuration est telle que U = 2L. On parle alors d'arbre B d'ordre L.
+La plupart du temps, la configuration est telle que *U = 2L*. On parle alors d'arbre B d'ordre *L*.
 Un arbre B d'ordre *t* est défini alors plus simplement par un arbre qui satisfait les propriétés suivantes :
 
 * Chaque noeud a au plus *2t-1* clés.
@@ -518,7 +518,7 @@ Un arbre B d'ordre *t* est défini alors plus simplement par un arbre qui satisf
 * Toutes les feuilles se situent à la même hauteur.
 
 Comme on le verra par la suite, la hauteur d'un B-arbre est logarithmique en le nombre d'éléments. Ainsi, les opérations de recherche, insertion et
-suppression sont implémetables en *O(log n)* dans le pire des cas, où n est le nombre d'éléments.
+suppression sont implémetables en *O(log n)* dans le pire des cas, où *n* est le nombre d'éléments.
 
 La recherche est effectué de la même manière que dans un arbre binaire de recherche. Partant de la racine, on parcourt récursivement l'arbre ; à
 chaque noeud, on choisit le sous-arbre fils dont les clés sont comprises entre les même bornes que celles de la clé recherchée grâce à une
@@ -537,10 +537,10 @@ clé supplémentaire. La contrepartie en est une légère augmentation de la hau
 
 Pour la suppression, on doit d'abord chercher la clé à supprimer et la supprimer du noeud qui la contient.
 
-* Si le noeud est interne, on procède de manière similaire aux arbres binaires de recherche en cherchant la clé k la plus à gauche dans le sous-arbre droit
-de la clé à supprimer ou la plus à droite dans le sous-arbre gauche. Cette clé k appartient à une feuille. On peut la permuter avec la clé à supprimer, que
-l'on supprime ensuite. Comme elle appartient à une feuille, on se ramène au caas suivant.
-* Si le noeud est une feuille, soit il possède encore suffisamment de clés et l'algorithme se termine, soit il dispose de moins de L-1 clés et on se trouve
+* Si le noeud est interne, on procède de manière similaire aux arbres binaires de recherche en cherchant la clé *k* la plus à gauche dans le sous-arbre droit
+de la clé à supprimer ou la plus à droite dans le sous-arbre gauche. Cette clé *k* appartient à une feuille. On peut la permuter avec la clé à supprimer, que
+l'on supprime ensuite. Comme elle appartient à une feuille, on se ramène au cas suivant.
+* Si le noeud est une feuille, soit il possède encore suffisamment de clés et l'algorithme se termine, soit il dispose de moins de *L-1* clés et on se trouve
 dans l'une des deux situations suivantes :
 	+ soit un de ses frères à droite ou à gauche possède suffisamment de clés pour pouvoir en "passer" une à la feuille en question : dans ce cas
 	cette clé remplace la clé qui sépare les deux sous-arbres dans l'arbre père, qui va elle-même dans la feuille en question ;
@@ -563,7 +563,7 @@ Un algorithme d'équilibrage simple consiste à :
 
 * Si le noeud voisin gauche existe et dispose de suffisamment de valeurs pour pouvoir en offrir une, réaliser une rotation gauche.
 * Sinon, si le noeud voisin droite existe et dispose de suffisammentd'éléments, réaliser une rotation droite.
-* Sinon, le noeud déficient doit être fusionné avec un de ses voisins tel que la somme du nombre de leurs clés plus 1 soit inférieure ou égale à la
+* Sinon, le noeud déficient doit être fusionné avec un de ses voisins tel que la somme du nombre de leurs clés plus *1* soit inférieure ou égale à la
 capacité maximale (*taille_gauche*+*taille_droite*+1&#8804;*U-1*). La valeur supplémentaire correspond au séparateur présent dans le parent. Cette
 opération est toujours possible si *U-1*&#8805;*2L* avec *taille_gauche*=*L-2* et *taille_droite*=*L-1* ou le contraire, soit un noeud
 immédiatement sous la limite de *L-1* clés et un noeud exactement à la limite.
@@ -573,7 +573,7 @@ immédiatement sous la limite de *L-1* clés et un noeud exactement à la limite
 3. Effacer le noeud de droite et effacer le séparateur du parent puis vérifier qu'il contient assez d'éléments. Si ce n'est pas le cas, rééquilibrer
 le parent avec ses voisins.
 
-La rotation à gauche d'un cran entre deux noeuds voisins se fait en
+La rotation à gauche d'un cran entre deux noeuds voisins se fait en :
 
 1. déplaçant le séparateur, présent dans le parent, à la fin du noeud gauche.
 2. déplaçant le premier élément du noeud de droite en tant que séparateur dans le parent.
@@ -656,7 +656,7 @@ arbres rouge-noir garantissent par construction un temps d'exécution de la rech
 binaire de recherche peut devenir déséquilibré dans les cas défavorables (par exemple si les éléments sont insérés dans l'ordre croissant, l'arbre
 binaire de recherche dégénère en une liste chainée. La complexité de l'opération dans le pire des cas est donc *O(n)* pour un arbre binaire
 potentiellement non équilibré. Au contraire, pour l'arbre rouge-noir, les propriétés bicolores vues ci-dessus garantissent que l'on atteindra un noeud
-en au plus *2log n* comparaisons, donc en *O(log n)* opérations.
+en au plus *2.log n* comparaisons, donc en *O(log n)* opérations.
 
 L'insertion commence de la même manière que sur un arbre binaire classique : en partant de la racine, on compare la valeur insérée à celle d'un noeud
 courant de l'arbre, et on choisit de descendre vers le noeud enfant gauche ou droit selon que la valeur insérée est inférieure ou supérieure. Le
@@ -722,8 +722,8 @@ structure de tas, avec une complexité de *O(log n)* ; en effet, il ne reste alo
 ## Programmation orientée objet
 
 La programmation orientée objet (POO), ou programmation par objet, est un paradigme de programmation informatique basé sur le
-concept *d'objets*, qui peuvent contenir du code et des données : les données sous la forme de champs (attributs
-ou propriétés), et le code sous la forme de procédures (méthodes).
+concept *d'objets*, qui peuvent contenir du code et des données : les données sous la forme de champs (attributs ou propriétés), et le code sous la forme de
+procédures (méthodes).
 
 Une capacité des objets est que ses procédures peuvent accéder et souvent modifier ses propres champs de données (*this* ou *self*).
 En POO, les programmes informatiques sont créés de façon à pouvoir intéragir les uns avec les autres. Les langages de POO peuvent
