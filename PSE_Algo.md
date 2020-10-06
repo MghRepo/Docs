@@ -152,7 +152,14 @@ mais l'algorithme utilise une structure de tas, souvent implémentée au moyen d
 * Tri arborescent (*tree sort*): L'idée est d'insérer les éléments un à un dans l'arbre binaire de recherche, puis de lire l'arbre selon un parcours en profondeur.
 Un arbre binaire de recherche(ABR) est un arbre binaire dans lequel chaque noeud possède une clé, telle que chaque noeud du sous-arbre *gauche* ait une
 clé inférieure ou égale à celle du noeud considéré, et que chaque noeud du sous-arbre *droit* possède une clé supérieure ou égale à celle-ci.
-* *Smooth sort*
+* *Smooth sort* : La première étape consiste à transformer le tableau en arbre binaire. Le premier élément est déjà trivialement bien ordonné, puis on ajoute un à
+un les éléments suivants. On réordonne chaque fois un peu les éléments si nécessaire pour qu'ils correspondent aux critères :
+
+	+ Chaque noeud ne peut être supérieur à son noeud parent.
+	+ Le premier noeud enfant ne peut être supérieur au deuxième noeud enfant.
+	
+La deuxième étape consiste à retransformer l'arbre binaire en tableau trié. Chaque élément en partant de la droite est laisé tel quel car il s'agit de la
+racine de l'arbre qui est déjà le plus grand élément, et l'arbre restant est réordonné si nécessaire. On fait ceci jusqu'à arriver à un tableau trié.
 
 Algorithmes moyennement rapides :
 
@@ -175,6 +182,7 @@ puis l'on comparera le second élément au troisième, le quatrième au cinquiè
 triée.
 
 Algorithmes lents :
+
 * Tri par selection (*selection sort*) : Sur un tableau de *n* éléments on recherche l'élément le plus petit du tableau et on l'échange avec l'élément d'indice 0.
 Puis on recherche le deuxième plus petit et on l'échange avec l'élément d'indice 1. L'opération est répétée jusqu'à ce que la structure soit triée.
 
