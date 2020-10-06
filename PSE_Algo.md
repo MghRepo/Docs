@@ -36,18 +36,20 @@ l'état courant du programme.
 Dans un processeur, cet état correspod à la valeur du compter ordinal.
 
 Commandes à étiquettes :
+
 * Sauts inconditionnels
 * Sauts conditionnels
 * Sous programmes, commandes de sorties de boucles
 
 Commandes de blocs :
+
 * Blocs d'instructions
 * Alternatives (if, then, else, switch)
-* Boucles (do, whilei, each)
+* Boucles (do, while, each)
 
 ### Extensions de la notion de boucles
 
-Un compteur permet de réaliser une boucle associée à une variable entière ou un pointeur qui sera incrémentée à chaque itération. Il est souvent
+Un compteur permet de réaliser une boucle associée à une variable entière ou un pointeur qui sera incrémenté à chaque itération. Il est souvent
 utilisé pour exploiter les données d'une collection indexée (boucle for).
 
 Un itérateur (ou curseur ou énumérateur) est un objet qui permet de réaliser une boucle parcourant tous les éléments contenus dans une structure
@@ -57,8 +59,8 @@ de données.
 
 Un sous-programme permet la réutilisation d'une partie du code et ainsi le développement des algorithmes récursifs.
 
-Beacoup de langages modernes ne supportent pas directement la notion de sous-programme au profit de constructions de haut niveau qui
-peuvent être appelées, d'un langage à l'autre *procédure, fonction, méthode, ou *routine*. Ces constructions ajoutent la notion de passage de paramètres
+Beaucoup de langages modernes ne supportent pas directement la notion de sous-programme au profit de constructions de haut niveau qui
+peuvent être appelées, d'un langage à l'autre *procédure, fonction, méthode*, ou *routine*. Ces constructions ajoutent la notion de passage de paramètres
 et surtout le cloisonnement des espaces de nom pour éviter que le sous-programme ait un effet de bord sur la routine appelante.
 
 Il existe diverses extensions à la notion de procédure comme les coroutines (routine avec suspension), signaux, et slots (signaux implémentés pour les objets),
@@ -74,7 +76,7 @@ ne sont pas des bugs mais des conditions exceptionnelles dans le déroulement no
 
 Dans un système multitâche, plusieurs flots d'exécutions, appelés processus légers, s'exécutent simultanément.
 
-Il est alors nécessaire d'assurer la synchroisation de ces flots d'exécution. Dans la plupart des langages, cela est réalisé via des bibliothèques externes ;
+Il est alors nécessaire d'assurer la synchronisation de ces flots d'exécution. Dans la plupart des langages, cela est réalisé via des bibliothèques externes ;
 certains d'entre eux intègrent néanmoins des structures de contrôle permentant d'agir sur des tâches concourantes.
 
 ### Programmation événementielle
@@ -134,48 +136,51 @@ en parallèle.
 
 ### Exemples d'algorithmes de tri
 
-Algorithmes rapides T(n)=O(nlog n) :
-* Tri fusion (merge sort) : Pour une entrée donnée, l'algorithme la divise en deux parties de tailles
+Algorithmes rapides *T(n)=O(n.log n)* :
+
+* Tri fusion (*merge sort*) : Pour une entrée donnée, l'algorithme la divise en deux parties de tailles
 similaires, trie chacune d'elles en utilisant le même algorithme, puis fusionne les deux parties triées. Il se prête aussi bien à des
 implémenations sur listes que sur tableaux.
-* Tri rapide (quicksort) : Une valeur est choisie comme pivot et les éléments plus petits que le pivot sont
+* Tri rapide (*quick sort*) : Une valeur est choisie comme pivot et les éléments plus petits que le pivot sont
 dissociés, par échanges successifs, des éléments plus grands que le pivot ; chacun de ces deux sous-ensembles est ensuite trié de la même
 manière. On peut rendre la complexité quasiment indépendante des données en utilisant un pivot aléatoire ou en appliquant au tableau une
 permutation aléatoire avant de le trier.
-* Tris par tas (heap sort) : Il s'agit d'une amélioration du tri par sélection. L'idée est la même (insérer les élément un à un dans une structure déjà triée
+* Tris par tas (*heap sort*) : Il s'agit d'une amélioration du tri par sélection. L'idée est la même (insérer les élément un à un dans une structure déjà triée
 mais l'algorithme utilise une structure de tas, souvent implémentée au moyen d'un tableau.
-* Introsort : Il s'agit d'un hybride du tri rapide et du tri par tas.
-* Tri arborescent : L'idée est d'insérer les éléments un à un dans l'arbre binaire de recherche, puis de lire l'arbre selon un parcours en profondeur.
+* *Introspective sort* : Il s'agit d'un hybride du tri rapide et du tri par tas. Par rapport au tri rapide, il présente l'avantage d'avoir une complexité
+*O(n.log n)* dans le pire cas.
+* Tri arborescent (*tree sort*): L'idée est d'insérer les éléments un à un dans l'arbre binaire de recherche, puis de lire l'arbre selon un parcours en profondeur.
 Un arbre binaire de recherche(ABR) est un arbre binaire dans lequel chaque noeud possède une clé, telle que chaque noeud du sous-arbre *gauche* ait une
 clé inférieure ou égale à celle du noeud considéré, et que chaque noeud du sous-arbre *droit* possède une clé supérieure ou égale à celle-ci.
-* Smoothsort
+* *Smooth sort*
 
 Algorithmes moyennement rapides :
-* Tri de Shell (shell sort) : Ce tri repose sur le tri par insertion des sous-suites de l'entrée obtenues en prenant les éléments espacés d'un pas constant,
+
+* Tri de Shell (*shell sort*) : Ce tri repose sur le tri par insertion des sous-suites de l'entrée obtenues en prenant les éléments espacés d'un pas constant,
 pour une suite de pas prédéfinie. La complexité varie selon le choix de cette suite.
-* Tri à peigne (comb sort) : Il s'agit d'une variante plus efficace du tri à bulles, ne comparant pas uniquement des éléments consécutifs. On peut dire qu'il
+* Tri à peigne (*comb sort*) : Il s'agit d'une variante plus efficace du tri à bulles, ne comparant pas uniquement des éléments consécutifs. On peut dire qu'il
 est au tri à bulles ce que le tri de Shell est au tri par insertion.
-* Tri par insertion : Ce tri souvent utilisé naturellement pour trier des cartes à jouer : les valeurs sont insérées les unes après les autres dans une liste
-triée (initialement vide). C'est souvent le plus rapide et le plus utilisé pour trier les entrées de petite taille. Il est également efficace pour des
-entrées déjà presque triées.
-* Tri à bulles : L'algorithme consiste à parcourir l'entrée du début à la fin et pour chaque couple d'éléments consécutifs, à les intervertir s'ils sont mal
-ordonnés. Cette opération est répétée jusqu'à ce que la structure soit triée (aucune intervention lors du dernier passage). Cet algorithme est
+* Tri par insertion (*insertion sort*): Ce tri souvent utilisé naturellement pour trier des cartes à jouer. Les valeurs sont insérées les unes après les autres
+dans une liste triée (initialement vide). C'est souvent le plus rapide et le plus utilisé pour trier les entrées de petite taille. Il est également efficace pour
+des entrées déjà presque triées.
+* Tri à bulles (*bubble sort*) : L'algorithme consiste à parcourir l'entrée du début à la fin et pour chaque couple d'éléments consécutifs, à les intervertir
+s'ils sont mal ordonnés. Cette opération est répétée jusqu'à ce que la structure soit triée (aucune intervention lors du dernier passage). Cet algorithme est
 peu efficace et rarement utilisé en pratique ; son intêret est principalement pédagogique.
-* Tri cocktail : Il s'agit d'une variante du tri à bulles dans laquelle l'entrée est alternativement parcourue dans les deux sens. S'il permet de traiter de
-manière plus efficace quelques cas problématiques pour le tri à bulles, il reste essentiellement similaire à ce dernier et l'intérêt est encore une fois
-principalement pédagogique.
-* Tri pair-impair : Il s'agit d'une variante du tri à bulles, qui procède en comparant successivement tous les éléments d'index pairs avec les éléments
-d'index impairs qui les suivent, puis inversement. On va ainsi commencer en comparant le premier élément au second, le troisième au quatrième, etc.,
+* Tri cocktail (*cocktail sort*) : Il s'agit d'une variante du tri à bulles dans laquelle l'entrée est alternativement parcourue dans les deux sens.
+S'il permet de traiter de manière plus efficace quelques cas problématiques pour le tri à bulles, il reste essentiellement similaire à ce dernier et l'intérêt
+est encore une fois principalement pédagogique.
+* Tri pair-impair (*odd-even sort*) : Il s'agit d'une variante du tri à bulles, qui procède en comparant successivement tous les éléments d'index pairs avec
+les éléments d'index impairs qui les suivent, puis inversement. On va ainsi commencer en comparant le premier élément au second, le troisième au quatrième, etc.,
 puis l'on comparera le second élément au troisième, le quatrième au cinquième. L'opération est répétée jusqu'à ce que la structure soit
 triée.
 
 Algorithmes lents :
-* Tri par selection : Sur un tableau de *n* éléments on recherche l'élément le plus petit du tableau et on l'échange avec l'élément d'indice 0. Pui on recherche le deuxième plus petit et on l'échange avec l'élément d'indice 1. L'opération est répétée jusqu'à ce que la structure soit triée.
+* Tri par selection (*selection sort*) : Sur un tableau de *n* éléments on recherche l'élément le plus petit du tableau et on l'échange avec l'élément d'indice 0.
+Puis on recherche le deuxième plus petit et on l'échange avec l'élément d'indice 1. L'opération est répétée jusqu'à ce que la structure soit triée.
 
 ## Structures de données :
 
-Une structure de données est une manière d'organiser les données pour les traiter plus facilement. Une structure de données est
-une mise en oeuvre concrète d'un type abstrait.
+Une structure de données est une manière d'organiser les données pour les traiter plus facilement. C'est une mise en oeuvre concrète d'un type abstrait.
 
 ### Pile
 
@@ -185,9 +190,9 @@ ce qui veut dire qu'en général, le dernier élément ajouté à la pile, sera 
 La plupart des microprocesseurs gèrent nativement une pile. Elle correspond alors à une zone de la mémoire, et le processeur retient l'adresse du
 dernier élément.
 
-Voici les primitives communément utilisées pour manipuler les piles. Il n'existe pas de normalisation pour les
-primitives de manipulation de pile. Leurs noms sont donc indiqués de manière informelle. Seules les trois
-premières sont réellement indispensables, les autres pouvant s'en déduire :
+Voici les primitives communément utilisées pour manipuler les piles. Il n'existe pas de normalisation pour les primitives de manipulation de pile.
+Leurs noms sont donc indiqués de manière informelle. Seules les trois premières sont réellement indispensables, les autres pouvant s'en déduire :
+
 * "Empiler" (push) : ajoute un élément sur la pile.
 * "Depiler" (pull) : enlève un élément de la pile et le renvoie.
 * "La pile est-elle vide ?" : renvoie vrai si la pile est vide, faux sinon.
@@ -206,6 +211,7 @@ La théorie des files d'attente, élaborée pour le dimensionnement des réseau 
 disponibles, le temps d'occupation moyen du canal, et le temps d'attente à prévoir (Loi de Poisson).
 
 Cette structure est utilisée par exemple :
+
 * en général, pour mémoriser temporairement des transactions qui doivent attendre pour être traitées ;
 * les serveurs d'impression, qui traitent ainsi les requêtes dans l'ordre dans lequel elles arrivent, et les insèrent dans une file d'attente (spool)
 * certains moteurs multitâches, dans les systèmes d'exploitation, qui doivent accorder du temps-machine à chaque tâche, sans en privilégier
@@ -216,6 +222,7 @@ aucune ;
 
 Voici les primitives communément utilisées pour manipuler les files. Il n'existe pas de normalisation pour les primitives de manipulation de file. Leurs
 nom sont donc indiqués de manière informelle :
+
 * "Enfiler" (enqueue) : ajouter un élément dans la file.
 * "Defiler" (dequeue) : renvoie le prochain élément de la file, et le retire de la file.
 * "La file est-elle vide ?" : renvoie "vrai" si la file est vide, "faux" sinon.
@@ -230,12 +237,14 @@ Voici les primitives communément utilisées pour manipuler des listes ; il n'ex
 leurs noms respectifs sont donc indiqués de manière informelle.
 
 Primitives de base :
+
 * "Insérer" (Add) : ajoute un élément dans la liste ;
 * "Retirer" (Remove) : retire un élément de la liste ;
 * "La liste est-elle vide ?" (IsNull) : renvoie "vrai" si la liste est vide, "faux" sinon ;
 * "Nombre d'éléments dans la liste (Length)" : renvoie le nombre d'éléments dans la liste.
 
 Primitives auxiliaires fréquemment rencontrées :
+
 * "Premier" (First) : retourne le premier élément dans la liste ;
 * "Dernier" (Last) : retourne le dernier élément dans la liste ;
 * "Prochain" (Next) : retourne le prochain élémnet dans la liste ;
@@ -246,6 +255,7 @@ Une liste est un conteneur d'éléments, où chaque élément contient la donné
 données au sein de la liste. La nature (les types) de ces informations caractérise un type différent de liste.
 
 On peut distinguer, de manière générale, deux types de liste :
+
 * les tableaux ;
 * les listes chaînées.
 
@@ -266,6 +276,7 @@ une définition récursive. Ainsi, pour augmenter la taille d'une liste chaîné
 éléments, déjà présents au sein de la liste, vers le nouvel élément.
 
 Il existe deux grand types de liste chainée :
+
 * les listes simplement chaînées : chaque élément dispose d'un pointeur sur l'élément suivant (ou successeur) de la liste. Le parcours se fait dans
 un seul sens ;
 * les listes doublement chaînées : chaque élément dispose de deux pointeurs, respectivement sur l'élément suivant (ou successeur) et sur l'élément
@@ -281,6 +292,7 @@ En théorie de graphes, un arbre enraciné ou une arborescence est un graphe acy
 une unique racine, et tel que tous les noeuds sauf la racine ont un unique parent.
 
 Dans un arbre, on distingue deux catégories d'éléments :
+
 * les *feuilles* (ou noeuds externes), éléments ne possédant pas de fil dans l'arbre ;
 * les *noeuds* interne, éléments possédant des fils (sous-branches).
 
@@ -308,15 +320,21 @@ ont presque la même hauteur.
 exemples d'utilisation et sont eux aussi des arbres équilibrés.
 
 Pour construire un arbre à partir de cases ne contenant que des informations, on peut procéder de l'une des trois façons suivantes :
+
 1. Créer une structure de données composée de :
+
 	1. l'étiquette (la valeur contenue dans le noeud),
 	2. un lien vers *chaque* noeud fils,
 	3. un arbre particulier, l'arbre vide, qui permet de caractériser les feuilles. Une feuille a pour fils des arbres vides uniquement.
+	
 2. Créer une structure de données composée de :
+
 	1. l'étiquette (la valeur contenue dans le noeud),
 	2. un lien vers le "premier" noeud fils (noeud fils gauche le cas échéant),
 	3. un autre lien vers le noeud frère (le "premier" noeud frère sur la droite le cas échéant).
+	
 3. Créer une structure de données composée de :
+
 	1. l'étiquette (la valeur contenue dans le noeud),
 	2. un lien vers le noeud père.
 
@@ -332,6 +350,7 @@ même hauteur dans l'arbre considéré. L'ordre de parcours d'un niveau donné e
 parcours des noeuds parents - noeuds de niveau immédiatement supérieur.
 
 Le *parcours en profondeur* est un parcours récursif sur un arbre. Dans le cas général, deux ordres sont possibles :
+
 * Parcours en profondeur préfixe : dans ce mode de parcours, le noeud courant est traité avant ses descendants.
 * Parcours en profondeur suffixe : dans ce mode de parcours, le noeud courant est traité après ses descendants.
 
@@ -408,6 +427,7 @@ L'insertion et la suppression s'exécutent en O(h) où h est la hauteur de l'arb
 déséquilibré (un arbre peigne par exemple, dont la hauteur est linéaire en le nombre de clés), et on gagne donc en efficacité à équilibrer les arbres
 au cours de leur utilisation. Il existe des techniques pour obtenir des arbres équilibrés, c'est à dire une hauteur logarithmique en
 nombre d'éléments :
+
 * les arbres AVL
 * les arbres rouge-noir
 * les B-arbres
@@ -437,6 +457,7 @@ De plus, la construction des arbres B garantit qu'un arbre B est toujour équili
 distingue les sous-arbres de ce noeud.
 
 Un arbre B est implémenté par un arbre enraciné. Un noeud *x* est étiqueté par :
+
 * Un entier *n* qui correspond au nombre de clefs contenues dans e noeud *x*
 * *n* clefs notées *c&#8321;,...,c&#8345;*.
 * Un booléen indiquant si *x* est une feuille ou non.
@@ -444,6 +465,7 @@ Un arbre B est implémenté par un arbre enraciné. Un noeud *x* est étiqueté 
 Une feuille ne contient pas de pointeurs.
 
 De plus, un arbre B vérifie ces propriétés :
+
 * Toutes les feuilles ont la même profondeur, à savoir la hauteur *h* de l'arbre.
 * Si *x* n'est pas une feuille :
 	+ pour *2&#8804;i&#8804;n*, pour toute clef *k* du fils *f&#7522;* : *c&#7522;&#8331;&#8321;&#8804;k&#8804;c&#7522;*.
@@ -453,6 +475,7 @@ De plus, un arbre B vérifie ces propriétés :
 
 La plupart du temps, la configuration est telle que U = 2L. On parle alors d'arbre B d'ordre L.
 Un arbre B d'ordre *t* est défini alors plus simplement par un arbre qui satisfait les propriétés suivantes :
+
 * Chaque noeud a au plus *2t-1* clés.
 * Chaque noeud qui n'est ni racine ni feuille possède au moins *t-1* clés.
 * Si l'arbre est non vide, la racine est aussi non vide.
@@ -695,6 +718,7 @@ Un compilateur effectue les opérations suivantes : analyse lexicale, pré-trait
 sémantique, et génération de code optimisé. La compilation est souvent suivie d'une étape d'édition de liens, pour générer un fichier exécutable.
 
 On distingue deux options de compilation :
+
 * Ahead-of-time (AOT), où il faut compiler le programme avant de lancer l'application : la situation traditionnelle.
 * Compilation à la volée (just-in-time, en abrégé JIT) : cette faculté est apparue dans les années 1980 (par exemple Tcl/Tk)
 
