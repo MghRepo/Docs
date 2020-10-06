@@ -365,34 +365,30 @@ Pour les arbres binaires, on peut également faire un *parcours infixe*, c'est �
 
 Parcours préfixe :
 
-`visiterPréfixe(Arbre A) :
-	visiter (A)
-	Si nonVide (gauche(A))
-		visiterPréfixe(gauche(A))
-	Si nonVide (droite(A))
-		visiterPréfixe(droite(A))
-`
+	visiterPréfixe(Arbre A) :
+		visiter (A)
+		Si nonVide (gauche(A))
+			visiterPréfixe(gauche(A))
+		Si nonVide (droite(A))
+			visiterPréfixe(droite(A))
 
 Parcours suffixe :
 
-`
-visiterSuffixe(Arbre A) :
-	Si nonVide(gauche(A))
-		visiterSuffixe(gauche(A))
-	Si nonVide(droite(A))
-		visiterSuffixe(droite(A))
-	visiter(A)
-`
+	visiterSuffixe(Arbre A) :
+		Si nonVide(gauche(A))
+			visiterSuffixe(gauche(A))
+		Si nonVide(droite(A))
+			visiterSuffixe(droite(A))
+		visiter(A)
 
 Parcours infixe :
 
-`visiterInfixe(Arbre A) :
-	Si nonVide(gauche(A))
-		visiterInfixe(gauche(A))
-	visiter(A)
-	Si nonVide(droite(A))
-		visiterInfixe(droite(A))
-`
+	visiterInfixe(Arbre A) :
+		Si nonVide(gauche(A))
+			visiterInfixe(gauche(A))
+		visiter(A)
+		Si nonVide(droite(A))
+			visiterInfixe(droite(A))
 
 ### Arbre binaire de recherche
 
