@@ -230,8 +230,8 @@ Cette structure est utilisée par exemple :
 Voici les primitives communément utilisées pour manipuler les files. Il n'existe pas de normalisation pour les primitives de manipulation de file. Leurs
 noms sont donc indiqués de manière informelle :
 
-* Enfiler (*enqueue*) : ajouter un élément dans la file.
-* Defiler (*dequeue*) : renvoie le prochain élément de la file, et le retire de la file.
+* Enfiler (*Enqueue*) : ajouter un élément dans la file.
+* Defiler (*Dequeue*) : renvoie le prochain élément de la file, et le retire de la file.
 * "La file est-elle vide ?" (*IsNull*) : renvoie "vrai" si la file est vide, "faux" sinon.
 * "Nombre d'élément dans la file" (*Length*) : renvoie le nombre d'élément dans la file.
 
