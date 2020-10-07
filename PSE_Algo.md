@@ -201,12 +201,12 @@ dernier élément.
 Voici les primitives communément utilisées pour manipuler les piles. Il n'existe pas de normalisation pour les primitives de manipulation de pile.
 Leurs noms sont donc indiqués de manière informelle. Seules les trois premières sont réellement indispensables, les autres pouvant s'en déduire :
 
-* "Empiler" (push) : ajoute un élément sur la pile.
-* "Depiler" (pull) : enlève un élément de la pile et le renvoie.
-* "La pile est-elle vide ?" : renvoie vrai si la pile est vide, faux sinon.
-* "Nombre d'éléments de la pile" : renvoie le nombre d'élément de la pile.
-* "Quel est l'élément de tête ?" (peek ou top) : renvoie l'élément de tête sans le dépiler.
-* "Vider la liste" (clear) : dépiler tous les éléments.
+* Empiler (*Push*) : ajoute un élément sur la pile.
+* Depiler (*Pull*) : enlève un élément de la pile et le renvoie.
+* "La pile est-elle vide ?" (*IsNull*) : renvoie vrai si la pile est vide, faux sinon.
+* "Nombre d'éléments de la pile" (*Length*): renvoie le nombre d'élément de la pile.
+* "Quel est l'élément de tête ?" (*Peek* ou *Top*) : renvoie l'élément de tête sans le dépiler.
+* "Vider la liste" (*Clear*) : dépiler tous les éléments.
 
 ### File
 
