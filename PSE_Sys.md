@@ -112,16 +112,88 @@ sur cette barrière devra attendre jusqu'à ce que le nombre spécifié de tâch
 Sémaphore : Variable partagée par différents "acteurs" qui garantit que ceux-ci ne peuvent accéder de façon séquentielle à travers des opérations
 atomiques, et constituela méthode utilisée couramment pour restreindre l'accès à des ressources partagées et synchroniser les processus dans un environnement
 de programmation concurrente.
-* *Verrous* :
-* *Spinlocs* :
-* *Moniteur* :
-* *Mutex* :
+* *Verrous* : Permet d'assurer qu'un seul processus accède à une ressource à un instant donné. Un verrou peut être posé pour protéger un accès en lecture et
+permettra à plusieurs processus de lire, mais aucun d'écrire. On dit alors que c'est un verrou partagé. Un verrou est dit exclusif lorsqu'il interdit toute
+écriture et toute lecture en dehors du processus qui l'a posé. La granularité d'un verrou constitue l'étendue des éléments qu'il protège. Par exemple dans les bases
+de données, un verrou peut être posé sur une ligne, un lot de ligne, une table etc.
+* *Spinlocks* : Mécanisme simple de synchronisation basé sur l'attente active.
+* *Moniteur* : Mécanisme de synchronisation qui permet à plusieurs threads de bénéficier de l'exclusion mutuelle et la possibiliter d'attendre (*block*)
+l'invalidation d'une condition. Les moniteurs ont également un mécanisme qui permet aux autres threads de signaler que leur condition est validé. Il
+est constitué d'un mutex et de variables conditionnelles.
+* *Mutex* : Un mutex est une primitive de synchronisation qui permet l'exclusion mutuelle. Certains algorithmes utilisent un état pour commander l'exclusion
 
 La connaissance des dépendances entre les données est fondamentale dans la mise en oeuvre d'algorithmes parallèles, d'autant qu'un calcul peut
 dépendre de plusieurs calculs préalables. Les *conditions de Bernstein* permettent de déterminer les conditions sur les données lorsque deux parties
 de programme peuvent être exécutées en parallèle.
 
-### Communications inter-processus
+### Signaux
+
+Un signal est une forme de communication entre processus utilisée par les systèmes de type Unix et ceux respectant les standards POSIX.
+Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un événement. Quand un signal est envoyé à un
+processus, le système d'exploitation interrompt l'exécution normale de celui-ci. Si le processus possède une routine de traitement pour le signal reçu,
+il lance son exécution. Dans le cas contraire, il exécute la routine des signaux par défaut.
+
+La norme POSIX (et la documentation de Linux) limite les fonctions directement ou indirectement appelables depuis cette routine de traitements des
+signaux. Cette norme donne une liste exhaustive de fonctions primitives dites *async-signal safe* (en pratique les appels systèmes) qui sont les
+seules à pouvoir être appelées depuis une routine de traitement de signal sans avoir un comportement indéfini. Il est donc suggéré d'avoir une
+routine de traitement de signal qui positionne simplement un drapeau déclaré *volatile sig_atomic_t* qui serait testé ailleurs dans le programme.
+
+L'appel système kill(2) permet d'envoyer, si cela est permis, un signal à un processus. La commande kill(1) utilise cet appel système pour faire de
+même depuis le shell. La fonction raise(3) permet d'envoyer un signal au processus courant.
+
+Les exceptions comme les erreurs de segmentation ou les divisions par zéro génèrent des signaux. Ici les signaux générés seront respectivement
+SIGSEGV et SIGFPE. Un processus recevant ces signaux se terminera et générera un core dump par défaut.
+
+Le noyau peut générer des signaux pour notifier les processus que quelquechose s'est passé. Par exemple, SIGPIPE est envoyé à un processus qui
+essaye d'écrire dans un pipe qui a été fermé par celui qui lit. Par défaut, le programme se termine alors. Ce comportement rend la construction de
+pipeline en shell aisée.
+
+### Socket réseau
+
+Une socket réseau est une structure logicielle comprise dans un noeud réseau qui sert de point d'arrivée pour les données envoyées et reçues à travers le réseau.
+La structure et les propriétés d'une socket sont définies par une interface de programmation (API) de l'architecture réseau. Les sockets sont créées uniquement
+durant l' intervalle de temps d'un processus d'une application s'exécutant dans le noeud.
+
+Du fait de la standardisation des protocoles TCP/IP au cours du développement d'internet, le terme *socket réseau* est plus communément utilisé dans le contexte
+de la *Suite des protocoles Internets*. On parle alors aussi de socket internet. Dans ce contexte, une socket est identifiée extérieurement par les autres machines
+par son *addresse socket*, qui est la triade du protocole de transfert, de l'addresse IP et du numéro de port.
+
+Une pile de protocole, habituellement fournie par le système d'exploitation est un ensemble de services permettant aux processus de communiquer à travers un réseau
+utilisant les protocoles que la pile implémente. Le système d'exploitation fait passer les données utiles des paquets IP entrants à l'application correspondante
+en lisant l'information de l'addresse socket des headers des protocoles IP et transport et en enlevant ces headers des données applications.
+
+L'interface de programmation que les programmes utilisent pour communiquer avec la pile de protocole, utilisant les socket réseau, est appelée **socket API**.
+Le développement de programmes applicatifs utilisant cette API est appelé programmation réseau. Les sockets API internet sont généralement basées sur le standard
+socket de Berkeley. Dans le standard socket de Berkeley, les socket sont une forme de descripteur de fichier (*read, write, open, close*).
+
+Dans les protocoles internet standards TCP et UDP, une adresse socket est la combinaison d'une addresse IP et d'un numéro de port. Les sockets n'ont pas besoin
+d'adresse source, mais si un programme lie la socket à une adresse source, la socket peut être utilisée pour recevoir et envoyer des données à cette adresse.
+Basé sur cette adresse, les sockets internet délivrent les paquets applicatifs entrants au processus applicatif approprié.
+
+Plusieurs types de sockets internet sont disponibles :
+
+* **Datagram** : Des sockets non connectées, qui utilisent le protocole UDP (*User Datagram Protocol*). Chaque paquet envoyé ou reçu avec une socket datagram est
+adressé et routé individuellement. L'ordre ainsi que la fiabilité ne sont pas garantis, par conséquent plusieurs paquet envoyé depuis un processus à l'autre peut
+arriver dans n'importe quel ordre ou bien ne pas arriver du tout. Certaines configurations spéciales peuvent être requises pour envoyer en broadcast une socket
+datagram.
+* **Stream** : Des socket connectés, qui utilisent les protocoles TCP (*Transmission Control Protocol*), SCTP (*Stream Control Transmission Protocol*) ou DCCP
+(*Datagram Congestion Control Protocol*). Un socket stream fournit un flot de données sans erreurs, séquencé, unique et ininterrompu avec des mécanismes prédéfinis
+pour créer et détruire des connections et rapporter des erreurs. Un socket stream transmet des données de manière fiable, ordonnée sans requerir l'établissement
+préalable d'un canal.
+* **Raw** : Permet l'envoie et la réception de paquets IP sans aucun formatage spécifique à un protocole de la couche transport. Avec les autres types de socket,
+la donnée est automatiquement encapsulée selon le protocole de la couche transport choisi (TCP, UDP etc.), et l'utilisateur du socket n'a pas connaissance de
+l'existence des headers du protocole. Quand on lit d'une socket raw, les headers sont généralement inclus. Lorsqu'on transmet des paquets depuis une socket raw,
+l'addition automatique d'un header est optionnelle.
+
+### IPC Socket
+
+### Pipe anonyme
+
+### Pipe nommé
+
+### Passage de message
+
+### Fichier mappé en mémoire
 
 ### Partitionnement de la mémoire
 
