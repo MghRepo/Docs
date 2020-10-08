@@ -85,7 +85,7 @@ en maximisant l'utilisation globale CPU tout en optimisant l'interactivité. CFS
 des tâches. En effet, l'arbre trie les processus selon une valeur representative du manque de ces processus en temps d'allocation du processeur, par rapport au
 temps qu'aurait alloué un processeur dit mutlitâche idéal. De plus, l'ordonnanceur utilise une granularité temporelle à la nanoseconde, rendant redondante la
 notion de tranche de temps, les unités atomiques utilisées pour le partage du CPU entre processus. Cette connaissance précise signifie également qu'aucune
-heuristique (basée sur la statistique, donc pouvant commettre des erreurs) n'est requise pour déterminer l'interactivité d'un processus
+heuristique (basée sur la statistique, donc pouvant commettre des erreurs) n'est requise pour déterminer l'interactivité d'un processus.
 
 ### Synchronisation
 
@@ -104,11 +104,11 @@ La synchronisation de processis cherche par exemple à empêcher des programmes 
 contraire forcer l'exécution de deux partie de code en même temps. Dans la première hypothèse, le premier processus bloque l'accès à la section
 critique avant d'y entrer et libère l'accès après y être sorti. Ce mécanisme peut être implémenté de multiples manières.
 
-Ces mécanismes sont par exemple la barrière de synchronisation, l'usage conjoint des sémaphores et des verrous, les spinlock, le moniteur, les mutex.
+Ces mécanismes sont par exemple la barrière de synchronisation, l'usage conjoint des sémaphores et des verrous, les spinlock, le moniteur.
 
 * *Barrière de synchronisation* : Permet de garantir qu'un certain nombre de tâches aient passé un point spécifique. Ainsi, chaque tâche qui arrivera
 sur cette barrière devra attendre jusqu'à ce que le nombre spécifié de tâches soient arrivées à cette barrière.
-Sémaphore : Variable partagée par différents "acteurs" qui garantit que ceux-ci ne peuvent accéder de façon séquentielle à travers des opérations
+* *Sémaphore* : Variable partagée par différents "acteurs" qui garantit que ceux-ci ne peuvent accéder de façon séquentielle à travers des opérations
 atomiques, et constituela méthode utilisée couramment pour restreindre l'accès à des ressources partagées et synchroniser les processus dans un environnement
 de programmation concurrente.
 * *Verrous* : Permet d'assurer qu'un seul processus accède à une ressource à un instant donné. Un verrou peut être posé pour protéger un accès en lecture et
@@ -119,7 +119,6 @@ de données, un verrou peut être posé sur une ligne, un lot de ligne, une tabl
 * *Moniteur* : Mécanisme de synchronisation qui permet à plusieurs threads de bénéficier de l'exclusion mutuelle et la possibiliter d'attendre (*block*)
 l'invalidation d'une condition. Les moniteurs ont également un mécanisme qui permet aux autres threads de signaler que leur condition est validé. Il
 est constitué d'un mutex et de variables conditionnelles.
-* *Mutex* : Un mutex est une primitive de synchronisation qui permet l'exclusion mutuelle. Certains algorithmes utilisent un état pour commander l'exclusion
 
 La connaissance des dépendances entre les données est fondamentale dans la mise en oeuvre d'algorithmes parallèles, d'autant qu'un calcul peut
 dépendre de plusieurs calculs préalables. Les *conditions de Bernstein* permettent de déterminer les conditions sur les données lorsque deux parties
