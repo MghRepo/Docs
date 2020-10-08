@@ -221,7 +221,7 @@ d'un Fork qui permet d'assigner à chacun des processus son rôle de récepteur 
 Comme les tubes anonymes, les tubes nommés sont des zones de données organisées en FIFO mais contrairement à ceux-ci qui sont détruits lorsque le processus qui les
 a créés disparait, les tubes nommés sont liés au système d'exploitation et ils doivent être explicitement détruits.
 
-### Passage de message
+### Passage de messages
 
 Le modèle de passage de messages et une technique permettant de demander l'exécution d'un programme. Le passage de message utilise un modèle objet afin de
 distinguer la fonction générale de ses implémentations spécifiques. Le programme appelant envoit un message et se fie à l'objet afin de sélectionner et d'exécuter
