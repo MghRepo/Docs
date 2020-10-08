@@ -6,10 +6,9 @@
 
 Le multitâche coopératif est une forme simple de multitâche où chaque tâche doit explicitement permettre aux autres tâches de s'exécuter.
 Cette approche simplifie l'architecture du système mais présente plusieurs inconvénients :
-* Si un des processus ne redonne pas la main à un autre processus, par exemple si le processus est buggé, le système entier peut s'arrêter.
+* Le multitâche coopératif est une forme de couplage fort. Si un des processus ne redonne pas la main à un autre processus, par exemple si le processus est buggé,
+le système entier peut s'arrêter.
 * Le partage de ressources (temps CPU, mémoire, accès disque, etc.) peut être inefficace.
-* Le multitâche coopératif est une forme de couplage fort.
-
 ### Multitâche préemptif
 
 Le multitâche préemptif désigne la capacité d'un système d'exploitation à exécuter ou arrêter une tâche planifiée en cours.
