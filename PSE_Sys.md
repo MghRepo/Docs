@@ -247,7 +247,11 @@ d'exploitation peut référencer à l'aide d'un descripteur de fichier. Une fois
 aux applications de traiter la partie mappée comme s'il s'agissait de la mémoire primaire.
 
 Le bénéfice d'utiliser le mappage en mémoire est d'augmenter les performances d'entrée/sortie notamment sur les fichiers de gros volume. Pour les petits fichiers,
-les fichiers mappés peuvent engendrer des problèmes de fragmentation interne du fait
+les fichiers mappés peuvent engendrer des problèmes de fragmentation interne du fait que les maps mémoires sont toujours aligné sur la taille de la page
+(généralement 4Ko). Par conséquent, un fichier de 5Ko allouera 8Ko et gachera 3Ko. Accéder aux fichiers mappés en mémoire est plus rapide que d'utiliser des
+opérations de lecture et d'écriture directement pour 2 raisons. Premièrement, un appel système est bien plus lent qu'un changement local de mémoire du programme.
+Deuxièmement, dans la plupart des système d'exploitation la région mémoire mappée est la page cache du noyau, c'est à dire que cela ne nécessite aucune copie en
+espace utilisateur.
 
 ### Partitionnement de la mémoire
 
