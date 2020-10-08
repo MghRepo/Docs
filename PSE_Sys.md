@@ -160,11 +160,11 @@ par son *addresse socket*, qui est la triade du protocole de transfert, de l'add
 
 Une pile de protocole, habituellement fournie par le système d'exploitation est un ensemble de services permettant aux processus de communiquer à travers un réseau
 utilisant les protocoles que la pile implémente. Le système d'exploitation fait passer les données utiles des paquets IP entrants à l'application correspondante
-en lisant l'information de l'addresse socket des headers des protocoles IP et transport et en enlevant ces headers des données applications.
+en lisant l'information de l'addresse socket des entêtes des protocoles IP et transport et en enlevant ces entêtes des données applications.
 
 L'interface de programmation que les programmes utilisent pour communiquer avec la pile de protocole, utilisant les socket réseau, est appelée **socket API**.
-Le développement de programmes applicatifs utilisant cette API est appelé programmation réseau. Les sockets API internet sont généralement basées sur le standard
-socket de Berkeley. Dans le standard socket de Berkeley, les socket sont une forme de descripteur de fichier (*read, write, open, close*).
+Les API sockets internet sont généralement basées sur le standard socket de Berkeley. Dans le standard socket de Berkeley, les socket sont une forme de descripteur
+de fichier (*read, write, open, close*).
 
 Dans les protocoles internet standards TCP et UDP, une adresse socket est la combinaison d'une addresse IP et d'un numéro de port. Les sockets n'ont pas besoin
 d'adresse source, mais si un programme lie la socket à une adresse source, la socket peut être utilisée pour recevoir et envoyer des données à cette adresse.
@@ -172,28 +172,84 @@ Basé sur cette adresse, les sockets internet délivrent les paquets applicatifs
 
 Plusieurs types de sockets internet sont disponibles :
 
-* **Datagram** : Des sockets non connectées, qui utilisent le protocole UDP (*User Datagram Protocol*). Chaque paquet envoyé ou reçu avec une socket datagram est
+* **Datagram** : Des sockets non connectées, qui utilisent le protocole UDP (*User Datagram Protocol*). Chaque paquet envoyé ou reçu avec un socket datagramme est
 adressé et routé individuellement. L'ordre ainsi que la fiabilité ne sont pas garantis, par conséquent plusieurs paquet envoyé depuis un processus à l'autre peut
-arriver dans n'importe quel ordre ou bien ne pas arriver du tout. Certaines configurations spéciales peuvent être requises pour envoyer en broadcast une socket
-datagram.
+arriver dans n'importe quel ordre ou bien ne pas arriver du tout. Certaines configurations spéciales peuvent être requises pour envoyer en broadcast un socket
+datagramme.
 * **Stream** : Des socket connectés, qui utilisent les protocoles TCP (*Transmission Control Protocol*), SCTP (*Stream Control Transmission Protocol*) ou DCCP
-(*Datagram Congestion Control Protocol*). Un socket stream fournit un flot de données sans erreurs, séquencé, unique et ininterrompu avec des mécanismes prédéfinis
-pour créer et détruire des connections et rapporter des erreurs. Un socket stream transmet des données de manière fiable, ordonnée sans requerir l'établissement
-préalable d'un canal.
+(*Datagram Congestion Control Protocol*). Un socket flux fournit un flot de données sans erreurs, séquencé, unique et ininterrompu avec des mécanismes prédéfinis
+pour créer et détruire des connections et rapporter des erreurs. Un socket flux transmet des données de manière fiable, ordonnée sans requerir l'établissement
+préalable d'un canal de communication.
 * **Raw** : Permet l'envoie et la réception de paquets IP sans aucun formatage spécifique à un protocole de la couche transport. Avec les autres types de socket,
 la donnée est automatiquement encapsulée selon le protocole de la couche transport choisi (TCP, UDP etc.), et l'utilisateur du socket n'a pas connaissance de
-l'existence des headers du protocole. Quand on lit d'une socket raw, les headers sont généralement inclus. Lorsqu'on transmet des paquets depuis une socket raw,
-l'addition automatique d'un header est optionnelle.
+l'existence des entêtes du protocole. Quand on lit d'un socket brut, les entêtes sont généralement inclus. Lorsqu'on transmet des paquets depuis un socket brut,
+l'addition automatique d'une entête est optionnelle.
 
-### IPC Socket
+### Socket IPC
 
-### Pipe anonyme
+Un socket de domaine Unix ou socket IPC (*inter-process communication*) et un point d'arrivée des données de communications qui permet d'échanger des données entre
+des processus s'exécutant sur le même système d'exploitation hôte. Les types de socket valides dans le domaine UNIX sont :
 
-### Pipe nommé
+* SOCK_STREAM (à comparer au TCP) - pour un socket orienté flux
+* SOCK_DGRAM (à comparer à UDP) - pour un socket orienté datagramme qui préserve les limites des messages (comme la plupart des implémentations UNIX, les socket de
+domaine UNIX datagram sont toujours fiables et ne réordonnent pas les datagrammes)
+* SOCK_SEQPACKET (à comparer à SCTP) - pour un socket à paquets séquencés orienté connection, qui préserve les limites des messages, et livre les paquets dans
+l'ordre d'envoi.
+
+Les sockets de domaine Unix sont une composante standard des systèmes d'exploitation POSIX.
+
+Les interfaces de programmation (API) pour les sockets de domaine Unix sont similaires à celles des sockets internet, mais au lieu d'utiliser un protocole réseau
+sous-jacent, toutes les communications se placent à l'intérieur du noyau du système d'exploitation. Les socket de domaine Unix peuvent utiliser le système de fichiers
+comme adresse d'espace de noms. (Certains systèmes d'exploitation, comme Linux, offrent des espaces de noms additionnels.) Les processus référencent les sockets de
+domaine Unix comme des inodes du système de fichier, ainsi 2 processus peuvent communiquer en ouvrant la même socket.
+
+En plus de permettre l'envoi de données, les processus peuvent envoyer des descripteurs de fichiers à traver une connection de socket de domaine Unix en utilisant les
+appels systèmes sendmsg() et recvmsg(). Ceci permet au processus qui envoit d'autoriser le processus qui reçoit à accéder au descripteur de fichier auquel autrement
+le processus qui reçoit n'a pas accès. Ceci permet d'implémenter une forme rudimentaire de sécurité basée sur l'accessibilité.
+
+### Tube anonyme
+
+Un tube anonyme est un mécanisme de gestion de flux de donnée. Ce mécanisme inventé pour UNIX est principalement utilisé dans la communication inter-processus.
+Ouvrir un tube anonyme permet de créer un flux de donnée unidirectionnel FIFO entre un processus et un autre. Ces tubes sont détruits lorsque le processus qui les
+a créés disparaît, contrairement aux tubes nommés qui sont liés au système d'exploitation et qui doivent être explicitement détruits.
+
+Ce mécanisme permet la création de filtres.
+
+Pour les système d'exploitation de type Unix, un tube anonyme est créé grâce à un appel système qui retourne un descripteur de fichier à la suite de la création
+d'un Fork qui permet d'assigner à chacun des processus son rôle de récepteur ou d'émetteur.
+
+### Tube nommé
+
+Comme les tubes anonymes, les tubes nommés sont des zones de données organisées en FIFO mais contrairement à ceux-ci qui sont détruits lorsque le processus qui les
+a créés disparait, les tubes nommés sont liés au système d'exploitation et ils doivent être explicitement détruits.
 
 ### Passage de message
 
+Le modèle de passage de messages et une technique permettant de demander l'exécution d'un programme. Le passage de message utilise un modèle objet afin de
+distinguer la fonction générale de ses implémentations spécifiques. Le programme appelant envoit un message et se fie à l'objet afin de sélectionner et d'exécuter
+le code approprié. L'utilisation d'une couche intermédiaire, est justifiée par des besoins de distribution et d'encapsulation.
+
+L'encapsulation suit l'idée que les objets logiciels devraient être capables d'invoquer les services d'autres objets sans avoir aucune connaissance spécifique
+de leurs implémentations. L'encapsulation permet de réduire les lignes de codes ainsi qu'une plus grande maintenabilité des systèmes.
+
+Le passage de messages distribué permet au développeur, à l'aide d'une couche fournissant les services de base de construire des systèmes constitués de sous-systèmes
+s'exécutant sur des ordinateurs disparates, à différents endroit et à des horaires différents. Lorsqu'un objet distribué envoie un message, la couche message
+s'occupe de :
+
+* Trouver d'où et de quel processus le message est issu.
+* Sauvegarder le message dans une file si l'objet approprié au traitement du message n'est pas en cours d'exécution et s'occuper de l'envoyer dès que l'objet est
+disponnible. Ainsi que de stocker le résultat si besoin, jusqu'à ce que l'objet qui a envoyé le message est prêt à le recevoir.
+* Contrôler diverses dépendances transactionnelles pour les transactions distribuées.
+
 ### Fichier mappé en mémoire
+
+Un fichier mappé en mémoire est un segment de mémoire virtuelle qui est la copie d'une portion de fichier ou d'une ressource de type fichier. Cette ressource est
+typiquement un fichier présent sur le disque, mais cela peut également être un périphérique, un objet en mémoire partagée, ou toute autre ressource que le système
+d'exploitation peut référencer à l'aide d'un descripteur de fichier. Une fois présente en mémoire, cette corrélation entre le fichier et l'espace mémoire permet
+aux applications de traiter la partie mappée comme s'il s'agissait de la mémoire primaire.
+
+Le bénéfice d'utiliser le mappage en mémoire est d'augmenter les performances d'entrée/sortie notamment sur les fichiers de gros volume. Pour les petits fichiers,
+les fichiers mappés peuvent engendrer des problèmes de fragmentation interne du fait
 
 ### Partitionnement de la mémoire
 
