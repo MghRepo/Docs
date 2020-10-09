@@ -142,7 +142,7 @@ même depuis le shell. La fonction raise(3) permet d'envoyer un signal au proces
 Les exceptions comme les erreurs de segmentation ou les divisions par zéro génèrent des signaux. Ici les signaux générés seront respectivement
 SIGSEGV et SIGFPE. Un processus recevant ces signaux se terminera et générera un core dump par défaut.
 
-Le noyau peut générer des signaux pour notifier les processus que quelquechose s'est passé. Par exemple, SIGPIPE est envoyé à un processus qui
+Le noyau peut générer des signaux pour notifier les processus que quelque chose s'est passé. Par exemple, SIGPIPE est envoyé à un processus qui
 essaye d'écrire dans un pipe qui a été fermé par celui qui lit. Par défaut, le programme se termine alors. Ce comportement rend la construction de
 pipeline en shell aisée.
 
