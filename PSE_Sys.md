@@ -280,6 +280,8 @@ laisser une partition avec énormément d'espace libre et une autre totalement s
 
 ### Mémoire virtuelle
 
+Le principe de mémoire virutelle repose sur l'utilisation de traduction à la volée des adresses virtuelles vue du logiciel, en adresses
+
 ### Pagination
 
 ### Segmentation
