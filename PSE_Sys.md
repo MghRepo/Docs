@@ -113,8 +113,8 @@ atomiques, et constituela méthode utilisée couramment pour restreindre l'accè
 de programmation concurrente.
 * *Verrous* : Permet d'assurer qu'un seul processus accède à une ressource à un instant donné. Un verrou peut être posé pour protéger un accès en lecture et
 permettra à plusieurs processus de lire, mais aucun d'écrire. On dit alors que c'est un verrou partagé. Un verrou est dit exclusif lorsqu'il interdit toute
-écriture et toute lecture en dehors du processus qui l'a posé. La granularité d'un verrou constitue l'étendue des éléments qu'il protège. Par exemple dans les bases
-de données, un verrou peut être posé sur une ligne, un lot de ligne, une table etc.
+écriture et toute lecture en dehors du processus qui l'a posé. La granularité d'un verrou constitue l'étendue des éléments qu'il protège. Par exemple dans les
+bases de données, un verrou peut être posé sur une ligne, un lot de ligne, une table etc.
 * *Spinlocks* : Mécanisme simple de synchronisation basé sur l'attente active.
 * *Moniteur* : Mécanisme de synchronisation qui permet à plusieurs threads de bénéficier de l'exclusion mutuelle et la possibiliter d'attendre (*block*)
 l'invalidation d'une condition. Les moniteurs ont également un mécanisme qui permet aux autres threads de signaler que leur condition est validé. Il
@@ -197,13 +197,13 @@ l'ordre d'envoi.
 Les sockets de domaine Unix sont une composante standard des systèmes d'exploitation POSIX.
 
 Les interfaces de programmation (API) pour les sockets de domaine Unix sont similaires à celles des sockets internet, mais au lieu d'utiliser un protocole réseau
-sous-jacent, toutes les communications se placent à l'intérieur du noyau du système d'exploitation. Les socket de domaine Unix peuvent utiliser le système de fichiers
-comme adresse d'espace de noms. (Certains systèmes d'exploitation, comme Linux, offrent des espaces de noms additionnels.) Les processus référencent les sockets de
-domaine Unix comme des inodes du système de fichier, ainsi 2 processus peuvent communiquer en ouvrant la même socket.
+sous-jacent, toutes les communications se placent à l'intérieur du noyau du système d'exploitation. Les socket de domaine Unix peuvent utiliser le système de 
+fichiers comme adresse d'espace de noms. (Certains systèmes d'exploitation, comme Linux, offrent des espaces de noms additionnels.) Les processus référencent les
+sockets de domaine Unix comme des inodes du système de fichier, ainsi 2 processus peuvent communiquer en ouvrant la même socket.
 
-En plus de permettre l'envoi de données, les processus peuvent envoyer des descripteurs de fichiers à traver une connection de socket de domaine Unix en utilisant les
-appels systèmes sendmsg() et recvmsg(). Ceci permet au processus qui envoit d'autoriser le processus qui reçoit à accéder au descripteur de fichier auquel autrement
-le processus qui reçoit n'a pas accès. Ceci permet d'implémenter une forme rudimentaire de sécurité basée sur l'accessibilité.
+En plus de permettre l'envoi de données, les processus peuvent envoyer des descripteurs de fichiers à traver une connection de socket de domaine Unix en utilisant 
+les appels systèmes sendmsg() et recvmsg(). Ceci permet au processus qui envoit d'autoriser le processus qui reçoit à accéder au descripteur de fichier auquel 
+autrement le processus qui reçoit n'a pas accès. Ceci permet d'implémenter une forme rudimentaire de sécurité basée sur l'accessibilité.
 
 ### Tube anonyme
 
@@ -230,9 +230,9 @@ le code approprié. L'utilisation d'une couche intermédiaire, est justifiée pa
 L'encapsulation suit l'idée que les objets logiciels devraient être capables d'invoquer les services d'autres objets sans avoir aucune connaissance spécifique
 de leurs implémentations. L'encapsulation permet de réduire les lignes de codes ainsi qu'une plus grande maintenabilité des systèmes.
 
-Le passage de messages distribué permet au développeur, à l'aide d'une couche fournissant les services de base de construire des systèmes constitués de sous-systèmes
-s'exécutant sur des ordinateurs disparates, à différents endroit et à des horaires différents. Lorsqu'un objet distribué envoie un message, la couche message
-s'occupe de :
+Le passage de messages distribué permet au développeur, à l'aide d'une couche fournissant les services de base de construire des systèmes constitués de sous-
+systèmes s'exécutant sur des ordinateurs disparates, à différents endroit et à des horaires différents. Lorsqu'un objet distribué envoie un message, la couche 
+message s'occupe de :
 
 * Trouver d'où et de quel processus le message est issu.
 * Sauvegarder le message dans une file si l'objet approprié au traitement du message n'est pas en cours d'exécution et s'occuper de l'envoyer dès que l'objet est
@@ -255,8 +255,8 @@ espace utilisateur.
 
 Le processus de mapping mémoire est géré par le gestionnaire de mémoire virtuelle, qui est le même sous-système responsable de la pagination. Les fichiers mappés
 sont chargés une page entière à la fois. La taille de la page est choisi par le système d'exploitation pour un maximum de performance. Sachant que la pagination
-est un élément critique du gestionnaire de mémoire virtuelle, le chargement des portions de la taille d'une page d'un fichier en mémoire physique est généralement une
-fonction système très optimisée.
+est un élément critique du gestionnaire de mémoire virtuelle, le chargement des portions de la taille d'une page d'un fichier en mémoire physique est généralement 
+une fonction système très optimisée.
 
 L'usage le plus commun de fichier mappé en mémoire est le chargement de processus. Lors de la création d'un processus, le système d'exploitation utilise un fichier
 mappé en mémoire pour faire apparaître le fichier exécutable ainsi que tous les modules chargeable en mémoire pour exécution. La technique la plus utilisée est
@@ -270,9 +270,9 @@ les violations de segmentation.
 
 Le partitionnement de la mémoire est la création d'une ou plusieurs régions dans la mémoire secondaire, telle que chaque région puisse être gérée séparément. Ces
 régions sont appelées partitions. C'est généralement la première chose à faire sur un nouveau disque installé, avant qu'un système de fichier soit créé. Le
-disque stocke l'information sur le positionnement et la taille des partitions dans une aire appelée table de partition que le système d'exploitation lit avant toute
-autre région du disque. Chaque partition apparait alors comme un disque "logique" du point de vue du système d'exploitation qui fait usage d'une partie du disque
-réel. Les administrateurs systèmes utilisent alors un programme appelé éditeur de partitions pour créer, retailler, supprimer et manipuler les partitions.
+disque stocke l'information sur le positionnement et la taille des partitions dans une aire appelée table de partition que le système d'exploitation lit avant
+toute autre région du disque. Chaque partition apparait alors comme un disque "logique" du point de vue du système d'exploitation qui fait usage d'une partie du 
+disque réel. Les administrateurs systèmes utilisent alors un programme appelé éditeur de partitions pour créer, retailler, supprimer et manipuler les partitions.
 Le partitionnement permet l'usage de différents systèmes de fichiers afin de stocker tout types de fichiers. Séparer les données utilisateur des données système
 permet d'empêcher que la partition système soit pleine ce qui rendrait le système inutilisable. Le partitionnement permet aussi de simplifier la sauvegarde.
 Un désavantage du partitionnement est qu'il peut être difficile d'allouer la taille adéquate à chacune des partitions, ce qui peut avoir pour conséquence de
@@ -280,7 +280,13 @@ laisser une partition avec énormément d'espace libre et une autre totalement s
 
 ### Mémoire virtuelle
 
-Le principe de mémoire virutelle repose sur l'utilisation de traduction à la volée des adresses virtuelles vue du logiciel, en adresses
+Le principe de mémoire virutelle repose sur l'utilisation de traduction à la volée des adresses virtuelles vue du logiciel, en adresses physiques de mémoire vive.
+La mémoire virtuelle permet :
+
+* d'utiliser de la mémoire de masse comme extension de la mémoire vive ;
+* d'augmenter le taux de multiprogrammation ;
+* de mettre en place des mécanismes de protection de la mémoire ;
+* de partager la mémoire entre processus.
 
 ### Pagination
 
