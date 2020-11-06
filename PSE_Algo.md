@@ -33,7 +33,7 @@ périphérique concerné ait terminé de traiter les données.
 Ces instructions permettent de réaliser une machine à états finis, cela signifie que leur seul effet de bord est de modifier un registre qui correspond à
 l'état courant du programme.
 
-Dans un processeur, cet état correspod à la valeur du compter ordinal.
+Dans un processeur, cet état correspond à la valeur du compter ordinal.
 
 Commandes à étiquettes :
 
