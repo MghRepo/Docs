@@ -186,7 +186,7 @@ Algorithmes lents :
 * Tri par selection (*selection sort*) : Sur un tableau de *n* éléments on recherche l'élément le plus petit du tableau et on l'échange avec l'élément d'indice 0.
 Puis on recherche le deuxième plus petit et on l'échange avec l'élément d'indice 1. L'opération est répétée jusqu'à ce que la structure soit triée.
 
-## Structures de données :
+## Structures de données
 
 Une structure de données est une manière d'organiser les données pour les traiter plus facilement. C'est une mise en oeuvre concrète d'un type abstrait.
 
