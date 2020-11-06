@@ -1,6 +1,6 @@
 # Algorithmique et méthodes de programmation
 
-## Structures de contrôles :
+## Structures de contrôles
 
 En programmation informatique, une structure de contrôle est une instruction particulière à un langage de programmation impératif pouvant dévier
 le flot de contrôle du programme la contenant lorsqu'elle est exécutée. Si, au plus bas niveau, l'éventail se limite généralement aux branchements et
@@ -9,7 +9,7 @@ boucles (while, do-while, for...) ou encore les appels de fonction. Outre les st
 des constructions de gestion d'exceptions (try-catch...) fréquemment trouvés dans les langages de haut niveau aux particularismes de certains
 langages comme les instructions différées (defer) de Go.
 
-### Structures de contrôle séquentielles :
+### Structures de contrôle séquentielles
 
 Un programme informatique impératif est une suite d'instructions. Un registre interne de processeur, le compteur ordinal (PC), est chargé de
 mémoriser l'adresse de la prochaine instruction à exécuter.
