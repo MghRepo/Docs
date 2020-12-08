@@ -290,6 +290,12 @@ La mémoire virtuelle permet :
 
 ### Pagination
 
+* Les adresses mémoires émises par le processeur sont des adresses virtuelles, indiquant la position d'un mot dans la mémoire virtuelle.
+* Cette mémoire virtuelle est formée de zones de même taille, appelées pages. Une adresse virtuelle est donc un couple (numéro de page, déplacement dans la page).
+La taille des pages est une puissance entière de deux, de façon à déterminersans calcul le déplacement (10 bits de poids faible de l'adresse virtuelle pour des pages
+de 1024 mots), et le numéro de page (les autres bits).
+* La mémoire vive est également composées de zones de même taille, apellées cadres (*frames*), dans lesquelles prennent place les pages
+
 ### Segmentation
 
 ### Types de périphériques
