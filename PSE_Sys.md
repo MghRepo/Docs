@@ -346,8 +346,8 @@ Systemd-nspawn peut être utilisée pour exécuter une commande ou un OS dans un
 la hiérarchie du système de fichier, mais aussi l'arbre de processus, les différents sous-systèmes IPC ainsi que le nom de l'hôte et du domaine.
 
 Systemd-nspawn limite l'accès en lecture seule à différentes interfaces du noyau dans le conteneur, telles que **/sys**, **/proc/sys** ou **/sys/fs/selinux**.
-Les interfaces réseau et l'horloge système ne peuvent être modifiées depuis l'intérieur du conteneur. Les fichiers spéciaux ou fichiers de périphérique ne peuvent pas
-non plus être créés. Le système hôte ne peut pas être redémarrer et des modules du noyau ne peuvent pas être chargés depuis le conteneur.
+Les interfaces réseaux et l'horloge système ne peuvent être modifiées depuis l'intérieur du conteneur. Les fichiers spéciaux ou fichiers de périphérique ne peuvent 
+pas non plus être créés. Le système hôte ne peut pas être redémarrer et des modules du noyau ne peuvent pas être chargés depuis le conteneur.
 
 Les conteneurs ainsi créés peuvent être gérés à l'aide de la commande *machinectl*.
 
