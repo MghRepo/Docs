@@ -302,9 +302,27 @@ La mémoire virtuelle permet :
 * Cette mémoire virtuelle est formée de zones de même taille, appelées pages. Une adresse virtuelle est donc un couple (numéro de page, déplacement dans la page).
 La taille des pages est une puissance entière de deux, de façon à déterminersans calcul le déplacement (10 bits de poids faible de l'adresse virtuelle pour des pages
 de 1024 mots), et le numéro de page (les autres bits).
-* La mémoire vive est également composées de zones de même taille, apellées cadres (*frames*), dans lesquelles prennent place les pages
+* La mémoire vive est également composées de zones de même taille, apellées cadres (*frames*), dans lesquelles prennent place les pages (un cadre contient une page :
+taille d'un cadre = taille d'une page). La taille de l'ensemble des cadres en mémoire vive utilisés par un processus est appelé *Resident set size*.
+* Un mécanisme de traduction (*translation*) assure la conversion des adresses virtuelles en adresses physiques, en consultant une table des pages (*page table*) pour
+connaître le numéro du cadre qui contient la page recherchée. L'adresse physique obtenue est le couple (numéro de cadre, déplacement).
+* Il peut y avoir plus de pages que de cadres (c'est là tout l'intêret) : les pages qui ne sont pas en mémoire sont stockées sur un autre support (disque), elle
+seront ramenées dans un cadre quand on en aura besoin.
+
+La table des pages est indexée par le numéro de page. Chaque ligne est appelée "entrée dans la table des pages (*pages table entry* PTE), et contient le numéro de
+cadre. La table des pages pouvant être située n'importe où en mémoire, un registre spécial (PTBR pour *Page Table Base Register*) conserve son adresse.
+
+En pratique, le mécanisme de traduction fait partie d'un circuit électronique appelé MMU (*memory management unit*) qui contient également une partie de la table des
+pages, stockée dans une mémoire associative formée de registres rapides. Ceci évite d'avoir à consulter la table des pages (en mémoire) pour chaque accès mémoire.
 
 ### Segmentation
+
+La segmentation est une technique de découpage de la mémoire. Elle est gérée par l'unité de segmentation de l'unité de gestion mémoire (*MMU*), utilisée sur les
+systèmes d'exploitation modernes, qui divise la mémoire physique (dans le cas de la segmentation pure) ou la mémoire virtuelle (dans le cas de la segmentation avec
+pagination) en segments caractérisés par leur adresse de début et leur taille (*décalage*).
+
+La segmentation permet la séparation des données du programme (entre autres segments) dans des espaces logiquement indépendants facilitant alors la programmation,
+l'édition de liens et le partage inter-processus. La segmentation permet également d'offrir une plus grande protection grâce au niveau de privilège de chaque segment.
 
 ### Types de périphériques
 
@@ -314,15 +332,24 @@ de 1024 mots), et le numéro de page (les autres bits).
 
 ### Pilotes
 
-## Administration
+### Shell
 
-### Scripts
+### Virtualisation niveau système d'exploitation
 
-### Sauvegardes
+### Cgroups
 
-### Machines virtuelles
+### Espaces de noms
 
-### Conteneurisation Docker
+### Systemd-nspawn
+
+Systemd-nspawn peut être utilisée pour exécuter une commande ou un OS dans un conteneur léger d'espace de noms. Il est plus puissant que *chroot* puisqu'il virtualise
+la hiérarchie du système de fichier, mais aussi l'arbre de processus, les différents sous-systèmes IPC ainsi que le nom de l'hôte et du domaine.
+
+Systemd-nspawn limite l'accès en lecture seule à différentes interfaces du noyau dans le conteneur, telles que **/sys**, **/proc/sys** ou **/sys/fs/selinux**.
+Les interfaces réseau et l'horloge système ne peuvent être modifiées depuis l'intérieur du conteneur. Les fichiers spéciaux ou fichiers de périphérique ne peuvent pas
+non plus être créés. Le système hôte ne peut pas être redémarrer et des modules du noyau ne peuvent pas être chargés depuis le conteneur.
+
+Les conteneurs ainsi créés peuvent être gérés à l'aide de la commande *machinectl*.
 
 ### Conteneurisation LXC
 
@@ -337,20 +364,13 @@ LXC combine les cgroups du noyau et inclut l'isolation des espaces de nom pour f
 
 LXC permet d'exécuter des conteneurs en tant que simple utilisateur sur l'hôte à l'aide des conteneurs dits "non-privilégiés".
 
-### Systemd-nspawn
+### Conteneurisation Docker
 
-Systemd-nspawn peut être utilisée pour exécuter une commande ou un OS dans un conteneur léger d'espace de noms. Il est plus puissant que *chroot* puisqu'il virtualise
-la hiérarchie du système de fichier, mais aussi l'arbre de processus, les différents sous-systèmes IPC ainsi que le nom de l'hôte et du domaine.
+### Orchestrateur Kubernetes
 
-Systemd-nspawn limite l'accès en lecture seule à différentes interfaces du noyau dans le conteneur, telles que **/sys**, **/proc/sys** ou **/sys/fs/selinux**.
-Les interfaces réseau et l'horloge système ne peuvent être modifiées depuis l'intérieur du conteneur. Les fichiers spéciaux ou fichiers de périphérique ne peuvent pas
-non plus être créés. Le système hôte ne peut pas être redémarrer et des modules du noyau ne peuvent pas être chargés depuis le conteneur.
+### Machines virtuelles
 
-Les conteneurs ainsi créés peuvent être gérés à l'aide de la commande *machinectl*.
-
-### Iptables
-
-### Nftables
+### Netfilter
 
 ### SELinux
 
