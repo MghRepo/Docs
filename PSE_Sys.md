@@ -207,7 +207,7 @@ autrement le processus qui reçoit n'a pas accès. Ceci permet d'implémenter un
 
 ### Socket Netlink
 
-La famille de socket Netlink est une interface du noyau linux utilisée pour des communications inter-processus entre les processus de l'espace utilisateurs et
+La famille de socket Netlink est une interface du noyau linux utilisée pour des communications inter-processus entre les processus de l'espace utilisateur et
 du noyau et entre différents processus utilisateurs. La différence entre les sockets Netlink et les socket IPC et qu'au lieu d'utiliser l'espace de noms du système
 de fichier, les processus Netlink sont généralement désignés par leur PID.
 
