@@ -188,10 +188,10 @@ l'addition automatique d'une entête est optionnelle.
 Un socket de domaine Unix ou socket IPC (*inter-process communication*) et un point d'arrivée des données de communications qui permet d'échanger des données entre
 des processus s'exécutant sur le même système d'exploitation hôte. Les types de socket valides dans le domaine UNIX sont :
 
-* SOCK_STREAM (à comparer au TCP) - pour un socket orienté flux
-* SOCK_DGRAM (à comparer à UDP) - pour un socket orienté datagramme qui préserve les limites des messages (comme la plupart des implémentations UNIX, les socket de
-domaine UNIX datagram sont toujours fiables et ne réordonnent pas les datagrammes)
-* SOCK_SEQPACKET (à comparer à SCTP) - pour un socket à paquets séquencés orienté connection, qui préserve les limites des messages, et livre les paquets dans
+* **SOCK_STREAM** (à comparer au TCP) - pour un socket orienté flux
+* **SOCK_DGRAM** (à comparer à UDP) - pour un socket orienté datagramme qui préserve les limites des messages (comme la plupart des implémentations UNIX, les socket
+de domaine UNIX datagram sont toujours fiables et ne réordonnent pas les datagrammes)
+* **SOCK_SEQPACKET** (à comparer à SCTP) - pour un socket à paquets séquencés orienté connection, qui préserve les limites des messages, et livre les paquets dans
 l'ordre d'envoi.
 
 Les sockets de domaine Unix sont une composante standard des systèmes d'exploitation POSIX.
@@ -204,6 +204,14 @@ sockets de domaine Unix comme des inodes du système de fichier, ainsi 2 process
 En plus de permettre l'envoi de données, les processus peuvent envoyer des descripteurs de fichiers à traver une connection de socket de domaine Unix en utilisant 
 les appels systèmes sendmsg() et recvmsg(). Ceci permet au processus qui envoit d'autoriser le processus qui reçoit à accéder au descripteur de fichier auquel 
 autrement le processus qui reçoit n'a pas accès. Ceci permet d'implémenter une forme rudimentaire de sécurité basée sur l'accessibilité.
+
+### Socket Netlink
+
+La famille de socket Netlink est une interface du noyau linux utilisée pour des communications inter-processus entre les processus de l'espace utilisateurs et
+du noyau et entre différents processus utilisateurs. La différence entre les sockets Netlink et les socket IPC et qu'au lieu d'utiliser l'espace de noms du système
+de fichier, les processus Netlink sont généralement désignés par leur PID.
+
+Netlink fournit une interface socket standard pour les processus utilisateurs, et une API côté noyau pour un usage interne par les modules du noyau.
 
 ### Tube anonyme
 
@@ -314,9 +322,37 @@ de 1024 mots), et le numéro de page (les autres bits).
 
 ### Machines virtuelles
 
-### Conteneurisation
+### Conteneurisation Docker
 
-### Sécurité
+### Conteneurisation LXC
+
+LXC est une méthode de virtualisation au niveau du système d'exploitation permettant d'exécuter plusieurs système isolés Linux sur un système hôte de contrôle
+en utilisant un unique noyau Linux.
+
+Le noyau Linux fournit la fonctionnalité des cgroups qui permet une limitation et une priorisation des ressources (CPU, mémoire, entrées/sorties, réseau, etc.) sans
+besoin d'aucune machine virtuelle, ainsi que la fonction d'isolation par espace de noms qui permet l'isolation complète d'une application du point de vue de
+l'environnement opérant, incluant l'arbre des processus, la configuration réseau, les identifiants utilisateurs et les systèmes de fichiers montés.
+
+LXC combine les cgroups du noyau et inclut l'isolation des espaces de nom pour fournir un environnement isolé à des applications.
+
+LXC permet d'exécuter des conteneurs en tant que simple utilisateur sur l'hôte à l'aide des conteneurs dits "non-privilégiés".
+
+### Systemd-nspawn
+
+Systemd-nspawn peut être utilisée pour exécuter une commande ou un OS dans un conteneur léger d'espace de noms. Il est plus puissant que *chroot* puisqu'il virtualise
+la hiérarchie du système de fichier, mais aussi l'arbre de processus, les différents sous-systèmes IPC ainsi que le nom de l'hôte et du domaine.
+
+Systemd-nspawn limite l'accès en lecture seule à différentes interfaces du noyau dans le conteneur, telles que **/sys**, **/proc/sys** ou **/sys/fs/selinux**.
+Les interfaces réseau et l'horloge système ne peuvent être modifiées depuis l'intérieur du conteneur. Les fichiers spéciaux ou fichiers de périphérique ne peuvent pas
+non plus être créés. Le système hôte ne peut pas être redémarrer et des modules du noyau ne peuvent pas être chargés depuis le conteneur.
+
+Les conteneurs ainsi créés peuvent être gérés à l'aide de la commande *machinectl*.
+
+### Iptables
+
+### Nftables
+
+### SELinux
 
 ## Bases de données
 
