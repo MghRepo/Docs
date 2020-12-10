@@ -324,6 +324,25 @@ pagination) en segments caractérisés par leur adresse de début et leur taille
 La segmentation permet la séparation des données du programme (entre autres segments) dans des espaces logiquement indépendants facilitant alors la programmation,
 l'édition de liens et le partage inter-processus. La segmentation permet également d'offrir une plus grande protection grâce au niveau de privilège de chaque segment.
 
+Lorsque l'unité de gestion mémoire (MMU) doit traduire une adresse logique en adresse linéaire, l'unité de segmentation doit dans un premier temps utiliser la
+première partie de l'adresse, c'est à dire le selecteur de segment, pour retrouver les caractéristiques du segment (base, limit, DPL, etc.) dans la table de
+descripteurs (GDT ou LDT). Puis il utilise la valeur de décalage qui référence l'adresse à l'intérieur du segment.
+
+Il existe sur la majorité des processeurs actuels, des registres de segments (CS, DS, SS, etc.) qui contiennent le sélecteur de segment dernièrement utilisé par le
+processeur qui sont utilisés pour accélérer l'accès à ces selecteurs.
+
+Sur les processeurs récents, il existe également des registres associés à chaque registre de segment qui contiennet le descripteur de segment associé pour un accès
+plus rapide aux descripteurs.
+
+Un segment mémoire est un espace d'adressage indépendant défini par deux valeurs :
+
+* L'adresse où il commence (aussi appelée *base*, ou *adresse de base*)
+* Sa taille ou son *décalage* (aussi appelée *limite* ou *offset*)
+
+Un segment constitue donc dans la mémoire principale un plage d'adresse continue.
+
+Une adresse logique d'une donnée désirée est donc exprimée sous la forme (*segment, décalage*), le segment étant ré
+
 ### Types de périphériques
 
 ### Bus
