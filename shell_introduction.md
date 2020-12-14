@@ -86,7 +86,7 @@ Pour savoir dans quel répertoire on se trouve actuellement il existe la command
 pour *print working directory* (affiche le répertoire de travail) :
 
     $ pwd
-        /home/admarouj
+        /home/hugo
 
 A partir d'ici on peut changer de répertoire de travail avec la commande cd et,
 en argument un chemin relatif ou absolu :
@@ -108,7 +108,7 @@ Par exemple :
     $ cd ~/test/
 
     $ pwd
-        /home/admarouj/test
+        /home/hugo/test
 
     $ cd ../../
 
@@ -118,7 +118,7 @@ Par exemple :
     $ cd -
 
     $ pwd
-        /home/admarouj/test
+        /home/hugo/test
 
 Cela permet de naviguer plus facilement à l'interieur du système de fichiers.
 
@@ -137,7 +137,7 @@ La commande ls permet de lister le contenu d'un répertoire.
         file1  file2  file3
 
     $ ls ../../
-        admarouj  khq  admsrenn
+        bleu rouge vert
 
 Dans le cas de l'utilisation de certains programmes il peut être utile de connaître les arguments
 que l'utilitaire accepte. La plupart des programmes implémentent des flags et des options.
