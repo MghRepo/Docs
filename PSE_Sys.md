@@ -427,8 +427,8 @@ les images, les conteneurs et les services.
     * Un conteneur Docker est un environnement encapsulé, standardisé qui exécute des applications. Un conteneur est géré à travers l'API Docker ou la ligne de
     commande.
     * Une image Docker est un modèle en lecture seule utilisée pour construire des conteneurs. Les images sont utilisées pour stocker et envoyer des applications.
-    * Un service Docker permet aux conteneurs de se déployer sur de multiples daemons Docker. Ceci étant appelé une nuée (*swarm*), un ensemble de daemon coopérant,
-    communiquant à travers l'API Docker.
+    * Un service Docker permet une mise à l'echelle des conteneurs sur de multiples daemons Docker. Ceci étant appelé une nuée (*swarm*), un ensemble de daemon
+    coopérant, communiquant à travers l'API Docker.
 * Les registres : Un registre Docker est un dépot d'image Docker. Les clients Docker se connectent aux registres pour cloner (*pull*) des images à utiliser ou déposer
 (*push*) des images qu'ils ont contruites. Les dépots peuvent être publics ou privés. Les deux principaux dépots publics sont Docker Hub et Docker Cloud. Docker Hub
 est le registre par défaut ou Docker recherche des images. Des registres Docker permettent également la création de notifications basée sur des évennements.
@@ -438,9 +438,21 @@ Le logiciel Docker dispose également d'outils :
 * Docker Compose qui est un outil qui permet de définir et d'exécuter des applications Docker multi-conteneurs. Il utilise des fichier YAML pour configurer les
 services de l'application et créé et démarre les processus de tous les conteneurs à l'aide d'une seule commande. L'interface en ligne de commande *docker-compose*
 permet aux utilisateurs de passer des commandes sur des ensembles de conteneurs, par exemple pour construire des images, déployer des conteneurs, redémarrer des
-conteneurs, etc.
+conteneurs, etc. Les commandes liées à la manipulation d'image, ou les options intéractives sont inutiles dans Docker Compose car elle s'adressent à un conteneur
+unique. Le fichier docker-compose.yml est utiliser pour définir les services de l'applications et inclut plusieurs options de configuration. Par exemple, l'option
+*build* définit les options de configuration telles que le chemin du Dockerfile, l'option *command* permet de surcharger les commandes Docker par défaut, etc.
+* Docker Swarm fournit nativement un fonctionnalité de grappe pour les conteneurs Docker qui transforme un groupe de Docker engine en un unique Docker engine virtuel.
+L'interface ligne de commande *docker swarm* permet aux utilisateurs d'exécuter des conteneurs Swarm, de créer des mots-clefs, lister les noeuds de la grappe, etc.
+L'interface ligne de commande *docker node* permet aux utilisateurs d'exécuter diverses commandes pour gérer des noeuds dans la nuée, par exemple, lister les noeuds
+de la nuée, mettre à jour les noeuds, supprimer les noeuds d'une nuée. Docker gère les nuées en utilisant l'algorithme de consensus Raft. Selon Raft, pour qu'une mise
+à jour se fasse, la majorité des noeuds de la nuée doivent s'accorder sur celle-ci.
 
 ### Orchestrateur Kubernetes
+
+Kubernetes est un système d'orchestration de conteneurs open source permettant d'automatiser le déploiement, la mise à l'echelle et la gestion d'applications
+informatiques.
+
+Beaucoup de services de cloud offre des plateformes ou infrastructures en tant que service basées sur Kubernetes
 
 ### Libvirt
 
