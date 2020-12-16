@@ -353,11 +353,26 @@ Une adresse logique d'une donnée désirée est donc exprimée sous la forme (*s
 
 ### Shell
 
-### Virtualisation niveau système d'exploitation
-
 ### Cgroups
 
+Les cgroups sont une fonctionnalité du noyau linux qui limite, compte et isole l'utilisation des ressources (CPU, mémoire, Entrée/sortie, réseau, etc.) d'une
+collection de processus.
+
+Ces groupes de contrôle peuvent être utilisés de multiples façons :
+
+* En accédant le système de fichier virtuel du cgroup manuellement.
+* En créant et gérant des groupes à la volée en utilisant des outils tels que *cgcreate*, *cgexec* et *cgclassify* (*libcgroup*).
+* A travers le "daemon moteur de règles" qui peut déplacer les processus de certains utilisateurs, groupes de manière automatique ou commander aux cgroups comme cela
+a été spécifié dans sa configuration.
+* Indirectement à travers d'autres logiciels utilisant les cgroups, tels que Docker, LXC, libvirt, systemd, etc.
+
 ### Espaces de noms
+
+Un espace de noms encapsule dans une abstraction une ressource système globale qui la fait apparaître aux processus contenus dans l'espace de noms qui ont leur
+propre instance isolée de la ressource globale. Les changements de la ressource globale sont visibles aux autres processus membre de l'espace de noms, mais invisible
+aux autres processus. Les espaces de noms sont utilisés pour implémenter les conteneurs.
+
+Les types d'espace de noms disponnibles dans Linux sont les suivants : Cgroup, IPC, Network, mount, PID, Time, User, UTS.
 
 ### Systemd-nspawn
 
@@ -385,9 +400,51 @@ LXC permet d'exécuter des conteneurs en tant que simple utilisateur sur l'hôte
 
 ### Conteneurisation Docker
 
+Docker est un ensemble de produits de Plateforme en tant que Service qui utilise la virtualisation au niveau du système d'exploitation pour livrer des logiciels
+dans des paquets appelé conteneurs. Les conteneurs sont isolés les uns des autres et embarquent leurs propres logiciels, bibliothèques et fichiers de configuration ;
+ils peuvent communiquer entre eux à travers des cannaux bien définis. Tous les conteneurs sont exécuté par un noyau de système d'exploitation unique et par conséquent
+utilisent moins de ressources que des machines virtuelles.
+
+Docker peut empaqueter une application et ses dépendances dans un conteneur virtuel qui peut s'exécuter sur n'importe quel ordinateur Linux, Windows, ou macOS. Ceci
+permet à l'application de s'exécuter dans toute une variété d'environnement, par exemple, sur sa propre machine, dans un cloud public ou privé. Quand il s'exécute
+sur Linux, Docker utilise les mécanismes d'isolation fournis par le noyau (tels que les cgroups et les espaces de noms) et les systèmes de fichiers capables de
+montage en union, pour permettre aux conteneurs de s'exécuter sur une intance Linux unique, évitant la surcharge du démarrage et de la maintenance de machines
+virtuelles.
+
+Le support des espaces de nom du noyau Linux permet d'isoler l'environnement système de la vue de l'application comme l'arbre des processus, le réseau, les
+identifiants utilisateurs et les systèmes de fichiers montés, tandis que les cgroups fournissent la limitation de ressources mémoire et CPU. Docker inclut également
+sa propre bibliothèque *libcontainer* permettant d'accéder directement les fonctions de virtualisations fournient par le noyau linux en plus de l'utilisation
+d'interfaces de virtualisations telles que *libvirt*, *LXC* et *systemd-nspawn*.
+
+Docker implément une API de haut niveau pour fournir des conteneurs légers exécutant des processus isolés.
+
+Le logiciel Docker en tant qu'offre de services consiste en trois composants :
+
+* Le Logiciel : Le daemon Docker, *dockerd*, est un processus persistant qui gère les conteneurs Docker ainsi que les objets du conteneur. Le daemon est à l'écoute
+des requêtes envoyés via l'API du Docker Engine. Et le programme client *docker* fournit une interface de ligne de commande qui permet d'intéragir avec le daemon.
+* Les objets : Les objets docker sont des entités diverses utilisées pour assembler une application dans Docker. Les classes principales des objets Dockers sont
+les images, les conteneurs et les services.
+    * Un conteneur Docker est un environnement encapsulé, standardisé qui exécute des applications. Un conteneur est géré à travers l'API Docker ou la ligne de
+    commande.
+    * Une image Docker est un modèle en lecture seule utilisée pour construire des conteneurs. Les images sont utilisées pour stocker et envoyer des applications.
+    * Un service Docker permet aux conteneurs de se déployer sur de multiples daemons Docker. Ceci étant appelé une nuée (*swarm*), un ensemble de daemon coopérant,
+    communiquant à travers l'API Docker.
+* Les registres : Un registre Docker est un dépot d'image Docker. Les clients Docker se connectent aux registres pour cloner (*pull*) des images à utiliser ou déposer
+(*push*) des images qu'ils ont contruites. Les dépots peuvent être publics ou privés. Les deux principaux dépots publics sont Docker Hub et Docker Cloud. Docker Hub
+est le registre par défaut ou Docker recherche des images. Des registres Docker permettent également la création de notifications basée sur des évennements.
+
+Le logiciel Docker dispose également d'outils :
+
+* Docker Compose qui est un outil qui permet de définir et d'exécuter des applications Docker multi-conteneurs. Il utilise des fichier YAML pour configurer les
+services de l'application et créé et démarre les processus de tous les conteneurs à l'aide d'une seule commande. L'interface en ligne de commande *docker-compose*
+permet aux utilisateurs de passer des commandes sur des ensembles de conteneurs, par exemple pour construire des images, déployer des conteneurs, redémarrer des
+conteneurs, etc.
+
 ### Orchestrateur Kubernetes
 
-### Machines virtuelles
+### Libvirt
+
+### Hyperviseurs
 
 ### Netfilter
 
