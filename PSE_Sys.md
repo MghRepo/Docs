@@ -510,6 +510,26 @@ garantis de se trouver sur le même noeud.
 Chaque pod dans Kubernetes est assigné à une adresse IP unique à l'intérieur du cluster, permettant aux applications d'utiliser des ports sans risques de conflits.
 A l'intérieur du pod,; chaque conteneur peut faire référence à chaque autre sur le localhost, mais un conteneur à l'intérieur d'un pod n'a aucun moyen de s'adresser
 directement à un autre conteneur dans un autre pod ; pour cela, il doit utiliser l'adresse IP du pod.
+
+Un pod peut définir un volume, tel qu'un répertoire du disque local ou un disque réseau, et l'exposer aux conteneurs du pod. Les pods peuvent être gérés manuellement
+via l'API Kubernetes, ou leur gestion peut être déléguée à un contrôleur. De tels volumes sont aussi la pase des fonctionnalités Kubernetes de ConfigMaps (pour
+fournir un accès à la configuration à travers le système de fichier visible au conteneur) et Secrets (pour fournir les certificats nécessaires à l'accès sécurisé à
+des ressources distantes, en donnant uniquement aux conteneurs autorisés, ces certificats sur leur système de fichier visible).
+
+La fonction d'un ReplicaSet est de maintenir un ensemble stable de pods répliqués pouvant être exécutés à tout moment. En tant que tel, il est souvent utilisé pour
+garantir la disponnibilité d'un nombre de pods identiques spécifique.
+
+Les ReplicaSets est également un mécanisme de rassemblement qui permet à Kubernetes de maintenir pour un pod donné un nombre d'instance défini à l'avance.
+La définition d'un ensemble de réplique utilise un selecteur, dont l'évaluation résulte en l'évaluation de tous les pods qui lui sont associés.
+
+Un service Kubernetes est un ensemble de pods travaillant de concert, tel une couche d'une application multi-couche. L'ensemble de pods qui constitue un service sont
+définis par un sélecteur d'étiquette. Kubernetes fournit deux modes de découverte de service, en utilisant des variables d'environnement, ou en utilisant le DNS
+Kubernetes. La découverte de service assigne un adresse IP fixe et un nom DNS au service, et réparti la charge du traffic en utilisant un DNS round-robin pour les
+connections réseaux à cette adresse IP au milieu des pods vérifiant ce selecteur (même si des erreurs peuvent ammener les pods à passer d'une machine à une autre).
+Par défaut un service est exposé à l'intérieur d'un cluster (par exemple les pods back-end peuvent être groupés en service, recevant des requêtes de la part des
+pods front-end réparties entre eux), mais un service peut également être exposé en dehors d'un cluster (par exemple pour que les clients puissent accéder aux pods
+front-end).
+
 ### Libvirt
 
 ### Hyperviseurs
