@@ -540,7 +540,11 @@ Kubernetes fournit un partitionnement des ressources qu'il gère dans des ensemb
 environnements possédant un grand nombre d'utilisateurs répartis dans plusieurs équipes, ou projets, ou même à séparer des environnements tels que le développement,
 l'intégration et la production.
 
-Il est très facile de réaliser une mise à l'échelle d'applications sans conditions d'état : Il suffit d'ajouter plus de pods.
+Il est très facile de réaliser une mise à l'échelle d'applications sans conditions d'état : Il suffit d'ajouter plus de pods d'exécution - quelque chose que
+Kubernetes fait très bien. Les charges de travail avec condition d'état sont bien plus difficiles, de fait que l'état doit être conservé si un pod est redémarré, et
+si l'application doit être redimmensionnée alors l'état devra possiblement être redistribué. Les bases de données sont des exemples de charge de travail avec
+condition d'état. Lors d'une exécution en mode haute disponibilité, beaucoup de bases de données ont la notion d'instance primaire et d'instance(s) secondaires.
+Dans ce cas la notion d'ordonnancement d'instances est important.
 
 ### Libvirt
 
