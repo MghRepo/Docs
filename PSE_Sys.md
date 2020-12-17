@@ -530,6 +530,18 @@ Par défaut un service est exposé à l'intérieur d'un cluster (par exemple les
 pods front-end réparties entre eux), mais un service peut également être exposé en dehors d'un cluster (par exemple pour que les clients puissent accéder aux pods
 front-end).
 
+Les systèmes de fichier dans le conteneur Kubernetes fournit par défaut un stockage éphémère. Cela signifie qu'un redémarrage du pod effacera toute les données sur
+ces conteneurs, et par conséquent, cette forme de stockage est, excepté dans le cas d'applications triviales, relativement limitante. Un volume Kubernetes fournit
+un stockage permanant qui existe pendant la durée d'existance du pod lui-même. Ce stockage peut également être utilisé comme disque partagé pour les conteneurs du
+pod. Ces volumes sont montés à des points de montages spécifique à l'intérieur du conteneur définit par la configuration du pod, et ne peuvent être montés aux
+autres volumes ou liés à ceux-ci. Le même volume peut être monté à différent endroits dans l'arbre du système de fichiers par différents conteneurs.
+
+Kubernetes fournit un partitionnement des ressources qu'il gère dans des ensembles disjoints appelés espace de noms. L'usage de ces espaces de noms est destiné aux
+environnements possédant un grand nombre d'utilisateurs répartis dans plusieurs équipes, ou projets, ou même à séparer des environnements tels que le développement,
+l'intégration et la production.
+
+Il est très facile de réaliser une mise à l'échelle d'applications sans conditions d'état : Il suffit d'ajouter plus de pods.
+
 ### Libvirt
 
 ### Hyperviseurs
