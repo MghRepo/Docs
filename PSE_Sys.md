@@ -189,8 +189,8 @@ Un socket de domaine Unix ou socket IPC (*inter-process communication*) et un po
 des processus s'exécutant sur le même système d'exploitation hôte. Les types de socket valides dans le domaine UNIX sont :
 
 * **SOCK_STREAM** (à comparer au TCP) - pour un socket orienté flux
-* **SOCK_DGRAM** (à comparer à UDP) - pour un socket orienté datagramme qui préserve les limites des messages (comme la plupart des implémentations UNIX, les socket
-de domaine UNIX datagram sont toujours fiables et ne réordonnent pas les datagrammes)
+* **SOCK_DGRAM** (à comparer à UDP) - pour un socket orienté datagramme qui préserve les limites des messages (comme la plupart des implémentations UNIX, les 
+socket de domaine UNIX datagram sont toujours fiables et ne réordonnent pas les datagrammes)
 * **SOCK_SEQPACKET** (à comparer à SCTP) - pour un socket à paquets séquencés orienté connection, qui préserve les limites des messages, et livre les paquets dans
 l'ordre d'envoi.
 
@@ -300,20 +300,21 @@ La mémoire virtuelle permet :
 
 * Les adresses mémoires émises par le processeur sont des adresses virtuelles, indiquant la position d'un mot dans la mémoire virtuelle.
 * Cette mémoire virtuelle est formée de zones de même taille, appelées pages. Une adresse virtuelle est donc un couple (numéro de page, déplacement dans la page).
-La taille des pages est une puissance entière de deux, de façon à déterminersans calcul le déplacement (10 bits de poids faible de l'adresse virtuelle pour des pages
-de 1024 mots), et le numéro de page (les autres bits).
-* La mémoire vive est également composées de zones de même taille, apellées cadres (*frames*), dans lesquelles prennent place les pages (un cadre contient une page :
-taille d'un cadre = taille d'une page). La taille de l'ensemble des cadres en mémoire vive utilisés par un processus est appelé *Resident set size*.
-* Un mécanisme de traduction (*translation*) assure la conversion des adresses virtuelles en adresses physiques, en consultant une table des pages (*page table*) pour
-connaître le numéro du cadre qui contient la page recherchée. L'adresse physique obtenue est le couple (numéro de cadre, déplacement).
+La taille des pages est une puissance entière de deux, de façon à déterminersans calcul le déplacement (10 bits de poids faible de l'adresse virtuelle pour des 
+pages de 1024 mots), et le numéro de page (les autres bits).
+* La mémoire vive est également composées de zones de même taille, apellées cadres (*frames*), dans lesquelles prennent place les pages (un cadre contient une page 
+: taille d'un cadre = taille d'une page). La taille de l'ensemble des cadres en mémoire vive utilisés par un processus est appelé *Resident set size*.
+* Un mécanisme de traduction (*translation*) assure la conversion des adresses virtuelles en adresses physiques, en consultant une table des pages (*page table*) 
+pour connaître le numéro du cadre qui contient la page recherchée. L'adresse physique obtenue est le couple (numéro de cadre, déplacement).
 * Il peut y avoir plus de pages que de cadres (c'est là tout l'intêret) : les pages qui ne sont pas en mémoire sont stockées sur un autre support (disque), elle
 seront ramenées dans un cadre quand on en aura besoin.
 
 La table des pages est indexée par le numéro de page. Chaque ligne est appelée "entrée dans la table des pages (*pages table entry* PTE), et contient le numéro de
 cadre. La table des pages pouvant être située n'importe où en mémoire, un registre spécial (PTBR pour *Page Table Base Register*) conserve son adresse.
 
-En pratique, le mécanisme de traduction fait partie d'un circuit électronique appelé MMU (*memory management unit*) qui contient également une partie de la table des
-pages, stockée dans une mémoire associative formée de registres rapides. Ceci évite d'avoir à consulter la table des pages (en mémoire) pour chaque accès mémoire.
+En pratique, le mécanisme de traduction fait partie d'un circuit électronique appelé MMU (*memory management unit*) qui contient également une partie de la table 
+des pages, stockée dans une mémoire associative formée de registres rapides. Ceci évite d'avoir à consulter la table des pages (en mémoire) pour chaque accès 
+mémoire.
 
 ### Segmentation
 
@@ -322,7 +323,8 @@ systèmes d'exploitation modernes, qui divise la mémoire physique (dans le cas 
 pagination) en segments caractérisés par leur adresse de début et leur taille (*décalage*).
 
 La segmentation permet la séparation des données du programme (entre autres segments) dans des espaces logiquement indépendants facilitant alors la programmation,
-l'édition de liens et le partage inter-processus. La segmentation permet également d'offrir une plus grande protection grâce au niveau de privilège de chaque segment.
+l'édition de liens et le partage inter-processus. La segmentation permet également d'offrir une plus grande protection grâce au niveau de privilège de chaque 
+segment.
 
 Lorsque l'unité de gestion mémoire (MMU) doit traduire une adresse logique en adresse linéaire, l'unité de segmentation doit dans un premier temps utiliser la
 première partie de l'adresse, c'est à dire le selecteur de segment, pour retrouver les caractéristiques du segment (base, limit, DPL, etc.) dans la table de
@@ -355,9 +357,9 @@ Sysfs est un système de fichiers virtuel introduit par le noyau linux 2.6. Sysf
 sur les périphériques du système et leur pilotes, et est également utilisé pour configurer certaine fonctionnalités du noyau.
 
 Pour chaque objet ajouté à l'arbre des modèles de pilote (pilotes, périphériques, classe de périphériques), un répertoire est créé dans sysfs. La relation
-parent/enfant est représentée sous la forme de sous-répertoires dans */sys/devices/* (représentant la couche physique). Le sous-répertoire */sys/bus/* est peuplé de
-liens symboliques, représentant la manière dont chaque périphérique appartient aux différents bus. */sys/class/* montre les périphérique regroupés en classes, comme
-les périphériques réseau par exemple, pendant que */sys/block/* contient les périphériques de type bloc.
+parent/enfant est représentée sous la forme de sous-répertoires dans */sys/devices/* (représentant la couche physique). Le sous-répertoire */sys/bus/* est peuplé
+de liens symboliques, représentant la manière dont chaque périphérique appartient aux différents bus. */sys/class/* montre les périphérique regroupés en classes, 
+comme les périphériques réseau par exemple, pendant que */sys/block/* contient les périphériques de type bloc.
 
 Pour les périphériques et leurs pilotes, des attributs peuvent être créés. Ce sont de simples fichiers, la seule contrainte est qu'ils ne peuvent contenir chacun
 qu'une seule valeur et/ou n'autoriser le renseignement que d'une valeur (au contraire de certains fichiers de procfs, qui nécessitent d'être longuement parcourus).
@@ -392,22 +394,22 @@ Ces groupes de contrôle peuvent être utilisés de multiples façons :
 
 * En accédant le système de fichier virtuel du cgroup manuellement.
 * En créant et gérant des groupes à la volée en utilisant des outils tels que *cgcreate*, *cgexec* et *cgclassify* (*libcgroup*).
-* A travers le "daemon moteur de règles" qui peut déplacer les processus de certains utilisateurs, groupes de manière automatique ou commander aux cgroups comme cela
-a été spécifié dans sa configuration.
+* A travers le "daemon moteur de règles" qui peut déplacer les processus de certains utilisateurs, groupes de manière automatique ou commander aux cgroups comme 
+cela a été spécifié dans sa configuration.
 * Indirectement à travers d'autres logiciels utilisant les cgroups, tels que Docker, LXC, libvirt, systemd, etc.
 
 ### Espaces de noms
 
 Un espace de noms encapsule dans une abstraction une ressource système globale qui la fait apparaître aux processus contenus dans l'espace de noms qui ont leur
-propre instance isolée de la ressource globale. Les changements de la ressource globale sont visibles aux autres processus membre de l'espace de noms, mais invisible
-aux autres processus. Les espaces de noms sont utilisés pour implémenter les conteneurs.
+propre instance isolée de la ressource globale. Les changements de la ressource globale sont visibles aux autres processus membre de l'espace de noms, mais 
+invisible aux autres processus. Les espaces de noms sont utilisés pour implémenter les conteneurs.
 
 Les types d'espace de noms disponnibles dans Linux sont les suivants : Cgroup, IPC, Network, mount, PID, Time, User, UTS.
 
 ### Systemd-nspawn
 
-Systemd-nspawn peut être utilisée pour exécuter une commande ou un OS dans un conteneur léger d'espace de noms. Il est plus puissant que *chroot* puisqu'il virtualise
-la hiérarchie du système de fichier, mais aussi l'arbre de processus, les différents sous-systèmes IPC ainsi que le nom de l'hôte et du domaine.
+Systemd-nspawn peut être utilisée pour exécuter une commande ou un OS dans un conteneur léger d'espace de noms. Il est plus puissant que *chroot* puisqu'il
+virtualise la hiérarchie du système de fichier, mais aussi l'arbre de processus, les différents sous-systèmes IPC ainsi que le nom de l'hôte et du domaine.
 
 Systemd-nspawn limite l'accès en lecture seule à différentes interfaces du noyau dans le conteneur, telles que **/sys**, **/proc/sys** ou **/sys/fs/selinux**.
 Les interfaces réseaux et l'horloge système ne peuvent pas être modifiées depuis l'intérieur du conteneur. Les fichiers spéciaux ou fichiers de périphérique ne
@@ -420,8 +422,8 @@ Les conteneurs ainsi créés peuvent être gérés à l'aide de la commande *mac
 LXC est une méthode de virtualisation au niveau du système d'exploitation permettant d'exécuter plusieurs système isolés Linux sur un système hôte de contrôle
 en utilisant un unique noyau Linux.
 
-Le noyau Linux fournit la fonctionnalité des cgroups qui permet une limitation et une priorisation des ressources (CPU, mémoire, entrées/sorties, réseau, etc.) sans
-besoin d'aucune machine virtuelle, ainsi que la fonction d'isolation par espace de noms qui permet l'isolation complète d'une application du point de vue de
+Le noyau Linux fournit la fonctionnalité des cgroups qui permet une limitation et une priorisation des ressources (CPU, mémoire, entrées/sorties, réseau, etc.) 
+sans besoin d'aucune machine virtuelle, ainsi que la fonction d'isolation par espace de noms qui permet l'isolation complète d'une application du point de vue de
 l'environnement opérant, incluant l'arbre des processus, la configuration réseau, les identifiants utilisateurs et les systèmes de fichiers montés.
 
 LXC combine les cgroups du noyau et inclut l'isolation des espaces de nom pour fournir un environnement isolé à des applications.
@@ -432,14 +434,14 @@ LXC permet d'exécuter des conteneurs en tant que simple utilisateur sur l'hôte
 
 Docker est un ensemble de produits de Plateforme en tant que Service qui utilise la virtualisation au niveau du système d'exploitation pour livrer des logiciels
 dans des paquets appelé conteneurs. Les conteneurs sont isolés les uns des autres et embarquent leurs propres logiciels, bibliothèques et fichiers de configuration ;
-ils peuvent communiquer entre eux à travers des cannaux bien définis. Tous les conteneurs sont exécuté par un noyau de système d'exploitation unique et par conséquent
-utilisent moins de ressources que des machines virtuelles.
+ils peuvent communiquer entre eux à travers des cannaux bien définis. Tous les conteneurs sont exécuté par un noyau de système d'exploitation unique et par 
+conséquent utilisent moins de ressources que des machines virtuelles.
 
-Docker peut empaqueter une application et ses dépendances dans un conteneur virtuel qui peut s'exécuter sur n'importe quel ordinateur Linux, Windows, ou macOS. Ceci
-permet à l'application de s'exécuter dans toute une variété d'environnement, par exemple, sur sa propre machine, dans un cloud public ou privé. Quand il s'exécute
-sur Linux, Docker utilise les mécanismes d'isolation fournis par le noyau (tels que les cgroups et les espaces de noms) et les systèmes de fichiers capables de
-montage en union, pour permettre aux conteneurs de s'exécuter sur une intance Linux unique, évitant la surcharge du démarrage et de la maintenance de machines
-virtuelles.
+Docker peut empaqueter une application et ses dépendances dans un conteneur virtuel qui peut s'exécuter sur n'importe quel ordinateur Linux, Windows, ou macOS. 
+Ceci permet à l'application de s'exécuter dans toute une variété d'environnement, par exemple, sur sa propre machine, dans un cloud public ou privé. Quand il 
+s'exécute sur Linux, Docker utilise les mécanismes d'isolation fournis par le noyau (tels que les cgroups et les espaces de noms) et les systèmes de fichiers 
+capables de montage en union, pour permettre aux conteneurs de s'exécuter sur une intance Linux unique, évitant la surcharge du démarrage et de la maintenance de 
+machines virtuelles.
 
 Le support des espaces de nom du noyau Linux permet d'isoler l'environnement système de la vue de l'application comme l'arbre des processus, le réseau, les
 identifiants utilisateurs et les systèmes de fichiers montés, tandis que les cgroups fournissent la limitation de ressources mémoire et CPU. Docker inclut également
@@ -459,9 +461,10 @@ les images, les conteneurs et les services.
     * Une image Docker est un modèle en lecture seule utilisée pour construire des conteneurs. Les images sont utilisées pour stocker et envoyer des applications.
     * Un service Docker permet une mise à l'echelle des conteneurs sur de multiples daemons Docker. Ceci étant appelé une nuée (*swarm*), un ensemble de daemon
     coopérant, communiquant à travers l'API Docker.
-* Les registres : Un registre Docker est un dépot d'image Docker. Les clients Docker se connectent aux registres pour cloner (*pull*) des images à utiliser ou déposer
-(*push*) des images qu'ils ont contruites. Les dépots peuvent être publics ou privés. Les deux principaux dépots publics sont Docker Hub et Docker Cloud. Docker Hub
-est le registre par défaut ou Docker recherche des images. Des registres Docker permettent également la création de notifications basée sur des évennements.
+* Les registres : Un registre Docker est un dépot d'image Docker. Les clients Docker se connectent aux registres pour cloner (*pull*) des images à utiliser ou 
+déposer (*push*) des images qu'ils ont contruites. Les dépots peuvent être publics ou privés. Les deux principaux dépots publics sont Docker Hub et Docker Cloud. 
+Docker Hub est le registre par défaut ou Docker recherche des images. Des registres Docker permettent également la création de notifications basée sur des 
+évennements.
 
 Le logiciel Docker dispose également d'outils :
 
@@ -471,11 +474,11 @@ permet aux utilisateurs de passer des commandes sur des ensembles de conteneurs,
 conteneurs, etc. Les commandes liées à la manipulation d'image, ou les options intéractives sont inutiles dans Docker Compose car elle s'adressent à un conteneur
 unique. Le fichier docker-compose.yml est utiliser pour définir les services de l'applications et inclut plusieurs options de configuration. Par exemple, l'option
 *build* définit les options de configuration telles que le chemin du Dockerfile, l'option *command* permet de surcharger les commandes Docker par défaut, etc.
-* Docker Swarm fournit nativement un fonctionnalité de grappe pour les conteneurs Docker qui transforme un groupe de Docker engine en un unique Docker engine virtuel.
-L'interface ligne de commande *docker swarm* permet aux utilisateurs d'exécuter des conteneurs Swarm, de créer des mots-clefs, lister les noeuds de la grappe, etc.
-L'interface ligne de commande *docker node* permet aux utilisateurs d'exécuter diverses commandes pour gérer des noeuds dans la nuée, par exemple, lister les noeuds
-de la nuée, mettre à jour les noeuds, supprimer les noeuds d'une nuée. Docker gère les nuées en utilisant l'algorithme de consensus Raft. Selon Raft, pour qu'une mise
-à jour se fasse, la majorité des noeuds de la nuée doivent s'accorder sur celle-ci.
+* Docker Swarm fournit nativement un fonctionnalité de grappe pour les conteneurs Docker qui transforme un groupe de Docker engine en un unique Docker engine 
+virtuel. L'interface ligne de commande *docker swarm* permet aux utilisateurs d'exécuter des conteneurs Swarm, de créer des mots-clefs, lister les noeuds de la 
+grappe, etc. L'interface ligne de commande *docker node* permet aux utilisateurs d'exécuter diverses commandes pour gérer des noeuds dans la nuée, par exemple, 
+lister les noeuds de la nuée, mettre à jour les noeuds, supprimer les noeuds d'une nuée. Docker gère les nuées en utilisant l'algorithme de consensus Raft. Selon 
+Raft, pour qu'une mise à jour se fasse, la majorité des noeuds de la nuée doivent s'accorder sur celle-ci.
 
 ### Orchestrateur Kubernetes
 
@@ -485,48 +488,48 @@ informatiques.
 Beaucoup de services de cloud offre des plateformes ou infrastructures en tant que service (PaaS, IaaS) basées sur Kubernetes sur lesquelles Kubernetes peut être
 déployé comme service fournisseur de plateformes.
 
-Kubernetes definit un ensemble de primitives, qui collectivement fournissent des mécanismes de déploiement, de maintien et de mise à l'echelle d'applications basé sur
-les ressources CPU, mémoire et autres métriques personnalisées. Kubernetes est lâchement couplé et extensible pour s'accorder à différentes charges de travail. Cette
-extensibilité est fournit en grande partie par l'API Kubernetes, utilisée par des composants internes ainsi que les extensions et conteneurs executés sur Kubernetes.
-La plateforme exerce son contrôle sur les ressources de calcul et de stockage et définissant ces ressources comme objets, ceux-ci pouvant par la suite être gérés
-comme tels.
+Kubernetes definit un ensemble de primitives, qui collectivement fournissent des mécanismes de déploiement, de maintien et de mise à l'echelle d'applications basé 
+sur les ressources CPU, mémoire et autres métriques personnalisées. Kubernetes est lâchement couplé et extensible pour s'accorder à différentes charges de travail. 
+Cette extensibilité est fournit en grande partie par l'API Kubernetes, utilisée par des composants internes ainsi que les extensions et conteneurs executés sur 
+Kubernetes. La plateforme exerce son contrôle sur les ressources de calcul et de stockage et définissant ces ressources comme objets, ceux-ci pouvant par la suite 
+être gérés comme tels.
 
-Kubernetes suit l'architecture Maître-Esclave. Les composants de Kubernetes peuvent être divisés entre ceux qui gèrent les noeuds individuels et ceux qui font partie
-du plan de contrôle.
+Kubernetes suit l'architecture Maître-Esclave. Les composants de Kubernetes peuvent être divisés entre ceux qui gèrent les noeuds individuels et ceux qui font 
+partie du plan de contrôle.
 
 Le maître Kubernetes est l'unité principale de contrôle du cluster, il gère la charge de travail et dirige les communications à travers le système. Le plan de
-contrôle de Kubernetes consiste en divers composants, chacun ayant sa propre tâche, pouvant être exécuté soit sur un simple noeud maître, soit sur plusieurs maîtres
-pour des clusters à haute disponibilité. Les différents composants du plan de contrôle Kubernetes sont les suivants :
+contrôle de Kubernetes consiste en divers composants, chacun ayant sa propre tâche, pouvant être exécuté soit sur un simple noeud maître, soit sur plusieurs 
+maîtres pour des clusters à haute disponibilité. Les différents composants du plan de contrôle Kubernetes sont les suivants :
 
 * etcd : etcd est une base de données clef-valeur, légère, persistante et distribuée qui stocke de manière fiable les données de configuration du cluster, donnant
 une représentation de l'état global du cluster à l'instant t. *etcd* est un système qui favorise la cohérence à la disponibilité dans l'éventualité d'une partition
-réseau. Cette conhérence est cruciale pour ordonnancer correctement les services opérants. Le serveur de l'API Kubernetes utilise l'API de visualisation d'etcd pour
-surveiller le cluster et déployer des changements configuration critiques ou simplement restaurer n'importe quelle divergence d'état du cluster tels qu'il était
-déclaré par celui qui l'a déployé.
-* Le serveur d'API : Le serveur d'API est un composant clé qui sert l'API Kubernetes via des JSON en HTTP, qui fournit à la fois les interfaces internes et externes
-à Kubernetes. Le serveur d'API traite et valide les requêtes REST et met à jour l'état des objets dans etcd, de fait permettant aux clients de configurer les charges
-de travail et les conteneurs à travers les noeuds.
+réseau. Cette conhérence est cruciale pour ordonnancer correctement les services opérants. Le serveur de l'API Kubernetes utilise l'API de visualisation d'etcd 
+pour surveiller le cluster et déployer des changements configuration critiques ou simplement restaurer n'importe quelle divergence d'état du cluster tels qu'il 
+était déclaré par celui qui l'a déployé.
+* Le serveur d'API : Le serveur d'API est un composant clé qui sert l'API Kubernetes via des JSON en HTTP, qui fournit à la fois les interfaces internes et 
+externes à Kubernetes. Le serveur d'API traite et valide les requêtes REST et met à jour l'état des objets dans etcd, de fait permettant aux clients de configurer 
+les charges de travail et les conteneurs à travers les noeuds.
 * L'ordonnanceur : L'ordonnanceur est un composant qui, sur la base de la disponnibilité ressource, sélectionne un noeud sur lequel s'exécute un pod non ordonnancé
 (entité de base géré par l'ordonnanceur). L'ordonnaceur suit l'usage ressource sur chacun des noeuds afin de s'assurer que la charge de travail n'est pas
 planifiée en excès de la ressource disponible. A cette fin, l'ordonnanceur doit connaître les conditions et disponibilités de la ressource et autres contraintes
 définies par l'utilisateur, les directives politiques telles que la qualité de service, les conditions d'affinité ou de non-affinité, la localisation des données etc.
 Le rôle de l'ordonnanceur est d'accorder la ressource disponnible à la charge de travail demandée.
-* Le gestionnaire de contrôle : Un contrôleur est une boucle de réconciliation qui amène l'état courant du cluster vers l'état désiré du cluster, en communicant via
-le serveur d'API pour créer, mettre à jour et supprimer les ressources qu'il gère (pods, services, extrémités, etc.). Le gestionnaire de contrôle est un processus qui
-gère un ensemble de contrôleurs du noyau Kubernetes. Un type de contrôleur est un contrôleur de réplication, qui s'occupe de la réplication et de la mise à l'echelle
-en exécutant un nombre de copies de pods spécifiées à travers le cluster. Il s'occupe également de créer des pods de remplacement, si les noeuds sous-jacents sont
-en erreur. D'autres contrôleurs qui sont une partie du noyau Kubernetes incluent le contrôleur DaemonSet pour exécuter exactement un pod sur chaque machine (ou sous-
-ensemble de machines), et un contrôleur de travail pour exécuter des pods jusqu'à fin d'exécution par exemple pour des traitements batchs. L'ensemble des pods qu'un
-contrôleur gère est déterminé par l'étiquette des selecteurs faisant partie de la définition du contrôleur.
+* Le gestionnaire de contrôle : Un contrôleur est une boucle de réconciliation qui amène l'état courant du cluster vers l'état désiré du cluster, en communicant 
+via le serveur d'API pour créer, mettre à jour et supprimer les ressources qu'il gère (pods, services, extrémités, etc.). Le gestionnaire de contrôle est un 
+processus qui gère un ensemble de contrôleurs du noyau Kubernetes. Un type de contrôleur est un contrôleur de réplication, qui s'occupe de la réplication et de la 
+mise à l'echelle en exécutant un nombre de copies de pods spécifiées à travers le cluster. Il s'occupe également de créer des pods de remplacement, si les noeuds 
+sous-jacents sont en erreur. D'autres contrôleurs qui sont une partie du noyau Kubernetes incluent le contrôleur DaemonSet pour exécuter exactement un pod sur
+chaque machine (ou sous-ensemble de machines), et un contrôleur de travail pour exécuter des pods jusqu'à fin d'exécution par exemple pour des traitements batchs. 
+L'ensemble des pods qu'un contrôleur gère est déterminé par l'étiquette des selecteurs faisant partie de la définition du contrôleur.
 
 Un noeud, est une machine où des conteneurs (charge de travail) sont déployés. Chaque noeud à l'intérieur du cluster doit exécuter un environnement d'exécution de
 conteneurs tel que Docker, ainsi que les composants mentionnés ci-dessous, à des fins de communication avec le maître pour la configuration réseau de ces conteneurs.
 
-* Kubelet : Kubelet est responsable de l'état d'exécution de chaque noeud, il s'assure que tous les conteneurs du noeud sont sains. Il prend en charge le démarrage,
-l'arrêt et la maintenance des conteneurs d'application organisés en pods tels que l'a décidé le plan de contrôle.
-Kublet surveille l'état d'un pod, s'il n'est pas dans l'état désiré, le pod est redéployé sur le même noeud. Le statut du noeud est relayé sur une période de quelques
-secondes via des messages au maître. Si le maître détecte un échec de noeud, le contrôleur de réplication observe ce changement de statut et lance des pods sur
-d'autres noeuds sains.
+* Kubelet : Kubelet est responsable de l'état d'exécution de chaque noeud, il s'assure que tous les conteneurs du noeud sont sains. Il prend en charge le 
+démarrage, l'arrêt et la maintenance des conteneurs d'application organisés en pods tels que l'a décidé le plan de contrôle.
+Kublet surveille l'état d'un pod, s'il n'est pas dans l'état désiré, le pod est redéployé sur le même noeud. Le statut du noeud est relayé sur une période de 
+quelques secondes via des messages au maître. Si le maître détecte un échec de noeud, le contrôleur de réplication observe ce changement de statut et lance des 
+pods sur d'autres noeuds sains.
 
 * Kube-proxy : Le Kube-proxy est une implémentation d'un proxy réseau et d'un répartiteur de charge, il prend en charge l'abstraction de service ainsi que d'autres
 opérations réseau. Il est responsable du routage du traffic vers le conteneur approprié basé sur l'adresse IP et le numéro de port de la requête qui arrive.
@@ -538,13 +541,13 @@ L'unité d'ordonnancement de base dans Kubernetes est un pod. Un pod est un grou
 garantis de se trouver sur le même noeud.
 
 Chaque pod dans Kubernetes est assigné à une adresse IP unique à l'intérieur du cluster, permettant aux applications d'utiliser des ports sans risques de conflits.
-A l'intérieur du pod,; chaque conteneur peut faire référence à chaque autre sur le localhost, mais un conteneur à l'intérieur d'un pod n'a aucun moyen de s'adresser
-directement à un autre conteneur dans un autre pod ; pour cela, il doit utiliser l'adresse IP du pod.
+A l'intérieur du pod,; chaque conteneur peut faire référence à chaque autre sur le localhost, mais un conteneur à l'intérieur d'un pod n'a aucun moyen de 
+s'adresser directement à un autre conteneur dans un autre pod ; pour cela, il doit utiliser l'adresse IP du pod.
 
-Un pod peut définir un volume, tel qu'un répertoire du disque local ou un disque réseau, et l'exposer aux conteneurs du pod. Les pods peuvent être gérés manuellement
-via l'API Kubernetes, ou leur gestion peut être déléguée à un contrôleur. De tels volumes sont aussi la pase des fonctionnalités Kubernetes de ConfigMaps (pour
-fournir un accès à la configuration à travers le système de fichier visible au conteneur) et Secrets (pour fournir les certificats nécessaires à l'accès sécurisé à
-des ressources distantes, en donnant uniquement aux conteneurs autorisés, ces certificats sur leur système de fichier visible).
+Un pod peut définir un volume, tel qu'un répertoire du disque local ou un disque réseau, et l'exposer aux conteneurs du pod. Les pods peuvent être gérés 
+manuellement via l'API Kubernetes, ou leur gestion peut être déléguée à un contrôleur. De tels volumes sont aussi la pase des fonctionnalités Kubernetes de 
+ConfigMaps (pour fournir un accès à la configuration à travers le système de fichier visible au conteneur) et Secrets (pour fournir les certificats nécessaires à 
+l'accès sécurisé à des ressources distantes, en donnant uniquement aux conteneurs autorisés, ces certificats sur leur système de fichier visible).
 
 La fonction d'un ReplicaSet est de maintenir un ensemble stable de pods répliqués pouvant être exécutés à tout moment. En tant que tel, il est souvent utilisé pour
 garantir la disponnibilité d'un nombre de pods identiques spécifique.
@@ -552,9 +555,9 @@ garantir la disponnibilité d'un nombre de pods identiques spécifique.
 Les ReplicaSets est également un mécanisme de rassemblement qui permet à Kubernetes de maintenir pour un pod donné un nombre d'instance défini à l'avance.
 La définition d'un ensemble de réplique utilise un selecteur, dont l'évaluation résulte en l'évaluation de tous les pods qui lui sont associés.
 
-Un service Kubernetes est un ensemble de pods travaillant de concert, tel une couche d'une application multi-couche. L'ensemble de pods qui constitue un service sont
-définis par un sélecteur d'étiquette. Kubernetes fournit deux modes de découverte de service, en utilisant des variables d'environnement, ou en utilisant le DNS
-Kubernetes. La découverte de service assigne un adresse IP fixe et un nom DNS au service, et réparti la charge du traffic en utilisant un DNS round-robin pour les
+Un service Kubernetes est un ensemble de pods travaillant de concert, tel une couche d'une application multi-couche. L'ensemble de pods qui constitue un service 
+sont définis par un sélecteur d'étiquette. Kubernetes fournit deux modes de découverte de service, en utilisant des variables d'environnement, ou en utilisant le 
+DNS Kubernetes. La découverte de service assigne un adresse IP fixe et un nom DNS au service, et réparti la charge du traffic en utilisant un DNS round-robin pour les
 connections réseaux à cette adresse IP au milieu des pods vérifiant ce selecteur (même si des erreurs peuvent ammener les pods à passer d'une machine à une autre).
 Par défaut un service est exposé à l'intérieur d'un cluster (par exemple les pods back-end peuvent être groupés en service, recevant des requêtes de la part des
 pods front-end réparties entre eux), mais un service peut également être exposé en dehors d'un cluster (par exemple pour que les clients puissent accéder aux pods
@@ -567,8 +570,21 @@ pod. Ces volumes sont montés à des points de montages spécifique à l'intéri
 autres volumes ou liés à ceux-ci. Le même volume peut être monté à différent endroits dans l'arbre du système de fichiers par différents conteneurs.
 
 Kubernetes fournit un partitionnement des ressources qu'il gère dans des ensembles disjoints appelés espace de noms. L'usage de ces espaces de noms est destiné aux
-environnements possédant un grand nombre d'utilisateurs répartis dans plusieurs équipes, ou projets, ou même à séparer des environnements tels que le développement,
-l'intégration et la production.
+environnements possédant un grand nombre d'utilisateurs répartis dans plusieurs équipes, ou projets, ou même à séparer des environnements tels que le 
+développement, l'intégration et la production.
+
+Un problème applicatif thématique est de décider ou stocker et gérer les informations de configuration, dont certaines peuvent contenir des données sensibles. Les
+données de configuration peuvent être relativement hétérogènes comme de petis fichiers de configurations individuels ou de grands fichiers de configuration ou des 
+documents JSON/XML. Kubernetes permet de traiter ce genre de problème à l'aide de deux mécanismes assez proches : "configmaps" et "secrets", les deux permettent
+des changements de configuration sans nécessiter la reconstruction de l'application. Les données de configmaps et de secrets sont accessibles à chaque objets de
+l'instance de l'application auxquels ils ont été liés au déploiement. Un secret et/ou un configmaps sont uniquement envoyé à un noeud si un pod sur ce noeud le
+demande. Kubernetes le gardera en mémoire sur ce noeud. Un fois que le pod qui dépend du secret ou de la configmap est supprimé, la copie en mémoire de tous les
+secrets et configmaps liés est également supprimée. La donnée est accessible au pod de deux façons : en tant que variables d'environements (que Kubernetes créé lors
+du démarrage du pod) ou disponnible dans le système de fichier du conteneur visible dans le pod.
+
+La donnée elle même est stockée sur le maître qui est hautement sécurisé et dont personne ne doit avoir d'accès de connexion. La plus grande différence entre un
+secret et une configmap est que le contenu de la donnée dans un secret est encodé en base 64. Il peut également être encrypté. Les secrets sont souvent utilisés
+pour stocker des certificats, des mots de passe et des clefs ssh.
 
 Il est très facile de réaliser une mise à l'échelle d'applications sans conditions d'état : Il suffit d'ajouter plus de pods d'exécution - quelque chose que
 Kubernetes fait très bien. Les charges de travail avec condition d'état sont bien plus difficiles, de fait que l'état doit être conservé si un pod est redémarré, et
