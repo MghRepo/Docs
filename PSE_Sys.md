@@ -375,7 +375,7 @@ Sysfs s'appuie sur ramfs. Un système de fichiers temporaire très simple monté
 ### Udev
 
 Udev est un gestionnaire de périphérique pour le noyau Linux. Udev gère principalement des noeuds périphériques dans le répertoire */dev/*. udev traite également
-tous les évennements dans l'espace utilisateurs lors de l'ajout ou de la suppression d'un périphérique, ainsi que du chargement des pilotes.
+tous les évennements dans l'espace utilisateurs lors de l'ajout ou de la suppression d'un périphérique, ainsi que du chargement des firmwares.
 
 ### Bus
 
