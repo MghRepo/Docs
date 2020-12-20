@@ -3,8 +3,8 @@
 ## Table des matières
 
 <Structures de contrôle##<structures de contrôle>
-<a name="structures de contrôle"/>
-[Structures de contrôle séquentielles](### Structure de contrôle séquentielles)
+
+[Structures de contrôle séquentielles](#structures)
 [Structures de contrôle itératives](### Structures de contrôle itératives)
 [Extensions de la notion de boucles](### Extensions de la notion de boucles)
 [Sous-programmes](### Sous-programmes)
@@ -13,7 +13,7 @@
 [Programmation événementielle](### Programmation événementielle)
 [Algorithme de tri](## Algorithme de tri)
 
-
+<a name="structures"/>
 ## Structures de contrôle
 
 En programmation informatique, une structure de contrôle est une instruction particulière à un langage de programmation impératif pouvant dévier
