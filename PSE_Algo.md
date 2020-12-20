@@ -10,7 +10,14 @@
 	+ [Exceptions](#exceptions)
 	+ [Programmation multitâche](#programmation-multitâche)
 	+ [Programmation événementielle](#programmation-événementielle)
-* [Algorithme de tri](#algorithme-de-tri)
+* [Algorithmes de tri](#algorithmes-de-tri)
+	+ [Critère de classification](#critère-de-classification)
+	+ [Exemples d'algorithmes de tri](#exemples-d-algorithmes-de-tri)
+* [Structures de données](#structures-de-données)
+	+ [Pile](#pile)
+	+ [File](#file)
+	+ [Liste](#liste)
+	+ [Arbre enraciné](#arbre-enraciné)
 
 ## Structures de contrôle
 
@@ -96,7 +103,7 @@ certains d'entre eux intègrent néanmoins des structures de contrôle permentan
 La programmation évenementielle est une autre façon de contrôler le flot d'exécutions d'un programme. Il s'agit de créer des gestionnaires qui
 viendront s'abonner à une boucle mère, chargée d'aiguiller les évènements qui affectent le logiciel.
 
-## Algorithme de tri
+## Algorithmes de tri
 
 Un algorithme de tri est, en informatique ou en mathématiques, un algorithme qui permet d'organiser une collection d'objets selon une relation
 d'ordre déterminée. Les objets à trier sont des éléments d'un ensemble muni d'un ordre total. Il est par exemple fréquent de trier des entier selon la
