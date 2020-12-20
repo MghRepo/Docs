@@ -3,6 +3,7 @@
 ## Table des matières
 
 <Structures de contrôle##<structures de contrôle>
+<a name="structures de contrôle"/>
 [Structures de contrôle séquentielles](### Structure de contrôle séquentielles)
 [Structures de contrôle itératives](### Structures de contrôle itératives)
 [Extensions de la notion de boucles](### Extensions de la notion de boucles)
