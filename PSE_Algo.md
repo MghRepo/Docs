@@ -13,6 +13,7 @@
 [Algorithme de tri](##algorithme_de_tri)
 
 <a name="structures_de_controle"/>
+
 ## Structures de contrôle
 
 En programmation informatique, une structure de contrôle est une instruction particulière à un langage de programmation impératif pouvant dévier
@@ -23,6 +24,7 @@ des constructions de gestion d'exceptions (try-catch...) fréquemment trouvés d
 langages comme les instructions différées (defer) de Go.
 
 <a name="structures_de_controle_sequentielles"/>
+
 ### Structures de contrôle séquentielles
 
 Un programme informatique impératif est une suite d'instructions. Un registre interne de processeur, le compteur ordinal (PC), est chargé de
