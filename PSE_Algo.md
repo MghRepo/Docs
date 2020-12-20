@@ -2,17 +2,15 @@
 
 #### Table des matières
 
-[Structures de contrôle](##structures_de_controle)
-[Structures de contrôle séquentielles](###structures_de_controle_sequentielles)
-[Structures de contrôle itératives](###structures_de controle_iteratives)
-[Extensions de la notion de boucles](###extensions_de_la_notion_de_boucles)
-[Sous-programmes](###sous_programmes)
+[Structures de contrôle](##structures-de-contrôle)
+[Structures de contrôle séquentielles](###structures-de-contrôle-séquentielles)
+[Structures de contrôle itératives](###structures-de-contrôle-itératives)
+[Extensions de la notion de boucles](###extensions-de-la-notion-de-boucles)
+[Sous-programmes](###sous-programmes)
 [Exceptions](###exceptions)
-[Programmation multitâche](###programmation_multitache)
-[Programmation événementielle](###programmation_evenementielle)
-[Algorithme de tri](##algorithme_de_tri)
-
-<a name="structures_de_controle"/>
+[Programmation multitâche](###programmation-multitâche)
+[Programmation événementielle](###programmation-événementielle)
+[Algorithme de tri](##algorithme-de-tri)
 
 ## Structures de contrôle
 
@@ -22,8 +20,6 @@ aux appels de sous-programme, les langages structurés offrent des constructions
 boucles (while, do-while, for...) ou encore les appels de fonction. Outre les structures usuelles, la large palette des structures de contrôle s'étend
 des constructions de gestion d'exceptions (try-catch...) fréquemment trouvés dans les langages de haut niveau aux particularismes de certains
 langages comme les instructions différées (defer) de Go.
-
-<a name="structures_de_controle_sequentielles"/>
 
 ### Structures de contrôle séquentielles
 
