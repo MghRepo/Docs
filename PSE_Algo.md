@@ -144,13 +144,14 @@ pour s'exécuter. Celle-ci peut dépendre, comme le temps d'exécution, de la ta
 moyenne et dans le pire des cas soient identiques. C'est souvent le cas lorsqu'une complexité est donnée sans indication
 supplémentaire.
 
-Un tri est dit *en place* s'il n'utilise qu'un nombre très limité de variables et qu'il modifie directement la structure qu'il est en train de trier. Ceci nécessite
-l'utilisation d'une structure de donnée adaptée (un tableau par exemple). Ce caractère peut être très important si on ne dispose pas de beaucoup de
+Un tri est dit *en place* s'il n'utilise qu'un nombre très limité de variables et qu'il modifie directement la structure qu'il est en train de trier. Ceci 
+nécessite l'utilisation d'une structure de donnée adaptée (un tableau par exemple). Ce caractère peut être très important si on ne dispose pas de beaucoup de
 mémoire.
 
 Toutefois, on ne déplace pas, en général, les données elles-mêmes, mais on modifie seulement des références (ou pointeurs) vers ces dernières.
 
-Un tri est dit *stable* s'il préserve l'ordonnancement initial des éléments que l'ordre considère comme égaux (tri à bulles, tri par insertion et le tri par fusion).
+Un tri est dit *stable* s'il préserve l'ordonnancement initial des éléments que l'ordre considère comme égaux (tri à bulles, tri par insertion et le tri par 
+fusion).
 
 Un tri *interne* s'effectue entièrement en mémoire centrale tandis qu'un tris *externe* utilise des fichiers sur une mémoire de masse pour trier des volumes
 trop importants pour pouvoir tenir en mémoire centrale.
@@ -174,9 +175,9 @@ permutation aléatoire avant de le trier.
 mais l'algorithme utilise une structure de tas, souvent implémentée au moyen d'un tableau.
 * *Introspective sort* : Il s'agit d'un hybride du tri rapide et du tri par tas. Par rapport au tri rapide, il présente l'avantage d'avoir une complexité
 *O(n.log n)* dans le pire cas.
-* Tri arborescent (*tree sort*): L'idée est d'insérer les éléments un à un dans l'arbre binaire de recherche, puis de lire l'arbre selon un parcours en profondeur.
-Un arbre binaire de recherche(ABR) est un arbre binaire dans lequel chaque noeud possède une clé, telle que chaque noeud du sous-arbre *gauche* ait une
-clé inférieure ou égale à celle du noeud considéré, et que chaque noeud du sous-arbre *droit* possède une clé supérieure ou égale à celle-ci.
+* Tri arborescent (*tree sort*): L'idée est d'insérer les éléments un à un dans l'arbre binaire de recherche, puis de lire l'arbre selon un parcours en 
+profondeur. Un arbre binaire de recherche(ABR) est un arbre binaire dans lequel chaque noeud possède une clé, telle que chaque noeud du sous-arbre *gauche* ait 
+une clé inférieure ou égale à celle du noeud considéré, et que chaque noeud du sous-arbre *droit* possède une clé supérieure ou égale à celle-ci.
 * *Smooth sort* : La première étape consiste à transformer le tableau en arbre binaire. Le premier élément est déjà trivialement bien ordonné, puis on ajoute un à
 un les éléments suivants. On réordonne chaque fois un peu les éléments si nécessaire pour qu'ils correspondent aux critères :
 
@@ -502,14 +503,14 @@ minimise la taille de l'arbre et réduit le nombre d'opérations d'équilibrage.
 de recherche qui croît à partir des feuilles.
 
 Un *arbre étiqueté* est un arbre tel qu'à chaque noeud on associe une étiquette ou clé (ou bien plusieurs étiquettes ou clés dna sle cas des arbres B) prise(s)
-dans un ensemble donné. Donc formellement un arbre étiqueté est un couple formé d'un graphe orienté, acyclique et connexe et d'une fonction d'étiquetage des arbres
-qui attribue à chaque noeud une étiquette ou une clé. Parmis les arbres étiquetés, un *arbre B* possède quelques propriétés spécifiques supplémentaires.
+dans un ensemble donné. Donc formellement un arbre étiqueté est un couple formé d'un graphe orienté, acyclique et connexe et d'une fonction d'étiquetage des 
+arbres qui attribue à chaque noeud une étiquette ou une clé. Parmis les arbres étiquetés, un *arbre B* possède quelques propriétés spécifiques supplémentaires.
 
 Soit *L* et *U* deux entiers naturels non nuls tels que *L&#8804;U*. En toute généralité, on définit alors un *L-U arbre B* de la manière suivante : chaque
 noeud, sauf la racine, possède un minimum de *L-1* clés (appelées aussi éléments), un maximum de *U-1* clés et au plus *U* fils. Pour chaque noeud
 interne -- noeud qui n'est pas une feuille --, le nombre de fils est toujours égal au nombre de clés augmenté d'une unité. Si *n* est le nombre de fils,
-alors on parle de *n*-noeud. Un *L-U* arbre B ne contient que des *n*-noeuds avec L&#8804;n&#8804;U. Souvent on choisit la configuration *L=t* et *U=2.t* : *t* est
-appelé le *degré minimal* de l'arbre B.
+alors on parle de *n*-noeud. Un *L-U* arbre B ne contient que des *n*-noeuds avec L&#8804;n&#8804;U. Souvent on choisit la configuration *L=t* et *U=2.t* : *t* 
+est appelé le *degré minimal* de l'arbre B.
 
 De plus, la construction des arbres B garantit qu'un arbre B est toujour équilibré. Chaque clé d'un noeud interne est en fait une borne qui
 distingue les sous-arbres de ce noeud.
@@ -739,7 +740,8 @@ Le cas le plus compliqué se produit si le noeud supprimé M et son enfant C son
 Un tas est une structure de données de type arbre tel que pour tous noeuds A et B de l'arbre tels que B soit un fils de A : clé(A)&#8805;clé(B) (ou inversément).
 Les primitives du tas sont : enfiler et defiler.
 
-Pour enfiler un élément, on le place comme feuille, puis on fait "remonter" l'élément pour maintenir la priorité du tas. L'opération peut être réalisée en *O(log n)*.
+Pour enfiler un élément, on le place comme feuille, puis on fait "remonter" l'élément pour maintenir la priorité du tas. L'opération peut être réalisée en
+*O(log n)*.
 
 Quand on défile un élément d'un tas, c'est toujours celui de priorité maximale. Il correspond donc à la racine du tas. L'opération peut conserver la
 structure de tas, avec une complexité de *O(log n)* ; en effet, il ne reste alors qu'à réordonner l'arbre privé de sa racine pour en faire un nouveau tas.
