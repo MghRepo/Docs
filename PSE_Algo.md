@@ -1,6 +1,19 @@
 # Algorithmique et méthodes de programmation
 
-## Structures de contrôles
+## Table des matières
+
+[Structures de contrôle](## Structures de contrôle)
+[Structures de contrôle séquentielles](### Structure de contrôle séquentielles)
+[Structures de contrôle itératives](### Structures de contrôle itératives)
+[Extensions de la notion de boucles](### Extensions de la notion de boucles)
+[Sous-programmes](### Sous-programmes)
+[Exceptions](### Exceptions)
+[Programmation multitâche](### Programmation multitâche)
+[Programmation événementielle](### Programmation événementielle)
+[Algorithme de tri](## Algorithme de tri)
+
+
+## Structures de contrôle
 
 En programmation informatique, une structure de contrôle est une instruction particulière à un langage de programmation impératif pouvant dévier
 le flot de contrôle du programme la contenant lorsqu'elle est exécutée. Si, au plus bas niveau, l'éventail se limite généralement aux branchements et
