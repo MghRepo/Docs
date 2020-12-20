@@ -13,7 +13,7 @@
     + [Socket Netlink](#socket-netlink)
     + [Tube anonyme](#tube-anonyme)
     + [Tube nommé](#tube-nommé)
-    + [Passage de messages](#passage-de-message)
+    + [Passage de messages](#passage-de-messages)
     + [Fichier mappé en mémoire](#fichier-mappé-en-mémoire)
     + [Partitionnement de la mémoire](#partitionnement-de-la-mémoire)
     + [Mémoire virtuelle](#mémoire-virtuelle)
