@@ -3,8 +3,8 @@
 ####Table des matières
 
 * [Système](#système)
-    + [Multitâche coopératif](#multitache-coopératif)
-    + [Multitâche préemptif](#multitache-preemptif)
+    + [Multitâche coopératif](#multitâche-coopératif)
+    + [Multitâche préemptif](#multitâche-preemptif)
     + [Algorithmes d'ordonnancement](#algorithmes-dordonnancement)
     + [Synchronisation](#synchronisation)
     + [Signaux](#signaux)
