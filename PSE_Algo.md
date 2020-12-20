@@ -18,6 +18,12 @@
 	+ [File](#file)
 	+ [Liste](#liste)
 	+ [Arbre enraciné](#arbre-enraciné)
+	+ [Arbre binaire de recherche](#arbre-binaire-de-recherche)
+	+ [Arbre B](#arbre-b)
+	+ [Arbre rouge-noir](#arbre-rouge-noir)
+	+ [Tas](#tas)
+* [Programmation orientée objet](#programmation-orientée-objet)
+* [Compilation](#compilation)
 
 ## Structures de contrôle
 
@@ -349,20 +355,20 @@ Pour construire un arbre à partir de cases ne contenant que des informations, o
 
 1. Créer une structure de données composée de :
 
-	1. l'étiquette (la valeur contenue dans le noeud),
-	2. un lien vers *chaque* noeud fils,
-	3. un arbre particulier, l'arbre vide, qui permet de caractériser les feuilles. Une feuille a pour fils des arbres vides uniquement.
+	* l'étiquette (la valeur contenue dans le noeud),
+	* un lien vers *chaque* noeud fils,
+	* un arbre particulier, l'arbre vide, qui permet de caractériser les feuilles. Une feuille a pour fils des arbres vides uniquement.
 	
 2. Créer une structure de données composée de :
 
-	1. l'étiquette (la valeur contenue dans le noeud),
-	2. un lien vers le "premier" noeud fils (noeud fils gauche le cas échéant),
-	3. un autre lien vers le noeud frère (le "premier" noeud frère sur la droite le cas échéant).
+	* l'étiquette (la valeur contenue dans le noeud),
+	* un lien vers le "premier" noeud fils (noeud fils gauche le cas échéant),
+	* un autre lien vers le noeud frère (le "premier" noeud frère sur la droite le cas échéant).
 	
 3. Créer une structure de données composée de :
 
-	1. l'étiquette (la valeur contenue dans le noeud),
-	2. un lien vers le noeud père.
+	* l'étiquette (la valeur contenue dans le noeud),
+	* un lien vers le noeud père.
 
 On note qu'il existe d'autres types de représentation propres à des cas particuliers d'arbres. Par exemple, le tas est représenté par un tableau
 d'étiquettes.
