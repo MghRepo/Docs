@@ -193,16 +193,16 @@ La structure et les propriétés d'une socket sont définies par une interface d
 durant l' intervalle de temps d'un processus d'une application s'exécutant dans le noeud.
 
 Du fait de la standardisation des protocoles TCP/IP au cours du développement d'internet, le terme *socket réseau* est plus communément utilisé dans le contexte
-de la *Suite des protocoles Internets*. On parle alors aussi de socket internet. Dans ce contexte, une socket est identifiée extérieurement par les autres machines
-par son *addresse socket*, qui est la triade du protocole de transfert, de l'addresse IP et du numéro de port.
+de la *Suite des protocoles Internets*. On parle alors aussi de socket internet. Dans ce contexte, une socket est identifiée extérieurement par les autres 
+machines par son *addresse socket*, qui est la triade du protocole de transfert, de l'addresse IP et du numéro de port.
 
-Une pile de protocole, habituellement fournie par le système d'exploitation est un ensemble de services permettant aux processus de communiquer à travers un réseau
-utilisant les protocoles que la pile implémente. Le système d'exploitation fait passer les données utiles des paquets IP entrants à l'application correspondante
-en lisant l'information de l'addresse socket des entêtes des protocoles IP et transport et en enlevant ces entêtes des données applications.
+Une pile de protocole, habituellement fournie par le système d'exploitation est un ensemble de services permettant aux processus de communiquer à travers un 
+réseau utilisant les protocoles que la pile implémente. Le système d'exploitation fait passer les données utiles des paquets IP entrants à l'application 
+correspondante en lisant l'information de l'addresse socket des entêtes des protocoles IP et transport et en enlevant ces entêtes des données applications.
 
 L'interface de programmation que les programmes utilisent pour communiquer avec la pile de protocole, utilisant les socket réseau, est appelée **socket API**.
-Les API sockets internet sont généralement basées sur le standard socket de Berkeley. Dans le standard socket de Berkeley, les socket sont une forme de descripteur
-de fichier (*read, write, open, close*).
+Les API sockets internet sont généralement basées sur le standard socket de Berkeley. Dans le standard socket de Berkeley, les socket sont une forme de 
+descripteur de fichier (*read, write, open, close*).
 
 Dans les protocoles internet standards TCP et UDP, une adresse socket est la combinaison d'une addresse IP et d'un numéro de port. Les sockets n'ont pas besoin
 d'adresse source, mais si un programme lie la socket à une adresse source, la socket peut être utilisée pour recevoir et envoyer des données à cette adresse.
@@ -225,8 +225,8 @@ l'addition automatique d'une entête est optionnelle.
 
 ### Socket IPC
 
-Un socket de domaine Unix ou socket IPC (*inter-process communication*) et un point d'arrivée des données de communications qui permet d'échanger des données entre
-des processus s'exécutant sur le même système d'exploitation hôte. Les types de socket valides dans le domaine UNIX sont :
+Un socket de domaine Unix ou socket IPC (*inter-process communication*) et un point d'arrivée des données de communications qui permet d'échanger des données 
+entre des processus s'exécutant sur le même système d'exploitation hôte. Les types de socket valides dans le domaine UNIX sont :
 
 * **SOCK_STREAM** (à comparer au TCP) - pour un socket orienté flux
 * **SOCK_DGRAM** (à comparer à UDP) - pour un socket orienté datagramme qui préserve les limites des messages (comme la plupart des implémentations UNIX, les 
@@ -248,8 +248,8 @@ autrement le processus qui reçoit n'a pas accès. Ceci permet d'implémenter un
 ### Socket Netlink
 
 La famille de socket Netlink est une interface du noyau linux utilisée pour des communications inter-processus entre les processus de l'espace utilisateur et
-du noyau et entre différents processus utilisateurs. La différence entre les sockets Netlink et les socket IPC et qu'au lieu d'utiliser l'espace de noms du système
-de fichier, les processus Netlink sont généralement désignés par leur PID.
+du noyau et entre différents processus utilisateurs. La différence entre les sockets Netlink et les socket IPC et qu'au lieu d'utiliser l'espace de noms du 
+système de fichier, les processus Netlink sont généralement désignés par leur PID.
 
 Netlink fournit une interface socket standard pour les processus utilisateurs, et une API côté noyau pour un usage interne par les modules du noyau.
 
@@ -266,8 +266,8 @@ d'un Fork qui permet d'assigner à chacun des processus son rôle de récepteur 
 
 ### Tube nommé
 
-Comme les tubes anonymes, les tubes nommés sont des zones de données organisées en FIFO mais contrairement à ceux-ci qui sont détruits lorsque le processus qui les
-a créés disparait, les tubes nommés sont liés au système d'exploitation et ils doivent être explicitement détruits.
+Comme les tubes anonymes, les tubes nommés sont des zones de données organisées en FIFO mais contrairement à ceux-ci qui sont détruits lorsque le processus qui 
+les a créés disparait, les tubes nommés sont liés au système d'exploitation et ils doivent être explicitement détruits.
 
 ### Passage de messages
 
@@ -306,13 +306,14 @@ sont chargés une page entière à la fois. La taille de la page est choisi par 
 est un élément critique du gestionnaire de mémoire virtuelle, le chargement des portions de la taille d'une page d'un fichier en mémoire physique est généralement 
 une fonction système très optimisée.
 
-L'usage le plus commun de fichier mappé en mémoire est le chargement de processus. Lors de la création d'un processus, le système d'exploitation utilise un fichier
-mappé en mémoire pour faire apparaître le fichier exécutable ainsi que tous les modules chargeable en mémoire pour exécution. La technique la plus utilisée est
-la demande de pages, le fichier est chargé en mémoire physique par section (chacune d'une page), et seulement quand cette page est référencée. Dans le cas spécifique
-des exécutables, cela permet à l'OS de charger de manière sélective uniquement les portions de l'image processus qui nécessitent réellement une exécution.
+L'usage le plus commun de fichier mappé en mémoire est le chargement de processus. Lors de la création d'un processus, le système d'exploitation utilise un 
+fichier mappé en mémoire pour faire apparaître le fichier exécutable ainsi que tous les modules chargeable en mémoire pour exécution. La technique la plus 
+utilisée est la demande de pages, le fichier est chargé en mémoire physique par section (chacune d'une page), et seulement quand cette page est référencée. Dans 
+le cas spécifique des exécutables, cela permet à l'OS de charger de manière sélective uniquement les portions de l'image processus qui nécessitent réellement une 
+exécution.
 
-Un autre usage répandu pour les fichiers mappés en mémoire est le partage de fichiers entre processus multiples. Ceci permet d'eviter les fautes de pages ainsi que
-les violations de segmentation.
+Un autre usage répandu pour les fichiers mappés en mémoire est le partage de fichiers entre processus multiples. Ceci permet d'eviter les fautes de pages ainsi 
+que les violations de segmentation.
 
 ### Partitionnement de la mémoire
 
@@ -342,8 +343,8 @@ La mémoire virtuelle permet :
 * Cette mémoire virtuelle est formée de zones de même taille, appelées pages. Une adresse virtuelle est donc un couple (numéro de page, déplacement dans la page).
 La taille des pages est une puissance entière de deux, de façon à déterminersans calcul le déplacement (10 bits de poids faible de l'adresse virtuelle pour des 
 pages de 1024 mots), et le numéro de page (les autres bits).
-* La mémoire vive est également composées de zones de même taille, apellées cadres (*frames*), dans lesquelles prennent place les pages (un cadre contient une page 
-: taille d'un cadre = taille d'une page). La taille de l'ensemble des cadres en mémoire vive utilisés par un processus est appelé *Resident set size*.
+* La mémoire vive est également composées de zones de même taille, apellées cadres (*frames*), dans lesquelles prennent place les pages (un cadre contient une 
+page : taille d'un cadre = taille d'une page). La taille de l'ensemble des cadres en mémoire vive utilisés par un processus est appelé *Resident set size*.
 * Un mécanisme de traduction (*translation*) assure la conversion des adresses virtuelles en adresses physiques, en consultant une table des pages (*page table*) 
 pour connaître le numéro du cadre qui contient la page recherchée. L'adresse physique obtenue est le couple (numéro de cadre, déplacement).
 * Il peut y avoir plus de pages que de cadres (c'est là tout l'intêret) : les pages qui ne sont pas en mémoire sont stockées sur un autre support (disque), elle
@@ -359,8 +360,8 @@ mémoire.
 ### Segmentation
 
 La segmentation est une technique de découpage de la mémoire. Elle est gérée par l'unité de segmentation de l'unité de gestion mémoire (*MMU*), utilisée sur les
-systèmes d'exploitation modernes, qui divise la mémoire physique (dans le cas de la segmentation pure) ou la mémoire virtuelle (dans le cas de la segmentation avec
-pagination) en segments caractérisés par leur adresse de début et leur taille (*décalage*).
+systèmes d'exploitation modernes, qui divise la mémoire physique (dans le cas de la segmentation pure) ou la mémoire virtuelle (dans le cas de la segmentation 
+avec pagination) en segments caractérisés par leur adresse de début et leur taille (*décalage*).
 
 La segmentation permet la séparation des données du programme (entre autres segments) dans des espaces logiquement indépendants facilitant alors la programmation,
 l'édition de liens et le partage inter-processus. La segmentation permet également d'offrir une plus grande protection grâce au niveau de privilège de chaque 
@@ -370,11 +371,11 @@ Lorsque l'unité de gestion mémoire (MMU) doit traduire une adresse logique en 
 première partie de l'adresse, c'est à dire le selecteur de segment, pour retrouver les caractéristiques du segment (base, limit, DPL, etc.) dans la table de
 descripteurs (GDT ou LDT). Puis il utilise la valeur de décalage qui référence l'adresse à l'intérieur du segment.
 
-Il existe sur la majorité des processeurs actuels, des registres de segments (CS, DS, SS, etc.) qui contiennent le sélecteur de segment dernièrement utilisé par le
-processeur qui sont utilisés pour accélérer l'accès à ces selecteurs.
+Il existe sur la majorité des processeurs actuels, des registres de segments (CS, DS, SS, etc.) qui contiennent le sélecteur de segment dernièrement utilisé par 
+le processeur qui sont utilisés pour accélérer l'accès à ces selecteurs.
 
-Sur les processeurs récents, il existe également des registres associés à chaque registre de segment qui contiennet le descripteur de segment associé pour un accès
-plus rapide aux descripteurs.
+Sur les processeurs récents, il existe également des registres associés à chaque registre de segment qui contiennet le descripteur de segment associé pour un 
+accès plus rapide aux descripteurs.
 
 Un segment mémoire est un espace d'adressage indépendant défini par deux valeurs :
 
@@ -393,8 +394,8 @@ Il existe différents types de segment :
 
 ### Sysfs
 
-Sysfs est un système de fichiers virtuel introduit par le noyau linux 2.6. Sysfs permet d'exporter depuis l'espace noyau vers l'espace utilisateur des informations
-sur les périphériques du système et leur pilotes, et est également utilisé pour configurer certaine fonctionnalités du noyau.
+Sysfs est un système de fichiers virtuel introduit par le noyau linux 2.6. Sysfs permet d'exporter depuis l'espace noyau vers l'espace utilisateur des 
+informations sur les périphériques du système et leur pilotes, et est également utilisé pour configurer certaine fonctionnalités du noyau.
 
 Pour chaque objet ajouté à l'arbre des modèles de pilote (pilotes, périphériques, classe de périphériques), un répertoire est créé dans sysfs. La relation
 parent/enfant est représentée sous la forme de sous-répertoires dans */sys/devices/* (représentant la couche physique). Le sous-répertoire */sys/bus/* est peuplé
@@ -402,13 +403,13 @@ de liens symboliques, représentant la manière dont chaque périphérique appar
 comme les périphériques réseau par exemple, pendant que */sys/block/* contient les périphériques de type bloc.
 
 Pour les périphériques et leurs pilotes, des attributs peuvent être créés. Ce sont de simples fichiers, la seule contrainte est qu'ils ne peuvent contenir chacun
-qu'une seule valeur et/ou n'autoriser le renseignement que d'une valeur (au contraire de certains fichiers de procfs, qui nécessitent d'être longuement parcourus).
-Ces fichiers sont placés dans le sous-répertoire du pilote correspondant au périphérique. L'utilisation de groupes d'attributs est possible en créant un
-sous-répertoire peuplé d'attributs.
+qu'une seule valeur et/ou n'autoriser le renseignement que d'une valeur (au contraire de certains fichiers de procfs, qui nécessitent d'être longuement 
+parcourus). Ces fichiers sont placés dans le sous-répertoire du pilote correspondant au périphérique. L'utilisation de groupes d'attributs est possible en créant 
+un sous-répertoire peuplé d'attributs.
 
 Sysfs est utilisé par quelques utilitaires pour accéder aux informations concernant le matériel et ses pilotes (des modules du noyau comme udev par exemple). Des
-scripts ont été écrits pour accéder aux informations obtenues précédemment via procfs, et certains scripts permettent la configuration du matériel et de leur pilote
-via leurs attributs.
+scripts ont été écrits pour accéder aux informations obtenues précédemment via procfs, et certains scripts permettent la configuration du matériel et de leur 
+pilote via leurs attributs.
 
 Sysfs s'appuie sur ramfs. Un système de fichiers temporaire très simple monté en RAM.
 
@@ -473,9 +474,9 @@ LXC permet d'exécuter des conteneurs en tant que simple utilisateur sur l'hôte
 ### Conteneurisation Docker
 
 Docker est un ensemble de produits de Plateforme en tant que Service qui utilise la virtualisation au niveau du système d'exploitation pour livrer des logiciels
-dans des paquets appelé conteneurs. Les conteneurs sont isolés les uns des autres et embarquent leurs propres logiciels, bibliothèques et fichiers de configuration ;
-ils peuvent communiquer entre eux à travers des cannaux bien définis. Tous les conteneurs sont exécuté par un noyau de système d'exploitation unique et par 
-conséquent utilisent moins de ressources que des machines virtuelles.
+dans des paquets appelé conteneurs. Les conteneurs sont isolés les uns des autres et embarquent leurs propres logiciels, bibliothèques et fichiers de 
+configuration ; ils peuvent communiquer entre eux à travers des cannaux bien définis. Tous les conteneurs sont exécuté par un noyau de système d'exploitation 
+unique et par conséquent utilisent moins de ressources que des machines virtuelles.
 
 Docker peut empaqueter une application et ses dépendances dans un conteneur virtuel qui peut s'exécuter sur n'importe quel ordinateur Linux, Windows, ou macOS. 
 Ceci permet à l'application de s'exécuter dans toute une variété d'environnement, par exemple, sur sa propre machine, dans un cloud public ou privé. Quand il 
@@ -484,16 +485,17 @@ capables de montage en union, pour permettre aux conteneurs de s'exécuter sur u
 machines virtuelles.
 
 Le support des espaces de nom du noyau Linux permet d'isoler l'environnement système de la vue de l'application comme l'arbre des processus, le réseau, les
-identifiants utilisateurs et les systèmes de fichiers montés, tandis que les cgroups fournissent la limitation de ressources mémoire et CPU. Docker inclut également
-sa propre bibliothèque *libcontainer* permettant d'accéder directement les fonctions de virtualisations fournient par le noyau linux en plus de l'utilisation
-d'interfaces de virtualisations telles que *libvirt*, *LXC* et *systemd-nspawn*.
+identifiants utilisateurs et les systèmes de fichiers montés, tandis que les cgroups fournissent la limitation de ressources mémoire et CPU. Docker inclut 
+également sa propre bibliothèque *libcontainer* permettant d'accéder directement les fonctions de virtualisations fournient par le noyau linux en plus de 
+l'utilisation d'interfaces de virtualisations telles que *libvirt*, *LXC* et *systemd-nspawn*.
 
 Docker implément une API de haut niveau pour fournir des conteneurs légers exécutant des processus isolés.
 
 Le logiciel Docker en tant qu'offre de services consiste en trois composants :
 
-* Le Logiciel : Le daemon Docker, *dockerd*, est un processus persistant qui gère les conteneurs Docker ainsi que les objets du conteneur. Le daemon est à l'écoute
-des requêtes envoyés via l'API du Docker Engine. Et le programme client *docker* fournit une interface de ligne de commande qui permet d'intéragir avec le daemon.
+* Le Logiciel : Le daemon Docker, *dockerd*, est un processus persistant qui gère les conteneurs Docker ainsi que les objets du conteneur. Le daemon est à 
+l'écoute des requêtes envoyés via l'API du Docker Engine. Et le programme client *docker* fournit une interface de ligne de commande qui permet d'intéragir avec 
+le daemon.
 * Les objets : Les objets docker sont des entités diverses utilisées pour assembler une application dans Docker. Les classes principales des objets Dockers sont
 les images, les conteneurs et les services.
     * Un conteneur Docker est un environnement encapsulé, standardisé qui exécute des applications. Un conteneur est géré à travers l'API Docker ou la ligne de
@@ -529,10 +531,10 @@ Beaucoup de services de cloud offre des plateformes ou infrastructures en tant q
 déployé comme service fournisseur de plateformes.
 
 Kubernetes definit un ensemble de primitives, qui collectivement fournissent des mécanismes de déploiement, de maintien et de mise à l'echelle d'applications basé 
-sur les ressources CPU, mémoire et autres métriques personnalisées. Kubernetes est lâchement couplé et extensible pour s'accorder à différentes charges de travail. 
-Cette extensibilité est fournit en grande partie par l'API Kubernetes, utilisée par des composants internes ainsi que les extensions et conteneurs executés sur 
-Kubernetes. La plateforme exerce son contrôle sur les ressources de calcul et de stockage et définissant ces ressources comme objets, ceux-ci pouvant par la suite 
-être gérés comme tels.
+sur les ressources CPU, mémoire et autres métriques personnalisées. Kubernetes est lâchement couplé et extensible pour s'accorder à différentes charges de
+travail. Cette extensibilité est fournit en grande partie par l'API Kubernetes, utilisée par des composants internes ainsi que les extensions et conteneurs 
+executés sur Kubernetes. La plateforme exerce son contrôle sur les ressources de calcul et de stockage et définissant ces ressources comme objets, ceux-ci pouvant 
+par la suite être gérés comme tels.
 
 Kubernetes suit l'architecture Maître-Esclave. Les composants de Kubernetes peuvent être divisés entre ceux qui gèrent les noeuds individuels et ceux qui font 
 partie du plan de contrôle.
@@ -542,18 +544,18 @@ contrôle de Kubernetes consiste en divers composants, chacun ayant sa propre t�
 maîtres pour des clusters à haute disponibilité. Les différents composants du plan de contrôle Kubernetes sont les suivants :
 
 * etcd : etcd est une base de données clef-valeur, légère, persistante et distribuée qui stocke de manière fiable les données de configuration du cluster, donnant
-une représentation de l'état global du cluster à l'instant t. *etcd* est un système qui favorise la cohérence à la disponibilité dans l'éventualité d'une partition
-réseau. Cette conhérence est cruciale pour ordonnancer correctement les services opérants. Le serveur de l'API Kubernetes utilise l'API de visualisation d'etcd 
-pour surveiller le cluster et déployer des changements configuration critiques ou simplement restaurer n'importe quelle divergence d'état du cluster tels qu'il 
-était déclaré par celui qui l'a déployé.
+une représentation de l'état global du cluster à l'instant t. *etcd* est un système qui favorise la cohérence à la disponibilité dans l'éventualité d'une 
+partition réseau. Cette conhérence est cruciale pour ordonnancer correctement les services opérants. Le serveur de l'API Kubernetes utilise l'API de visualisation 
+d'etcd pour surveiller le cluster et déployer des changements configuration critiques ou simplement restaurer n'importe quelle divergence d'état du cluster tels 
+qu'il était déclaré par celui qui l'a déployé.
 * Le serveur d'API : Le serveur d'API est un composant clé qui sert l'API Kubernetes via des JSON en HTTP, qui fournit à la fois les interfaces internes et 
 externes à Kubernetes. Le serveur d'API traite et valide les requêtes REST et met à jour l'état des objets dans etcd, de fait permettant aux clients de configurer 
 les charges de travail et les conteneurs à travers les noeuds.
-* L'ordonnanceur : L'ordonnanceur est un composant qui, sur la base de la disponnibilité ressource, sélectionne un noeud sur lequel s'exécute un pod non ordonnancé
-(entité de base géré par l'ordonnanceur). L'ordonnaceur suit l'usage ressource sur chacun des noeuds afin de s'assurer que la charge de travail n'est pas
-planifiée en excès de la ressource disponible. A cette fin, l'ordonnanceur doit connaître les conditions et disponibilités de la ressource et autres contraintes
-définies par l'utilisateur, les directives politiques telles que la qualité de service, les conditions d'affinité ou de non-affinité, la localisation des données etc.
-Le rôle de l'ordonnanceur est d'accorder la ressource disponnible à la charge de travail demandée.
+* L'ordonnanceur : L'ordonnanceur est un composant qui, sur la base de la disponnibilité ressource, sélectionne un noeud sur lequel s'exécute un pod non 
+ordonnancé (entité de base géré par l'ordonnanceur). L'ordonnaceur suit l'usage ressource sur chacun des noeuds afin de s'assurer que la charge de travail n'est 
+pas planifiée en excès de la ressource disponible. A cette fin, l'ordonnanceur doit connaître les conditions et disponibilités de la ressource et autres 
+contraintes définies par l'utilisateur, les directives politiques telles que la qualité de service, les conditions d'affinité ou de non-affinité, la localisation 
+des données etc. Le rôle de l'ordonnanceur est d'accorder la ressource disponnible à la charge de travail demandée.
 * Le gestionnaire de contrôle : Un contrôleur est une boucle de réconciliation qui amène l'état courant du cluster vers l'état désiré du cluster, en communicant 
 via le serveur d'API pour créer, mettre à jour et supprimer les ressources qu'il gère (pods, services, extrémités, etc.). Le gestionnaire de contrôle est un 
 processus qui gère un ensemble de contrôleurs du noyau Kubernetes. Un type de contrôleur est un contrôleur de réplication, qui s'occupe de la réplication et de la 
@@ -563,7 +565,8 @@ chaque machine (ou sous-ensemble de machines), et un contrôleur de travail pour
 L'ensemble des pods qu'un contrôleur gère est déterminé par l'étiquette des selecteurs faisant partie de la définition du contrôleur.
 
 Un noeud, est une machine où des conteneurs (charge de travail) sont déployés. Chaque noeud à l'intérieur du cluster doit exécuter un environnement d'exécution de
-conteneurs tel que Docker, ainsi que les composants mentionnés ci-dessous, à des fins de communication avec le maître pour la configuration réseau de ces conteneurs.
+conteneurs tel que Docker, ainsi que les composants mentionnés ci-dessous, à des fins de communication avec le maître pour la configuration réseau de ces 
+conteneurs.
 
 * Kubelet : Kubelet est responsable de l'état d'exécution de chaque noeud, il s'assure que tous les conteneurs du noeud sont sains. Il prend en charge le 
 démarrage, l'arrêt et la maintenance des conteneurs d'application organisés en pods tels que l'a décidé le plan de contrôle.
@@ -571,8 +574,9 @@ Kublet surveille l'état d'un pod, s'il n'est pas dans l'état désiré, le pod 
 quelques secondes via des messages au maître. Si le maître détecte un échec de noeud, le contrôleur de réplication observe ce changement de statut et lance des 
 pods sur d'autres noeuds sains.
 
-* Kube-proxy : Le Kube-proxy est une implémentation d'un proxy réseau et d'un répartiteur de charge, il prend en charge l'abstraction de service ainsi que d'autres
-opérations réseau. Il est responsable du routage du traffic vers le conteneur approprié basé sur l'adresse IP et le numéro de port de la requête qui arrive.
+* Kube-proxy : Le Kube-proxy est une implémentation d'un proxy réseau et d'un répartiteur de charge, il prend en charge l'abstraction de service ainsi que 
+d'autres opérations réseau. Il est responsable du routage du traffic vers le conteneur approprié basé sur l'adresse IP et le numéro de port de la requête qui 
+arrive.
 
 * Environnement d'exécution de conteneur : Un conteneur réside dans un pod. Le conteneur est le niveau de micro-service le plus bas, qui contient l'application en
 cours d'exécution, les bibliothèques et leurs dépendances. Ils peuvent également avoir une adresse IP externe.
@@ -580,17 +584,17 @@ cours d'exécution, les bibliothèques et leurs dépendances. Ils peuvent égale
 L'unité d'ordonnancement de base dans Kubernetes est un pod. Un pod est un groupement de composants conteneurisés. Un pod consiste en un ou plusieurs conteneurs
 garantis de se trouver sur le même noeud.
 
-Chaque pod dans Kubernetes est assigné à une adresse IP unique à l'intérieur du cluster, permettant aux applications d'utiliser des ports sans risques de conflits.
-A l'intérieur du pod,; chaque conteneur peut faire référence à chaque autre sur le localhost, mais un conteneur à l'intérieur d'un pod n'a aucun moyen de 
-s'adresser directement à un autre conteneur dans un autre pod ; pour cela, il doit utiliser l'adresse IP du pod.
+Chaque pod dans Kubernetes est assigné à une adresse IP unique à l'intérieur du cluster, permettant aux applications d'utiliser des ports sans risques de 
+conflits. A l'intérieur du pod,; chaque conteneur peut faire référence à chaque autre sur le localhost, mais un conteneur à l'intérieur d'un pod n'a aucun moyen 
+de s'adresser directement à un autre conteneur dans un autre pod ; pour cela, il doit utiliser l'adresse IP du pod.
 
 Un pod peut définir un volume, tel qu'un répertoire du disque local ou un disque réseau, et l'exposer aux conteneurs du pod. Les pods peuvent être gérés 
 manuellement via l'API Kubernetes, ou leur gestion peut être déléguée à un contrôleur. De tels volumes sont aussi la pase des fonctionnalités Kubernetes de 
 ConfigMaps (pour fournir un accès à la configuration à travers le système de fichier visible au conteneur) et Secrets (pour fournir les certificats nécessaires à 
 l'accès sécurisé à des ressources distantes, en donnant uniquement aux conteneurs autorisés, ces certificats sur leur système de fichier visible).
 
-La fonction d'un ReplicaSet est de maintenir un ensemble stable de pods répliqués pouvant être exécutés à tout moment. En tant que tel, il est souvent utilisé pour
-garantir la disponnibilité d'un nombre de pods identiques spécifique.
+La fonction d'un ReplicaSet est de maintenir un ensemble stable de pods répliqués pouvant être exécutés à tout moment. En tant que tel, il est souvent utilisé 
+pour garantir la disponnibilité d'un nombre de pods identiques spécifique.
 
 Les ReplicaSets est également un mécanisme de rassemblement qui permet à Kubernetes de maintenir pour un pod donné un nombre d'instance défini à l'avance.
 La définition d'un ensemble de réplique utilise un selecteur, dont l'évaluation résulte en l'évaluation de tous les pods qui lui sont associés.
