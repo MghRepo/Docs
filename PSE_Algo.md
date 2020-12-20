@@ -12,7 +12,7 @@
 	+ [Programmation événementielle](#programmation-événementielle)
 * [Algorithmes de tri](#algorithmes-de-tri)
 	+ [Critère de classification](#critère-de-classification)
-	+ [Exemples d'algorithmes de tri](#exemples-d-algorithmes-de-tri)
+	+ [Exemples d'algorithmes de tri](#exemples-dalgorithmes-de-tri)
 * [Structures de données](#structures-de-données)
 	+ [Pile](#pile)
 	+ [File](#file)
