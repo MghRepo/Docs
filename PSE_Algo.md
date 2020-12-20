@@ -2,15 +2,23 @@
 
 #### Table des matières
 
-[Structures de contrôle](#structures-de-contrôle)
-[Structures de contrôle séquentielles](#structures-de-contrôle-séquentielles)
-[Structures de contrôle itératives](#structures-de-contrôle-itératives)
-[Extensions de la notion de boucles](#extensions-de-la-notion-de-boucles)
-[Sous-programmes](#sous-programmes)
-[Exceptions](#exceptions)
-[Programmation multitâche](#programmation-multitâche)
-[Programmation événementielle](#programmation-événementielle)
-[Algorithme de tri](#algorithme-de-tri)
+* [Structures de contrôle](#structures-de-contrôle)
+
+	+ [Structures de contrôle séquentielles](#structures-de-contrôle-séquentielles)
+
+	+ [Structures de contrôle itératives](#structures-de-contrôle-itératives)
+
+	+ [Extensions de la notion de boucles](#extensions-de-la-notion-de-boucles)
+
+	+ [Sous-programmes](#sous-programmes)
+
+	+ [Exceptions](#exceptions)
+
+	+ [Programmation multitâche](#programmation-multitâche)
+
+	+ [Programmation événementielle](#programmation-événementielle)
+
+* [Algorithme de tri](#algorithme-de-tri)
 
 ## Structures de contrôle
 
