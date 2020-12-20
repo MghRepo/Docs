@@ -4,7 +4,7 @@
 
 * [Système](#système)
     + [Multitâche coopératif](#multitâche-coopératif)
-    + [Multitâche préemptif](#multitâche-preemptif)
+    + [Multitâche préemptif](#multitâche-préemptif)
     + [Algorithmes d'ordonnancement](#algorithmes-dordonnancement)
     + [Synchronisation](#synchronisation)
     + [Signaux](#signaux)
