@@ -299,9 +299,7 @@ Les données présentes dans un tableau sont contiguës en mémoire. Cela induit
 tableau fixe. Cependant certains langages de haut niveau fournissent des tableaux qui modifient
 leur taille en fonction de leur utilisation : on parle alors de
 tableau à taille dynamique. Mais leur implémentation utilise le principe des listes chaînées.
-Les tableaux peuvent également avoir plusieurs dimensions, représentées par une séquence d'indices. Dans ce cas, si n est la dimension du tableau
-(où n est un entier naturel non nul), les éléments du tableau de dimension 1 (le 1er indice de la séquence) pointent chacun vers un autre
-sous-tableau de dimension n-1.
+Les tableaux peuvent également avoir plusieurs dimensions, représentées par une séquence d'indices.
 
 Contrairement à un tableau, la taille d'une liste chaînée n'a pas de limite autre que celle de la mémoire disponible. Cette limitation est
 franchie par le fait que chaque élément peut pointer, suivant le type de liste chaînée, vers un ou plusieurs éléments de la liste en utilisant
