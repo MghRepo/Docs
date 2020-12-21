@@ -324,7 +324,7 @@ une unique racine, et tel que tous les noeuds sauf la racine ont un unique paren
 
 Dans un arbre, on distingue deux catégories d'éléments :
 
-* les *feuilles* (ou noeuds externes), éléments ne possédant pas de fil dans l'arbre ;
+* les *feuilles* (ou noeuds externes), éléments ne possédant pas de fils dans l'arbre ;
 * les *noeuds* interne, éléments possédant des fils (sous-branches).
 
 La *racine* de l'arbre est l'unique noeud ne possédant pas de parent. Les noeuds (les pères avec leurs fils) sont reliés entre eux par une *arête*. Selon le
