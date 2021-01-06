@@ -22,6 +22,7 @@
 	+ [Arbre B](#arbre-b)
 	+ [Arbre rouge-noir](#arbre-rouge-noir)
 	+ [Tas](#tas)
+	+ [Table de hachage](#table-de-hachage)
 * [Programmation orientée objet](#programmation-orientée-objet)
 * [Compilation](#compilation)
 
@@ -743,6 +744,12 @@ Pour enfiler un élément, on le place comme feuille, puis on fait "remonter" l'
 
 Quand on défile un élément d'un tas, c'est toujours celui de priorité maximale. Il correspond donc à la racine du tas. L'opération peut conserver la
 structure de tas, avec une complexité de *O(log n)* ; en effet, il ne reste alors qu'à réordonner l'arbre privé de sa racine pour en faire un nouveau tas.
+
+### Table de hachage
+
+Une table de hachage est une structure de données qui implémente un type abstrait de tableau associatif. Une table de hachage utilise une fonction de hachage
+afin de calculer l'index d'un tableau d'emplacements desquels la valeur attendue peut être trouvée. Pendant la recherche, la clef est hachée et le hash
+résultant indique l'emplacement de la valeur.
  
 ## Programmation orientée objet
 
