@@ -1,7 +1,5 @@
 # Introduction au Shell
 
----
-
 ## Qu'est-ce que le Shell ?
 
 Le Shell est un programme qui permet d'interpréter les commandes de l'utilisateur.  C'est l'un des tout premiers moyens d'interagir

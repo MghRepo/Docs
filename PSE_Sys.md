@@ -472,7 +472,7 @@ périphérique, ainsi que du chargement des firmwares.
 ### Cgroups
 
 Les cgroups sont une fonctionnalité du noyau linux qui limite, compte et isole l'utilisation des ressources (CPU, mémoire,
-Entrée/sortie, réseau, etc.) d'une collection de processus.
+entrée/sortie, réseau, etc.) d'une collection de processus.
 
 Ces groupes de contrôle peuvent être utilisés de multiples façons :
 
