@@ -470,6 +470,6 @@ Quelques différences entre les fonctions shell et les scripts shell à garder e
 - Les fonctions sont chargées une fois que leur définition est lue. Les scripts sont chargés à chaque exécution.
 - Les fonctions sont exécutées dans le shell courant alors que les scripts exécutent leurs propres processus.  Les fonctions peuvent
   donc modifier des variables d'environnement, par exemple changer le répertoire de travail. A ce titre, les scripts peuvent
-hériter de variables d'environnement ci celles-ci ont été exportées précedemment à l'aide du mot-clef *export*.
+hériter de variables d'environnement si celles-ci ont été exportées précedemment à l'aide du mot-clef *export*.
 - Comme avec n'importe quel langage de programmation, les fonctions sont des outils modulaires permettant une réutilisation et une
 meilleure clarté du code.
