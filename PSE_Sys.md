@@ -461,6 +461,37 @@ Udev est un gestionnaire de périphérique pour le noyau Linux. Udev gère princ
 */dev/*. udev traite également tous les évennements dans l'espace utilisateurs lors de l'ajout ou de la suppression d'un
 périphérique, ainsi que du chargement des firmwares.
 
+Les pilotes font parti du noyau Linux, dans le sens ou leurs fonctions principales incluent la découverte de périphérique, la
+détection des changements d'états, et autres fonctions matérielles similaires de bas niveau. Après chargement du pilote de
+périphérique en mémoire depuis le noyau, les événements détectés sont envoyé au daemon de l'espace utilisateur *udevd*. C'est le
+gestionnaire de périphérique, *udevd*, qui récupère tout ces événements et qui ensuite décide de la suite à donner. A cette fin,
+*udevd* dispose d'un ensemble de fichiers de configurations, pouvant être ajusté par l'administrateur suivant ses besoins.
+
+* Dans le cas d'un nouvel appareil de stockage USB, *udevd* est notifié par le noyau qui lui-même notifie le udisksd-daemon. Ce
+daemon pourra alors monter le système de fichiers.
+* Dans le cas d'une nouvelle connection de câble Ethernet à la carte d'interface réseau Ethernet (NIC), *udevd* est notifié par le
+noyau qui lui-même notifie le NetworkManager-daemon. Le NetworkManager-daemon pourra alors démarrer le daemon client dhcp pour cette
+NIC, ou bien configurer la connection à l'aide d'une configuration manuelle quelconque.
+
+Contrairement aux systèmes traditionnels UNIX, ou les noeuds périphériques contenus dans le répertoire */dev* était un ensemble de
+fichiers statique, le gestionnaire de périphérique Linux udev fournit dynamiquement, uniquement les noeuds des périphériques
+actuellement disponnible au système :
+
+* udev fournit un nommage de périphérique persistant, qui ne dépend pas de, par exemple, l'ordre de connection des appareils au
+système.
+
+* udev s'exécute entièrement en espace utilisateur. Une conséquence est que udev peut exécuter des programmes arbitraires pour
+composer un nom pour le périphérique fonction de ses propriétés, avant que le noeud soit créé; d'ailleurs, l'ensemble du processus
+de nommage est également interruptible et s'exécute avec une priorité basse.
+
+Udev est divisé en trois parties :
+
+* La bibliothèque *libudev* qui permet l'accès aux informations des périphériques; qui est maintenant inclue dans *systemd*.
+* Le daemon de l'espace utilisateur *udevd* qui gère */dev* virtuel.
+* L'utilitaire d'administration en ligne de commande *udevadm* pour des diagnostics.
+
+Le système reçoit des appels depuis le noyau via des socket netlink.
+
 ### Bus
 
 ### Accès à la mémoire
