@@ -211,13 +211,13 @@ espacés d'un pas constant, pour une suite de pas prédéfinie. La complexité v
 consécutifs. On peut dire qu'il est au tri à bulles ce que le tri de Shell est au tri par insertion.
 * Tri par insertion (*insertion sort*): Ce tri souvent utilisé naturellement pour trier des cartes à jouer. Les valeurs sont
 insérées les unes après les autres dans une liste triée (initialement vide). C'est souvent le plus rapide et le plus utilisé pour
-trier les entrées de petite taille.  Il est également efficace pour des entrées déjà presque triées.
+trier les entrées de petite taille. Il est également efficace pour des entrées déjà presque triées.
 * Tri à bulles (*bubble sort*) : L'algorithme consiste à parcourir l'entrée du début à la fin et pour chaque couple d'éléments
 consécutifs, à les intervertir s'ils sont mal ordonnés. Cette opération est répétée jusqu'à ce que la structure soit triée (aucune
 intervention lors du dernier passage). Cet algorithme est peu efficace et rarement utilisé en pratique ; son intêret est
 principalement pédagogique.
 * Tri cocktail (*cocktail sort*) : Il s'agit d'une variante du tri à bulles dans laquelle l'entrée est alternativement parcourue
-dans les deux sens.  S'il permet de traiter de manière plus efficace quelques cas problématiques pour le tri à bulles, il reste
+dans les deux sens. S'il permet de traiter de manière plus efficace quelques cas problématiques pour le tri à bulles, il reste
 essentiellement similaire à ce dernier et l'intérêt est encore une fois principalement pédagogique.
 * Tri pair-impair (*odd-even sort*) : Il s'agit d'une variante du tri à bulles, qui procède en comparant successivement tous les
 éléments d'index pairs avec les éléments d'index impairs qui les suivent, puis inversement. On va ainsi commencer en comparant le
@@ -227,7 +227,7 @@ cinquième. L'opération est répétée jusqu'à ce que la structure soit triée
 Algorithmes lents :
 
 * Tri par selection (*selection sort*) : Sur un tableau de *n* éléments on recherche l'élément le plus petit du tableau et on
-l'échange avec l'élément d'indice 0.  Puis on recherche le deuxième plus petit et on l'échange avec l'élément d'indice 1.
+l'échange avec l'élément d'indice 0. Puis on recherche le deuxième plus petit et on l'échange avec l'élément d'indice 1.
 L'opération est répétée jusqu'à ce que la structure soit triée.
 
 ## Structures de données
@@ -244,7 +244,7 @@ La plupart des microprocesseurs gèrent nativement une pile. Elle correspond alo
 l'adresse du dernier élément.
 
 Voici les primitives communément utilisées pour manipuler les piles. Il n'existe pas de normalisation pour les primitives de
-manipulation de pile.  Leurs noms sont donc indiqués de manière informelle. Seules les trois premières sont réellement
+manipulation de pile. Leurs noms sont donc indiqués de manière informelle. Seules les trois premières sont réellement
 indispensables, les autres pouvant s'en déduire :
 
 * Empiler (*Push*) : ajoute un élément sur la pile.
@@ -318,7 +318,7 @@ Dans un tableau, l'accès à un élément se fait à l'aide d'un index qui repr�
 
 Les données présentes dans un tableau sont contiguës en mémoire. Cela induit une taille de tableau fixe. Cependant certains langages
 de haut niveau fournissent des tableaux qui modifient leur taille en fonction de leur utilisation : on parle alors de tableau à
-taille dynamique. Mais leur implémentation utilise le principe des listes chaînées.  Les tableaux peuvent également avoir plusieurs
+taille dynamique. Mais leur implémentation utilise le principe des listes chaînées. Les tableaux peuvent également avoir plusieurs
 dimensions, représentées par une séquence d'indices.
 
 Contrairement à un tableau, la taille d'une liste chaînée n'a pas de limite autre que celle de la mémoire disponible. Cette
@@ -477,7 +477,7 @@ que le noeud à supprimer a été trouvé à partir de sa clé :
 * *Suppression de noeud avec un enfant* : Il faut l'enlever de l'arbre en le remplaçant par son fils.
 * *Suppresson d'un noeud avec deux enfants* : Supposons que le noeud à supprimer soit appelé N. On échange le noeud N avec son
 sucesseur le plus proche (le noeud le plus à gauche du sous-arbre droit) ou son plus proche prédécesseur (le noeud le plus à droite
-du sous-arbre gauche).  Cela permet de garder à la fin de l'opération une structure d'arbre binaire de recherche. Puis on applique à
+du sous-arbre gauche). Cela permet de garder à la fin de l'opération une structure d'arbre binaire de recherche. Puis on applique à
 nouveau la procédure de suppression à N, qui est maintenant une feuille ou un noeud avec un seul fils.
 
 Ce choix d'implémentation peut contribuer à déséquilibrer l'arbre. En effet, puisque ce sont toujours des feuilles du sous-arbre
@@ -579,7 +579,7 @@ récursivement, selon qu'un noeud ait ou non trop de clés : s'il possède un no
 le transforme en deux noeuds, chacun possédant un nombre minimum de clés, puis on fait "remonter" la clé du milieu qui est alors
 insérée dans le noeud père. Ce dernier peut du coup se retrouver avec un nombre excessif de fils ; le procédé se poursuit ainsi
 jusqu'à ce qu'on atteigne la racine. Si celle-ci doit être divisée, on fait "remonter" la clé du milieu dans une nouvelle racine,
-laquelle génèrera comme noeuds fils les deux noeuds créés à partir de l'ancienne racine, à l'instar de l'étape précédente.  Pour que
+laquelle génèrera comme noeuds fils les deux noeuds créés à partir de l'ancienne racine, à l'instar de l'étape précédente. Pour que
 l'opération soit possible, on remarque qu'il faut que U &#8805; 2L ; sinon les nouveaux noeuds ne possèderont pas suffisamment de
 clés.
 
@@ -642,7 +642,7 @@ maximum de cases mémoires inutilisées en remplissant au maximum un minimum de 
 
 Un **arbre bicolore**, ou **arbre rouge-noir** ou **arbre rouge et noir** est un type particulier d'arbre binaire de recherche
 équilibré. Chaque noeud de l'arbre possède en plus de ses données propres un attribut binaire qui est souvent interprété comme sa
-"couleur" (rouge ou noir).  Cet attribut permet de garantir l'équilibre de l'arbre : lors de l'insertion ou de la suppression
+"couleur" (rouge ou noir). Cet attribut permet de garantir l'équilibre de l'arbre : lors de l'insertion ou de la suppression
 d'éléments, certaines propriétés sur les relations entre les noeuds et les couleurs doivent être maintenues, ce qui empêche l'arbre
 de devenir trop déséquilibré, y compris dans le pire des cas. Durant une insertion ou une suppression, les noeuds sont parfois
 réarrangés ou changent leur couleur afin que ces propriétés soient conservées.
@@ -666,13 +666,13 @@ gauche - racine - droite), ce qui permet de lister les éléments dans l'ordre. 
 logarithmique *O(log n)*, *n* étant le nombre d'éléments de l'arbre, y compris dans le pire des cas.
 
 Un arbre bicolore est un arbre binaire de recherche dans lequel chaque noeud a un attribut supplémentaire : sa couleur, qui est soit
-**rouge** soit **noire**.  En plus des restrictions imposées aux arbres binaires de recherche, les règles suivantes sont utilisées :
+**rouge** soit **noire**. En plus des restrictions imposées aux arbres binaires de recherche, les règles suivantes sont utilisées :
 
 1. Un noeud est soit rouge soit noir ;
 2. La racine est noire ;
 3. Les enfants d'un noeud rouge sont noirs ;
 4. Tous les noeuds ont 2 enfants. Ce sont d'autres noeuds ou des feuilles **NIL**, qui ne possèdent pas de valeurs et qui sont les
-seuls noeuds sans enfants.  Leur couleur est toujours **noire** et rentre donc en compte lors du calcul de la hauteur noire.
+seuls noeuds sans enfants. Leur couleur est toujours **noire** et rentre donc en compte lors du calcul de la hauteur noire.
 5. Le chemin de la racine à n'importe quelle feuille (**NIL**) contient le même nombre de noeuds noirs. On peut appeler ce nombre de
 noeuds noirs la **hauteur noire**.
 
@@ -767,21 +767,21 @@ le cas où le noeud à retirer aurait deux enfants qui ne sont pas des feuilles,
 sous-arbre gauche (c'est à dire l'élément précédent immédiatement le noeud à supprimer dans l'ordre de l'arbre) soit le plus petit
 élément du sous-arbre droit (c'est à dire le successeur immédiat). La valeur du noeud à supprimer est remplacée par celle du
 prédécesseur ou du successeur, et c'est ce dernier noeud dont on vient de recopier la valeur qui est supprimé. On notera que la
-copie d'une valeur n'altère pas les propriétés bicolores de l'arbre.  Le noeud qui sera effectivement supprimé de l'arbre aura donc
+copie d'une valeur n'altère pas les propriétés bicolores de l'arbre. Le noeud qui sera effectivement supprimé de l'arbre aura donc
 au plus un seul enfant qui ne soit pas une feuille. On note M le noeud à supprimer. M a donc soit un enfant non-feuille (noté C)
 soit aucun (dans ce cas, on choisit l'une des feuilles pour C). Après la suppression, la position qu'occupait M dans l'arbre sera
-occupée par C.  Dans le cas le plus simple, le noeud supprimé M est **rouge** : il suffit de le remplacer par son enfant C qui est
+occupée par C. Dans le cas le plus simple, le noeud supprimé M est **rouge** : il suffit de le remplacer par son enfant C qui est
 nécessairement **noir** en vertu de la propriété 3. En retirant M, on ne change pas la hauteur-noire de l'arbre, donc les propriétés
-restent toutes respectées.  Un autre cas simple se produit si le noeud supprimé M est **noir** mais que son enfant C est **rouge**.
+restent toutes respectées. Un autre cas simple se produit si le noeud supprimé M est **noir** mais que son enfant C est **rouge**.
 En supprimant M, on diminue la hauteur-noire de l'arbre, ce qui violerait la propriété 5. De plus le parent P de M pourrait être
 rouge : or C va remplacer M comme fils de P, ce qui pourrait également violer la propriété 3. On restaure ces propriétés simplement
-en coloriant C en **noir**.  Le cas le plus compliqué se produit si le noeud supprimé M et son enfant C sont tous les deux
+en coloriant C en **noir**. Le cas le plus compliqué se produit si le noeud supprimé M et son enfant C sont tous les deux
 **noirs**.
 
 ### Tas
 
 Un tas est une structure de données de type arbre tel que pour tous noeuds A et B de l'arbre tels que B soit un fils de A :
-clé(A)&#8805;clé(B) (ou inversément).  Les primitives du tas sont : enfiler et defiler.
+clé(A)&#8805;clé(B) (ou inversément). Les primitives du tas sont : enfiler et defiler.
 
 Pour enfiler un élément, on le place comme feuille, puis on fait "remonter" l'élément pour maintenir la priorité du tas. L'opération
 peut être réalisée en *O(log n)*.
@@ -807,14 +807,14 @@ En POO, les programmes informatiques sont créés de façon à pouvoir intéragi
 être très divers, mais les plus populaires sont basés sur la notion de classe, cela signifie que les objets sont des instances de
 classes, qui déterminent également leurs types.
 
-Une *classe* regroupe des membres, méthodes et propriétés (attributs) communs à un ensemble d'objets.  La classe déclare, d'une
+Une *classe* regroupe des membres, méthodes et propriétés (attributs) communs à un ensemble d'objets. La classe déclare, d'une
 part, des attributs représentant l'état des objets et, d'autres part, des méthodes représentant leur comportement.
 
 Il est possible de restreindre l'ensemble d'objets représenté par une classe A grâce à un mécanisme *d'héritage*. Dans ce cas, on
 crée une nouvelle classe B liée à la classe A et qui ajoute de nouvelles propriétés.
 
 Dans la programmation par objets, chaque objet est typé. Le type définit la syntaxe et la sémantique des messages auxquels peut
-répondre un objet.  Il correspond donc, à peu de chose près, à l'interface de l'objet.
+répondre un objet. Il correspond donc, à peu de chose près, à l'interface de l'objet.
 
 Un objet peut appartenir à plus d'un type, c'est le *polymorphisme*, cela permet d'utiliser des objets de types différents là où est
 attendu un objet d'un certain type.
@@ -832,7 +832,7 @@ un fichier exécutable.
 
 On distingue deux options de compilation :
 
-* Ahead-of-time (AOT), où il faut compiler le programme avant de lancer l'application : la situation traditionnelle.  Compilation à
+* Ahead-of-time (AOT), où il faut compiler le programme avant de lancer l'application : la situation traditionnelle. Compilation à
 * la volée (just-in-time, en abrégé JIT) : cette faculté est apparue dans les années 1980 (par exemple Tcl/Tk)
 
 La tache principale d'un compilateur est de produire un code objet correct qui s'exécutera sur un ordinateur. La plupart des

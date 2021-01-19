@@ -45,7 +45,7 @@
 ### Multitâche coopératif
 
 Le multitâche coopératif est une forme simple de multitâche où chaque tâche doit explicitement permettre aux autres tâches de
-s'exécuter.  Cette approche simplifie l'architecture du système mais présente plusieurs inconvénients :
+s'exécuter. Cette approche simplifie l'architecture du système mais présente plusieurs inconvénients :
 * Le multitâche coopératif est une forme de couplage fort. Si un des processus ne redonne pas la main à un autre processus, par
 exemple si le processus est buggé, le système entier peut s'arrêter.
 * Le partage de ressources (temps CPU, mémoire, accès disque, etc.) peut être inefficace.
@@ -106,11 +106,11 @@ d'exploitation restaure l'ancien PCB de la tâche élue, qui s'exécute alors en
 Du choix de l'algorithme d'ordonnancement dépend le comportement du système. Il existe deux grandes classes d'ordonnancement :
 * *L'ordonnancement en temps partagé* présent sur la plupart des ordinateurs "classiques". Par exemple l'ordonnancement "decay" ;
 qui est celui par défaut sous Unix. Il consiste en un système de priorités adaptatives, par exemple il privilégie les tâches
-interactives pour que leur temps de réponse soit bon.  Une sous-classe de l'ordonnancement en temps partagé sont les ordonnanceurs
+interactives pour que leur temps de réponse soit bon. Une sous-classe de l'ordonnancement en temps partagé sont les ordonnanceurs
 dits "proportional share", eux sont plus destinés aux stations de calcul et permettent une gestion rigoureuse des ressources. On
 peut citer notamment "lottery" et "stride".
 * *L'ordonnancement en temps réel* qui assure qu'une certaine tâche sera terminée dans un délai donné. Cela est indispendable dans
-les systèmes embarqués.  Un ordonnanceur temps réel est dit optimal pour un système de tâches s'il trouve une solution
+les systèmes embarqués. Un ordonnanceur temps réel est dit optimal pour un système de tâches s'il trouve une solution
 d'ordonnancement du système lorsque cette solution existe. S'il ne trouve pas de solution à ce système, alors aucun autre
 ordonnanceur ne peut en trouver une.
 
@@ -119,11 +119,11 @@ Algorithmes d'ordonnancement :
 gérée comme une file circulaire. L'ordonnanceur parcourt cette file et alloue un temps processeur à chacun des processus pour un
 intervalle de temps de l'ordre d'un quantum au maximum. La performance de round-robin dépend fortement du choix du quantum de base.
 * *Rate-monotonic scheduling (RMS)* : L'ordonnancement à taux monotone est un algorithme d'ordonnancement temps réel en ligne à
-priorité constante (statique).  Il attribue la priorité la plus forte à la tâche qui possède la plus petite période. RMS est optimal
+priorité constante (statique). Il attribue la priorité la plus forte à la tâche qui possède la plus petite période. RMS est optimal
 dans le cadre d'un système de tâches périodiques, synchrones, indépendantes et à échéance sur requête avec un ordonnanceur
 préemptif. De ce fait, il n'est généralement utilisé que pour ordonnancer des tâches vérifiant ces propriétés.
 * *Earliest deadline first scheduling (EDF)* : C'est un algorithme d'ordonnancement préemptif à priorité dynamique, utilisé dans les
-systèmes temps réels.  Il attribue une priorité à chaque requête en fonction de l'échéance de cette dernière selon la règle : Plus
+systèmes temps réels. Il attribue une priorité à chaque requête en fonction de l'échéance de cette dernière selon la règle : Plus
 l'échéance d'une tâche est proche, plus sa priorité est grande. De cette manière, au plus vite le travail doit être réalisé, au plus
 il a des chances d'être exécuté.
 * *FIFO* : Les premièrs processus ajoutés à la file seront les premières à être exécutés.
@@ -181,7 +181,7 @@ données lorsque deux parties de programme peuvent être exécutées en parallè
 ### Signaux
 
 Un signal est une forme de communication entre processus utilisée par les systèmes de type Unix et ceux respectant les standards
-POSIX.  Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un événement. Quand un
+POSIX. Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un événement. Quand un
 signal est envoyé à un processus, le système d'exploitation interrompt l'exécution normale de celui-ci. Si le processus possède une
 routine de traitement pour le signal reçu, il lance son exécution. Dans le cas contraire, il exécute la routine des signaux par
 défaut.
@@ -205,7 +205,7 @@ comportement rend la construction de pipeline en shell aisée.
 ### Socket réseau
 
 Une socket réseau est une structure logicielle comprise dans un noeud réseau qui sert de point d'arrivée pour les données envoyées
-et reçues à travers le réseau.  La structure et les propriétés d'une socket sont définies par une interface de programmation (API)
+et reçues à travers le réseau. La structure et les propriétés d'une socket sont définies par une interface de programmation (API)
 de l'architecture réseau. Les sockets sont créées uniquement durant l' intervalle de temps d'un processus d'une application
 s'exécutant dans le noeud.
 
@@ -220,12 +220,12 @@ utiles des paquets IP entrants à l'application correspondante en lisant l'infor
 protocoles IP et transport et en enlevant ces entêtes des données applications.
 
 L'interface de programmation que les programmes utilisent pour communiquer avec la pile de protocole, utilisant les socket réseau,
-est appelée **socket API**.  Les API sockets internet sont généralement basées sur le standard socket de Berkeley. Dans le standard
+est appelée **socket API**. Les API sockets internet sont généralement basées sur le standard socket de Berkeley. Dans le standard
 socket de Berkeley, les socket sont une forme de descripteur de fichier (*read, write, open, close*).
 
 Dans les protocoles internet standards TCP et UDP, une adresse socket est la combinaison d'une addresse IP et d'un numéro de port.
 Les sockets n'ont pas besoin d'adresse source, mais si un programme lie la socket à une adresse source, la socket peut être utilisée
-pour recevoir et envoyer des données à cette adresse.  Basé sur cette adresse, les sockets internet délivrent les paquets
+pour recevoir et envoyer des données à cette adresse. Basé sur cette adresse, les sockets internet délivrent les paquets
 applicatifs entrants au processus applicatif approprié.
 
 Plusieurs types de sockets internet sont disponibles :
@@ -282,7 +282,7 @@ modules du noyau.
 ### Tube anonyme
 
 Un tube anonyme est un mécanisme de gestion de flux de donnée. Ce mécanisme inventé pour UNIX est principalement utilisé dans la
-communication inter-processus.  Ouvrir un tube anonyme permet de créer un flux de donnée unidirectionnel FIFO entre un processus et
+communication inter-processus. Ouvrir un tube anonyme permet de créer un flux de donnée unidirectionnel FIFO entre un processus et
 un autre. Ces tubes sont détruits lorsque le processus qui les a créés disparaît, contrairement aux tubes nommés qui sont liés au
 système d'exploitation et qui doivent être explicitement détruits.
 
@@ -330,7 +330,7 @@ Le bénéfice d'utiliser le mappage en mémoire est d'augmenter les performances
 volume. Pour les petits fichiers, les fichiers mappés peuvent engendrer des problèmes de fragmentation interne du fait que les maps
 mémoires sont toujours aligné sur la taille de la page (généralement 4Ko). Par conséquent, un fichier de 5Ko allouera 8Ko et gachera
 3Ko. Accéder aux fichiers mappés en mémoire est plus rapide que d'utiliser des opérations de lecture et d'écriture directement pour
-2 raisons. Premièrement, un appel système est bien plus lent qu'un accès vers la mémoire locale du programme.  Deuxièmement, dans la
+2 raisons. Premièrement, un appel système est bien plus lent qu'un accès vers la mémoire locale du programme. Deuxièmement, dans la
 plupart des systèmes d'exploitations la région mémoire mappée est la page cache du noyau, c'est à dire que cela ne nécessite aucune
 copie en espace utilisateur.
 
@@ -357,16 +357,16 @@ disque installé, avant qu'un système de fichier soit créé. Le disque stocke 
 partitions dans une aire appelée table de partition que le système d'exploitation lit avant toute autre région du disque. Chaque
 partition apparait alors comme un disque "logique" du point de vue du système d'exploitation qui fait usage d'une partie du disque
 réel. Les administrateurs systèmes utilisent alors un programme appelé éditeur de partitions pour créer, retailler, supprimer et
-manipuler les partitions.  Le partitionnement permet l'usage de différents systèmes de fichiers afin de stocker tout types de
+manipuler les partitions. Le partitionnement permet l'usage de différents systèmes de fichiers afin de stocker tout types de
 fichiers. Séparer les données utilisateur des données système permet d'empêcher que la partition système soit pleine ce qui rendrait
-le système inutilisable. Le partitionnement permet aussi de simplifier la sauvegarde.  Un désavantage du partitionnement est qu'il
+le système inutilisable. Le partitionnement permet aussi de simplifier la sauvegarde. Un désavantage du partitionnement est qu'il
 peut être difficile d'allouer la taille adéquate à chacune des partitions, ce qui peut avoir pour conséquence de laisser une
 partition avec énormément d'espace libre et une autre totalement saturée.
 
 ### Mémoire virtuelle
 
 Le principe de mémoire virtuelle repose sur l'utilisation de traduction à la volée des adresses virtuelles vue du logiciel, en
-adresses physiques de mémoire vive.  La mémoire virtuelle permet :
+adresses physiques de mémoire vive. La mémoire virtuelle permet :
 
 * d'utiliser de la mémoire de masse comme extension de la mémoire vive ;
 * d'augmenter le taux de multiprogrammation ;
@@ -377,11 +377,11 @@ adresses physiques de mémoire vive.  La mémoire virtuelle permet :
 
 Les adresses mémoires émises par le processeur sont des adresses virtuelles, indiquant la position d'un mot dans la mémoire
 virtuelle. Cette mémoire virtuelle est formée de zones de même taille, appelées pages. Une adresse virtuelle est donc un couple
-(numéro de page, déplacement dans la page).  La taille des pages est une puissance entière de deux, de façon à déterminersans calcul
+(numéro de page, déplacement dans la page). La taille des pages est une puissance entière de deux, de façon à déterminersans calcul
 le déplacement (10 bits de poids faible de l'adresse virtuelle pour des pages de 1024 mots), et le numéro de page (les autres bits).
 La mémoire vive est également composées de zones de même taille, apellées cadres (*frames*), dans lesquelles prennent place les
 pages (un cadre contient une page : taille d'un cadre = taille d'une page). La taille de l'ensemble des cadres en mémoire vive
-utilisés par un processus est appelé *Resident set size*.  Un mécanisme de traduction (*translation*) assure la conversion des
+utilisés par un processus est appelé *Resident set size*. Un mécanisme de traduction (*translation*) assure la conversion des
 adresses virtuelles en adresses physiques, en consultant une table des pages (*page table*) pour connaître le numéro du cadre qui
 contient la page recherchée. L'adresse physique obtenue est le couple (numéro de cadre, déplacement). Il peut y avoir plus de pages
 que de cadres (c'est là tout l'intêret) : les pages qui ne sont pas en mémoire sont stockées sur un autre support (disque), elle
@@ -529,7 +529,7 @@ que *chroot* puisqu'il virtualise la hiérarchie du système de fichiers, mais a
 IPC ainsi que le nom de l'hôte et du domaine.
 
 Systemd-nspawn limite l'accès en lecture seule à différentes interfaces du noyau dans le conteneur, telles que **/sys**,
-**/proc/sys** ou **/sys/fs/selinux**.  Les interfaces réseaux et l'horloge système ne peuvent pas être modifiées depuis l'intérieur
+**/proc/sys** ou **/sys/fs/selinux**. Les interfaces réseaux et l'horloge système ne peuvent pas être modifiées depuis l'intérieur
 du conteneur. Les fichiers spéciaux ou fichiers de périphérique ne peuvent  pas non plus être créés. Le système hôte ne peut pas
 être redémarrer et des modules du noyau ne peuvent pas être chargés depuis le conteneur.
 
@@ -558,7 +558,7 @@ cannaux bien définis. Tous les conteneurs sont exécuté par un noyau de systè
 moins de ressources que des machines virtuelles.
 
 Docker peut empaqueter une application et ses dépendances dans un conteneur virtuel qui peut s'exécuter sur n'importe quel
-ordinateur Linux, Windows, ou macOS.  Ceci permet à l'application de s'exécuter dans toute une variété d'environnement, par exemple,
+ordinateur Linux, Windows, ou macOS. Ceci permet à l'application de s'exécuter dans toute une variété d'environnement, par exemple,
 sur sa propre machine, dans un cloud public ou privé. Quand il s'exécute sur Linux, Docker utilise les mécanismes d'isolation
 fournis par le noyau (tels que les cgroups et les espaces de noms) et les systèmes de fichiers capables de montage en union, pour
 permettre aux conteneurs de s'exécuter sur une intance Linux unique, évitant la surcharge du démarrage et de la maintenance de
@@ -582,11 +582,11 @@ principales des objets Dockers sont les images, les conteneurs et les services.
     * Un conteneur Docker est un environnement encapsulé, standardisé qui exécute des applications. Un conteneur est géré à travers
     l'API Docker ou la ligne de commande.
     * Une image Docker est un modèle en lecture seule utilisée pour construire des conteneurs. Les images sont utilisées pour
-    stocker et envoyer des applications.  Un service Docker permet une mise à l'echelle des conteneurs sur de multiples daemons.
+    stocker et envoyer des applications. Un service Docker permet une mise à l'echelle des conteneurs sur de multiples daemons.
     * Docker. Ceci étant appelé une nuée (*swarm*), un ensemble de daemon coopérant, communiquant à travers l'API Docker.
 * Les registres : Un registre Docker est un dépot d'image Docker. Les clients Docker se connectent aux registres pour cloner
 (*pull*) des images à utiliser ou déposer (*push*) des images qu'ils ont contruites. Les dépots peuvent être publics ou privés. Les
-deux principaux dépots publics sont Docker Hub et Docker Cloud.  Docker Hub est le registre par défaut ou Docker recherche des
+deux principaux dépots publics sont Docker Hub et Docker Cloud. Docker Hub est le registre par défaut ou Docker recherche des
 images. Des registres Docker permettent également la création de notifications basée sur des évennements.
 
 Le logiciel Docker dispose également d'outils :
@@ -651,7 +651,7 @@ Un type de contrôleur est un contrôleur de réplication, qui s'occupe de la r�
 nombre de copies de pods spécifiées à travers le cluster. Il s'occupe également de créer des pods de remplacement, si les noeuds
 sous-jacents sont en erreur. D'autres contrôleurs qui sont une partie du noyau Kubernetes incluent le contrôleur DaemonSet pour
 exécuter exactement un pod sur chaque machine (ou sous-ensemble de machines), et un contrôleur de travail pour exécuter des pods
-jusqu'à fin d'exécution par exemple pour des traitements batchs.  L'ensemble des pods qu'un contrôleur gère est déterminé par
+jusqu'à fin d'exécution par exemple pour des traitements batchs. L'ensemble des pods qu'un contrôleur gère est déterminé par
 l'étiquette des selecteurs faisant partie de la définition du contrôleur.
 
 Un noeud, est une machine où des conteneurs (charge de travail) sont déployés. Chaque noeud à l'intérieur du cluster doit exécuter
@@ -660,7 +660,7 @@ communication avec le maître pour la configuration réseau de ces conteneurs.
 
 * Kubelet : Kubelet est responsable de l'état d'exécution de chaque noeud, il s'assure que tous les conteneurs du noeud sont sains.
 Il prend en charge le démarrage, l'arrêt et la maintenance des conteneurs d'application organisés en pods tels que l'a décidé le
-plan de contrôle.  Kublet surveille l'état d'un pod, s'il n'est pas dans l'état désiré, le pod est redéployé sur le même noeud. Le
+plan de contrôle. Kublet surveille l'état d'un pod, s'il n'est pas dans l'état désiré, le pod est redéployé sur le même noeud. Le
 statut du noeud est relayé sur une période de quelques secondes via des messages au maître. Si le maître détecte un échec de noeud,
 le contrôleur de réplication observe ce changement de statut et lance des pods sur d'autres noeuds sains.
 
@@ -690,14 +690,14 @@ La fonction d'un ReplicaSet est de maintenir un ensemble stable de pods répliqu
 tel, il est souvent utilisé pour garantir la disponnibilité d'un nombre de pods identiques spécifique.
 
 Les ReplicaSets est également un mécanisme de rassemblement qui permet à Kubernetes de maintenir pour un pod donné un nombre
-d'instance défini à l'avance.  La définition d'un ensemble de réplique utilise un selecteur, dont l'évaluation résulte en
+d'instance défini à l'avance. La définition d'un ensemble de réplique utilise un selecteur, dont l'évaluation résulte en
 l'évaluation de tous les pods qui lui sont associés.
 
 Un service Kubernetes est un ensemble de pods travaillant de concert, tel une couche d'une application multi-couche. L'ensemble de
 pods qui constitue un service sont définis par un sélecteur d'étiquette. Kubernetes fournit deux modes de découverte de service, en
 utilisant des variables d'environnement, ou en utilisant le DNS Kubernetes. La découverte de service assigne un adresse IP fixe et
 un nom DNS au service, et réparti la charge du traffic en utilisant un DNS round-robin pour les connections réseaux à cette adresse
-IP au milieu des pods vérifiant ce selecteur (même si des erreurs peuvent ammener les pods à passer d'une machine à une autre).  Par
+IP au milieu des pods vérifiant ce selecteur (même si des erreurs peuvent ammener les pods à passer d'une machine à une autre). Par
 défaut un service est exposé à l'intérieur d'un cluster (par exemple les pods back-end peuvent être groupés en service, recevant des
 requêtes de la part des pods front-end réparties entre eux), mais un service peut également être exposé en dehors d'un cluster (par
 exemple pour que les clients puissent accéder aux pods front-end).
