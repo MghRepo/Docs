@@ -525,7 +525,7 @@ Les types d'espace de noms disponnibles dans Linux sont les suivants : Cgroup, I
 ### Systemd-nspawn
 
 Systemd-nspawn peut être utilisée pour exécuter une commande ou un OS dans un conteneur léger d'espace de noms. Il est plus puissant
-que *chroot* puisqu'il virtualise la hiérarchie du système de fichier, mais aussi l'arbre de processus, les différents sous-systèmes
+que *chroot* puisqu'il virtualise la hiérarchie du système de fichiers, mais aussi l'arbre des processus, les différents sous-systèmes
 IPC ainsi que le nom de l'hôte et du domaine.
 
 Systemd-nspawn limite l'accès en lecture seule à différentes interfaces du noyau dans le conteneur, telles que **/sys**,
