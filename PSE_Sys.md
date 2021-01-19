@@ -22,7 +22,7 @@
     + [Sysfs](#sysfs)
     + [Udev](#udev)
     + [Bus](#bus)
-    + [Accès à la mémoire](#accès-à-la-mémoire)
+    + [Accès direct à la mémoire](#accès-direct-à-la-mémoire)
     + [Pilotes](#pilotes)
     + [Shell](#shell)
     + [Cgroups](#cgroups)
@@ -273,8 +273,8 @@ d'implémenter une forme rudimentaire de sécurité basée sur l'accessibilité.
 
 La famille de socket Netlink est une interface du noyau linux utilisée pour des communications inter-processus entre les processus
 de l'espace utilisateur et du noyau et entre différents processus utilisateurs. La différence entre les sockets Netlink et les
-socket IPC et qu'au lieu d'utiliser l'espace de noms du système de fichier, les processus Netlink sont généralement désignés par
-leur PID.
+socket IPC et qu'au lieu d'utiliser l'espace de noms du système de fichiers, les processus Netlink sont généralement désignés par
+leurs PIDs.
 
 Netlink fournit une interface socket standard pour les processus utilisateurs, et une API côté noyau pour un usage interne par les
 modules du noyau.
@@ -458,10 +458,10 @@ Sysfs s'appuie sur ramfs. Un système de fichiers temporaire très simple monté
 ### Udev
 
 Udev est un gestionnaire de périphérique pour le noyau Linux. Udev gère principalement des noeuds périphériques dans le répertoire
-*/dev/*. udev traite également tous les évennements dans l'espace utilisateurs lors de l'ajout ou de la suppression d'un
+*/dev/*. Udev traite également tous les évennements dans l'espace utilisateurs lors de l'ajout ou de la suppression d'un
 périphérique, ainsi que du chargement des firmwares.
 
-Les pilotes font parti du noyau Linux, dans le sens ou leurs fonctions principales incluent la découverte de périphérique, la
+Les pilotes font parti du noyau Linux, dans le sens où leurs fonctions principales incluent la découverte de périphérique, la
 détection des changements d'états, et autres fonctions matérielles similaires de bas niveau. Après chargement du pilote de
 périphérique en mémoire depuis le noyau, les événements détectés sont envoyés au daemon de l'espace utilisateur *udevd*. C'est le
 gestionnaire de périphérique, *udevd*, qui récupère tout ces événements et qui ensuite décide de la suite à donner. A cette fin,
@@ -475,7 +475,7 @@ NIC, ou bien configurer la connection à l'aide d'une configuration manuelle que
 
 Contrairement aux systèmes traditionnels UNIX, ou les noeuds périphériques contenus dans le répertoire */dev* était un ensemble de
 fichiers statique, le gestionnaire de périphérique Linux udev fournit dynamiquement, uniquement les noeuds des périphériques
-actuellement disponnible au système :
+actuellement disponnibles au système :
 
 * udev fournit un nommage de périphérique persistant, qui ne dépend pas de, par exemple, l'ordre de connection des appareils au
 système.
@@ -494,11 +494,50 @@ Le système reçoit des appels depuis le noyau via des sockets netlink.
 
 ### Bus
 
-### Accès à la mémoire
+Un bus est un système de communication qui permet de tranférer des données entre les composants d'un ordinateur ou entre
+ordinateurs. Cette expression couvre tous les composants matériels (fils, fibre optique, etc.) et logiciels, protocoles de
+communications inclus. Les bus informatiques modernes peuvent à la fois utiliser des connections parallèles et séries avec hubs.
+C'est par exemple le cas de l'USB.
+
+Un bus d'adresses est un bus utilisé pour spécifier une adresse physique. Quand un processeur ou un périphérique bénéficiant d'un
+accès direct à la mémoire (*DMA-enabled*) a besoin de lire ou d'écrire en mémoire, il spécifie en emplacement mémoire sur le bus
+d'adresses (la valeur à lire ou à écrire est alors envoyé sur le bus de données). La largeur du bus d'adresse détermine la quantité
+de mémoire qu'un système peut adresser.
+
+Accéder un octet individuel requiert généralement d'écrire ou de lire une largeur de bus complète (un mot) à la fois. Dans ce cas,
+les bits les moins signifiants du bus d'adresses peuvent même ne pas être implémentés - il revient en effet au contrôleur d'isoler
+l'octet individuel demandé du mot complet transmis.
+
+### Accès direct à la mémoire
+
+L'accès direct à la mémoire (*DMA*) est un procédé informatique où les données circulant de, ou vers un périphérique sont
+transférées directement par un contrôleur adapté vers la mémoire principale, sans intervention du microprocesseur si ce n'est pour
+lancer et conclure le transfert. La conclusion du transfert ou la disponnibilité du périphérique peuvent être signalés par
+interruption.
 
 ### Pilotes
 
+En informatique un pilote est un programme qui opère et contrôle un périphérique. Un pilote fournit une interface logicielle au
+matériel, permettant au système d'exploitation et aux autres programmes d'accéder aux fonctions matérielles sans avoir besoin de
+connaître en détail le périphérique à utiliser.
+
+Le pilote communique avec le périphérique via le bus informatique auquel celui-ci est connecté. Lorsqu'un programme appelant
+invoque une routine du pilote, celui-ci va envoyer une commande au périphérique. Une fois que le périphérique renvoie des données au
+pilote, le pilote peut invoquer des routines du programme à l'origine de l'appel.
+
+Les pilotes sont dépendant du matériel et spécifiques au système d'exploitation. Il fournissent généralement la gestion des
+interruptions à n'importe quelle interface matérielle asynchrone nécessaire.
+
 ### Shell
+
+Le Shell est un programme qui permet d'interpréter les commandes de l'utilisateur. C'est l'un des tout premiers moyens d'interagir
+avec un ordinateur. Le shell est généralement plus puissant qu'une interface graphique utilisateur (GUI), dans le sens où il permet
+d'accéder très efficacement aux fonctionnalités internes du système d'exploitation (OS).
+
+Souvent les outils textuels dont il dispose sont construits de manière à pouvoir être composés. Ainsi de multiples assemblages
+permettent à la fois une simplicité dans la décomposition des tâches, et une facilité de mise en oeuvre dans l'automatisation.
+
+Les shells peuvent généralement dépendre des OS, sachant qu'il en existe une quantité pour chacun d'entre eux.
 
 ### Cgroups
 
@@ -570,7 +609,7 @@ limitation de ressources mémoire et CPU. Docker inclut également sa propre bib
 directement les fonctions de virtualisations fournient par le noyau linux en plus de l'utilisation d'interfaces de virtualisations
 telles que *libvirt*, *LXC* et *systemd-nspawn*.
 
-Docker implément une API de haut niveau pour fournir des conteneurs légers exécutant des processus isolés.
+Docker implémente une API de haut niveau pour fournir des conteneurs légers exécutant des processus isolés.
 
 Le logiciel Docker en tant qu'offre de services consiste en trois composants :
 
