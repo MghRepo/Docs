@@ -436,7 +436,7 @@ Il existe différents types de segment :
 
 Sysfs est un système de fichiers virtuel introduit par le noyau linux 2.6. Sysfs permet d'exporter depuis l'espace noyau vers
 l'espace utilisateur des informations sur les périphériques du système et leur pilotes, et est également utilisé pour configurer
-certaine fonctionnalités du noyau.
+certaines fonctionnalités du noyau.
 
 Pour chaque objet ajouté à l'arbre des modèles de pilote (pilotes, périphériques, classe de périphériques), un répertoire est créé
 dans sysfs. La relation parent/enfant est représentée sous la forme de sous-répertoires dans */sys/devices/* (représentant la couche
@@ -463,9 +463,9 @@ périphérique, ainsi que du chargement des firmwares.
 
 Les pilotes font parti du noyau Linux, dans le sens ou leurs fonctions principales incluent la découverte de périphérique, la
 détection des changements d'états, et autres fonctions matérielles similaires de bas niveau. Après chargement du pilote de
-périphérique en mémoire depuis le noyau, les événements détectés sont envoyé au daemon de l'espace utilisateur *udevd*. C'est le
+périphérique en mémoire depuis le noyau, les événements détectés sont envoyés au daemon de l'espace utilisateur *udevd*. C'est le
 gestionnaire de périphérique, *udevd*, qui récupère tout ces événements et qui ensuite décide de la suite à donner. A cette fin,
-*udevd* dispose d'un ensemble de fichiers de configurations, pouvant être ajusté par l'administrateur suivant ses besoins.
+*udevd* dispose d'un ensemble de fichiers de configurations, pouvant être ajustés par l'administrateur suivant ses besoins.
 
 * Dans le cas d'un nouvel appareil de stockage USB, *udevd* est notifié par le noyau qui lui-même notifie le udisksd-daemon. Ce
 daemon pourra alors monter le système de fichiers.
@@ -490,7 +490,7 @@ Udev est divisé en trois parties :
 * Le daemon de l'espace utilisateur *udevd* qui gère */dev* virtuel.
 * L'utilitaire d'administration en ligne de commande *udevadm* pour des diagnostics.
 
-Le système reçoit des appels depuis le noyau via des socket netlink.
+Le système reçoit des appels depuis le noyau via des sockets netlink.
 
 ### Bus
 
