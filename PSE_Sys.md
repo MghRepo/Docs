@@ -331,7 +331,7 @@ volume. Pour les petits fichiers, les fichiers mappés peuvent engendrer des pro
 mémoires sont toujours aligné sur la taille de la page (généralement 4Ko). Par conséquent, un fichier de 5Ko allouera 8Ko et gachera
 3Ko. Accéder aux fichiers mappés en mémoire est plus rapide que d'utiliser des opérations de lecture et d'écriture directement pour
 2 raisons. Premièrement, un appel système est bien plus lent qu'un accès vers la mémoire locale du programme. Deuxièmement, dans la
-plupart des systèmes d'exploitations la région mémoire mappée est la page cache du noyau, c'est à dire que cela ne nécessite aucune
+plupart des systèmes d'exploitation la région mémoire mappée est la page cache du noyau, c'est à dire que cela ne nécessite aucune
 copie en espace utilisateur.
 
 Le processus de mapping mémoire est géré par le gestionnaire de mémoire virtuelle, qui est le même sous-système responsable de la
