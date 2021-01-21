@@ -849,10 +849,15 @@ l'exécution d'une opération demandée, systemd vérifiera en premier lieu qu'e
 échouera uniquement s'il n'est pas possible de la faire fonctionner.
 
 Il est à noter que les transaction sont générées indépendamment de l'état des unités à l'exécution, ce qui a pour conséquence par
-exemple que si un job de démarrage est demandé sur une unité déjà active, il génèrera quand même une transaction et réveillera toute
-dépendance inactive (et causera par propagation la demande d'autres jobs tels que définis par leurs relations). Ceci parce que le
-job enfilé est comparé à l'exécution à l'état de l'unité cible et est marquée comme réussie et complète quand les deux sont
-satisfaits.
+exemple que si un job de démarrage est requis sur une unité déjà active, il génèrera quand même une transaction et réveillera toute
+dépendance inactive (et causera par propagation la demande d'autres jobs tels que définis par leurs relations). Ceci du fait que le
+job enfilé est comparé à l'exécution à l'état de l'unité cible et est marqué comme réussi et complet quand les deux sont satisfaits.
+Cependant ce job resort également les autres dépendances du fait de la relation définie et mène donc, dans notre exemple, à
+l'enfilage des jobs de démarrage de toutes ces unités inactives.
+
+Systemd contient des implémentation natives de tâches diverses faisant parti du processus de démarrage et ayant besoins d'être
+exécutées. Par exemple, il fixe le nom de l'hôte ou configure le périphérique réseau de loopback. Il sert également à mettre en
+place et monter plusieurs systèmes de fichiers d'API, tels que /sys/ ou /proc/.
 
 ### Netfilter
 
