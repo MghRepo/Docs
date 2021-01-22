@@ -73,7 +73,7 @@ préemptible" au profit de systèmes plus fins de priorités multiples. Le princ
 sont échelonnées.
 
 Pendant la préemption, l'état du processus (drapeaux, registres et pointeurs d'instruction) est sauvé dans la mémoire. Il doit être
-rechargé dans le processeur pour que le code soit exécuté de nouveau : c'est la commutation de contexte.
+rechargé dans le processeur pour que le code soit exécuté à nouveau : c'est la commutation de contexte.
 
 Un système d'exploitation préemptif conserve en permanence la haute main sur les tâches exécutées par le processeur, contrairement à
 un système d'exploitation non préemptif, ou collaboratif, dans lequel c'est le processus en cours d'exécution qui prend la main et
@@ -100,8 +100,9 @@ système effectue des commutations de contexte de celui-ci.
 
 A intervalles réguliers, le système appelle une procédure d'ordonnancement qui *élit* le prochain processus à exécuter. Si le
 nouveau processus est différent de l'ancien, un changement de contexte (opération consistant à sauvegarder le contexte d'exécution
-de l'ancienne tâche comme les registres du processeur) a lieu. Cette structure de données est généralement appelée PCB. Le système
-d'exploitation restaure l'ancien PCB de la tâche élue, qui s'exécute alors en reprenant là où elle s'était arrêtée précedemment.
+de l'ancienne tâche comme les registres du processeur) a lieu. Cette structure de données est généralement appelée PCB (process
+control block). Le système d'exploitation restaure l'ancien PCB de la tâche élue, qui s'exécute alors en reprenant là où elle
+s'était arrêtée précedemment.
 
 Du choix de l'algorithme d'ordonnancement dépend le comportement du système. Il existe deux grandes classes d'ordonnancement :
 * *L'ordonnancement en temps partagé* présent sur la plupart des ordinateurs "classiques". Par exemple l'ordonnancement "decay" ;
@@ -833,7 +834,7 @@ laquelle aucune de conditions ci-dessus ne s'applique est rapidement déchargée
 de la mémoire courante ses données sont également libérées. Néanmoins les données ne sont généralement pas perdues, du fait qu'un
 enregistrement dans le journal de log est généré déclarant les ressources consommées à l'arrêt d'une unité.
 
-Les processus lancés par systemd sont placés dans des cgroups nommé d'après l'unité à laquelle ils appartiennent dans la hierarchie
+Les processus lancés par systemd sont placés dans des cgroups nommés d'après l'unité à laquelle ils appartiennent dans la hiérarchie
 privée de systemd. systemd fait usage de cela afin de garder efficacement la trace des processus. L'information du Control group est
 gérée par le noyau, et est accessible dans la hiérarchie du système de fichier (sous /sys/fs/cgroup/systemd/), ou bien dans des
 outils tels que systemd-cgls.
