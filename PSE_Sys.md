@@ -862,6 +862,15 @@ place et monter plusieurs systèmes de fichiers d'API, tels que /sys/ ou /proc/.
 
 ### Netfilter
 
+Netfilter est un framework fournit par le noyau Linux et qui permet diverses opérations en lien avec le réseau pouvant être
+implémentées sous la forme de gestionnaires configurables. Netfilter offre plusieurs fonctions et opérations pour le filtrage des
+paquets, la traduction d'adresses et de ports réseaux, ce qui fournit la fonctionnalité requise pour diriger les paquets à travers
+le réseau et d'interdire à certains l'accès aux lieux sensibles d'un réseau.
+
+Netfilter présente un ensemble de hooks à l'intérieur du noyau Linux, permettant à des modules du noyau spécifiques d'enregistrer
+des fonctions de rappel avec la pile réseau du noyau. Ces fonctions s'appliquent généralement au traffic sous forme de règles de
+modification et de filtrage qui sont appelées pour chaque paquet qui traverse le hook respectif dans la pile réseau.
+
 ### SELinux
 
 ## Bases de données
