@@ -439,7 +439,7 @@ Sysfs est un système de fichiers virtuel introduit par le noyau linux 2.6. Sysf
 l'espace utilisateur des informations sur les périphériques du système et leur pilotes, et est également utilisé pour configurer
 certaines fonctionnalités du noyau.
 
-Pour chaque objet ajouté à l'arbre des modèles de pilote (pilotes, périphériques, classe de périphériques), un répertoire est créé
+Pour chaque objet ajouté à l'arbre des modèles de pilotes (pilotes, périphériques, classe de périphériques), un répertoire est créé
 dans sysfs. La relation parent/enfant est représentée sous la forme de sous-répertoires dans */sys/devices/* (représentant la couche
 physique). Le sous-répertoire */sys/bus/* est peuplé de liens symboliques, représentant la manière dont chaque périphérique
 appartient aux différents bus. */sys/class/* montre les périphérique regroupés en classes, comme les périphériques réseau par
@@ -871,7 +871,36 @@ Netfilter présente un ensemble de hooks à l'intérieur du noyau Linux, permett
 des fonctions de rappel avec la pile réseau du noyau. Ces fonctions s'appliquent généralement au traffic sous forme de règles de
 modification et de filtrage qui sont appelées pour chaque paquet qui traverse le hook respectif dans la pile réseau.
 
+nftables est un sous-système du noyau Linux et la nouvelle partie de Netfilter qui fournit la classification et le filtrage des
+paquets réseaux. Elles sont disponnibles depuis le noyau Linux 3.13. nftables se substitue aux iptables, elles présentent les
+avantages d'une moindre réplication du code et d'une plus grande simplicité d'extension pour de nouveaux protocoles. nftables est
+configuré via l'utilitaire d'espace utilisateur *nft*.
+
+Nftables utilise les blocs de construction de l'infrastructure Netfilter, tels que les hooks existant dans la pile réseau, la
+connection au système de traçage, le composant d'enfilage de l'espace utilisateur, et le sous-système de logs.
+
+Le moteur du noyau nftables ajoute une machine virtuelle simpliste au noyau Linux, capable d'exécuter un bytecode pour inspecter un
+paquet réseau et prendre les décisions concernant la gestion de ce paquet. Elle peut obtenir des données de la part du paquet
+lui-même, regarder les métadonnées associées (par exemple l'interface d'entrée), et gérer les données de traçage de connections.
+Les opérateurs de comparaison arithmétiques et bits à bits peuvent être utilisés pour prendre des décisions en fonction de ces
+données. La machine virtuelle est aussi capable de réaliser des manipulations sur des ensembles de donnéees (typiquement des
+adresses IP), en permettant de remplacer de multiples opérations de comparaisons par un ensemble d'inspections.
+
+Nftables offre une API améliorée côté espace utilisateur qui permet des remplacements atomiques d'une ou plusieurs règles pare-feu
+dans une seule transaction Netlink. Ceci accélère les changements de configuration pare-feu pour les installations ayant de grands
+ensembles de règles ; cela peut également permettre d'éviter des situations de compétition durant le changement de règle.
+
 ### SELinux
+
+SELinux (*Security Enhanced Linux*) est un module de sécurité du noyau Linux qui fournit des politiques de sécurité de contrôle
+d'accès, dont le contrôle d'accès mandataire (MAC).
+
+SELinux définit des contrôles d'accès pour les applications, les processus et les fichiers du système.
+
+Lorsqu'une application ou un processus, reconnu comme un sujet, effectue une requête d'accès à un objet, tel qu'un fichier, SELinux
+vérifie à l'aide d'un cache de vecteur d'accès (AVC), où les permissions des sujets et des objets sont mises en cache.
+
+Si SELinux ne trouve pas matière à trancher à propos de cet accès dans le cache
 
 ## Bases de données
 
