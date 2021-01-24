@@ -315,7 +315,7 @@ Lorsqu'un objet distribué envoie un message, la couche message s'occupe de :
 
 * Trouver d'où et de quel processus le message est issu.
 * Sauvegarder le message dans une file si l'objet approprié au traitement du message n'est pas en cours d'exécution et s'occuper de
-l'envoyer dès que l'objet est disponnible. Ainsi que de stocker le résultat si besoin, jusqu'à ce que l'objet qui a envoyé le
+l'envoyer dès que l'objet est disponible. Ainsi que de stocker le résultat si besoin, jusqu'à ce que l'objet qui a envoyé le
 message est prêt à le recevoir.
 * Contrôler diverses dépendances transactionnelles pour les transactions distribuées.
 
@@ -476,7 +476,7 @@ NIC, ou bien configurer la connection à l'aide d'une configuration manuelle que
 
 Contrairement aux systèmes traditionnels UNIX, ou les noeuds périphériques contenus dans le répertoire */dev* était un ensemble de
 fichiers statique, le gestionnaire de périphérique Linux udev fournit dynamiquement, uniquement les noeuds des périphériques
-actuellement disponnibles au système :
+actuellement disponibles au système :
 
 * udev fournit un nommage de périphérique persistant, qui ne dépend pas de, par exemple, l'ordre de connection des appareils au
 système.
@@ -513,7 +513,7 @@ l'octet individuel demandé du mot complet transmis.
 
 L'accès direct à la mémoire (*DMA*) est un procédé informatique où les données circulant de, ou vers un périphérique sont
 transférées directement par un contrôleur adapté vers la mémoire principale, sans intervention du microprocesseur si ce n'est pour
-lancer et conclure le transfert. La conclusion du transfert ou la disponnibilité du périphérique peuvent être signalés par
+lancer et conclure le transfert. La conclusion du transfert ou la disponibilité du périphérique peuvent être signalés par
 interruption.
 
 ### Pilotes
@@ -560,7 +560,7 @@ l'espace de noms qui ont leur propre instance isolée de la ressource globale. L
 aux autres processus membre de l'espace de noms, mais invisible aux autres processus. Les espaces de noms sont utilisés pour
 implémenter les conteneurs.
 
-Les types d'espace de noms disponnibles dans Linux sont les suivants : Cgroup, IPC, Network, mount, PID, Time, User, UTS.
+Les types d'espace de noms disponibles dans Linux sont les suivants : Cgroup, IPC, Network, mount, PID, Time, User, UTS.
 
 ### Systemd-nspawn
 
@@ -679,12 +679,12 @@ et déployer des changements configuration critiques ou simplement restaurer n'i
 * Le serveur d'API : Le serveur d'API est un composant clé qui sert l'API Kubernetes via des JSON en HTTP, qui fournit à la fois les
 interfaces internes et externes à Kubernetes. Le serveur d'API traite et valide les requêtes REST et met à jour l'état des objets
 dans etcd, de fait permettant aux clients de configurer les charges de travail et les conteneurs à travers les noeuds.
-* L'ordonnanceur : L'ordonnanceur est un composant qui, sur la base de la disponnibilité ressource, sélectionne un noeud sur lequel
+* L'ordonnanceur : L'ordonnanceur est un composant qui, sur la base de la disponibilité ressource, sélectionne un noeud sur lequel
 s'exécute un pod non ordonnancé (entité de base géré par l'ordonnanceur). L'ordonnaceur suit l'usage ressource sur chacun des noeuds
 afin de s'assurer que la charge de travail n'est pas planifiée en excès de la ressource disponible. A cette fin, l'ordonnanceur doit
 connaître les conditions et disponibilités de la ressource et autres contraintes définies par l'utilisateur, les directives
 politiques telles que la qualité de service, les conditions d'affinité ou de non-affinité, la localisation des données etc. Le rôle
-de l'ordonnanceur est d'accorder la ressource disponnible à la charge de travail demandée.
+de l'ordonnanceur est d'accorder la ressource disponible à la charge de travail demandée.
 * Le gestionnaire de contrôle : Un contrôleur est une boucle de réconciliation qui amène l'état courant du cluster vers l'état
 désiré du cluster, en communicant via le serveur d'API pour créer, mettre à jour et supprimer les ressources qu'il gère (pods,
 services, extrémités, etc.). Le gestionnaire de contrôle est un processus qui gère un ensemble de contrôleurs du noyau Kubernetes.
@@ -728,7 +728,7 @@ visible au conteneur) et Secrets (pour fournir les certificats nécessaires à l
 uniquement aux conteneurs autorisés, ces certificats sur leur système de fichier visible).
 
 La fonction d'un ReplicaSet est de maintenir un ensemble stable de pods répliqués pouvant être exécutés à tout moment. En tant que
-tel, il est souvent utilisé pour garantir la disponnibilité d'un nombre de pods identiques spécifique.
+tel, il est souvent utilisé pour garantir la disponibilité d'un nombre de pods identiques spécifique.
 
 Les ReplicaSets est également un mécanisme de rassemblement qui permet à Kubernetes de maintenir pour un pod donné un nombre
 d'instance défini à l'avance. La définition d'un ensemble de réplique utilise un selecteur, dont l'évaluation résulte en
@@ -764,7 +764,7 @@ objets de l'instance de l'application auxquels ils ont été liés au déploieme
 à un noeud si un pod sur ce noeud le demande. Kubernetes le gardera en mémoire sur ce noeud. Un fois que le pod qui dépend du secret
 ou de la configmap est supprimé, la copie en mémoire de tous les secrets et configmaps liés est également supprimée. La donnée est
 accessible au pod de deux façons : en tant que variables d'environements (que Kubernetes créé lors du démarrage du pod) ou
-disponnible dans le système de fichier du conteneur visible dans le pod.
+disponible dans le système de fichier du conteneur visible dans le pod.
 
 La donnée elle même est stockée sur le maître qui est hautement sécurisé et dont personne ne doit avoir d'accès de connexion. La
 plus grande différence entre un secret et une configmap est que le contenu de la donnée dans un secret est encodé en base 64. Il
@@ -872,7 +872,7 @@ des fonctions de rappel avec la pile réseau du noyau. Ces fonctions s'appliquen
 modification et de filtrage qui sont appelées pour chaque paquet qui traverse le hook respectif dans la pile réseau.
 
 nftables est un sous-système du noyau Linux et la nouvelle partie de Netfilter qui fournit la classification et le filtrage des
-paquets réseaux. Elles sont disponnibles depuis le noyau Linux 3.13. nftables se substitue aux iptables, elles présentent les
+paquets réseaux. Elles sont disponibles depuis le noyau Linux 3.13. nftables se substitue aux iptables, elles présentent les
 avantages d'une moindre réplication du code et d'une plus grande simplicité d'extension pour de nouveaux protocoles. nftables est
 configuré via l'utilitaire d'espace utilisateur *nft*.
 
@@ -900,7 +900,18 @@ SELinux définit des contrôles d'accès pour les applications, les processus et
 Lorsqu'une application ou un processus, reconnu comme un sujet, effectue une requête d'accès à un objet, tel qu'un fichier, SELinux
 vérifie à l'aide d'un cache de vecteur d'accès (AVC), où les permissions des sujets et des objets sont mises en cache.
 
-Si SELinux ne trouve pas matière à trancher à propos de cet accès dans le cache
+Si SELinux ne trouve pas matière à trancher à propos de cet accès dans le cache, il envoit une requête au serveur de sécurité. Le
+serveur de sécurité vérifie le contexte de sécurité de l'application ou du processus et du fichier. Le contexte de sécurité est
+appliqué depuis la base de données de politiques SELinux. La permission est donnée ou refusée.
+
+Si la permission est refusée, un message "avc: denied" sera visible dans */var/log.messages*.
+
+Les utilisateurs et les roles définit par SELinux n'ont rien à voir avec les utilisateurs et rôles systèmes. Pour chaque utilisateur
+ou processus courant, SELinux assigne 3 chaînes de contexte consistant en :
+
+* un nom d'utilisateur,
+* un rôle,
+* et un domaine (ou type).
 
 ## Bases de données
 
