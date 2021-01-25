@@ -898,7 +898,13 @@ ensembles de règles ; cela peut également permettre d'éviter des situations d
 SELinux (*Security Enhanced Linux*) est un module de sécurité du noyau Linux qui fournit des politiques de sécurité de contrôle
 d'accès, dont le contrôle d'accès mandataire (MAC).
 
-SELinux définit des contrôles d'accès pour les applications, les processus et les fichiers du système.
+Un noyau Linux intégrant SELinux impose des politiques de contrôle d'accés mandataires qui confine les programmes utilisateurs et
+les services système, ainsi que les accés aux fichiers et aux ressources réseaux. Limiter les privilèges au minimum requis pour
+fonctionner réduit ou élimine les capacités de ces programmes et daemons à causer des dommages si ceux-ci sont compromis ou
+défaillants (par exemple via des dépassements de tampons ou des mauvaises configurations). Ce mécanisme de confinement fonctionne
+indépendamment des mécanismes de contrôle d'accés discrétionnaire traditionnels de Linux. Le concept de superutilisateur n'existe
+pas, et ne partage pas les raccourcis bien connus des mécanismes de sécurité traditionnels, tel qu'une dépendance aux binaires
+setuid/setgid.
 
 Lorsqu'une application ou un processus, reconnu comme un sujet, effectue une requête d'accès à un objet, tel qu'un fichier, SELinux
 vérifie à l'aide d'un cache de vecteur d'accès (AVC), où les permissions des sujets et des objets sont mises en cache.
