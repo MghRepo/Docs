@@ -27,27 +27,10 @@ transmission de bits à travers un médium de communications jusqu'à la plus ha
 distribuée. Chaque couche intermédiaire fournit un classe de fonctions à la couche supérieure étant elle même servie par la couche
 en dessous d'elle. Ces classes de fonctionnalités sont réalisées dans le logiciel par des protocoles de communications standardisés.
 
-|                | 6 | Présentation |                                       | Traduction de données entre services réseau et une   |
-|                |   |              |                                       | application ; encodage, compression et encryption    |
-|                |   |              |                                       | Gestion de sessions de communications, i.e., échange |
-|                | 5 | Session      |                                       | continu d'information sous la forme de multiples     |
-|                |   |              |                                       | va-et-vient de transmissions entre deux noeuds       |
-|                |   |              |                                       | Transmissions fiables de segments de données entre   |
-|                | 4 | Transport    | Segment, Datagramme                   | points d'un réseau, incluant la segmentation,        |
-|                |   |              |                                       | l'acquitemment et le multiplexage                    |
-| Couches médias | 3 | Réseau       | Paquet                                | Structurant et gérant un réseau multi-noeuds,        |
-|                |   |              |                                       | incluant l'adressage, le routage, le contrôle du     |
-|                |   |              |                                       | traffic                                              |
-|                | 2 | Liaison      | Trame                                 | Transmissions fiables de trames de données entre     |
-|                |   |              |                                       | deux noeuds connectés par une couche physique        |
-|                | 1 | Physique     | Bit                                   | Transmissions et réceptions de flux de bits à        |
-|                |   |              |                                       | travers un médium physique                           |
-| -------------- | - | ------------ | ------------------------------------- | ---------------------------------------------------- |
-
 <table>
     <thead>
         <tr>
-            <th>Couche</th>
+            <th colspan="3">Couche</th>
             <th>Unité de protocole de données (*PDU*)</th>
             <th>Fonctions</th>
         </tr>
