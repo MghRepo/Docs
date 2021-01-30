@@ -27,7 +27,7 @@ transmission de bits à travers un médium de communications jusqu'à la plus ha
 distribuée. Chaque couche intermédiaire fournit un classe de fonctions à la couche supérieure étant elle même servie par la couche
 en dessous d'elle. Ces classes de fonctionnalités sont réalisées dans le logiciel par des protocoles de communications standardisés.
 
-| Couche         |   |              | Unité de protocole de données (*PDU*) | Fonction                                             |
+| Couche |   |                      | Unité de protocole de données (*PDU*) | Fonction                                             |
 | --------------------------------- | ------------------------------------- | ---------------------------------------------------- |
 |                | 7 | Application  |                                       | APIs de haut-niveau, partages de ressources, accès   |
 |                |   |              |                                       | de fichiers distants                                 |
