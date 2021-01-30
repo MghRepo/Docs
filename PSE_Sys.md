@@ -543,6 +543,9 @@ Les shells peuvent généralement dépendre des OS, sachant qu'il en existe une 
 
 ### SSH
 
+SSH ou Shell sécurisé est un protocole réseau cryptographique permettant d'opérer des services réseaux de manière sécurisé à travers
+un réseau non-sécurisé.
+
 ### Cgroups
 
 Les cgroups sont une fonctionnalité du noyau linux qui limite, compte et isole l'utilisation des ressources (CPU, mémoire,
@@ -898,11 +901,11 @@ ensembles de règles ; cela peut également permettre d'éviter des situations d
 SELinux (*Security Enhanced Linux*) est un module de sécurité du noyau Linux qui fournit des politiques de sécurité de contrôle
 d'accès, dont le contrôle d'accès mandataire (MAC).
 
-Un noyau Linux intégrant SELinux impose des politiques de contrôle d'accés mandataires qui confine les programmes utilisateurs et
-les services système, ainsi que les accés aux fichiers et aux ressources réseaux. Limiter les privilèges au minimum requis pour
+Un noyau Linux intégrant SELinux impose des politiques de contrôles d'accès mandataires qui confine les programmes utilisateurs et
+les services système, ainsi que les accès aux fichiers et aux ressources réseaux. Limiter les privilèges au minimum requis pour
 fonctionner réduit ou élimine les capacités de ces programmes et daemons à causer des dommages si ceux-ci sont compromis ou
 défaillants (par exemple via des dépassements de tampons ou des mauvaises configurations). Ce mécanisme de confinement fonctionne
-indépendamment des mécanismes de contrôle d'accés discrétionnaire traditionnels de Linux. Le concept de superutilisateur n'existe
+indépendamment des mécanismes de contrôle d'accès discrétionnaire traditionnels de Linux. Le concept de superutilisateur n'existe
 pas, et ne partage pas les raccourcis bien connus des mécanismes de sécurité traditionnels, tel qu'une dépendance aux binaires
 setuid/setgid.
 
