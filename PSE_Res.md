@@ -28,7 +28,7 @@ distribuée. Chaque couche intermédiaire fournit un classe de fonctions à la c
 en dessous d'elle. Ces classes de fonctionnalités sont réalisées dans le logiciel par des protocoles de communications standardisés.
 
 | Couche         |   |              | Unité de protocole de données (*PDU*) | Fonction                                             |
-| --------------------------------- | ------------------------------------- | ---------------------------------------------------- |
+| -------------- | - | ------------ | ------------------------------------- | ---------------------------------------------------- |
 | Couches Hôtes  | 7 | Application  | Donnée                                | APIs de haut-niveau, partages de ressources, accès   |
 |                |   |              |                                       | de fichiers distants                                 |
 |                | 6 | Présentation |                                       | Traduction de données entre services réseau et une   |
