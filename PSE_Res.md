@@ -39,11 +39,10 @@ en dessous d'elle. Ces classes de fonctionnalités sont réalisées dans le logi
 |                |   |              |                                       | Transmissions fiables de segments de données entre   |
 |                | 4 | Transport    | Segment, Datagramme                   | points d'un réseau, incluant la segmentation,        |
 |                |   |              |                                       | l'acquitemment et le multiplexage                    |
-| -------------- | - | ------------ | ------------------------------------- | ---------------------------------------------------- |
-|                | 3 | Réseau       | Paquet                                | Structurant et gérant un réseau multi-noeuds,        |
+| Couches médias | 3 | Réseau       | Paquet                                | Structurant et gérant un réseau multi-noeuds,        |
 |                |   |              |                                       | incluant l'adressage, le routage, le contrôle du     |
 |                |   |              |                                       | traffic                                              |
-| Couches médias | 2 | Liaison      | Trame                                 | Transmissions fiables de trames de données entre     |
+|                | 2 | Liaison      | Trame                                 | Transmissions fiables de trames de données entre     |
 |                |   |              |                                       | deux noeuds connectés par une couche physique        |
 |                | 1 | Physique     | Bit                                   | Transmissions et réceptions de flux de bits à        |
 |                |   |              |                                       | travers un médium physique                           |
