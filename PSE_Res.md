@@ -143,7 +143,7 @@ présentation est réalisée dans les applications TCP/IP à l'aide du standard 
 
 ### Protocoles
 
-Couche application :
+#### Couche application :
 
 * DHCP (*Dynamic Host Configuration Protocol*) : protocole des gestion réseau utilisé sur des réseaux IP, où un serveur DHCP assigne
 dynamiquement des adresses IP et autres paramètres de configuration réseaux à chaque appareil, de façon à ce qu'ils puissent
@@ -187,7 +187,7 @@ non-sécurisés. SSH utilise une architecture client-serveur en connectant un cl
 sécurisées à travers un réseau. Le protocole TLS a pour but principal de garantir le caractère privé et l'intégrité de la donnée
 entre deux applications communicantes ou plus.
 
-Couche transport :
+#### Couche transport :
 
 * TCP
 * UDP
@@ -195,7 +195,7 @@ Couche transport :
 * SCTP
 * RSVP
 
-Couche internet :
+#### Couche internet :
 
 * IPv4/IPv6
 * ICMP/ICMPv6
@@ -203,7 +203,7 @@ Couche internet :
 * IGMP
 * IPsec
 
-Couche Liaison :
+#### Couche Liaison :
 
 * ARP
 * NDP
