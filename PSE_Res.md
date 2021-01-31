@@ -149,7 +149,7 @@ présentation est réalisée dans les applications TCP/IP à l'aide du standard 
 dynamiquement des adresses IP et autres paramètres de configuration réseaux à chaque appareil, de façon à ce qu'ils puissent
 communiquer avec d'autres réseaux IP. DHCP utilise le protocole UDP. (Port 67 pour le serveur, 68 pour le client)
 * DNS (*Domain Name System*) : système de nommage dynamique et hiérarchisé pour appareils, services et autres ressources connectées
-* à Internet ou un réseau privé. DNS utilise UDP pour les requêtes de moins de 512 octets sinon il utilise TCP. (Port 53)
+à Internet ou un réseau privé. DNS utilise UDP pour les requêtes de moins de 512 octets sinon il utilise TCP. (Port 53)
 * FTP (*File Transfer Protocol*) : protocole réseau standard utilisé pour le transfert de fichiers depuis un serveur à un client.
 FTP est construit sur un modèle d'architecture client-serveur en utilisant des connexions de contrôles et de données séparées entre
 le client et le serveur. Les utilisateurs FTP peuvent s'authentifier eux-même à l'aide d'un protocole d'authentification en clair,
