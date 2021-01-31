@@ -6,11 +6,11 @@
     + [Modèle OSI](#modèle-osi)
     + [Architecture TCP/IP](#architecture-tcpip)
     + [Protocoles](#protocoles)
-    + [Matériels d'inter-connexion](#matériel-dinter-connection)
-* [Logiciel](#logiciel)
+    + [Matériels d'inter-connexion](#matériel-dinterconnexion)
+* [Logiciels](#logiciels)
     + [Architecture logicielle](#architecture-logicielle)
     + [Haute diponibilité](#haute-disponibilité)
-    + [Langages de présentation](#languages-de-présentation)
+    + [Langages de présentation](#langages-de-présentation)
     + [Métrologie](#métrologie)
 
 ## Réseau
@@ -142,6 +142,75 @@ réalisée par la numérotation de port qui appartient à la couche transport de
 présentation est réalisée dans les applications TCP/IP à l'aide du standard MIME dans l'échange de données.
 
 ### Protocoles
+
+Couche application :
+
+* DHCP (*Dynamic Host Configuration Protocol*) : protocole des gestion réseau utilisé sur des réseaux IP, où un serveur DHCP assigne
+dynamiquement des adresses IP et autres paramètres de configuration réseaux à chaque appareil, de façon à ce qu'ils puissent
+communiquer avec d'autres réseaux IP. DHCP utilise le protocole UDP. (Port 67 pour le serveur, 68 pour le client)
+* DNS (*Domain Name System*) : système de nommage dynamique et hiérarchisé pour appareils, services et autres ressources connectées
+* à Internet ou un réseau privé. DNS utilise UDP pour les requêtes de moins de 512 octets sinon il utilise TCP. (Port 53)
+* FTP (*File Transfer Protocol*) : protocole réseau standard utilisé pour le transfert de fichiers depuis un serveur à un client.
+FTP est construit sur un modèle d'architecture client-serveur en utilisant des connexions de contrôles et de données séparées entre
+le client et le serveur. Les utilisateurs FTP peuvent s'authentifier eux-même à l'aide d'un protocole d'authentification en clair,
+généralement sous la forme d'un nom d'utilisateur et d'un mot de passe, mais ils peuvent se connecter de manière anonyme si le
+serveur est configuré en ce sens. Pour des transmission sécurisées protégeant le nom d'utilisateur et le mot de passe, et qui
+encryptent le contenu, FTP est souvent sécurisé à l'aide de SSL/TLS (FTPS) ou bien remplacé par le protocole de transfert de fichier
+SSH (SFTP). Le client FTP initie des connexions TCP selon différents modes. (Port 21 pour le serveur)
+* HTTP (*Hypertext Transfer Protocol*) : protocole de la couche application pour systèmes d'information distribués, collaboratifs,
+hypermedia. HTTP est la base de la communication de données pour le World Wide Web, où des documents hypertextes incluent des
+hyperliens pour d'autres ressources que l'utilisateur peut accéder facilement, par exemple par un click utilisateur ou en tapant à
+l'écran dans un navigateur web. Le client initie une connexion TCP. (Port 80 ou 8080)
+* HTTPS (*Hypertext Transfer Protocol Secure*) : est une extension de HTTP. Il est utilisé pour une communication sécurisé à travers
+un réseau, et très largement répandu sur Internet. En HTTPS, le protocole de communication est crypté avec la sécurité de la couche
+transport (TLS) ou, précedemment la couche de sockets sécurisée (SSL). Le protocole est par conséquent désigné également par HTTP
+sur TLS, ou HTTP sur SSL. (Port 443)
+* IMAP (*Internet Message Access Protocol*) : est un protocole Internet standard utilisé par les clients emails pour récupérer les
+messages d'un serveur de messagerie à travers une connexion TCP/IP. (Port 143 et 993 pour IMAP sur SSL/TLS)
+* LDAP (*Lightwight Directory Access Protocol*) : est un protocole applicatif standard permettant d'accéder et de maintenir des
+répertoires de services d'information distribués à travers un réseau IP. Les répertoires de services jouent un rôle important dans
+le développement des applications intranets et Internet en permettant le partage d'informations à propos d'utilisateurs, de systèmes
+, de réseaux, de services, et d'applications à travers le réseau. LDAP utilise TCP et UDP. (Port 389 et 636 pour LDAP sur SSL/TLS)
+* ONC/RPC (*Open Networking Computing/Remote Procedure Call*) : est un système d'appel procedural distant.
+* RIP (*Routing Information Protocol*) : est un protocole de routage IP de type vecteur s'appuyant sur l'algorithme de détermination
+des routes décentralisé Bellman-Ford. Il permet à chaque routeur de communiquer aux routeurs voisins. La métrique utilisée est la
+distance qui sépare un routeur d'un réseau IP déterminé quant au nombre de sauts. RIP utilise UPD. (Port 520)
+* SIP (*Session Initiation Protocol*) : est un protocole de signalisation utilisé pour initier, maintenir et terminer des sessions
+en temps réel, qui inclut des applications de messageries, vocales et vidéo. Les clients SIP utilisent TCP ou UDP. (Port 5060 et
+5061 pour SIP sur SSL/TLS)
+* SMTP (*Simple Mail Transfer Protocol*) : est un protocole de communication pour la transmission de mail. Les serveurs mails et
+autres agents de transferts utilisent SMPT pour envoyer et recevoir des messages mails. Les serveurs SMTP utilisent le protocole
+TCP. (Port 25)
+* SSH (*Secure Shell*) : est un protocole réseau cryptographique pour des service réseaux sécurisés opérants sur des réseaux
+non-sécurisés. SSH utilise une architecture client-serveur en connectant un client SSH à un serveur. SSH utilise TCP. (Port 22)
+* TLS/SSL (*Transport Layer Security/Secure Sockets Layer*) : sont des protocoles cryptographiques permettant des communications
+sécurisées à travers un réseau. Le protocole TLS a pour but principal de garantir le caractère privé et l'intégrité de la donnée
+entre deux applications communicantes ou plus.
+
+Couche transport :
+
+* TCP
+* UDP
+* DCCP
+* SCTP
+* RSVP
+
+Couche internet :
+
+* IPv4/IPv6
+* ICMP/ICMPv6
+* ECN
+* IGMP
+* IPsec
+
+Couche Liaison :
+
+* ARP
+* NDP
+* OSPF
+* L2TP
+* PPP
+* MAC
 
 ### Matériels d'interconnexion
 
