@@ -2,7 +2,7 @@
 
 #### Table des matières
 
-* [Normalisation] (#normalisation)
+* [Normalisation](#normalisation)
     + [ITIL](#itil)
     + [COBIT](#cobit)
 * [Notions générales sur le droit de l'informatique](#notions-générales-sur-le-droit-de-linformatique)

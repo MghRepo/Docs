@@ -42,7 +42,7 @@ en dessous d'elle. Ces classes de fonctionnalités sont réalisées dans le logi
             <td>7</td>
             <td>Application</td>
             <td rowspan="3">Donnée</td>
-            <td></td>
+            <td>NFS</td>
             <td>APIs de haut-niveau, partages de ressources, accès de fichiers distants</td>
         </tr>
         <tr>
