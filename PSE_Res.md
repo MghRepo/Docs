@@ -301,6 +301,22 @@ qui ne font pas partie de l'arbre couvrant, laissant un unique lien actif entre 
 
 ### Architecture logicielle
 
+#### Client serveur
+
+Le modèle client serveur est une structure d'application distribué qui sépare les tâches ou charges de travail entre fournisseurs de
+ressource ou service, appelés serveurs, et les demandeurs de ce service, appelés clients. Les clients et les serveurs communiquent
+souvent à travers un réseau informatique sur des matériels séparés, mais les deux peuvent également se trouver sur la même machine.
+Un serveur hôte exécute un ou plusieurs programmes serveurs, qui partagent leurs ressources avec des clients. Un client ne partage
+habituellement aucune de ses ressources, mais demande le contenu ou le service au serveur. Par conséquent, les clients initient la
+session de communication avec les serveurs, qui attendent les requêtes entrantes.
+
+La caractéristique client-serveur décrit la relation de programmes coopérants dans une application. Le composant serveur fournit une
+fonction ou un service à un ou plusieurs clients, qui initie des requêtes pour de tels services. Le serveurs sont classifiés en
+fonction du service qu'ils fournissent. Par exemple, un serveur web, sert des pages web pour un serveur de fichier qui sert des
+fichiers informatiques.
+
+#### n-tiers
+
 ### Haute disponibilité
 
 ### Langages de présentation
