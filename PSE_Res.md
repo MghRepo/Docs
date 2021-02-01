@@ -31,7 +31,7 @@ en dessous d'elle. Ces classes de fonctionnalités sont réalisées dans le logi
     <thead>
         <tr>
             <th colspan="3">Couche</th>
-            <th>Unité de protocole de données (*PDU*)</th>
+            <th>Unité de protocole de données (PDU)</th>
             <th>protocoles TCP/IP</th>
             <th>Fonctions</th>
         </tr>
@@ -49,7 +49,7 @@ en dessous d'elle. Ces classes de fonctionnalités sont réalisées dans le logi
             <td>6</td>
             <td>Présentation</td>
             <td>MIME-SSL-TLS-XDR</td>
-            <td>Traduction de données entre services réseau et une application ; encodage, compression et encryption</td>
+            <td>Traduction de données entre services réseau et une application ; encodage, compression et chiffrement</td>
         </tr>
         <tr>
             <td>5</td>
@@ -171,7 +171,12 @@ messages d'un serveur de messagerie à travers une connexion TCP/IP. (Port 143 e
 répertoires de services d'information distribués à travers un réseau IP. Les répertoires de services jouent un rôle important dans
 le développement des applications intranets et Internet en permettant le partage d'informations à propos d'utilisateurs, de systèmes
 , de réseaux, de services, et d'applications à travers le réseau. LDAP utilise TCP et UDP. (Port 389 et 636 pour LDAP sur SSL/TLS)
-* ONC/RPC (*Open Networking Computing/Remote Procedure Call*) : est un système d'appel procedural distant.
+* NFS (*Network File System*) : est un protocole de système de fichiers distribué qui permet à un ordinateur client d'accéder à des 
+fichiers à travers un réseau informatique. NFS comme de nombreux protocoles est contruit au-dessus du protocole ONC/RPC. NFS 3 et 4
+utilisent le protocole TCP. (Port 2049 pour NFSv4)
+* ONC/RPC (*Open Networking Computing/Remote Procedure Call*) : est un système d'appel procedural distant. Il sérialise la donnée à
+l'aide de la représentation de données externes (XDR), qui permet également le transcodage pour l'accès sur de multiples 
+plateformes. ONC délivre alors la charge XDR à l'aide des protocoles UDP ou TCP. (Port 111)
 * RIP (*Routing Information Protocol*) : est un protocole de routage IP de type vecteur s'appuyant sur l'algorithme de détermination
 des routes décentralisé Bellman-Ford. Il permet à chaque routeur de communiquer aux routeurs voisins. La métrique utilisée est la
 distance qui sépare un routeur d'un réseau IP déterminé quant au nombre de sauts. RIP utilise UPD. (Port 520)
@@ -181,6 +186,13 @@ en temps réel, qui inclut des applications de messageries, vocales et vidéo. L
 * SMTP (*Simple Mail Transfer Protocol*) : est un protocole de communication pour la transmission de mail. Les serveurs mails et
 autres agents de transferts utilisent SMPT pour envoyer et recevoir des messages mails. Les serveurs SMTP utilisent le protocole
 TCP. (Port 25)
+* SNMP (*Simple Network Management Protocol*) : SNMP est un protocole Internet standard utiliser pour collecter et organiser
+l'information liée aux appareils sur des réseaux IP et pour modifier cette information afin de définir un nouvel état de
+fonctionnement. Les appareils qui typiquement supportent SNMP sont les modems, les routeurs, les switch, les serveurs, les postes de
+travail, les imprimantes, etc. SNMP est utilisé très largement pour la gestion et la surveillance réseau. SNMP expose la gestion des
+données sous la forme de variables sur les systèmes gérés organisées dans une base informationnelle de gestion (MIB) qui décrit le
+statut de la configuration système. Ces variables peuvent être elles même requêtées à distance (et, dans certaines circonstances
+manipulées) par des applications de gestion.
 * SSH (*Secure Shell*) : est un protocole réseau cryptographique pour des service réseaux sécurisés opérants sur des réseaux
 non-sécurisés. SSH utilise une architecture client-serveur en connectant un client SSH à un serveur. SSH utilise TCP. (Port 22)
 * TLS/SSL (*Transport Layer Security/Secure Sockets Layer*) : sont des protocoles cryptographiques permettant des communications
@@ -200,6 +212,8 @@ avoir une ou plusieurs des propriétés suivantes :
 En plus des propriétés ci-dessus, un configuration TLS peut fournir des propriétés de sécurisation supplémentaires telles que la
 confidentialité persistante, assurant qu'aucune découverte future des clefs cryptographiques ne puisse être utilisée pour déchiffrer
 une communication TLS enregistrée par le passé.
+* XDR (*External Data Representation*) : est un standard de format de sérialisation de données qui se retrouve dans de nombreux
+protocoles réseau.
 
 #### Couche transport :
 
@@ -224,19 +238,46 @@ adapté aux usages où ni les contrôles ni les corrections d'erreurs ne sont n�
 évite la surchage d'un tel processus dans la pile de protocole. Les applications temporellement sensibles utilisent souvent UDP
 du fait qu'il est souvent préferable d'oublier des paquets plutôt que d'attendre des paquets retransmis, ce qui peut ne pas être une
 option dans un système temps réel.
-* DCCP (*Datagram Congestion Control Protocol*) :
-* SCTP (*Stream Control Transmission Protocol*) :
-* RSVP (*Ressource Reservation Protocol*) :
+* DCCP (*Datagram Congestion Control Protocol*) : est un protocole orienté message. DCCP implémente une mise en place de connexion
+et une déconnexion fiables, une notification de congestion explicite (ECN), un contrôle de congestion, et des fonctionnalités de
+négociations.
+* SCTP (*Stream Control Transmission Protocol*) : est un protocole Internet standard il permet de garder les fonctionnalités
+orientées message du protocole datagramme utilisateur (UDP), tout en assurant une fiabilité et un ordonnancement des messages ainsi
+que des contrôles de congestion similaires au protocole de contrôle de transmission (TCP). Contrairement à UDP et TCP, le protocole
+permet le multi-homing et la redondance des chemins afin d'augmenter la résilience et la fiabilité.
+* RSVP (*Ressource Reservation Protocol*) : est un protocole utilisé pour réserver des ressources à travers un réseau en utilisant
+un modèle de services intégrés. RSVP opère à travers des réseaux IP et fournit une installation initiée par le receveur pour la
+réservation de ressources pour des flux de données unicast ou multicast. Il est similaire à un protocole de contrôle comme
+le protocole de messages de contrôles internet (ICMP) ou le protocole de gestion de groupes internet (IGMP).
 
 #### Couche internet :
 
-* IPv4
-* IPv6
-* ICMP
-* ICMPv6
-* ECN
-* IGMP
-* IPsec
+* IPv4 (*Internet Protocol v.4*) : est le principal protocole de communication de la suite des protocoles internet en relayant des
+datagrammes à travers les frontières de réseaux. Ces fonctions de routage permettent l'aggrégation de réseaux, qui établit
+essentiellement Internet. IP a pour fonction de livrer des paquets depuis un hôte source à un hôte destination uniquement via
+l'adresse IP contenue dans l'entête. A cette fin, IP définit des structures de paquets qui encapsulent la donnée à envoyer. Le
+protocole définit également les méthodes d'adressage utiliser pour étiquetter le datagramme des informations concernant la source
+et la destination. IPv4 utilise des adresses de 32-bits qui fournissent un peu plus de 4 milliards d'adresses. Néanmoins une grande
+partie de ces adresses est réservée pour des méthodes réseaux spéciales.
+* IPv6 (*Internet Protocol v.6*) : est la version la plus récente du protocole internet (IP). IPv6 a été développé pour résoudre le
+problème d'épuisement du nombre d'adresse IPv4. IPv6 utilise des adresses de 128-bits soit 3,4.10^38 adresses. Les deux protocoles
+ne sont pas interopérable, de fait aucune communication entre eux n'est possible. IPv6 fournit d'autres avantages techniques en plus
+du plus grand espace d'adressage. En particulier, il permet des methodes d'allocation d'adresses hierarchiques qui facilite
+l'aggrégation de routes à travers Internet, limitant l'expansion des tables de routage. L'usage de l'adressage multicast est étendu
+et simplifié, il contient également d'autres optimisations pour la livraison de services. La mobilité des appareils, la sécurité, et
+la configuration ont été considérés lors de la création du protocole.
+* ICMP (*Internet Control Message Protocol*) : est un protocole de la suite des protocoles internet utilisé par les matériels
+d'interconnexion pour envoyer des messages d'erreurs et autres informations opérationelles indiquant la réussite ou l'échec lors
+d'une communication avec une autre adresse IP. ICMP n'est pas utilisé pour envoyer des données applicatives entre systèmes (à part
+pour des outils de diagnostics tels ping et traceroute).
+* ECN (*Explicit Congestion Notification*) : est une extension du protocole internet (IP) et du protocole de contrôle de
+transmission (TCP). ECN permet la notification boût en boût d'une congestion réseau sans oublis de paquets. ECN est une
+fonctionnalité optionnelle.
+* IGMP (*Internet Group Management Protocol*) : est un protocole de communication entres hôtes et routeurs adjacents pour établir
+une appartenance à des groupes de multicasts. IGMP fait partie du multicast IP et permet au réseau de diriger les transmissions
+multicasts uniquement aux hôtes qui les ont demandées.
+* IPsec (*Internet Protocol Secure*) : est une suite de procoles réseau sécurisée qui authentifie et chiffre les paquets de données
+pour fournir une communication sécurisée à travers un réseau IP. Elle est utilisé par les réseaux privés virtuels (VPN).
 
 #### Couche Liaison :
 
@@ -246,6 +287,7 @@ option dans un système temps réel.
 * L2TP
 * PPP
 * MAC
+* STP
 
 ### Matériels d'interconnexion
 
