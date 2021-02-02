@@ -652,7 +652,7 @@ pour qu'une mise à jour se fasse, la majorité des noeuds de la nuée doivent s
 Kubernetes est un système d'orchestration de conteneurs open source permettant d'automatiser le déploiement, la mise à l'echelle et
 la gestion d'applications informatiques.
 
-Beaucoup de services de cloud offre des plateformes ou infrastructures en tant que service (PaaS, IaaS) basées sur Kubernetes sur
+Beaucoup de services de cloud offrent des plateformes ou infrastructures en tant que service (PaaS, IaaS) basées sur Kubernetes sur
 lesquelles Kubernetes peut être déployé comme service fournisseur de plateformes.
 
 Kubernetes definit un ensemble de primitives, qui collectivement fournissent des mécanismes de déploiement, de maintien et de mise à
@@ -779,7 +779,31 @@ Dans ce cas la notion d'ordonnancement d'instances est important.
 
 ### Libvirt
 
+Libvirt est une API open-source, ainsi qu'un daemon et un outil de gestion pour gérer des plateformes de virtualisation. Elle peut
+être utilisée pour gérer KVM, Xen, VMware, ESXi, QEMU et autres technologies de virtualisation. Ces APIs sont utilisées très
+largement au niveau de la couche d'orchestration des hyperviseurs pour le développement de solutions de clouds.
+
 ### Hyperviseurs
+
+Un hyperviseur est un logiciel, microgiciel ou matériel qui créé et exécute des machines virtuelles. Un ordinateur sur lequel un
+hyperviseur exécute une ou plusieurs machines virtuelles est appelé hôte, et chaque machine virtuelle est appelée invitée.
+L'hyperviseur présente le système d'exploitation invité à l'aide d'une plateforme d'exploitation virtuelle et gère l'exécution des
+systèmes d'exploitations invités. Plusieurs instances de divers systèmes d'exploitation peuvent partager les même ressources
+matérielles virtualisées. A l'instar des mécanismes de virtualisations implémentés au niveau du système d'exploitation (conteneurs),
+les systèmes d'exploitations invités ne doivent pas forcément partager un même noyau.
+
+Il existe deux types d'hyperviseurs :
+
+* Type-1 natif : Ces hyperviseurs s'exécutent directement sur le matériel de l'hôte pour contrôler le matériel et gérer les systèmes
+d'exploitation invités.
+* Type-2 hébergés : Ces hyperviseurs s'exécutent sur un système d'exploitation conventionnel comme n'importe quel autre programme.
+Un système d'exploitation invité s'exécute en tant que processus de l'hôte. Les hyperviseur de type-2 crééent une abstraction pour
+les systèmes d'exploitation invités depuis le système d'exploitation hôte.
+
+Cette distinction entre les deux types n'est pas toujours claire. Par exemple KVM et bhyve sont des modules noyau qui transforme
+le système d'exploitation hôte en hyperviseur de type-1. En même temps, les distributions Linux et FreeBSD sont aussi des systèmes
+d'exploitations conventionnels, où des applications entrent en concurrence les unes avec les autres pour les ressources VM et ils
+peuvent être aussi catégorisé comme des hyperviseurs de type-2.
 
 ### Systemd
 
@@ -822,7 +846,7 @@ fichiers du système d'exploitation.
 changent ou sont modifiés.
 10. Les unités de tranches qui sont utilisées afin de grouper des unités qui gèrent des processus systèmes dans un arbre
 hiérarchique pour des questions de gestion des ressources.
-11. Les unités d'échelles similaires aux unités de services mais pour gérer et démarrer des processus externes. Ils sont créés de
+11. Les unités de scope similaires aux unités de services mais pour gérer et démarrer des processus externes. Ils sont créés de
 façon programmée en utilisant les interfaces de bus de systemd.
 
 > Units : service, socket, target, device, mount, automount, timer, swap, path, slice, scope
@@ -893,7 +917,11 @@ ensembles de règles ; cela peut également permettre d'éviter des situations d
 ### SELinux
 
 SELinux (*Security Enhanced Linux*) est un module de sécurité du noyau Linux qui fournit des politiques de sécurité de contrôle
-d'accès, dont le contrôle d'accès mandataire (MAC).
+d'accès, dont le contrôle d'accès mandataire (MAC) en addition au contrôle d'accès discrétionnaire existant (DAC). SELinux répond
+fondamentalement aux questions telles que :
+
+"Est-ce que **le sujet** peut faire cette **action** à cet **objet** ?" e.g : "Est-ce qu'un serveur web peut accéder aux fichiers
+dans le répertoire home des utilisateurs ?"
 
 Un noyau Linux intégrant SELinux impose des politiques de contrôles d'accès mandataires qui confine les programmes utilisateurs et
 les services système, ainsi que les accès aux fichiers et aux ressources réseaux. Limiter les privilèges au minimum requis pour
@@ -912,12 +940,20 @@ appliqué depuis la base de données de politiques SELinux. La permission est do
 
 Si la permission est refusée, un message "avc: denied" sera visible dans */var/log.messages*.
 
-Les utilisateurs et les roles définit par SELinux n'ont rien à voir avec les utilisateurs et rôles systèmes. Pour chaque utilisateur
-ou processus courant, SELinux assigne 3 chaînes de contexte consistant en :
+Chaque processus et ressource système a une étiquette spéciale de sécurité appelée contexte SELinux. Un contexte SELinux est un
+identifiant qui s'abstrait des détails du systèmes et se concentre sur les propriétés de sécurité de l'objet. Cela permet un
+référencement des objets cohérent dans la politique SELinux mais supprime également toute ambiguité que l'on peut retrouver avec
+d'autres méthodes d'identification ; par exemple, un fichier peut avoir plusieurs noms de chemins valides sur un système qui utilise
+des montages liés.
 
-* un nom d'utilisateur,
-* un rôle,
-* et un domaine (ou type).
+La politique SELinux utilise ces contextes dans une série de règles qui définissent comment un processus peut intéragir avec les
+autres ainsi que les différentes ressources systèmes. Par défaut, la politique ne permet aucune intéraction à moins qu'une régle
+explicite en permette l'accès.
+
+Le contexte SELinux contient plusieurs champs : utilisateur, role, type, et niveau de sécurité. L'information du type SELinux est
+sans doute la plus importante quand il s'agit de la politique SELinux, du fait que la règle la plus commune de la politique SELinux
+qui définit les intéractions autorisées entre les processus et les ressources systèmes utilise les types SELinux et non le contexte
+en entier. Le type SELinux finit habituellement par *_t* (e.g. *httpd_t*).
 
 ## Bases de données
 
