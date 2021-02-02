@@ -311,14 +311,70 @@ habituellement aucune de ses ressources, mais demande le contenu ou le service a
 session de communication avec les serveurs, qui attendent les requêtes entrantes.
 
 La caractéristique client-serveur décrit la relation de programmes coopérants dans une application. Le composant serveur fournit une
-fonction ou un service à un ou plusieurs clients, qui initie des requêtes pour de tels services. Le serveurs sont classifiés en
+fonction ou un service à un ou plusieurs clients, qui initient des requêtes pour de tels services. Les serveurs sont classifiés en
 fonction du service qu'ils fournissent. Par exemple, un serveur web, sert des pages web pour un serveur de fichier qui sert des
-fichiers informatiques.
+fichiers informatiques. Une ressource partagée peut être n'importe quel composant électronique ou logiciel informatique du serveur,
+des programmes et des données aux processeurs et périphériques de stockages. Le partage des ressources d'un serveur constitue un
+*service*.
+
+La condition si un ordinateur est un client, un serveur ou les deux, est déterminé par la nature de l'application qui demande les
+fonctions du service. Par exemple, un seul ordinateur peut exécuter un serveur web et un logiciel serveur de fichier en même temps
+pour servir différentes données aux clients effectuants diverses requêtes. Le logiciel client peut aussi communiquer avec un
+logiciel serveur sur le même ordinateur. La communication entre serveurs tel que la synchronisation de données, est quelques fois
+appelée communication inter-serveur ou serveur à serveur.
+
+En général, un service est une abstraction de ressources informatiques et un client n'a pas à être concerné du comment le serveur
+procède tandis qu'il exécute la requête et livre la réponse. Le client doit uniquement comprendre la réponse selon les protocoles
+applicatifs connus, i.e. le contenu et le formatage de la donnée pour le service requis.
+
+Les clients et les serveurs échangent des messages à l'aide du motif de messagerie requête-réponse. Le client envoie une requête, et
+le serveur retourne une réponse. Cet échange de message est un exemple de communication inter-processus. Pour communiquer, les
+ordinateurs doivent avoir un langage commun, et doivent suivre des règles communes qui doivent être définis dans le protocole de
+communications. Tous les protocoles client-serveur opère au niveau de la couche application. Le protocole de la couche application
+définit des motifs basiques de dialogue. Pour formaliser un peu plus loin l'échange de données, le serveur peut implémenter une
+interface de programmation applicative (API). L'API est une couche d'abstraction permettant d'accéder un service. En restreignant
+la communication à des contenu formatés spécifiquement, cela facilite l'analyse syntaxique. En rendant l'accès à la donnée abstrait,
+on facilite l'échange de données inter-plateformes.
+
+Un serveur peut recevoir de multiples clients distincts sur une période de temps très courte. Un ordinateur peut uniquement exécuter
+un nombre limité de tâches à la fois, et s'appuie sur l'ordonnanceur système pour prioriser les requêtes entrantes des clients pour
+les traiter. Afin de prévenir les abus et une disponibilité maximale, le logiciel serveur peut limiter la disponibilité aux clients.
+Les attaques de déni de service sont conçues pour exploiter les obligations du serveur à traiter des requêtes en le surchargeant
+avec un taux de requêtes excessif. Le chiffrement doit être mis en place si des données sensibles sont communiquées entre le client
+et le serveur.
+
+#### Trois niveaux
+
+Une *architecture à trois niveaux* ou *architecture trois tiers* ajoute un niveau supplémentaire à l'architecture à 2 niveaux,
+permettant de spécialiser les serveurs dans une tâche précise, ce qui donne un avantage de flexibilité, de sécurité et de
+performance :
+
+* un client qui demande une ressource via une interface utilisateur chargée de la présentation de la ressource ;
+* un serveur d'application (appelé middleware) qui fournit la ressource, mais en faisant appel aux ressources d'un autre serveur ;
+* un serveur de données qui fournit au serveur d'application les ressources requises pour répondre au client.
 
 #### n-tiers
 
+Une architecture à *N niveaux* ou *architecture N tiers* n'ajoute pas encore des niveaux supplémentaire à l'architecture à 3 niveaux
+mais introduit la notion des objets qui offre la possibilité de distribuer les services entre les 3 niveaux selon N couches,
+permettant ainsi de spécialiser les serveurs davantage.
+
 ### Haute disponibilité
 
+La haute disponibilité est une caractéristique d'un système qui vise à assurer un certain niveau de performance opérationnelle,
+généralement l'uptime (ou durée de fonctionnement), durant une période plus longue que celle attendue habituellement.
+
+Il existe trois principes de conception système en ingénierie de fiabilité permettant d'atteindre une haute disponibilité :
+
+* L'élimination des points de défaillances uniques. Cela signifie ajouter ou construire une redondance dans le système pour que la
+défaillance d'un composant ne signifie pas la défaillance du système en entier.
+* Fiabilité des points de croisements. Au niveau des systèmes redondants, le point de croisement lui-même tend à devenir un point de
+défaillance unique. Les systèmes fiables doivent fournir des points de croisement fiables.
+* Détection des défaillances lors de leurs occurences. Si les deux principes ci-dessus sont observés, alors un utilisateur pourra ne
+jamais voir de défaillance - mais l'activité de maintenance le doit.
+
 ### Langages de présentation
+
+HTML/CSS
 
 ### Métrologie
