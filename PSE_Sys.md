@@ -145,7 +145,7 @@ En programmation concurrente, la synchronisation se réfère à deux concepts di
 la synchronisation des données. La synchronisation de processus est un mécanisme qui vise à bloquer l'exécution de certains
 processus à des points précis de leur flux d'exécution, de manière que tous les processus se rejoignent à des étapes relais données,
 tel que prévu par le programmeur. La synchronisation de données, elle, est un mécanisme qui vise à conserver la cohérence des
-données telles que vues par différents processus, dan un environnement multitâche. Initialement, la notion de synchronisation est
+données telles que vues par différents processus, dans un environnement multitâche. Initialement, la notion de synchronisation est
 apparue pour la synchronisation de données.
 
 Ces problèmes dits "de synchronisation" et même plus généralemen ceux de communication inter-processus dont ils dépendent rendent
@@ -310,7 +310,7 @@ aucune connaissance spécifique de leurs implémentations. L'encapsulation perme
 grande maintenabilité des systèmes.
 
 Le passage de messages distribué permet au développeur, à l'aide d'une couche fournissant les services de base de construire des
-systèmes constitués de sous- systèmes s'exécutant sur des ordinateurs disparates, à différents endroit et à des horaires différents.
+systèmes constitués de sous-systèmes s'exécutant sur des ordinateurs disparates, à différents endroit et à des horaires différents.
 Lorsqu'un objet distribué envoie un message, la couche message s'occupe de :
 
 * Trouver d'où et de quel processus le message est issu.
@@ -378,7 +378,7 @@ adresses physiques de mémoire vive. La mémoire virtuelle permet :
 
 Les adresses mémoires émises par le processeur sont des adresses virtuelles, indiquant la position d'un mot dans la mémoire
 virtuelle. Cette mémoire virtuelle est formée de zones de même taille, appelées pages. Une adresse virtuelle est donc un couple
-(numéro de page, déplacement dans la page). La taille des pages est une puissance entière de deux, de façon à déterminersans calcul
+(numéro de page, déplacement dans la page). La taille des pages est une puissance entière de deux, de façon à déterminer sans calcul
 le déplacement (10 bits de poids faible de l'adresse virtuelle pour des pages de 1024 mots), et le numéro de page (les autres bits).
 La mémoire vive est également composées de zones de même taille, apellées cadres (*frames*), dans lesquelles prennent place les
 pages (un cadre contient une page : taille d'un cadre = taille d'une page). La taille de l'ensemble des cadres en mémoire vive
@@ -460,7 +460,7 @@ Sysfs s'appuie sur ramfs. Un système de fichiers temporaire très simple monté
 
 Udev est un gestionnaire de périphérique pour le noyau Linux. Udev gère principalement des noeuds périphériques dans le répertoire
 */dev/*. Udev traite également tous les évennements dans l'espace utilisateurs lors de l'ajout ou de la suppression d'un
-périphérique, ainsi que du chargement des firmwares.
+périphérique, ainsi que du chargement des microgiciels.
 
 Les pilotes font parti du noyau Linux, dans le sens où leurs fonctions principales incluent la découverte de périphérique, la
 détection des changements d'états, et autres fonctions matérielles similaires de bas niveau. Après chargement du pilote de
@@ -571,7 +571,7 @@ IPC ainsi que le nom de l'hôte et du domaine.
 Systemd-nspawn limite l'accès en lecture seule à différentes interfaces du noyau dans le conteneur, telles que **/sys**,
 **/proc/sys** ou **/sys/fs/selinux**. Les interfaces réseaux et l'horloge système ne peuvent pas être modifiées depuis l'intérieur
 du conteneur. Les fichiers spéciaux ou fichiers de périphérique ne peuvent  pas non plus être créés. Le système hôte ne peut pas
-être redémarrer et des modules du noyau ne peuvent pas être chargés depuis le conteneur.
+être redémarré et des modules du noyau ne peuvent pas être chargés depuis le conteneur.
 
 Les conteneurs ainsi créés peuvent être gérés à l'aide de la commande *machinectl*.
 
@@ -864,20 +864,20 @@ gérée par le noyau, et est accessible dans la hiérarchie du système de fichi
 outils tels que systemd-cgls.
 
 Systemd contient un système transactionnel minimal : si une unité doit s'activer ou se désactiver, il l'ajoutera avec toutes ses
-dépendances dans une transaction temporaire. Il vérifiera alors si la transaction est consistante (i.e. si l'ordonnancement de
-toutes les unités ne contient pas de boucle). Si ce n'est pas le cas, systemd essaiera de résoudre le problème, et supprimera les
-jobs non essentiels de la transaction ce qui pourra faire disparaître la boucle. Systemd essaiera également de supprimer les jobs
-non essentiels qui arrêteraient un service déjà actif. Enfin il vérifiera si les jobs de la transaction contredisent des jobs déjà
-en attente dans la file et optionnellement annulera la transaction. Si tout a marché et que la transaction est consistante et
-minimale dans son impact, elle est fusionnée avec tous les jobs en attente dans la file d'exécution. Cela signifie qu'avant
-l'exécution d'une opération demandée, systemd vérifiera en premier lieu qu'elle ait un sens, essaiera de résoudre si possible, et
-échouera uniquement s'il n'est pas possible de la faire fonctionner.
+dépendances dans une transaction temporaire. Il vérifiera alors si la transaction est cohérente (i.e. si l'ordonnancement de toutes
+les unités ne contient pas de boucle). Si ce n'est pas le cas, systemd essaiera de résoudre le problème, et supprimera les jobs non
+essentiels de la transaction ce qui pourra faire disparaître la boucle. Systemd essaiera également de supprimer les jobs non
+essentiels qui arrêteraient un service déjà actif. Enfin il vérifiera si les jobs de la transaction contredisent des jobs déjà en
+attente dans la file et optionnellement annulera la transaction. Si tout a marché et que la transaction est cohérente et minimale
+dans son impact, elle est fusionnée avec tous les jobs en attente dans la file d'exécution. Cela signifie qu'avant l'exécution d'une
+opération demandée, systemd vérifiera en premier lieu qu'elle ait un sens, essaiera de résoudre si possible, et échouera uniquement
+s'il n'est pas possible de la faire fonctionner.
 
-Il est à noter que les transaction sont générées indépendamment de l'état des unités à l'exécution, ce qui a pour conséquence par
+Il est à noter que les transactions sont générées indépendamment de l'état des unités à l'exécution, ce qui a pour conséquence par
 exemple que si un job de démarrage est requis sur une unité déjà active, il génèrera quand même une transaction et réveillera toute
 dépendance inactive (et causera par propagation la demande d'autres jobs tels que définis par leurs relations). Ceci du fait que le
 job enfilé est comparé à l'exécution à l'état de l'unité cible et est marqué comme réussi et complet quand les deux sont satisfaits.
-Cependant ce job resort également les autres dépendances du fait de la relation définie et mène donc, dans notre exemple, à
+Cependant ce job ressort également les autres dépendances du fait de la relation définie et mène donc, dans notre exemple, à
 l'enfilage des jobs de démarrage de toutes ces unités inactives.
 
 Systemd contient des implémentation natives de tâches diverses faisant parti du processus de démarrage et ayant besoins d'être

@@ -55,7 +55,7 @@ droits de l'homme, ni à la vie privée, ni aux libertés individuelles ou publi
 
 #### Missions Principales
 
-* **Informer** : La CNIL est invstie d'une mission générale d'information des personnes sur leurs droits et leurs obligations. Elle
+* **Informer** : La CNIL est investie d'une mission générale d'information des personnes sur leurs droits et leurs obligations. Elle
 aide les citoyens dans l'exercice de leurs droits. Elle établit chaque année un rapport public rendant compte de l'exécution de sa
 mission.
 
@@ -91,7 +91,7 @@ techniques.
 
 * **Droit d'accès** : Sauf pour les fichiers relevant du droit d'accès indirect, toute personne peut, gratuitement, sur simple
 demande avoir accès à l'intégralité des informations la concernant sous une forme accessible. Elle peut également obtenir copie
-moyennant le paiemaent, le cas échéant, des frais de reproduction.
+moyennant le paiement, le cas échéant, des frais de reproduction.
 
 * **Droit de rectification et de radiation** : Toute personne peut demander directement que les informations détenues sur elles
 soient rectifiées (si elles sont inexactes), complétées ou clarifiées (si elles sont incomplètes ou équivoques), mises à jour (si
@@ -99,7 +99,7 @@ elles sont périmées) ou effacées (si ces informations ne pouvaient pas être 
 
 * **Droit d'opposition** : Toute personne peut s'opposer à ce qu'il soit fait un usage des informations la concernant à des fins
 publicitaires ou de prospection commerciale ou que ces informations la concernant soient cédées à des tiers à telles fins. La
-personne concernée doit être mise en mesure d'exercé son droit d'opposition à la cession de ses données à des tiers dès leur
+personne concernée doit être mise en mesure d'exercer son droit d'opposition à la cession de ses données à des tiers dès leur
 collecte.
 
 * **Droit d'accès indirect** : Toute personne peut demander à la CNIL de vérifier les informations la concernant éventuellement
@@ -112,7 +112,7 @@ l'accord du responsable du traitement, les information concernant une personne p
 * Notifier la mise en oeuvre du fichier de ses caractéristiques à la CNIL, sauf cas de dispense prévus par la loi ou par la CNIL.
 * Mettre les personnes concernées en mesure d'exercer leur droits en les informant.
 * Assurer la sécurité des informations afin d'empêcher qu'elles soient déformées, endommagées ou que des tiers non autorisés n'y ait
-accès. La loi prévoitt une obligation de mesures techniques et d'organisation, un obligation de moyens, dénuée d'obligation de
+accès. La loi prévoit une obligation de mesures techniques et d'organisation, un obligation de moyens, dénuée d'obligation de
 résultat.
 * Se soumettre aux contrôles et vérifications sur place de la CNIL et répondre à toute demande de renseignement qu'elle formule dans
 le cadre de ses missions.
@@ -141,16 +141,16 @@ quatres libertés logicielles.
 DISI :
 
 * Veiller à l'optimisation des performances des matériels et à celle du taux de disponibilité du système informatique.
-* Assurer la gestion des sécurités d'accés et des sauvegardes, ainsi que l'administration des bases de données.
+* Assurer la gestion des sécurités d'accès et des sauvegardes, ainsi que l'administration des bases de données.
 * Assurer la mise en oeuvre d'automates d'exploitation et de programmes utilitaires.
-* Exercer des mission d'assistance et de conseil des équipes d'exploitation.
+* Exercer des missions d'assistance et de conseil des équipes d'exploitation.
 * Exercer un support technique pour les cellules d'assistance directe et pour l'administration des configurations informatiques
 implantées dans les services locaux.
 
 Service centraux :
 
 * Participer à la conception technique des systèmes de données et de traitements afin d'optimiser l'usage du système informatique et
-préparer les modalité de mise en exploitation.
+préparer les modalités de mise en exploitation.
 * Procéder aux études préalables, aux aquisitions de matériels informatiques et de logiciels système.
 * Participer aux travaux sur les systèmes gros systèmes, X86, plateformes virtualisées et Cloud.
 * Gérer les techniques de cette exploitation ainsi que le suivi et l'environnement de cette exploitation.
@@ -163,7 +163,7 @@ Un plan de continuité d'activité (PCA), a pour but de garantir la survie de l'
 système informatique. Il s'agit de redémarrer l'activité le plus rapidement possible avec le minimum de perte de données. Ce plan
 est un des points essentiels de la politique de sécurité informatique d'une entreprise.
 
-Pour qu'un plan de continuité soit réellement adapté aux exigents de l'entreprise, il doit reposer sur une analyse de risque et une
+Pour qu'un plan de continuité soit réellement adapté aux exigences de l'entreprise, il doit reposer sur une analyse de risque et une
 analyse d'impact :
 
 * **L'analyse de risque** débute par une identification des menaces sur l'informatique. Les menaces peuvent être internes ou
@@ -189,7 +189,7 @@ techniciens, utilisateurs et managers.
 Il existe plusieurs méthodes pour assurer la continuité de service d'un système d'information. Certaines sont techniques (choix des
 outils, méthodes de protection d'accès et de sauvegarde des données), d'autres reposent sur le comportement individuel des
 utilisateurs (extinction des postes informatiques après usage, utilisation raisonnable des capacités de transfert d'informations,
-respect des mesures de sécurité); sur des règles et connaissances collectives (protection incendie, sécurité d'accés aux locaux,
+respect des mesures de sécurité); sur des règles et connaissances collectives (protection incendie, sécurité d'accès aux locaux,
 connaissance de l'organisation informatique interne de l'entreprise) et de plus en plus sur des conventions passées avec des
 prestataires (copie des programmes, mise à disposition de matériel de secours, assistance au dépannage).
 
@@ -218,11 +218,11 @@ dire physiquement séparés des utilisateurs de plusieurs centaines de mètres �
 car la bande passante qui permet de transférer des données d'un site vers l'autre est alors généralement plus coûteuse et risque
 d'être moins performante. Cependant la généralisation des réseaux longues distances et la baisse des coûts de transmission rendent
 moins contraignante la notion de distance : le coût du site ou la compétence des opérateurs (leur capacité à démarrer le secours
-rapidement et de rendre l'accés aux utilisateurs) sont d'autres arguments de choix.
+rapidement et de rendre l'accès aux utilisateurs) sont d'autres arguments de choix.
 
 Les sites de secours (*in situ* ou déportés) se classent selon les types suivants :
 
-* **salle blanche** (une salle machine protégée par des procédure d'accés particulières, généralement secourue électriquement). Par
+* **salle blanche** (une salle machine protégée par des procédure d'accès particulières, généralement secourue électriquement). Par
 extension on parle de *salle noire* pour une salle blanche entièrement pilotée à distance, sans aucun opérateur à l'intérieur.
 * **site chaud** : site de secours où l'ensemble des serveurs et autres systèmes sont allumés, à jour, interconnectés, paramétrés,
 alimentés à partir des données sauvegardées et prêt à fonctionner. Le site doit aussi fournir l'ensemble des infrastructures pour
@@ -257,8 +257,8 @@ risqués pour le système et éventuellement savoir accomplir des gestes techniq
 
 * Pour les utilisateurs, il s'agit :
     + de respecter les normes d'utilisation de leurs ordinateurs : n'utiliser que les applications référencées par les mainteneur du
-    SI, ne pas surcharger les réseaux par des communications inutiles, respecter la confidentialité des codes d'accés.
-    + de savoir reconnaître les symptômes d'une panne (distinguer un blocage d'accés d'un délai de réponse anormalement long par
+    SI, ne pas surcharger les réseaux par des communications inutiles, respecter la confidentialité des codes d'accès.
+    + de savoir reconnaître les symptômes d'une panne (distinguer un blocage d'accès d'un délai de réponse anormalement long par
     exemple) et savoir en rendre compte le plus vite possible.
 * Pour les opérateurs du SI, il s'agit d'avoir la meilleure connaissance du système en terme d'architecture (*cartographie* du SI)
 et de fonctionnement (en temps réel si posible), de faire régulièrement les sauvegardes et de **s'assurer qu'elles sont
@@ -315,7 +315,7 @@ réactualisé à chaque réunion mensuelle de service.
 ### Plan de reprise d'activité
 
 Un plan de reprise d'activité (PRA) constitue l'ensemble des procédures documentées lui permettant de rétablir et de reprendre ses
-activités en s'appuyant sur des mesures temporaires adoptées pour répondre aux exigeces métier habituelles après un incident.
+activités en s'appuyant sur des mesures temporaires adoptées pour répondre aux exigences métier habituelles après un incident.
 
 Le plan de reprise d'activité comprend les tâche suivantes :
 

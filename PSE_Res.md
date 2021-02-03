@@ -116,7 +116,7 @@ donnée restante est consommée.
 
 La suite des protocoles internet est un modèle conceptuel et un ensemble de protocoles de communication utilisés par internet et les
 réseaux informatiques similaires. Elle est connue plus communément sous le nom d'architecture **TCP/IP** du fait que les protocoles
-sur lesquels elles s'appuie sont,le protocole de contrôle de transmission (TCP) et le protocole internet (IP). Son implémentation
+sur lesquels elles s'appuie sont, le protocole de contrôle de transmission (TCP) et le protocole internet (IP). Son implémentation
 est une pile de protocoles.
 
 La suite des protocoles internet fournit une communication de données boût en boût en spécifiant comment la donnée doit être
@@ -221,7 +221,7 @@ protocoles réseau.
 l'origine dans l'implémentation réseau initiale pour complémenter le protocole internet (IP). Par conséquent, la suite entière est
 communément connue sous le nom d'architecture TCP/IP. TCP fournit de flux d'octets vérifiés ordonnés et fiables entre applications
 s'exécutant sur des hôtes communiquant via un réseau IP. TCP est orienté connexion, et une connexion entre client et serveur est
-établie avant q'une donnée puisse être envoyée. Le serveur doit écouter (ouverture passive) les requêtes de connexion des clients
+établie avant qu'une donnée puisse être envoyée. Le serveur doit écouter (ouverture passive) les requêtes de connexion des clients
 avant qu'une connexion soit établie. Un handshaking en trois temps (ouverture active), une retransmission, et une  détection
 d'erreurs permet une grande fiabilité mais ajoute de la latence. Les applications qui ne requiert pas un service de flux de données
 fiable peuvent utiliser le protocole datagramme utilisateur (UDP), qui fournit un service datagramme sans connexion qui priorise
@@ -291,7 +291,7 @@ de ICMP pour IPv4. Il fournit aussi de nombreuses améliorations en ce qui conce
 * OSPF (*Open Shortest Path First*) : est un protocole de routage pour les réseaux IP.
 * L2TP (*Layer 2 Tunneling Protocol*) : est un protocole de tunnellisation utilisé pour créer des réseaux privés virtuels (VPN).
 * PPP (*Point-to-Point Protocol*) : est un protocole de communication entre deux routeurs, sans hôte ni aucun autre réseautage
-entre. Il fournit une authentification de connexion, le chiffremùent des transmission et la compression de données.
+entre. Il fournit une authentification de connexion, le chiffrement des transmissions et la compression de données.
 * STP (*Spanning Tree Protocol*) : est un protocole qui permet une topologie de réseaux Ethernet sans boucles. Le but étant de
 prévenir les tempêtes de broadcast. STP permet aussi d'inclure des liens redondants ce qui fournit une tolérance aux pannes en cas
 d'échec des liens actifs. STP créé un arbre couvrant qui caractérise la relation entre noeuds d'un réseau et désactive les liens
@@ -333,8 +333,8 @@ ordinateurs doivent avoir un langage commun, et doivent suivre des règles commu
 communications. Tous les protocoles client-serveur opère au niveau de la couche application. Le protocole de la couche application
 définit des motifs basiques de dialogue. Pour formaliser un peu plus loin l'échange de données, le serveur peut implémenter une
 interface de programmation applicative (API). L'API est une couche d'abstraction permettant d'accéder un service. En restreignant
-la communication à des contenu formatés spécifiquement, cela facilite l'analyse syntaxique. En rendant l'accès à la donnée abstrait,
-on facilite l'échange de données inter-plateformes.
+la communication à des contenus formatés spécifiquement, cela facilite l'analyse syntaxique. En rendant l'accès à la donnée
+abstrait, on facilite l'échange de données inter-plateformes.
 
 Un serveur peut recevoir de multiples clients distincts sur une période de temps très courte. Un ordinateur peut uniquement exécuter
 un nombre limité de tâches à la fois, et s'appuie sur l'ordonnanceur système pour prioriser les requêtes entrantes des clients pour

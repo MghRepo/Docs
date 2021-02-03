@@ -475,7 +475,7 @@ que le noeud à supprimer a été trouvé à partir de sa clé :
 
 * *Suppression d'une feuille* : Il suffit de l'enlever de l'arbre puisqu'elle n'a pas de fils.
 * *Suppression de noeud avec un enfant* : Il faut l'enlever de l'arbre en le remplaçant par son fils.
-* *Suppresson d'un noeud avec deux enfants* : Supposons que le noeud à supprimer soit appelé N. On échange le noeud N avec son
+* *Suppression d'un noeud avec deux enfants* : Supposons que le noeud à supprimer soit appelé N. On échange le noeud N avec son
 sucesseur le plus proche (le noeud le plus à gauche du sous-arbre droit) ou son plus proche prédécesseur (le noeud le plus à droite
 du sous-arbre gauche). Cela permet de garder à la fin de l'opération une structure d'arbre binaire de recherche. Puis on applique à
 nouveau la procédure de suppression à N, qui est maintenant une feuille ou un noeud avec un seul fils.
@@ -846,7 +846,7 @@ intermédiaire* qu'il traduit à son tour en langage cible.
 On sépare le compilateur en au moins deux parties : une partie avant (ou frontale), parfois appelée "souche", qui lit le texte
 source et produit la représentation intermédiaire ; et la partie arrière (ou finale), qui parcours cette représentation pour
 produire le texte cible. Dans un compilateur idéal, la partie avant est indépendante du langage cible, tandis que la partie arrière
-est indépendante du langage source (voir LLVM).
+est indépendante du langage source (voir *Low Level Virtual Machine*).
 
 L'implémentation d'un langage de programmation peut être interprétée ou compilée. Cette réalisation est un compilateur ou un
 interpréteur, et un langage de programmation peut avoir une implémentation compilée, et une autre interprétée.
