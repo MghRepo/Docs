@@ -195,7 +195,6 @@ sous-arbre *droit* possède une clé supérieure ou égale à celle-ci.
 * *Smooth sort* : La première étape consiste à transformer le tableau en arbre binaire. Le premier élément est déjà trivialement
 bien ordonné, puis on ajoute un à un les éléments suivants. On réordonne chaque fois un peu les éléments si nécessaire pour qu'ils
 correspondent aux critères :
-
     + Chaque noeud ne peut être supérieur à son noeud parent.
     + Le premier noeud enfant ne peut être supérieur au deuxième noeud enfant.
 	
