@@ -670,22 +670,22 @@ travers le système. Le plan de contrôle de Kubernetes consiste en divers compo
 exécuté soit sur un simple noeud maître, soit sur plusieurs maîtres pour des clusters à haute disponibilité. Les différents
 composants du plan de contrôle Kubernetes sont les suivants :
 
-* etcd : etcd est une base de données clef-valeur, légère, persistante et distribuée qui stocke de manière fiable les données de
+* **etcd** : etcd est une base de données clef-valeur, légère, persistante et distribuée qui stocke de manière fiable les données de
 configuration du cluster, donnant une représentation de l'état global du cluster à l'instant t. *etcd* est un système qui favorise
 la cohérence à la disponibilité dans l'éventualité d'une partition réseau. Cette conhérence est cruciale pour ordonnancer
 correctement les services opérants. Le serveur de l'API Kubernetes utilise l'API de visualisation d'etcd pour surveiller le cluster
 et déployer des changements configuration critiques ou simplement restaurer n'importe quelle divergence d'état du cluster tels qu'il
 était déclaré par celui qui l'a déployé.
-* Le serveur d'API : Le serveur d'API est un composant clé qui sert l'API Kubernetes via des JSON en HTTP, qui fournit à la fois les
-interfaces internes et externes à Kubernetes. Le serveur d'API traite et valide les requêtes REST et met à jour l'état des objets
-dans etcd, de fait permettant aux clients de configurer les charges de travail et les conteneurs à travers les noeuds.
-* L'ordonnanceur : L'ordonnanceur est un composant qui, sur la base de la disponibilité ressource, sélectionne un noeud sur lequel
-s'exécute un pod non ordonnancé (entité de base géré par l'ordonnanceur). L'ordonnaceur suit l'usage ressource sur chacun des noeuds
-afin de s'assurer que la charge de travail n'est pas planifiée en excès de la ressource disponible. A cette fin, l'ordonnanceur doit
-connaître les conditions et disponibilités de la ressource et autres contraintes définies par l'utilisateur, les directives
-politiques telles que la qualité de service, les conditions d'affinité ou de non-affinité, la localisation des données etc. Le rôle
-de l'ordonnanceur est d'accorder la ressource disponible à la charge de travail demandée.
-* Le gestionnaire de contrôle : Un contrôleur est une boucle de réconciliation qui amène l'état courant du cluster vers l'état
+* **Le serveur d'API** : Le serveur d'API est un composant clé qui sert l'API Kubernetes via des JSON en HTTP, qui fournit à la fois
+les interfaces internes et externes à Kubernetes. Le serveur d'API traite et valide les requêtes REST et met à jour l'état des
+objets dans etcd, de fait permettant aux clients de configurer les charges de travail et les conteneurs à travers les noeuds.
+* **L'ordonnanceur** : L'ordonnanceur est un composant qui, sur la base de la disponibilité ressource, sélectionne un noeud sur
+lequel s'exécute un pod non ordonnancé (entité de base géré par l'ordonnanceur). L'ordonnaceur suit l'usage ressource sur chacun des
+noeuds afin de s'assurer que la charge de travail n'est pas planifiée en excès de la ressource disponible. A cette fin,
+l'ordonnanceur doit connaître les conditions et disponibilités de la ressource et autres contraintes définies par l'utilisateur, les
+directives politiques telles que la qualité de service, les conditions d'affinité ou de non-affinité, la localisation des données
+etc. Le rôle de l'ordonnanceur est d'accorder la ressource disponible à la charge de travail demandée.
+* **Le gestionnaire de contrôle** : Un contrôleur est une boucle de réconciliation qui amène l'état courant du cluster vers l'état
 désiré du cluster, en communicant via le serveur d'API pour créer, mettre à jour et supprimer les ressources qu'il gère (pods,
 services, extrémités, etc.). Le gestionnaire de contrôle est un processus qui gère un ensemble de contrôleurs du noyau Kubernetes.
 Un type de contrôleur est un contrôleur de réplication, qui s'occupe de la réplication et de la mise à l'echelle en exécutant un
@@ -699,19 +699,17 @@ Un noeud, est une machine où des conteneurs (charge de travail) sont déployés
 un environnement d'exécution de conteneurs tel que Docker, ainsi que les composants mentionnés ci-dessous, à des fins de
 communication avec le maître pour la configuration réseau de ces conteneurs.
 
-* Kubelet : Kubelet est responsable de l'état d'exécution de chaque noeud, il s'assure que tous les conteneurs du noeud sont sains.
-Il prend en charge le démarrage, l'arrêt et la maintenance des conteneurs d'application organisés en pods tels que l'a décidé le
-plan de contrôle. Kublet surveille l'état d'un pod, s'il n'est pas dans l'état désiré, le pod est redéployé sur le même noeud. Le
-statut du noeud est relayé sur une période de quelques secondes via des messages au maître. Si le maître détecte un échec de noeud,
-le contrôleur de réplication observe ce changement de statut et lance des pods sur d'autres noeuds sains.
-
-* Kube-proxy : Le Kube-proxy est une implémentation d'un proxy réseau et d'un répartiteur de charge, il prend en charge
+* **Kubelet** : Kubelet est responsable de l'état d'exécution de chaque noeud, il s'assure que tous les conteneurs du noeud sont
+sains.  Il prend en charge le démarrage, l'arrêt et la maintenance des conteneurs d'application organisés en pods tels que l'a
+décidé le plan de contrôle. Kublet surveille l'état d'un pod, s'il n'est pas dans l'état désiré, le pod est redéployé sur le même
+noeud. Le statut du noeud est relayé sur une période de quelques secondes via des messages au maître. Si le maître détecte un échec
+de noeud, le contrôleur de réplication observe ce changement de statut et lance des pods sur d'autres noeuds sains.
+* **Kube-proxy** : Le Kube-proxy est une implémentation d'un proxy réseau et d'un répartiteur de charge, il prend en charge
 l'abstraction de service ainsi que d'autres opérations réseau. Il est responsable du routage du traffic vers le conteneur approprié
 basé sur l'adresse IP et le numéro de port de la requête qui arrive.
-
-* Environnement d'exécution de conteneur : Un conteneur réside dans un pod. Le conteneur est le niveau de micro-service le plus bas,
-qui contient l'application en cours d'exécution, les bibliothèques et leurs dépendances. Ils peuvent également avoir une adresse IP
-externe.
+* **Environnement** d'exécution de conteneur : Un conteneur réside dans un pod. Le conteneur est le niveau de micro-service le plus
+bas, qui contient l'application en cours d'exécution, les bibliothèques et leurs dépendances. Ils peuvent également avoir une
+adresse IP externe.
 
 L'unité d'ordonnancement de base dans Kubernetes est un pod. Un pod est un groupement de composants conteneurisés. Un pod consiste
 en un ou plusieurs conteneurs garantis de se trouver sur le même noeud.

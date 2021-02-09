@@ -728,10 +728,8 @@ colorié en *rouge*. Il y a ensuite plusieurs cas possibles pour rétablir les p
 
 1. Le noeud inséré n'a pas de parent : il est en fait à la racine de l'arbre. La seule correction à apporter consiste à le colorier
 en **noir** pour respecter la propriété 2.
-
 2. Le noeud du parent inséré est **noir**, alors, l'arbre est valide : la propriété 3 et vérifiée, et la hauteur-noire de l'arbre
 est inchangée puisque le nouveau noeud est **rouge**. Il n'y a donc rien d'autre à faire.
-
 3. Le parent du noeud inséré est **rouge**, alors la propriété 3 est invalide. L'action à effectuer dépend de la couleur de
 *l'oncle* du noeud inséré, c'est à dire le "frère" du parent du noeud inséré. En d'autres termes : en partant du noeud inséré (N),
 on considère son noeud parent (P), puis le noeud parent de P, ou grand-parent (G), et enfin l'oncle (U) qui est le fils de G qui
@@ -739,7 +737,6 @@ n'est pas P. Si l'oncle est **rouge**, alors le parent et l'oncle sont coloriés
 nécessairement noir) est colorié en **rouge**. Ce changement de couleur a pu toutefois créer une nouvelle violation des propriétés
 bicolores plus haut dans l'arbre. Il faut maintenant recommencer la même analyse de cas mais cette fois *en partant du noeud
 grand-parent ainsi colorié en rouge*.
-
 4. Dans le cas où l'oncle est **noir**, il faut effectuer des rotations qui dépendent de la configuration du noeud inséré autour de
 son parent et de son grand-parent, afin de ramener l'équilibre dans l'arbre. Le parent vient prendre la place du grand-parent, et le
 grand-parent celle de l'oncle. Le parent devient **noir** et le grand-parent **rouge** et l'arbre respecte alors les propriétés
