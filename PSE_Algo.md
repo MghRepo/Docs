@@ -3,26 +3,26 @@
 #### Table des matières
 
 * [Structures de contrôle](#structures-de-contrôle)
-	+ [Structures de contrôle séquentielles](#structures-de-contrôle-séquentielles)
-	+ [Structures de contrôle itératives](#structures-de-contrôle-itératives)
-	+ [Extensions de la notion de boucles](#extensions-de-la-notion-de-boucles)
-	+ [Sous-programmes](#sous-programmes)
-	+ [Exceptions](#exceptions)
-	+ [Programmation multitâche](#programmation-multitâche)
-	+ [Programmation événementielle](#programmation-événementielle)
+    + [Structures de contrôle séquentielles](#structures-de-contrôle-séquentielles)
+    + [Structures de contrôle itératives](#structures-de-contrôle-itératives)
+    + [Extensions de la notion de boucles](#extensions-de-la-notion-de-boucles)
+    + [Sous-programmes](#sous-programmes)
+    + [Exceptions](#exceptions)
+    + [Programmation multitâche](#programmation-multitâche)
+    + [Programmation événementielle](#programmation-événementielle)
 * [Algorithmes de tri](#algorithmes-de-tri)
-	+ [Critère de classification](#critère-de-classification)
-	+ [Exemples d'algorithmes de tri](#exemples-dalgorithmes-de-tri)
+    + [Critère de classification](#critère-de-classification)
+    + [Exemples d'algorithmes de tri](#exemples-dalgorithmes-de-tri)
 * [Structures de données](#structures-de-données)
-	+ [Pile](#pile)
-	+ [File](#file)
-	+ [Liste](#liste)
-	+ [Arbre enraciné](#arbre-enraciné)
-	+ [Arbre binaire de recherche](#arbre-binaire-de-recherche)
-	+ [Arbre B](#arbre-b)
-	+ [Arbre rouge-noir](#arbre-rouge-noir)
-	+ [Tas](#tas)
-	+ [Table de hachage](#table-de-hachage)
+    + [Pile](#pile)
+    + [File](#file)
+    + [Liste](#liste)
+    + [Arbre enraciné](#arbre-enraciné)
+    + [Arbre binaire de recherche](#arbre-binaire-de-recherche)
+    + [Arbre B](#arbre-b)
+    + [Arbre rouge-noir](#arbre-rouge-noir)
+    + [Tas](#tas)
+    + [Table de hachage](#table-de-hachage)
 * [Programmation orientée objet](#programmation-orientée-objet)
 * [Compilation](#compilation)
 
@@ -195,10 +195,9 @@ sous-arbre *droit* possède une clé supérieure ou égale à celle-ci.
 * *Smooth sort* : La première étape consiste à transformer le tableau en arbre binaire. Le premier élément est déjà trivialement
 bien ordonné, puis on ajoute un à un les éléments suivants. On réordonne chaque fois un peu les éléments si nécessaire pour qu'ils
 correspondent aux critères :
-
     + Chaque noeud ne peut être supérieur à son noeud parent.
     + Le premier noeud enfant ne peut être supérieur au deuxième noeud enfant.
-	
+
 La deuxième étape consiste à retransformer l'arbre binaire en tableau trié. Chaque élément en partant de la droite est laissé tel
 quel car il s'agit de la racine de l'arbre qui est déjà le plus grand élément, et l'arbre restant est réordonné si nécessaire. On
 fait ceci jusqu'à arriver à un tableau trié.
@@ -374,22 +373,17 @@ arbres B en sont des exemples d'utilisation et sont eux aussi des arbres équili
 Pour construire un arbre à partir de cases ne contenant que des informations, on peut procéder de l'une des trois façons suivantes :
 
 1. Créer une structure de données composée de :
-
-	* l'étiquette (la valeur contenue dans le noeud),
-	* un lien vers *chaque* noeud fils,
+    * l'étiquette (la valeur contenue dans le noeud),
+    * un lien vers *chaque* noeud fils,
     * un arbre particulier, l'arbre vide, qui permet de caractériser les feuilles. Une feuille a pour fils des arbres vides
-uniquement.
-	
+    uniquement.
 2. Créer une structure de données composée de :
-
-	* l'étiquette (la valeur contenue dans le noeud),
-	* un lien vers le "premier" noeud fils (noeud fils gauche le cas échéant),
-	* un autre lien vers le noeud frère (le "premier" noeud frère sur la droite le cas échéant).
-	
+    * l'étiquette (la valeur contenue dans le noeud),
+    * un lien vers le "premier" noeud fils (noeud fils gauche le cas échéant),
+    * un autre lien vers le noeud frère (le "premier" noeud frère sur la droite le cas échéant).
 3. Créer une structure de données composée de :
-
-	* l'étiquette (la valeur contenue dans le noeud),
-	* un lien vers le noeud père.
+    * l'étiquette (la valeur contenue dans le noeud),
+    * un lien vers le noeud père.
 
 On note qu'il existe d'autres types de représentation propres à des cas particuliers d'arbres. Par exemple, le tas est représenté par un tableau
 d'étiquettes.
@@ -411,30 +405,30 @@ gauche et droit.
 
 Parcours préfixe :
 
-	visiterPréfixe(Arbre A) :
-		visiter (A)
-		Si nonVide (gauche(A))
-			visiterPréfixe(gauche(A))
-		Si nonVide (droite(A))
-			visiterPréfixe(droite(A))
+    visiterPréfixe(Arbre A) :
+        visiter (A)
+        Si nonVide (gauche(A))
+            visiterPréfixe(gauche(A))
+        Si nonVide (droite(A))
+            visiterPréfixe(droite(A))
 
 Parcours suffixe :
 
-	visiterSuffixe(Arbre A) :
-		Si nonVide(gauche(A))
-			visiterSuffixe(gauche(A))
-		Si nonVide(droite(A))
-			visiterSuffixe(droite(A))
-		visiter(A)
+    visiterSuffixe(Arbre A) :
+        Si nonVide(gauche(A))
+            visiterSuffixe(gauche(A))
+        Si nonVide(droite(A))
+            visiterSuffixe(droite(A))
+        visiter(A)
 
 Parcours infixe :
 
-	visiterInfixe(Arbre A) :
-		Si nonVide(gauche(A))
-			visiterInfixe(gauche(A))
-		visiter(A)
-		Si nonVide(droite(A))
-			visiterInfixe(droite(A))
+    visiterInfixe(Arbre A) :
+        Si nonVide(gauche(A))
+            visiterInfixe(gauche(A))
+        visiter(A)
+        Si nonVide(droite(A))
+            visiterInfixe(droite(A))
 
 ### Arbre binaire de recherche
 
@@ -551,11 +545,10 @@ De plus, un arbre B vérifie ces propriétés :
 
 * Toutes les feuilles ont la même profondeur, à savoir la hauteur *h* de l'arbre.
 * Si *x* n'est pas une feuille :
+    + pour *2&#8804;i&#8804;n*, pour toute clef *k* du fils *f&#7522;* : *c&#7522;&#8331;&#8321;&#8804;k&#8804;c&#7522;*.
+    + pour toute clef *k* du fils *f&#8321;* : *k&#8804;c&#8321;*.
+    + pour toute clef *k* du fils *f&#8345;&#8330;&#8321;* : *c&#8345;&#8804;k*.
 
-	+ pour *2&#8804;i&#8804;n*, pour toute clef *k* du fils *f&#7522;* : *c&#7522;&#8331;&#8321;&#8804;k&#8804;c&#7522;*.
-	+ pour toute clef *k* du fils *f&#8321;* : *k&#8804;c&#8321;*.
-	+ pour toute clef *k* du fils *f&#8345;&#8330;&#8321;* : *c&#8345;&#8804;k*.
-	
 * Si *x* n'est ni une feuille, ni la racine, *n* est compris entre L-1 et U-1.
 
 La plupart du temps, la configuration est telle que *U = 2L*. On parle alors d'arbre B d'ordre *L*.
@@ -597,15 +590,15 @@ au cas suivant.
 * Si le noeud est une feuille, soit il possède encore suffisamment de clés et l'algorithme se termine, soit il dispose de moins de
 *L-1* clés et on se trouve dans l'une des deux situations suivantes :
     + soit un de ses frères à droite ou à gauche possède suffisamment de clés pour pouvoir en "passer" une à la feuille en question
-: dans ce cas cette clé remplace la clé qui sépare les deux sous-arbres dans l'arbre père, qui va elle-même dans la feuille en
-question ;
+    : dans ce cas cette clé remplace la clé qui sépare les deux sous-arbres dans l'arbre père, qui va elle-même dans la feuille en
+    question ;
     + soit aucun de ses frères n'a suffisamment de clés : dans ce cas, le père fait passer une de ses clés dans un des deux (ou le
-seul) frère pour permettre à la feuille de fusionner avec celui-ci. Ceci peut cependant conduire le père à ne plus avoir
-suffisamment de clés. On réitère alors l'algorithme : si le noeud a un frère avec suffisamment de clés, la clé la plus proche va
-être échangée avec la clé du père, puis la clé du père et ses nouveaux descendants sont ramenés dans le noeud qui a besoin d'une clé
-; sinon, on effectue une fusion à l'aide d'une clé du père et ainsi de suite. Si l'on arrive à la racine et qu'elle possède moins de
-L éléments, on fusionne ses deux fils pour donner une nouvelle racine.
-	
+    seul) frère pour permettre à la feuille de fusionner avec celui-ci. Ceci peut cependant conduire le père à ne plus avoir
+    suffisamment de clés. On réitère alors l'algorithme : si le noeud a un frère avec suffisamment de clés, la clé la plus proche va
+    être échangée avec la clé du père, puis la clé du père et ses nouveaux descendants sont ramenés dans le noeud qui a besoin d'une
+    clé ; sinon, on effectue une fusion à l'aide d'une clé du père et ainsi de suite. Si l'on arrive à la racine et qu'elle possède 
+    moins de L éléments, on fusionne ses deux fils pour donner une nouvelle racine.
+
 Notamment après une suppression, l'arbre peut être rééquilibré. Cette opération consiste à répartir équitablement les valeurs dans
 les différents noeuds de l'arbre et à rétablir les propriétés de remplissage minimum des noeuds.
 
