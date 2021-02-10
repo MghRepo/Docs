@@ -200,7 +200,7 @@ La deuxième étape consiste à retransformer l'arbre binaire en tableau trié. 
 quel car il s'agit de la racine de l'arbre qui est déjà le plus grand élément, et l'arbre restant est réordonné si nécessaire. On
 fait ceci jusqu'à arriver à un tableau trié.
 
-#### Algorithmes moyennement rapides :
+#### Algorithmes moyennement rapides
 
 * **Tri de Shell** (*shell sort*) : Ce tri repose sur le tri par insertion des sous-suites de l'entrée obtenues en prenant les
 éléments espacés d'un pas constant, pour une suite de pas prédéfinie. La complexité varie selon le choix de cette suite.
@@ -221,7 +221,7 @@ essentiellement similaire à ce dernier et l'intérêt est encore une fois princ
 premier élément au second, le troisième au quatrième, etc., puis l'on comparera le second élément au troisième, le quatrième au
 cinquième. L'opération est répétée jusqu'à ce que la structure soit triée.
 
-#### Algorithmes lents :
+#### Algorithmes lents
 
 * **Tri par selection** (*selection sort*) : Sur un tableau de *n* éléments on recherche l'élément le plus petit du tableau et on
 l'échange avec l'élément d'indice 0. Puis on recherche le deuxième plus petit et on l'échange avec l'élément d'indice 1. L'opération
