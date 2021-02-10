@@ -46,6 +46,7 @@
 
 Le multitâche coopératif est une forme simple de multitâche où chaque tâche doit explicitement permettre aux autres tâches de
 s'exécuter. Cette approche simplifie l'architecture du système mais présente plusieurs inconvénients :
+
 * Le multitâche coopératif est une forme de couplage fort. Si un des processus ne redonne pas la main à un autre processus, par
 exemple si le processus est buggé, le système entier peut s'arrêter.
 * Le partage de ressources (temps CPU, mémoire, accès disque, etc.) peut être inefficace.
@@ -105,32 +106,34 @@ control block). Le système d'exploitation restaure l'ancien PCB de la tâche é
 s'était arrêtée précedemment.
 
 Du choix de l'algorithme d'ordonnancement dépend le comportement du système. Il existe deux grandes classes d'ordonnancement :
-* *L'ordonnancement en temps partagé* présent sur la plupart des ordinateurs "classiques". Par exemple l'ordonnancement "decay" ;
+
+* **L'ordonnancement en temps partagé** présent sur la plupart des ordinateurs "classiques". Par exemple l'ordonnancement "decay" ;
 qui est celui par défaut sous Unix. Il consiste en un système de priorités adaptatives, par exemple il privilégie les tâches
 interactives pour que leur temps de réponse soit bon. Une sous-classe de l'ordonnancement en temps partagé sont les ordonnanceurs
 dits "proportional share", eux sont plus destinés aux stations de calcul et permettent une gestion rigoureuse des ressources. On
 peut citer notamment "lottery" et "stride".
-* *L'ordonnancement en temps réel* qui assure qu'une certaine tâche sera terminée dans un délai donné. Cela est indispendable dans
+* **L'ordonnancement en temps réel** qui assure qu'une certaine tâche sera terminée dans un délai donné. Cela est indispendable dans
 les systèmes embarqués. Un ordonnanceur temps réel est dit optimal pour un système de tâches s'il trouve une solution
 d'ordonnancement du système lorsque cette solution existe. S'il ne trouve pas de solution à ce système, alors aucun autre
 ordonnanceur ne peut en trouver une.
 
 Algorithmes d'ordonnancement :
-* *Round-robin (ou méthode du tourniquet)* : Une petite unité de temps appelé quantum de temps est définie. La file d'attente est
+
+* **Round-robin (ou méthode du tourniquet)** : Une petite unité de temps appelé quantum de temps est définie. La file d'attente est
 gérée comme une file circulaire. L'ordonnanceur parcourt cette file et alloue un temps processeur à chacun des processus pour un
 intervalle de temps de l'ordre d'un quantum au maximum. La performance de round-robin dépend fortement du choix du quantum de base.
-* *Rate-monotonic scheduling (RMS)* : L'ordonnancement à taux monotone est un algorithme d'ordonnancement temps réel en ligne à
+* **Rate-monotonic scheduling (RMS)** : L'ordonnancement à taux monotone est un algorithme d'ordonnancement temps réel en ligne à
 priorité constante (statique). Il attribue la priorité la plus forte à la tâche qui possède la plus petite période. RMS est optimal
 dans le cadre d'un système de tâches périodiques, synchrones, indépendantes et à échéance sur requête avec un ordonnanceur
 préemptif. De ce fait, il n'est généralement utilisé que pour ordonnancer des tâches vérifiant ces propriétés.
-* *Earliest deadline first scheduling (EDF)* : C'est un algorithme d'ordonnancement préemptif à priorité dynamique, utilisé dans les
-systèmes temps réels. Il attribue une priorité à chaque requête en fonction de l'échéance de cette dernière selon la règle : Plus
-l'échéance d'une tâche est proche, plus sa priorité est grande. De cette manière, au plus vite le travail doit être réalisé, au plus
-il a des chances d'être exécuté.
-* *FIFO* : Les premièrs processus ajoutés à la file seront les premières à être exécutés.
-* *Shortest job first (SJF, ou SJN-Shortest Job Next)* : Le choix se fait en fonction du temps d'exécution estimé du processus.
+* **Earliest deadline first scheduling (EDF)** : C'est un algorithme d'ordonnancement préemptif à priorité dynamique, utilisé dans
+les systèmes temps réels. Il attribue une priorité à chaque requête en fonction de l'échéance de cette dernière selon la règle :
+Plus l'échéance d'une tâche est proche, plus sa priorité est grande. De cette manière, au plus vite le travail doit être réalisé, au
+plus il a des chances d'être exécuté.
+* **FIFO** : Les premièrs processus ajoutés à la file seront les premières à être exécutés.
+* **Shortest job first (SJF, ou SJN-Shortest Job Next)** : Le choix se fait en fonction du temps d'exécution estimé du processus.
 Ainsi l'ordonnanceur va laisser passer en priorité le plus court des processus de la file d'attente.
-* *Completely Fair Scheduler* (CFS) : L'ordonnanceur des tâches pour le noyau Linux. Il gère l'allocation de ressource processeur
+* **Completely Fair Scheduler** (CFS) : L'ordonnanceur des tâches pour le noyau Linux. Il gère l'allocation de ressource processeur
 pour l'exécution des processus, en maximisant l'utilisation globale CPU tout en optimisant l'interactivité. CFS utilise un arbre
 rouge-noir implémentant une chronologie des futures exécutions des tâches. En effet, l'arbre trie les processus selon une valeur
 representative du manque de ces processus en temps d'allocation du processeur, par rapport au temps qu'aurait alloué un processeur
@@ -160,20 +163,20 @@ la section critique avant d'y entrer et libère l'accès après y être sorti. C
 Ces mécanismes sont par exemple la barrière de synchronisation, l'usage conjoint des sémaphores et des verrous, les spinlock, le
 moniteur.
 
-* *Barrière de synchronisation* : Permet de garantir qu'un certain nombre de tâches aient passé un point spécifique. Ainsi, chaque
+* **Barrière de synchronisation** : Permet de garantir qu'un certain nombre de tâches aient passé un point spécifique. Ainsi, chaque
 tâche qui arrivera sur cette barrière devra attendre jusqu'à ce que le nombre spécifié de tâches soient arrivées à cette barrière.
-* *Sémaphore* : Variable partagée par différents "acteurs" qui garantit que ceux-ci ne peuvent accéder de façon séquentielle à
+* **Sémaphore** : Variable partagée par différents "acteurs" qui garantit que ceux-ci ne peuvent accéder de façon séquentielle à
 travers des opérations atomiques, et constituela méthode utilisée couramment pour restreindre l'accès à des ressources partagées et
 synchroniser les processus dans un environnement de programmation concurrente.
-* *Verrous* : Permet d'assurer qu'un seul processus accède à une ressource à un instant donné. Un verrou peut être posé pour
+* **Verrous** : Permet d'assurer qu'un seul processus accède à une ressource à un instant donné. Un verrou peut être posé pour
 protéger un accès en lecture et permettra à plusieurs processus de lire, mais aucun d'écrire. On dit alors que c'est un verrou
 partagé. Un verrou est dit exclusif lorsqu'il interdit toute écriture et toute lecture en dehors du processus qui l'a posé. La
 granularité d'un verrou constitue l'étendue des éléments qu'il protège. Par exemple dans les bases de données, un verrou peut être
 posé sur une ligne, un lot de ligne, une table etc.
-* *Spinlocks* : Mécanisme simple de synchronisation basé sur l'attente active.
-* *Moniteur* : Mécanisme de synchronisation qui permet à plusieurs threads de bénéficier de l'exclusion mutuelle et la possibiliter
-d'attendre (*block*) l'invalidation d'une condition. Les moniteurs ont également un mécanisme qui permet aux autres threads de
-signaler que leur condition est validé. Il est constitué d'un mutex et de variables conditionnelles.
+* **Spinlocks** : Mécanisme simple de synchronisation basé sur l'attente active.
+* **Moniteur** : Mécanisme de synchronisation qui permet à plusieurs threads de bénéficier de l'exclusion mutuelle et la
+possibiliter d'attendre (*block*) l'invalidation d'une condition. Les moniteurs ont également un mécanisme qui permet aux autres
+threads de signaler que leur condition est validé. Il est constitué d'un mutex et de variables conditionnelles.
 
 La connaissance des dépendances entre les données est fondamentale dans la mise en oeuvre d'algorithmes parallèles, d'autant qu'un
 calcul peut dépendre de plusieurs calculs préalables. Les *conditions de Bernstein* permettent de déterminer les conditions sur les
@@ -420,8 +423,8 @@ de segment associé pour un accès plus rapide aux descripteurs.
 
 Un segment mémoire est un espace d'adressage indépendant défini par deux valeurs :
 
-* L'adresse où il commence (aussi appelée *base*, ou *adresse de base*) Sa taille ou son *décalage* (aussi appelée *limite* ou
-* *offset*)
+* L'adresse où il commence (aussi appelée *base*, ou *adresse de base*)
+* Sa taille ou son *décalage* (aussi appelée *limite* ou *offset*)
 
 Un segment constitue donc dans la mémoire principale un plage d'adresse continue. Les segments se chevauchent. On peut donc adresser
 la même zone mémoire avec plusieurs couples segment/offset.
@@ -480,7 +483,6 @@ actuellement disponibles au système :
 
 * udev fournit un nommage de périphérique persistant, qui ne dépend pas de, par exemple, l'ordre de connection des appareils au
 système.
-
 * udev s'exécute entièrement en espace utilisateur. Une conséquence est que udev peut exécuter des programmes arbitraires pour
 composer un nom pour le périphérique fonction de ses propriétés, avant que le noeud soit créé; d'ailleurs, l'ensemble du processus
 de nommage est également interruptible et s'exécute avec une priorité basse.
@@ -614,25 +616,25 @@ Docker implémente une API de haut niveau pour fournir des conteneurs légers ex
 
 Le logiciel Docker en tant qu'offre de services consiste en trois composants :
 
-* Le Logiciel : Le daemon Docker, *dockerd*, est un processus persistant qui gère les conteneurs Docker ainsi que les objets du
+* **Le Logiciel** : Le daemon Docker, *dockerd*, est un processus persistant qui gère les conteneurs Docker ainsi que les objets du
 conteneur. Le daemon est à l'écoute des requêtes envoyés via l'API du Docker Engine. Et le programme client *docker* fournit une
 interface de ligne de commande qui permet d'intéragir avec le daemon.
-* Les objets : Les objets docker sont des entités diverses utilisées pour assembler une application dans Docker. Les classes
+* **Les objets** : Les objets docker sont des entités diverses utilisées pour assembler une application dans Docker. Les classes
 principales des objets Dockers sont les images, les conteneurs et les services.
-    * Un conteneur Docker est un environnement encapsulé, standardisé qui exécute des applications. Un conteneur est géré à travers
+    + Un conteneur Docker est un environnement encapsulé, standardisé qui exécute des applications. Un conteneur est géré à travers
     l'API Docker ou la ligne de commande.
-    * Une image Docker est un modèle en lecture seule utilisée pour construire des conteneurs. Les images sont utilisées pour
+    + Une image Docker est un modèle en lecture seule utilisée pour construire des conteneurs. Les images sont utilisées pour
     stocker et envoyer des applications.
-    * Un service Docker permet une mise à l'echelle des conteneurs sur de multiples daemons. Ceci étant appelé une nuée (*swarm*),
+    + Un service Docker permet une mise à l'echelle des conteneurs sur de multiples daemons. Ceci étant appelé une nuée (*swarm*),
     un ensemble de daemon coopérant, communiquant à travers l'API Docker.
-* Les registres : Un registre Docker est un dépot d'image Docker. Les clients Docker se connectent aux registres pour cloner
+* **Les registres** : Un registre Docker est un dépot d'image Docker. Les clients Docker se connectent aux registres pour cloner
 (*pull*) des images à utiliser ou déposer (*push*) des images qu'ils ont contruites. Les dépots peuvent être publics ou privés. Les
 deux principaux dépots publics sont Docker Hub et Docker Cloud. Docker Hub est le registre par défaut ou Docker recherche des
 images. Des registres Docker permettent également la création de notifications basée sur des évennements.
 
 Le logiciel Docker dispose également d'outils :
 
-* Docker Compose qui est un outil qui permet de définir et d'exécuter des applications Docker multi-conteneurs. Il utilise des
+* **Docker Compose** qui est un outil qui permet de définir et d'exécuter des applications Docker multi-conteneurs. Il utilise des
 fichier YAML pour configurer les services de l'application et créé et démarre les processus de tous les conteneurs à l'aide d'une
 seule commande. L'interface en ligne de commande *docker-compose* permet aux utilisateurs de passer des commandes sur des ensembles
 de conteneurs, par exemple pour construire des images, déployer des conteneurs, redémarrer des conteneurs, etc. Les commandes liées
@@ -640,11 +642,11 @@ de conteneurs, par exemple pour construire des images, déployer des conteneurs,
 Le fichier docker-compose.yml est utiliser pour définir les services de l'applications et inclut plusieurs options de configuration.
 Par exemple, l'option *build* définit les options de configuration telles que le chemin du Dockerfile, l'option *command* permet de
 surcharger les commandes Docker par défaut, etc.
-* Docker Swarm fournit nativement un fonctionnalité de grappe pour les conteneurs Docker qui transforme un groupe de Docker engine
-en un unique Docker engine virtuel. L'interface ligne de commande *docker swarm* permet aux utilisateurs d'exécuter des conteneurs
-Swarm, de créer des mots-clefs, lister les noeuds de la grappe, etc. L'interface ligne de commande *docker node* permet aux
-utilisateurs d'exécuter diverses commandes pour gérer des noeuds dans la nuée, par exemple, lister les noeuds de la nuée, mettre à
-jour les noeuds, supprimer les noeuds d'une nuée. Docker gère les nuées en utilisant l'algorithme de consensus Raft. Selon Raft,
+* **Docker Swarm** fournit nativement un fonctionnalité de grappe pour les conteneurs Docker qui transforme un groupe de Docker
+engine en un unique Docker engine virtuel. L'interface ligne de commande *docker swarm* permet aux utilisateurs d'exécuter des
+conteneurs Swarm, de créer des mots-clefs, lister les noeuds de la grappe, etc. L'interface ligne de commande *docker node* permet
+aux utilisateurs d'exécuter diverses commandes pour gérer des noeuds dans la nuée, par exemple, lister les noeuds de la nuée, mettre
+à jour les noeuds, supprimer les noeuds d'une nuée. Docker gère les nuées en utilisant l'algorithme de consensus Raft. Selon Raft,
 pour qu'une mise à jour se fasse, la majorité des noeuds de la nuée doivent s'accorder sur celle-ci.
 
 ### Orchestrateur Kubernetes
@@ -792,11 +794,11 @@ les systèmes d'exploitations invités ne doivent pas forcément partager un mê
 
 Il existe deux types d'hyperviseurs :
 
-* Type-1 natif : Ces hyperviseurs s'exécutent directement sur le matériel de l'hôte pour contrôler le matériel et gérer les systèmes
-d'exploitation invités.
-* Type-2 hébergés : Ces hyperviseurs s'exécutent sur un système d'exploitation conventionnel comme n'importe quel autre programme.
-Un système d'exploitation invité s'exécute en tant que processus de l'hôte. Les hyperviseur de type-2 crééent une abstraction pour
-les systèmes d'exploitation invités depuis le système d'exploitation hôte.
+* **Type-1 natif** : Ces hyperviseurs s'exécutent directement sur le matériel de l'hôte pour contrôler le matériel et gérer les
+systèmes d'exploitation invités.
+* **Type-2 hébergés** : Ces hyperviseurs s'exécutent sur un système d'exploitation conventionnel comme n'importe quel autre
+programme. Un système d'exploitation invité s'exécute en tant que processus de l'hôte. Les hyperviseur de type-2 crééent une
+abstraction pour les systèmes d'exploitation invités depuis le système d'exploitation hôte.
 
 Cette distinction entre les deux types n'est pas toujours claire. Par exemple KVM et bhyve sont des modules noyau qui transforme
 le système d'exploitation hôte en hyperviseur de type-1. En même temps, les distributions Linux et FreeBSD sont aussi des systèmes
@@ -829,22 +831,22 @@ ici.
 
 Les unités suivantes sont disponibles :
 
-1. Les unités de services, qui démarrent et contrôlent des daemons et les processus qui les composent.
-2. Les unités de sockets, qui encapsulent des IPC locaux ou des sockets réseaux du système, utiles pour l'activation basée sur des
-sockets.
-3. Les unités de cibles utilisées afin de grouper des unités, ou de fournir des points de synchronisation connus au démarrage.
-4. Les unités de périphériques qui expose les périphériques de noyau dans systemd et peuvent être utilisées pour de l'activation
+1. Les unités de **services**, qui démarrent et contrôlent des daemons et les processus qui les composent.
+2. Les unités de **sockets**, qui encapsulent des IPC locaux ou des sockets réseaux du système, utiles pour l'activation basée sur
+des sockets.
+3. Les unités de **cibles** utilisées afin de grouper des unités, ou de fournir des points de synchronisation connus au démarrage.
+4. Les unités de **périphériques** qui expose les périphériques de noyau dans systemd et peuvent être utilisées pour de l'activation
 basée sur des périphériques.
-5. Les unités de montages, pour contrôler les points de montage dans le système de fichiers.
-6. Les unités de montages automatiques, afin d'automatiser les opérations de montage à la demande et le démarrage parallélisé.
-7. Les unités de timers afin de déclencher l'activation d'autres unités sur la base de timers.
-8. Les unités de swap, très similaires aux unités de montages qui encapsulent les partitions mémoires dédiées au swap ou des
+5. Les unités de **montages**, pour contrôler les points de montage dans le système de fichiers.
+6. Les unités de **montages automatiques**, afin d'automatiser les opérations de montage à la demande et le démarrage parallélisé.
+7. Les unités de **timers** afin de déclencher l'activation d'autres unités sur la base de timers.
+8. Les unités de **swap**, très similaires aux unités de montages qui encapsulent les partitions mémoires dédiées au swap ou des
 fichiers du système d'exploitation.
-9. Les unités de chemins qui peuvent être utilisées afin d'activer d'autres service lorsque les objets du système de fichiers
+9. Les unités de **chemins** qui peuvent être utilisées afin d'activer d'autres service lorsque les objets du système de fichiers
 changent ou sont modifiés.
-10. Les unités de tranches qui sont utilisées afin de grouper des unités qui gèrent des processus systèmes dans un arbre
+10. Les unités de **tranches** qui sont utilisées afin de grouper des unités qui gèrent des processus systèmes dans un arbre
 hiérarchique pour des questions de gestion des ressources.
-11. Les unités de scope similaires aux unités de services mais pour gérer et démarrer des processus externes. Ils sont créés de
+11. Les unités de **scope** similaires aux unités de services mais pour gérer et démarrer des processus externes. Ils sont créés de
 façon programmée en utilisant les interfaces de bus de systemd.
 
 > Units : service, socket, target, device, mount, automount, timer, swap, path, slice, scope

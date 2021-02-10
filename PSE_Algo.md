@@ -173,28 +173,26 @@ trier et produire les données à trier en parallèle.
 
 ### Exemples d'algorithmes de tri
 
-Algorithmes rapides *T(n)=O(n.log n)* :
+#### Algorithmes rapides *T(n)=O(n.log n)*
 
-* Tri fusion (*merge sort*) : Pour une entrée donnée, l'algorithme la divise en deux parties de tailles
-similaires, trie chacune d'elles en utilisant le même algorithme, puis fusionne les deux parties triées. Il se prête aussi bien à
-des implémenations sur listes que sur tableaux.
-* Tri rapide (*quick sort*) : Une valeur est choisie comme pivot et les éléments plus petits que le pivot sont
-dissociés, par échanges successifs, des éléments plus grands que le pivot ; chacun de ces deux sous-ensembles est ensuite trié de la
-même manière. On peut rendre la complexité quasiment indépendante des données en utilisant un pivot aléatoire ou en appliquant au
-tableau une permutation aléatoire avant de le trier.
-* Tris par tas (*heap sort*) : Il s'agit d'une amélioration du tri par sélection. L'idée est la même (insérer les élément un à un
-dans une structure déjà triée
-mais l'algorithme utilise une structure de tas, souvent implémentée au moyen d'un tableau.
-* *Introspective sort* : Il s'agit d'un hybride du tri rapide et du tri par tas. Par rapport au tri rapide, il présente l'avantage
-d'avoir une complexité
-*O(n.log n)* dans le pire cas.
-* Tri arborescent (*tree sort*): L'idée est d'insérer les éléments un à un dans l'arbre binaire de recherche, puis de lire l'arbre
-selon un parcours en profondeur. Un arbre binaire de recherche(ABR) est un arbre binaire dans lequel chaque noeud possède une clé,
-telle que chaque noeud du sous-arbre *gauche* ait une clé inférieure ou égale à celle du noeud considéré, et que chaque noeud du
-sous-arbre *droit* possède une clé supérieure ou égale à celle-ci.
-* *Smooth sort* : La première étape consiste à transformer le tableau en arbre binaire. Le premier élément est déjà trivialement
-bien ordonné, puis on ajoute un à un les éléments suivants. On réordonne chaque fois un peu les éléments si nécessaire pour qu'ils
-correspondent aux critères :
+* **Tri fusion** (*merge sort*) : Pour une entrée donnée, l'algorithme la divise en deux parties de tailles similaires, trie chacune
+d'elles en utilisant le même algorithme, puis fusionne les deux parties triées. Il se prête aussi bien à des implémenations sur
+listes que sur tableaux.
+* **Tri rapide** (*quick sort*) : Une valeur est choisie comme pivot et les éléments plus petits que le pivot sont dissociés, par
+échanges successifs, des éléments plus grands que le pivot ; chacun de ces deux sous-ensembles est ensuite trié de la même manière.
+On peut rendre la complexité quasiment indépendante des données en utilisant un pivot aléatoire ou en appliquant au tableau une
+permutation aléatoire avant de le trier.
+* **Tri par tas** (*heap sort*) : Il s'agit d'une amélioration du tri par sélection. L'idée est la même (insérer les élément un à
+un dans une structure déjà triée mais l'algorithme utilise une structure de tas, souvent implémentée au moyen d'un tableau.
+* **Tri introspectif** (*Introspective sort*) : Il s'agit d'un hybride du tri rapide et du tri par tas. Par rapport au tri rapide,
+il présente l'avantage d'avoir une complexité *O(n.log n)* dans le pire cas.
+* **Tri arborescent** (*tree sort*): L'idée est d'insérer les éléments un à un dans l'arbre binaire de recherche, puis de lire
+l'arbre selon un parcours en profondeur. Un arbre binaire de recherche(ABR) est un arbre binaire dans lequel chaque noeud possède
+une clé, telle que chaque noeud du sous-arbre *gauche* ait une clé inférieure ou égale à celle du noeud considéré, et que chaque
+noeud du sous-arbre *droit* possède une clé supérieure ou égale à celle-ci.
+* **Tri doux** *Smoothsort* : La première étape consiste à transformer le tableau en arbre binaire. Le premier élément est déjà
+trivialement bien ordonné, puis on ajoute un à un les éléments suivants. On réordonne chaque fois un peu les éléments si nécessaire
+pour qu'ils correspondent aux critères :
     + Chaque noeud ne peut être supérieur à son noeud parent.
     + Le premier noeud enfant ne peut être supérieur au deuxième noeud enfant.
 
@@ -202,32 +200,32 @@ La deuxième étape consiste à retransformer l'arbre binaire en tableau trié. 
 quel car il s'agit de la racine de l'arbre qui est déjà le plus grand élément, et l'arbre restant est réordonné si nécessaire. On
 fait ceci jusqu'à arriver à un tableau trié.
 
-Algorithmes moyennement rapides :
+#### Algorithmes moyennement rapides :
 
-* Tri de Shell (*shell sort*) : Ce tri repose sur le tri par insertion des sous-suites de l'entrée obtenues en prenant les éléments
-espacés d'un pas constant, pour une suite de pas prédéfinie. La complexité varie selon le choix de cette suite.
-* Tri à peigne (*comb sort*) : Il s'agit d'une variante plus efficace du tri à bulles, ne comparant pas uniquement des éléments
+* **Tri de Shell** (*shell sort*) : Ce tri repose sur le tri par insertion des sous-suites de l'entrée obtenues en prenant les
+éléments espacés d'un pas constant, pour une suite de pas prédéfinie. La complexité varie selon le choix de cette suite.
+* **Tri à peigne** (*comb sort*) : Il s'agit d'une variante plus efficace du tri à bulles, ne comparant pas uniquement des éléments
 consécutifs. On peut dire qu'il est au tri à bulles ce que le tri de Shell est au tri par insertion.
-* Tri par insertion (*insertion sort*): Ce tri souvent utilisé naturellement pour trier des cartes à jouer. Les valeurs sont
+* **Tri par insertion** (*insertion sort*): Ce tri souvent utilisé naturellement pour trier des cartes à jouer. Les valeurs sont
 insérées les unes après les autres dans une liste triée (initialement vide). C'est souvent le plus rapide et le plus utilisé pour
 trier les entrées de petite taille. Il est également efficace pour des entrées déjà presque triées.
-* Tri à bulles (*bubble sort*) : L'algorithme consiste à parcourir l'entrée du début à la fin et pour chaque couple d'éléments
+* **Tri à bulles** (*bubble sort*) : L'algorithme consiste à parcourir l'entrée du début à la fin et pour chaque couple d'éléments
 consécutifs, à les intervertir s'ils sont mal ordonnés. Cette opération est répétée jusqu'à ce que la structure soit triée (aucune
 intervention lors du dernier passage). Cet algorithme est peu efficace et rarement utilisé en pratique ; son intêret est
 principalement pédagogique.
-* Tri cocktail (*cocktail sort*) : Il s'agit d'une variante du tri à bulles dans laquelle l'entrée est alternativement parcourue
+* **Tri cocktail** (*cocktail sort*) : Il s'agit d'une variante du tri à bulles dans laquelle l'entrée est alternativement parcourue
 dans les deux sens. S'il permet de traiter de manière plus efficace quelques cas problématiques pour le tri à bulles, il reste
 essentiellement similaire à ce dernier et l'intérêt est encore une fois principalement pédagogique.
-* Tri pair-impair (*odd-even sort*) : Il s'agit d'une variante du tri à bulles, qui procède en comparant successivement tous les
+* **Tri pair-impair** (*odd-even sort*) : Il s'agit d'une variante du tri à bulles, qui procède en comparant successivement tous les
 éléments d'index pairs avec les éléments d'index impairs qui les suivent, puis inversement. On va ainsi commencer en comparant le
 premier élément au second, le troisième au quatrième, etc., puis l'on comparera le second élément au troisième, le quatrième au
 cinquième. L'opération est répétée jusqu'à ce que la structure soit triée.
 
-Algorithmes lents :
+#### Algorithmes lents :
 
-* Tri par selection (*selection sort*) : Sur un tableau de *n* éléments on recherche l'élément le plus petit du tableau et on
-l'échange avec l'élément d'indice 0. Puis on recherche le deuxième plus petit et on l'échange avec l'élément d'indice 1.
-L'opération est répétée jusqu'à ce que la structure soit triée.
+* **Tri par selection** (*selection sort*) : Sur un tableau de *n* éléments on recherche l'élément le plus petit du tableau et on
+l'échange avec l'élément d'indice 0. Puis on recherche le deuxième plus petit et on l'échange avec l'élément d'indice 1. L'opération
+est répétée jusqu'à ce que la structure soit triée.
 
 ## Structures de données
 
@@ -365,8 +363,8 @@ Les arbre sont en fait rarement utilisés en tant que tels, mais de nombreux typ
 existent et sont couramment utilisés en algorithmique, notamment pour gérer des bases de données, ou pour l'indexation de fichiers.
 Ils permettent alors des recherches rapides et efficaces. Par exemple :
 * Les arbres binaires dont chaque noeud a au plus deux fils : ils sont en fait utilisés sous forme d'arbres binaires de recherche,
-de tas, d'AVL, ou encore d'arbres rouge-noir. Les deux derniers exemples sont des cas particuliers d'arbres équilibrés, c'est à dire
-dont les sous-branches ont presque la même hauteur.
+de tas, ou encore d'arbres rouge-noir. Les deux derniers exemples sont des cas particuliers d'arbres équilibrés, c'est à dire dont
+les sous-branches ont presque la même hauteur.
 * Les arbres n-aires qui sont une généralisation des arbres binaires : chaque noeud a au plus *n* fils. Les arbres 2-3-4 et les
 arbres B en sont des exemples d'utilisation et sont eux aussi des arbres équilibrés.
 
@@ -390,12 +388,12 @@ d'étiquettes.
 
 Les parcours d'arbre sont des processus de visites des sommets d'un arbre, par exemple pour trouver une valeur.
 
-Le *parcours en largeur* correspond à un parcours par niveau de noeuds de l'arbre. Un niveau est un ensemble de noeuds internes ou
+Le **parcours en largeur** correspond à un parcours par niveau de noeuds de l'arbre. Un niveau est un ensemble de noeuds internes ou
 de feuilles situés à la même profondeur - on parle aussi de noeud ou de feuille de même hauteur dans l'arbre considéré. L'ordre de
 parcours d'un niveau donné est habituellement conféré, de manière récursive, par l'ordre de parcours des noeuds parents - noeuds de
 niveau immédiatement supérieur.
 
-Le *parcours en profondeur* est un parcours récursif sur un arbre. Dans le cas général, deux ordres sont possibles :
+Le **parcours en profondeur** est un parcours récursif sur un arbre. Dans le cas général, deux ordres sont possibles :
 
 * Parcours en profondeur préfixe : dans ce mode de parcours, le noeud courant est traité avant ses descendants.
 * Parcours en profondeur suffixe : dans ce mode de parcours, le noeud courant est traité après ses descendants.
@@ -403,7 +401,7 @@ Le *parcours en profondeur* est un parcours récursif sur un arbre. Dans le cas 
 Pour les arbres binaires, on peut également faire un *parcours infixe*, c'est à dire traiter le noeud courant entre les noeuds
 gauche et droit.
 
-Parcours préfixe :
+*Parcours préfixe* :
 
     visiterPréfixe(Arbre A) :
         visiter (A)
@@ -412,7 +410,7 @@ Parcours préfixe :
         Si nonVide (droite(A))
             visiterPréfixe(droite(A))
 
-Parcours suffixe :
+*Parcours suffixe* :
 
     visiterSuffixe(Arbre A) :
         Si nonVide(gauche(A))
@@ -421,7 +419,7 @@ Parcours suffixe :
             visiterSuffixe(droite(A))
         visiter(A)
 
-Parcours infixe :
+*Parcours infixe* :
 
     visiterInfixe(Arbre A) :
         Si nonVide(gauche(A))
@@ -503,7 +501,6 @@ l'arbre est très déséquilibré (un arbre peigne par exemple, dont la hauteur 
 efficacité à équilibrer les arbres au cours de leur utilisation. Il existe des techniques pour obtenir des arbres équilibrés, c'est
 à dire une hauteur logarithmique en nombre d'éléments :
 
-* les arbres AVL
 * les arbres rouge-noir
 * les B-arbres
 
@@ -687,11 +684,10 @@ d'importance : soit la racine est le seul noeud, soit elle possède deux fils no
 visualiser plus rapidement l'isomorphisme avec les arbres 2-3-4 : chaque noeud noir et ses éventuels fils rouges représente un noeud
 d'arbre 2-3-4.
 
-Les arbres bicolores, ainsi que les arbres AVL, offrent la meilleure garantie sur le temps d'insertion, de suppression et de
-recherche dans les cas défavorables. Ceci leur permet non seulement d'être alors utilisables dans des applications en temps réel,
-mais aussi de servir comme fondement d'autres structures de données à temps d'exécution garanti dans les cas défavorables, par
-exemple en géométrie algorithmique. L'ordonnanceur du noyau Linux, le Completely Fair Scheduler utilise également un arbre
-rouge-noir.
+Les arbres bicolores, offrent la meilleure garantie sur le temps d'insertion, de suppression et de recherche dans les cas
+défavorables. Ceci leur permet non seulement d'être alors utilisables dans des applications en temps réel, mais aussi de servir
+comme fondement d'autres structures de données à temps d'exécution garanti dans les cas défavorables, par exemple en géométrie
+algorithmique. L'ordonnanceur du noyau Linux, le Completely Fair Scheduler utilise également un arbre rouge-noir.
 
 Les arbres rouge-noir sont également très utile en programmatioin fonctionnelle : c'est l'exemple le plus couramment utilisé de
 structure de données persistante qui peut être utilisée pour construire des tableaux associatifs capables de garder en mémoires les
