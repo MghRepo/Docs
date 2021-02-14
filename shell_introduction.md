@@ -22,9 +22,9 @@ Généralement un shell est fait pour passer des commandes, c'est à dire, exéc
     $ date
     sam. 09 mai 2020 17:36:09 CEST
 
-L'ajout de certains arguments permet de modifier le comportement de certains programmes. La commande *echo* permet par example
-d'afficher à l'écran les arguments qui la suivent. Un argument est une chaîne de caractère séparée du nom du programme par un
-espace :
+L'ajout de certains arguments permet de modifier le comportement de certains programmes. La commande *echo* permet par exemple
+d'afficher à l'écran les arguments qui la suivent. Un argument est une chaîne de caractère séparée du nom du programme par un espace
+:
 
     $ echo hello
     hello
@@ -110,7 +110,7 @@ Par exemple :
 Cela permet de naviguer plus facilement à l'interieur du système de fichiers.
 
 > Note : Dans le cas de script shell, lors de l'appel d'un programme on évite les chemins relatifs On préfère travailler avec la
-> variable d'environnement PATH ou bien on donne le chemin absolu.
+variable d'environnement PATH ou bien on donne le chemin absolu.
 
 ---
 
@@ -345,9 +345,10 @@ délimitées à l'aide d'une double quote :
 
     $ foo=bar
     $ echo "$foo"
-        bar
+      bar
+
     $ echo '$foo'
-        $foo
+      $foo
 
 Comme la plupart des langages de programmation, bash supporte des techniques de contrôle du flux d'exécution tel que if, case, while
 et for. On peut également définir des fonctions en bash qui peuvent prendre des arguments. Exemple :
@@ -427,10 +428,10 @@ Lors de l'exécution de scripts, on devra souvent fournir des arguments semblabl
 les expressions en supportant des expansions de nom de fichiers :
 
 - Joker - On peut utiliser *?* et *\** pour respectivement vérifier 1 ou n'importe quel nombre de caractère. Par exemple, soit les
-  fichiers *foo1* *foo2*, *foo10* et *bar*, la commande *rm foo?* supprimera *foo1* et *foo2* alors que *rm foo\** supprimera tout
-  sauf *bar*.
+fichiers *foo1* *foo2*, *foo10* et *bar*, la commande *rm foo?* supprimera *foo1* et *foo2* alors que *rm foo\** supprimera tout
+sauf *bar*.
 - Accolades *{}* - Quand il existe une sous-chaîne commune dans une série de commandes, on peut utiliser les accolades pour étendre
-  automatiquement. Cela peut-être pratique pour déplacer ou convertir des fichiers.
+automatiquement. Cela peut-être pratique pour déplacer ou convertir des fichiers.
 
 Exemples :
 
@@ -468,16 +469,17 @@ inverse les arguments qu'on lui fournit :
 Le noyau sait exécuter ce script avec le bon interpréteur grâce à l'inclusion du sheebang (la première ligne). C'est une bonne
 pratique que d'inclure les sheebangs en utilisant la commande *env* (pour des question de portabilité) : *#!/usr/bin/env python*
 *env* permet de résoudre où se trouve l'interpréteur via la variable d'environnement *PATH*.
+
 > Note : Pour savoir où se trouve la commande exécutée dans le système de fichiers hiérarchique standard, on peut utiliser la
-> commande *which*.
+commande *which*.
 
 Quelques différences entre les fonctions shell et les scripts shell à garder en tête sont :
 
 - Les fonctions doivent être écrites dans le même langage shell, alors que les scripts n'ont pas cette contrainte. D'où l'utilité du
-  sheebang.
+sheebang.
 - Les fonctions sont chargées une fois que leur définition est lue. Les scripts sont chargés à chaque exécution.
 - Les fonctions sont exécutées dans le shell courant alors que les scripts exécutent leurs propres processus. Les fonctions peuvent
-  donc modifier des variables d'environnement, par exemple changer le répertoire de travail. A ce titre, les scripts peuvent
+donc modifier des variables d'environnement, par exemple changer le répertoire de travail. A ce titre, les scripts peuvent
 hériter de variables d'environnement si celles-ci ont été exportées précedemment à l'aide du mot-clef *export*.
 - Comme avec n'importe quel langage de programmation, les fonctions sont des outils modulaires permettant une réutilisation et une
 meilleure clarté du code.
