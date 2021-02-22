@@ -190,7 +190,7 @@ il présente l'avantage d'avoir une complexité *O(n.log n)* dans le pire cas.
 l'arbre selon un parcours en profondeur. Un arbre binaire de recherche(ABR) est un arbre binaire dans lequel chaque noeud possède
 une clé, telle que chaque noeud du sous-arbre *gauche* ait une clé inférieure ou égale à celle du noeud considéré, et que chaque
 noeud du sous-arbre *droit* possède une clé supérieure ou égale à celle-ci.
-* **Tri doux** *Smoothsort* : La première étape consiste à transformer le tableau en arbre binaire. Le premier élément est déjà
+* **Tri doux** (*smoothsort*) : La première étape consiste à transformer le tableau en arbre binaire. Le premier élément est déjà
 trivialement bien ordonné, puis on ajoute un à un les éléments suivants. On réordonne chaque fois un peu les éléments si nécessaire
 pour qu'ils correspondent aux critères :
     + Chaque noeud ne peut être supérieur à son noeud parent.
