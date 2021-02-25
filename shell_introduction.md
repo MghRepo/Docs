@@ -44,7 +44,7 @@ On peut également échapper le caractère espace à l'aide d'un anti-slash : $ 
 
 ## Les Chemins
 
-Le shell sait quel programme (dont un certain nombre sont installés avec l'OS) utiliser et où celui-ci ce situe dans le système de
+Le shell sait quel programme (dont un certain nombre sont installés avec l'OS) utiliser et où celui-ci se situe dans le système de
 fichiers à l'aide de ce que l'on appelle une variable d'environnement. Une variable connue et renseignée dès le lancement du shell.
 Il s'agit de la variable PATH :
 
@@ -85,7 +85,7 @@ A partir d'ici on peut changer de répertoire de travail avec la commande cd et,
 
 Il existe un certain nombre de symboles permettant "d'expanser" des noms de répertoires :
 
-- **~** : le répertoire de l'utilisateur courant (ie : /home/admarouj)
+- **~** : le répertoire de l'utilisateur courant (ie : /home/hugo)
 - **.** : le répertoire de travail
 - **..** : le répertoire parent du répertoire de travail
 - **-** : l'ancien répertoire de travail
@@ -109,7 +109,7 @@ Par exemple :
 
 Cela permet de naviguer plus facilement à l'interieur du système de fichiers.
 
-> Note : Dans le cas de script shell, lors de l'appel d'un programme on évite les chemins relatifs On préfère travailler avec la
+> Note : Dans le cas de script shell, lors de l'appel d'un programme on évite les chemins relatifs. On préfère travailler avec la
 variable d'environnement PATH ou bien on donne le chemin absolu.
 
 ---
@@ -149,10 +149,10 @@ Les droits s'organisent ainsi :
 
 - pour les fichiers
     * r : read, autorise à lire le contenu du fichier w : write, autorise à modifier le contenu du fichier x : execute, autorise
-    * l'exécution du fichier
+    l'exécution du fichier
 - pour les répertoires
     * r : read, autorise à lister le contenu du répertoire w : write, autorise la création de fichier, la modification du nom de
-    * fichier et la suppression de fichier x : execute, autorise à traverser (entrer) dans le répertoire
+    fichier et la suppression de fichier x : execute, autorise à traverser (entrer) dans le répertoire
 
 Enfin le - présenté par la commande :
 
