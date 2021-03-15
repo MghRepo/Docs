@@ -29,7 +29,7 @@ d'afficher à l'écran les arguments qui la suivent. Un argument est une chaîne
     $ echo hello
     hello
 
-Si l'on souhaite que l'argument contiennent lui-même un espace, et éviter d'ajouter un deuxième arguement il suffit d'entourer la
+Si l'on souhaite que l'argument contiennent lui-même un espace, et éviter d'ajouter un deuxième argument il suffit d'entourer la
 chaîne de guillemets :
 
     $ echo "Hello world!"
@@ -59,10 +59,10 @@ l'appel par ce shell précisément :
     $ which echo
     /usr/bin/echo
 
-Les chemins sont la description des emplacements des fichiers dans l'achitecture du système de fichers. Sur Linux et MacOS, les
+Les chemins sont la description des emplacements des fichiers dans l'architecture du système de fichiers. Sur Linux et MacOS, les
 répertoires sont séparés par des slashs. Le premier slash sur la gauche symbolise le sommet du système de fichiers (celui-ci étant
 hiérarchique) il est appelé root ou répertoire root, racine en français. Sous Windows les répertoires sont généralement séparés par
-des anti-slash et chaque partition est la racine de son propre système de fichier hierarchique. La partition est généralement
+des anti-slash et chaque partition est la racine de son propre système de fichier hiérarchique. La partition est généralement
 désignée par une lettre de l'alphabet (C:\ D:\ etc.).
 
 Il existe 2 types de chemins :
@@ -107,7 +107,7 @@ Par exemple :
     $ pwd
     /home/hugo/test
 
-Cela permet de naviguer plus facilement à l'interieur du système de fichiers.
+Cela permet de naviguer plus facilement à l'intérieur du système de fichiers.
 
 > Note : Dans le cas de script shell, lors de l'appel d'un programme on évite les chemins relatifs. On préfère travailler avec la
 variable d'environnement PATH ou bien on donne le chemin absolu.
@@ -131,7 +131,7 @@ plupart des programmes implémentent des flags et des options. Un des flags les 
 permet d'afficher l'aide de la commande *ls*.
 
 Pour lire les usages, *...* signifie 1 ou plus et *[ ]* signifie que ce qui est dans les crochets est optionnel. En suit
-généralement une brève description de la commande et à la suite les potentiels flags disponnibles.
+généralement une brève description de la commande et à la suite les potentiels flags disponibles.
 
     $ ls -l
 
@@ -183,7 +183,7 @@ Finalement pour créer un nouveau répertoire on utilise la commande :
 
     $ mkdir Mon\ Repertoire
 
-Pour avoir encore plus d'informations sur une commande on peut se réferer aux pages de manuel de celle-ci :
+Pour avoir encore plus d'informations sur une commande on peut se référer aux pages de manuel de celle-ci :
 
     $ man ls
 
@@ -202,9 +202,9 @@ ou plus facilement presser Ctrl + L.
 ## Redirection d'entrée/sortie, descripteurs de fichier et tubes
 
 Comme il a été évoqué plus haut, l'une des caractéristiques les plus importantes du shell est qu'il permet l'assemblage de multiples
-programmes via des flux. Cela permet de combiner les fonctionnalités de différents programmes afin d'executer une tâche spécifique.
+programmes via des flux. Cela permet de combiner les fonctionnalités de différents programmes afin d'exécuter une tâche spécifique.
 
-Pour intéragir avec ces flux le bash dispose de descripteurs de fichiers ou fd (pour file descriptor). Ceux-ci sont des chiffres
+Pour interagir avec ces flux le bash dispose de descripteurs de fichiers ou fd (pour file descriptor). Ceux-ci sont des chiffres
 utilisés comme référence abstraite vers un fichier ou une ressource d'entrée/sortie (e.g pipe, IPC etc.) Le terme de fichier est ici
 très large également (physique, virtuel, périphérique etc.)
 
@@ -291,7 +291,7 @@ Une commande conçue pour fonctionner avec l'opérateur pipe est xargs. xargs li
 La première commande liste l'ensemble des fichiers .txt et wc compte le nombre de ligne de chacun des fichiers passés en argument.
 
 Pour savoir ce qu'une commande peut faire, savoir quelle est son utilisation généralement celle-ci implémente une option --help ou
-une référence (page) dans le man. man est une commande qui renvoit une section du manuel système. Pour plus de détail :
+une référence (page) dans le man. man est une commande qui renvoie une section du manuel système. Pour plus de détail :
 
     $ man man
 
@@ -340,7 +340,7 @@ ne marche pas puisque le bash l'interprète comme l'appel du programme *foo* ave
 scripts shell le caractère espace sépare les arguments.
 
 Les chaînes de caractères en bash peuvent être définies à l'aide des délimiteurs ' et ", mais ils ne sont pas équivalents. Les
-chaînes délimitées à l'aide de la simple quote sont des litéraux et ne substituent pas de variables contrairement aux chaînes
+chaînes délimitées à l'aide de la simple quote sont des littéraux et ne substituent pas de variables contrairement aux chaînes
 délimitées à l'aide d'une double quote :
 
     $ foo=bar
@@ -390,12 +390,12 @@ false aura toujours un code à 1. Exemples :
     false ; echo "Ca marche !"
 
 Parfois on souhaite avoir le contenu de la sortie d'une commande dans une variable. On peut le faire à l'aide d'une substitution de
-commande. Quand on écrit $(commande) le bash exécutera la commande et substitura son contenu dans le script avant l'exécution de
+commande. Quand on écrit $(commande) le bash exécutera la commande et substituera son contenu dans le script avant l'exécution de
 celui-ci. Par exemple, si on écrit :
 
     for file in $(ls)
 
-Le shell appellera dans un premier temps ls et parcourera ses valeurs par la suite.
+Le shell appellera dans un premier temps ls et parcourra ses valeurs par la suite.
 
 Le bash permet également de substituer une commande de cette façon :
 
@@ -403,7 +403,7 @@ Le bash permet également de substituer une commande de cette façon :
 
 Cette commande montre la différence entre fichiers dans les répertoires foo et bar.
 
-Puisque cela a été relativement rapide, voyons un exemple que montre quelques trucs qu'on peut faire. Le script parcourera les
+Puisque cela a été relativement rapide, voyons un exemple que montre quelques trucs qu'on peut faire. Le script parcourra les
 arguments que nous lui donnerons, grep la chaîne foobar, et l'ajoutera comme commentaire ci celle-ci est absente.
 
     #!/bin/bash
@@ -480,6 +480,6 @@ sheebang.
 - Les fonctions sont chargées une fois que leur définition est lue. Les scripts sont chargés à chaque exécution.
 - Les fonctions sont exécutées dans le shell courant alors que les scripts exécutent leurs propres processus. Les fonctions peuvent
 donc modifier des variables d'environnement, par exemple changer le répertoire de travail. A ce titre, les scripts peuvent
-hériter de variables d'environnement si celles-ci ont été exportées précedemment à l'aide du mot-clef *export*.
+hériter de variables d'environnement si celles-ci ont été exportées précédemment à l'aide du mot-clef *export*.
 - Comme avec n'importe quel langage de programmation, les fonctions sont des outils modulaires permettant une réutilisation et une
 meilleure clarté du code.

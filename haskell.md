@@ -28,13 +28,13 @@
 * [Classes de type et surcharge](#classes-de-type-et-surcharge)
 * [Déclaration de type](#déclaration-de-type)
     + [Déclaration de nouveau type](#déclaration-de-nouveau-type)
-    + [Etiquettes de champs](#etiquettes-de-champs)
+    + [Étiquettes de champs](#etiquettes-de-champs)
     + [Constructeurs de données stricts](#constructeurs-de-données-stricts)
 * [Entrées/Sorties](#entréessorties)
     + [Opérations I/O basiques](#opérations-io-basiques)
     + [Programmer à l'aide d'actions](#programmer-à-laide-dactions)
     + [Gestion des exceptions](#gestion-des-exceptions)
-    + [Files, cannaux et poignées](#files-cannaux-et-poignées)
+    + [Files, canaux et poignées](#files-canaux-et-poignées)
     + [Haskell et programmation impérative](#haskell-et-programmation-impérative)
 * [Classes Haskell standards](#classes-haskell-standards)
     + [Classes d'égalité et d'ordre](#classes-dégalité-et-dordre)
@@ -62,7 +62,7 @@
     + [Création de tableau](#création-de-tableau)
     + [Accumulation](#accumulation)
     + [Mises à jour incrémentales](#mises-à-jour-incrémentales)
-    + [Exemple : Multiplication de matrices](#exemple-:-multiplication-de-matrices)
+    + [Exemple : Multiplication de matrices](#exemple-multiplication-de-matrices)
 
 ## Introduction
 
@@ -118,7 +118,7 @@
 
 ### Déclaration de nouveau type
 
-### Etiquettes de champs
+### Étiquettes de champs
 
 ### Constructeurs de données stricts
 
@@ -130,7 +130,7 @@
 
 ### Gestion des exceptions
 
-### Files, cannaux et poignées
+### Files, canaux et poignées
 
 ### Haskell et programmation impérative
 
@@ -168,7 +168,7 @@
 
 ### Plus de fonctionnalités
 
-## Pièges de typages
+## Pièges de typage
 
 ### Polymorphisme laissé lié
 
