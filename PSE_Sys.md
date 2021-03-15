@@ -34,9 +34,9 @@
     + [Libvirt](#libvirt)
     + [Hyperviseurs](#hyperviseurs)
     + [Netfilter](#netfilter)
-    + [SELinux](#selinux)
+    + [SELinux](#seLinux)
 * [Bases de données](#bases-de-données)
-    + [Algèbre relationelle](#algèbre-relationelle)
+    + [Algèbre relationnelle](#algèbre-relationnelle)
     + [Langage SQL](#langage-sql)
     + [Administration SGBD](#administration-sgbd)
 
@@ -103,7 +103,7 @@ A intervalles réguliers, le système appelle une procédure d'ordonnancement qu
 nouveau processus est différent de l'ancien, un changement de contexte (opération consistant à sauvegarder le contexte d'exécution
 de l'ancienne tâche comme les registres du processeur) a lieu. Cette structure de données est généralement appelée PCB (process
 control block). Le système d'exploitation restaure l'ancien PCB de la tâche élue, qui s'exécute alors en reprenant là où elle
-s'était arrêtée précedemment.
+s'était arrêtée précédemment.
 
 Du choix de l'algorithme d'ordonnancement dépend le comportement du système. Il existe deux grandes classes d'ordonnancement :
 
@@ -112,7 +112,7 @@ qui est celui par défaut sous Unix. Il consiste en un système de priorités ad
 interactives pour que leur temps de réponse soit bon. Une sous-classe de l'ordonnancement en temps partagé sont les ordonnanceurs
 dits "proportional share", eux sont plus destinés aux stations de calcul et permettent une gestion rigoureuse des ressources. On
 peut citer notamment "lottery" et "stride".
-* **L'ordonnancement en temps réel** qui assure qu'une certaine tâche sera terminée dans un délai donné. Cela est indispendable dans
+* **L'ordonnancement en temps réel** qui assure qu'une certaine tâche sera terminée dans un délai donné. Cela est indispensable dans
 les systèmes embarqués. Un ordonnanceur temps réel est dit optimal pour un système de tâches s'il trouve une solution
 d'ordonnancement du système lorsque cette solution existe. S'il ne trouve pas de solution à ce système, alors aucun autre
 ordonnanceur ne peut en trouver une.
@@ -130,14 +130,14 @@ préemptif. De ce fait, il n'est généralement utilisé que pour ordonnancer de
 les systèmes temps réels. Il attribue une priorité à chaque requête en fonction de l'échéance de cette dernière selon la règle :
 Plus l'échéance d'une tâche est proche, plus sa priorité est grande. De cette manière, au plus vite le travail doit être réalisé, au
 plus il a des chances d'être exécuté.
-* **FIFO** : Les premièrs processus ajoutés à la file seront les premières à être exécutés.
+* **FIFO** : Les premiers processus ajoutés à la file seront les premières à être exécutés.
 * **Shortest job first (SJF, ou SJN-Shortest Job Next)** : Le choix se fait en fonction du temps d'exécution estimé du processus.
 Ainsi l'ordonnanceur va laisser passer en priorité le plus court des processus de la file d'attente.
 * **Completely Fair Scheduler** (CFS) : L'ordonnanceur des tâches pour le noyau Linux. Il gère l'allocation de ressource processeur
 pour l'exécution des processus, en maximisant l'utilisation globale CPU tout en optimisant l'interactivité. CFS utilise un arbre
 rouge-noir implémentant une chronologie des futures exécutions des tâches. En effet, l'arbre trie les processus selon une valeur
 representative du manque de ces processus en temps d'allocation du processeur, par rapport au temps qu'aurait alloué un processeur
-dit mutlitâche idéal. De plus, l'ordonnanceur utilise une granularité temporelle à la nanoseconde, rendant redondante la notion de
+dit multitâche idéal. De plus, l'ordonnanceur utilise une granularité temporelle à la nanoseconde, rendant redondante la notion de
 tranche de temps, les unités atomiques utilisées pour le partage du CPU entre processus. Cette connaissance précise signifie
 également qu'aucune heuristique (basée sur la statistique, donc pouvant commettre des erreurs) n'est requise pour déterminer
 l'interactivité d'un processus.
@@ -151,12 +151,12 @@ tel que prévu par le programmeur. La synchronisation de données, elle, est un 
 données telles que vues par différents processus, dans un environnement multitâche. Initialement, la notion de synchronisation est
 apparue pour la synchronisation de données.
 
-Ces problèmes dits "de synchronisation" et même plus généralemen ceux de communication inter-processus dont ils dépendent rendent
+Ces problèmes dits "de synchronisation" et même plus généralement ceux de communication inter-processus dont ils dépendent rendent
 pratiquement toujours la programmation concurrente plus difficile. Certaines méthode de programmation, appelées synchronisation
 non-blocante, cherchent à éviter d'utiliser des verrous, mais elles sont encore plus difficiles à mettre en oeuvre et nécessitent la
-mise en place de structure de données particulières. La mémoire transactionelle logicielle en est une.
+mise en place de structure de données particulières. La mémoire transactionnelle logicielle en est une.
 
-La synchronisation de processis cherche par exemple à empêcher des programmes d'exécuter la même partie de code en même temps, ou au
+La synchronisation de processus cherche par exemple à empêcher des programmes d'exécuter la même partie de code en même temps, ou au
 contraire forcer l'exécution de deux partie de code en même temps. Dans la première hypothèse, le premier processus bloque l'accès à
 la section critique avant d'y entrer et libère l'accès après y être sorti. Ce mécanisme peut être implémenté de multiples manières.
 
@@ -166,7 +166,7 @@ moniteur.
 * **Barrière de synchronisation** : Permet de garantir qu'un certain nombre de tâches aient passé un point spécifique. Ainsi, chaque
 tâche qui arrivera sur cette barrière devra attendre jusqu'à ce que le nombre spécifié de tâches soient arrivées à cette barrière.
 * **Sémaphore** : Variable partagée par différents "acteurs" qui garantit que ceux-ci ne peuvent accéder de façon séquentielle à
-travers des opérations atomiques, et constituela méthode utilisée couramment pour restreindre l'accès à des ressources partagées et
+travers des opérations atomiques, et constitue la méthode utilisée couramment pour restreindre l'accès à des ressources partagées et
 synchroniser les processus dans un environnement de programmation concurrente.
 * **Verrous** : Permet d'assurer qu'un seul processus accède à une ressource à un instant donné. Un verrou peut être posé pour
 protéger un accès en lecture et permettra à plusieurs processus de lire, mais aucun d'écrire. On dit alors que c'est un verrou
@@ -175,7 +175,7 @@ granularité d'un verrou constitue l'étendue des éléments qu'il protège. Par
 posé sur une ligne, un lot de ligne, une table etc.
 * **Spinlocks** : Mécanisme simple de synchronisation basé sur l'attente active.
 * **Moniteur** : Mécanisme de synchronisation qui permet à plusieurs threads de bénéficier de l'exclusion mutuelle et la
-possibiliter d'attendre (*block*) l'invalidation d'une condition. Les moniteurs ont également un mécanisme qui permet aux autres
+possibilités d'attendre (*block*) l'invalidation d'une condition. Les moniteurs ont également un mécanisme qui permet aux autres
 threads de signaler que leur condition est validé. Il est constitué d'un mutex et de variables conditionnelles.
 
 La connaissance des dépendances entre les données est fondamentale dans la mise en oeuvre d'algorithmes parallèles, d'autant qu'un
@@ -213,21 +213,21 @@ et reçues à travers le réseau. La structure et les propriétés d'une socket 
 de l'architecture réseau. Les sockets sont créées uniquement durant l' intervalle de temps d'un processus d'une application
 s'exécutant dans le noeud.
 
-Du fait de la standardisation des protocoles TCP/IP au cours du développement d'internet, le terme *socket réseau* est plus
+Du fait de la standardisation des protocoles TCP/IP au cours du développement d'Internet, le terme *socket réseau* est plus
 communément utilisé dans le contexte de la *Suite des protocoles Internets*. On parle alors aussi de socket internet. Dans ce
-contexte, une socket est identifiée extérieurement par les autres machines par son *addresse socket*, qui est la triade du protocole
-de transfert, de l'addresse IP et du numéro de port.
+contexte, une socket est identifiée extérieurement par les autres machines par son *adresse socket*, qui est la triade du protocole
+de transfert, de l'adresse IP et du numéro de port.
 
 Une pile de protocole, habituellement fournie par le système d'exploitation est un ensemble de services permettant aux processus de
 communiquer à travers un réseau utilisant les protocoles que la pile implémente. Le système d'exploitation fait passer les données
-utiles des paquets IP entrants à l'application correspondante en lisant l'information de l'addresse socket des entêtes des
+utiles des paquets IP entrants à l'application correspondante en lisant l'information de l'adresse socket des entêtes des
 protocoles IP et transport et en enlevant ces entêtes des données applications.
 
 L'interface de programmation que les programmes utilisent pour communiquer avec la pile de protocole, utilisant les socket réseau,
 est appelée **socket API**. Les API sockets internet sont généralement basées sur le standard socket de Berkeley. Dans le standard
 socket de Berkeley, les socket sont une forme de descripteur de fichier (*read, write, open, close*).
 
-Dans les protocoles internet standards TCP et UDP, une adresse socket est la combinaison d'une addresse IP et d'un numéro de port.
+Dans les protocoles internet standards TCP et UDP, une adresse socket est la combinaison d'une adresse IP et d'un numéro de port.
 Les sockets n'ont pas besoin d'adresse source, mais si un programme lie la socket à une adresse source, la socket peut être utilisée
 pour recevoir et envoyer des données à cette adresse. Basé sur cette adresse, les sockets internet délivrent les paquets
 applicatifs entrants au processus applicatif approprié.
@@ -241,7 +241,7 @@ Certaines configurations spéciales peuvent être requises pour envoyer en broad
 * **Stream** : Des socket connectés, qui utilisent les protocoles TCP (*Transmission Control Protocol*), SCTP (*Stream Control
 Transmission Protocol*) ou DCCP (*Datagram Congestion Control Protocol*). Un socket flux fournit un flot de données sans erreurs,
 séquencé, unique et ininterrompu avec des mécanismes prédéfinis pour créer et détruire des connections et rapporter des erreurs. Un
-socket flux transmet des données de manière fiable, ordonnée sans requerir l'établissement préalable d'un canal de communication.
+socket flux transmet des données de manière fiable, ordonnée sans requérir l'établissement préalable d'un canal de communication.
 * **Raw** : Permet l'envoie et la réception de paquets IP sans aucun formatage spécifique à un protocole de la couche transport.
 Avec les autres types de socket, la donnée est automatiquement encapsulée selon le protocole de la couche transport choisi (TCP, UDP
 etc.), et l'utilisateur du socket n'a pas connaissance de l'existence des entêtes du protocole. Quand on lit d'un socket brut, les
@@ -268,14 +268,14 @@ Les socket de domaine Unix peuvent utiliser le système de fichiers comme adress
 d'exploitation, comme Linux, offrent des espaces de noms additionnels.) Les processus référencent les sockets de domaine Unix comme
 des inodes du système de fichier, ainsi 2 processus peuvent communiquer en ouvrant la même socket.
 
-En plus de permettre l'envoi de données, les processus peuvent envoyer des descripteurs de fichiers à traver une connection de
-socket de domaine Unix en utilisant les appels systèmes sendmsg() et recvmsg(). Ceci permet au processus qui envoit d'autoriser le
+En plus de permettre l'envoi de données, les processus peuvent envoyer des descripteurs de fichiers à travers une connection de
+socket de domaine Unix en utilisant les appels systèmes sendmsg() et recvmsg(). Ceci permet au processus qui envoie d'autoriser le
 processus qui reçoit à accéder au descripteur de fichier auquel autrement le processus qui reçoit n'a pas accès. Ceci permet
 d'implémenter une forme rudimentaire de sécurité basée sur l'accessibilité.
 
 ### Socket Netlink
 
-La famille de socket Netlink est une interface du noyau linux utilisée pour des communications inter-processus entre les processus
+La famille de socket Netlink est une interface du noyau Linux utilisée pour des communications inter-processus entre les processus
 de l'espace utilisateur et du noyau et entre différents processus utilisateurs. La différence entre les sockets Netlink et les
 socket IPC et qu'au lieu d'utiliser l'espace de noms du système de fichiers, les processus Netlink sont généralement désignés par
 leurs PIDs.
@@ -304,7 +304,7 @@ explicitement détruits.
 ### Passage de messages
 
 Le modèle de passage de messages et une technique permettant de demander l'exécution d'un programme. Le passage de message utilise
-un modèle objet afin de distinguer la fonction générale de ses implémentations spécifiques. Le programme appelant envoit un message
+un modèle objet afin de distinguer la fonction générale de ses implémentations spécifiques. Le programme appelant envoie un message
 et se fie à l'objet afin de sélectionner et d'exécuter le code approprié. L'utilisation d'une couche intermédiaire, est justifiée
 par des besoins de distribution et d'encapsulation.
 
@@ -332,7 +332,7 @@ mappée comme s'il s'agissait de la mémoire primaire.
 
 Le bénéfice d'utiliser le mappage en mémoire est d'augmenter les performances d'entrée/sortie notamment sur les fichiers de gros
 volume. Pour les petits fichiers, les fichiers mappés peuvent engendrer des problèmes de fragmentation interne du fait que les maps
-mémoires sont toujours aligné sur la taille de la page (généralement 4Ko). Par conséquent, un fichier de 5Ko allouera 8Ko et gachera
+mémoires sont toujours aligné sur la taille de la page (généralement 4Ko). Par conséquent, un fichier de 5Ko allouera 8Ko et gâchera
 3Ko. Accéder aux fichiers mappés en mémoire est plus rapide que d'utiliser des opérations de lecture et d'écriture directement pour
 2 raisons. Premièrement, un appel système est bien plus lent qu'un accès vers la mémoire locale du programme. Deuxièmement, dans la
 plupart des systèmes d'exploitation la région mémoire mappée est la page cache du noyau, c'est à dire que cela ne nécessite aucune
@@ -351,7 +351,7 @@ section (chacune d'une page), et seulement quand cette page est référencée. D
 l'OS de charger de manière sélective uniquement les portions de l'image processus qui nécessitent réellement une exécution.
 
 Un autre usage répandu pour les fichiers mappés en mémoire est le partage de fichiers entre processus multiples. Ceci permet
-d'eviter les fautes de pages ainsi que les violations de segmentation.
+d'éviter les fautes de pages ainsi que les violations de segmentation.
 
 ### Partitionnement de la mémoire
 
@@ -383,12 +383,12 @@ Les adresses mémoires émises par le processeur sont des adresses virtuelles, i
 virtuelle. Cette mémoire virtuelle est formée de zones de même taille, appelées pages. Une adresse virtuelle est donc un couple
 (numéro de page, déplacement dans la page). La taille des pages est une puissance entière de deux, de façon à déterminer sans calcul
 le déplacement (10 bits de poids faible de l'adresse virtuelle pour des pages de 1024 mots), et le numéro de page (les autres bits).
-La mémoire vive est également composées de zones de même taille, apellées cadres (*frames*), dans lesquelles prennent place les
+La mémoire vive est également composées de zones de même taille, appelées cadres (*frames*), dans lesquelles prennent place les
 pages (un cadre contient une page : taille d'un cadre = taille d'une page). La taille de l'ensemble des cadres en mémoire vive
 utilisés par un processus est appelé *Resident set size*. Un mécanisme de traduction (*translation*) assure la conversion des
 adresses virtuelles en adresses physiques, en consultant une table des pages (*page table*) pour connaître le numéro du cadre qui
 contient la page recherchée. L'adresse physique obtenue est le couple (numéro de cadre, déplacement). Il peut y avoir plus de pages
-que de cadres (c'est là tout l'intêret) : les pages qui ne sont pas en mémoire sont stockées sur un autre support (disque), elle
+que de cadres (c'est là tout l'intérêt) : les pages qui ne sont pas en mémoire sont stockées sur un autre support (disque), elle
 seront ramenées dans un cadre quand on en aura besoin.
 
 La table des pages est indexée par le numéro de page. Chaque ligne est appelée "entrée dans la table des pages (*pages table entry*
@@ -411,14 +411,14 @@ facilitant alors la programmation, l'édition de liens et le partage inter-proce
 plus grande protection grâce au niveau de privilège de chaque segment.
 
 Lorsque l'unité de gestion mémoire (MMU) doit traduire une adresse logique en adresse linéaire, l'unité de segmentation doit dans un
-premier temps utiliser la première partie de l'adresse, c'est à dire le selecteur de segment, pour retrouver les caractéristiques du
+premier temps utiliser la première partie de l'adresse, c'est à dire le sélecteur de segment, pour retrouver les caractéristiques du
 segment (base, limit, DPL, etc.) dans la table de descripteurs (GDT ou LDT). Puis il utilise la valeur de décalage qui référence
 l'adresse à l'intérieur du segment.
 
 Il existe sur la majorité des processeurs actuels, des registres de segments (CS, DS, SS, etc.) qui contiennent le sélecteur de
-segment dernièrement utilisé par le processeur qui sont utilisés pour accélérer l'accès à ces selecteurs.
+segment dernièrement utilisé par le processeur qui sont utilisés pour accélérer l'accès à ces sélecteurs.
 
-Sur les processeurs récents, il existe également des registres associés à chaque registre de segment qui contiennet le descripteur
+Sur les processeurs récents, il existe également des registres associés à chaque registre de segment qui contiennent le descripteur
 de segment associé pour un accès plus rapide aux descripteurs.
 
 Un segment mémoire est un espace d'adressage indépendant défini par deux valeurs :
@@ -438,7 +438,7 @@ Il existe différents types de segment :
 
 ### Sysfs
 
-Sysfs est un système de fichiers virtuel introduit par le noyau linux 2.6. Sysfs permet d'exporter depuis l'espace noyau vers
+Sysfs est un système de fichiers virtuel introduit par le noyau Linux 2.6. Sysfs permet d'exporter depuis l'espace noyau vers
 l'espace utilisateur des informations sur les périphériques du système et leur pilotes, et est également utilisé pour configurer
 certaines fonctionnalités du noyau.
 
@@ -462,7 +462,7 @@ Sysfs s'appuie sur ramfs. Un système de fichiers temporaire très simple monté
 ### Udev
 
 Udev est un gestionnaire de périphérique pour le noyau Linux. Udev gère principalement des noeuds périphériques dans le répertoire
-*/dev/*. Udev traite également tous les évennements dans l'espace utilisateurs lors de l'ajout ou de la suppression d'un
+*/dev/*. Udev traite également tous les événements dans l'espace utilisateurs lors de l'ajout ou de la suppression d'un
 périphérique, ainsi que du chargement des microgiciels.
 
 Les pilotes font parti du noyau Linux, dans le sens où leurs fonctions principales incluent la découverte de périphérique, la
@@ -497,7 +497,7 @@ Le système reçoit des appels depuis le noyau via des sockets netlink.
 
 ### Bus
 
-Un bus est un système de communication qui permet de tranférer des données entre les composants d'un ordinateur ou entre
+Un bus est un système de communication qui permet de transférer des données entre les composants d'un ordinateur ou entre
 ordinateurs. Cette expression couvre tous les composants matériels (fils, fibre optique, etc.) et logiciels, protocoles de
 communications inclus. Les bus informatiques modernes peuvent à la fois utiliser des connections parallèles et séries avec hubs.
 C'est par exemple le cas de l'USB.
@@ -544,7 +544,7 @@ Les shells peuvent généralement dépendre des OS, sachant qu'il en existe une 
 
 ### Cgroups
 
-Les cgroups sont une fonctionnalité du noyau linux qui limite, compte et isole l'utilisation des ressources (CPU, mémoire,
+Les cgroups sont une fonctionnalité du noyau Linux qui limite, compte et isole l'utilisation des ressources (CPU, mémoire,
 entrée/sortie, réseau, etc.) d'une collection de processus.
 
 Ces groupes de contrôle peuvent être utilisés de multiples façons :
@@ -596,20 +596,20 @@ LXC permet d'exécuter des conteneurs en tant que simple utilisateur sur l'hôte
 Docker est un ensemble de produits de Plateforme en tant que Service qui utilise la virtualisation au niveau du système
 d'exploitation pour livrer des logiciels dans des paquets appelé conteneurs. Les conteneurs sont isolés les uns des autres et
 embarquent leurs propres logiciels, bibliothèques et fichiers de configuration ; ils peuvent communiquer entre eux à travers des
-cannaux bien définis. Tous les conteneurs sont exécuté par un noyau de système d'exploitation unique et par conséquent utilisent
+canaux bien définis. Tous les conteneurs sont exécuté par un noyau de système d'exploitation unique et par conséquent utilisent
 moins de ressources que des machines virtuelles.
 
 Docker peut empaqueter une application et ses dépendances dans un conteneur virtuel qui peut s'exécuter sur n'importe quel
 ordinateur Linux, Windows, ou macOS. Ceci permet à l'application de s'exécuter dans toute une variété d'environnement, par exemple,
 sur sa propre machine, dans un cloud public ou privé. Quand il s'exécute sur Linux, Docker utilise les mécanismes d'isolation
 fournis par le noyau (tels que les cgroups et les espaces de noms) et les systèmes de fichiers capables de montage en union, pour
-permettre aux conteneurs de s'exécuter sur une intance Linux unique, évitant la surcharge du démarrage et de la maintenance de
+permettre aux conteneurs de s'exécuter sur une instance Linux unique, évitant la surcharge du démarrage et de la maintenance de
 machines virtuelles.
 
 Le support des espaces de nom du noyau Linux permet d'isoler l'environnement système de la vue de l'application comme l'arbre des
 processus, le réseau, les identifiants utilisateurs et les systèmes de fichiers montés, tandis que les cgroups fournissent la
 limitation de ressources mémoire et CPU. Docker inclut également sa propre bibliothèque *libcontainer* permettant d'accéder
-directement les fonctions de virtualisations fournient par le noyau linux en plus de l'utilisation d'interfaces de virtualisations
+directement les fonctions de virtualisation fournies par le noyau Linux en plus de l'utilisation d'interfaces de virtualisation
 telles que *libvirt*, *LXC* et *systemd-nspawn*.
 
 Docker implémente une API de haut niveau pour fournir des conteneurs légers exécutant des processus isolés.
@@ -618,19 +618,19 @@ Le logiciel Docker en tant qu'offre de services consiste en trois composants :
 
 * **Le Logiciel** : Le daemon Docker, *dockerd*, est un processus persistant qui gère les conteneurs Docker ainsi que les objets du
 conteneur. Le daemon est à l'écoute des requêtes envoyés via l'API du Docker Engine. Et le programme client *docker* fournit une
-interface de ligne de commande qui permet d'intéragir avec le daemon.
+interface de ligne de commande qui permet d'interagir avec le daemon.
 * **Les objets** : Les objets docker sont des entités diverses utilisées pour assembler une application dans Docker. Les classes
 principales des objets Dockers sont les images, les conteneurs et les services.
     + Un conteneur Docker est un environnement encapsulé, standardisé qui exécute des applications. Un conteneur est géré à travers
     l'API Docker ou la ligne de commande.
     + Une image Docker est un modèle en lecture seule utilisée pour construire des conteneurs. Les images sont utilisées pour
     stocker et envoyer des applications.
-    + Un service Docker permet une mise à l'echelle des conteneurs sur de multiples daemons. Ceci étant appelé une nuée (*swarm*),
+    + Un service Docker permet une mise à l'échelle des conteneurs sur de multiples daemons. Ceci étant appelé une nuée (*swarm*),
     un ensemble de daemon coopérant, communiquant à travers l'API Docker.
-* **Les registres** : Un registre Docker est un dépot d'image Docker. Les clients Docker se connectent aux registres pour cloner
-(*pull*) des images à utiliser ou déposer (*push*) des images qu'ils ont contruites. Les dépots peuvent être publics ou privés. Les
-deux principaux dépots publics sont Docker Hub et Docker Cloud. Docker Hub est le registre par défaut ou Docker recherche des
-images. Des registres Docker permettent également la création de notifications basée sur des évennements.
+* **Les registres** : Un registre Docker est un dépôt d'image Docker. Les clients Docker se connectent aux registres pour cloner
+(*pull*) des images à utiliser ou déposer (*push*) des images qu'ils ont construites. Les dépôts peuvent être publics ou privés. Les
+deux principaux dépôts publics sont Docker Hub et Docker Cloud. Docker Hub est le registre par défaut ou Docker recherche des
+images. Des registres Docker permettent également la création de notifications basée sur des évènements.
 
 Le logiciel Docker dispose également d'outils :
 
@@ -638,8 +638,8 @@ Le logiciel Docker dispose également d'outils :
 fichier YAML pour configurer les services de l'application et créé et démarre les processus de tous les conteneurs à l'aide d'une
 seule commande. L'interface en ligne de commande *docker-compose* permet aux utilisateurs de passer des commandes sur des ensembles
 de conteneurs, par exemple pour construire des images, déployer des conteneurs, redémarrer des conteneurs, etc. Les commandes liées
-à la manipulation d'image, ou les options intéractives sont inutiles dans Docker Compose car elle s'adressent à un conteneur unique.
-Le fichier docker-compose.yml est utiliser pour définir les services de l'applications et inclut plusieurs options de configuration.
+à la manipulation d'image, ou les options interactives sont inutiles dans Docker Compose car elle s'adressent à un conteneur unique.
+Le fichier docker-compose.yml est utiliser pour définir les services de l'application et inclut plusieurs options de configuration.
 Par exemple, l'option *build* définit les options de configuration telles que le chemin du Dockerfile, l'option *command* permet de
 surcharger les commandes Docker par défaut, etc.
 * **Docker Swarm** fournit nativement un fonctionnalité de grappe pour les conteneurs Docker qui transforme un groupe de Docker
@@ -651,16 +651,16 @@ pour qu'une mise à jour se fasse, la majorité des noeuds de la nuée doivent s
 
 ### Orchestrateur Kubernetes
 
-Kubernetes est un système d'orchestration de conteneurs open source permettant d'automatiser le déploiement, la mise à l'echelle et
+Kubernetes est un système d'orchestration de conteneurs open source permettant d'automatiser le déploiement, la mise à l'échelle et
 la gestion d'applications informatiques.
 
 Beaucoup de services de cloud offrent des plateformes ou infrastructures en tant que service (PaaS, IaaS) basées sur Kubernetes sur
 lesquelles Kubernetes peut être déployé comme service fournisseur de plateformes.
 
-Kubernetes definit un ensemble de primitives, qui collectivement fournissent des mécanismes de déploiement, de maintien et de mise à
-l'echelle d'applications basé sur les ressources CPU, mémoire et autres métriques personnalisées. Kubernetes est lâchement couplé et
+Kubernetes définit un ensemble de primitives, qui collectivement fournissent des mécanismes de déploiement, de maintien et de mise à
+l'échelle d'applications basé sur les ressources CPU, mémoire et autres métriques personnalisées. Kubernetes est lâchement couplé et
 extensible pour s'accorder à différentes charges de travail. Cette extensibilité est fournit en grande partie par l'API Kubernetes,
-utilisée par des composants internes ainsi que les extensions et conteneurs executés sur Kubernetes. La plateforme exerce son
+utilisée par des composants internes ainsi que les extensions et conteneurs exécutés sur Kubernetes. La plateforme exerce son
 contrôle sur les ressources de calcul et de stockage et définissant ces ressources comme objets, ceux-ci pouvant par la suite être
 gérés comme tels.
 
@@ -674,7 +674,7 @@ composants du plan de contrôle Kubernetes sont les suivants :
 
 * **etcd** : etcd est une base de données clef-valeur, légère, persistante et distribuée qui stocke de manière fiable les données de
 configuration du cluster, donnant une représentation de l'état global du cluster à l'instant t. *etcd* est un système qui favorise
-la cohérence à la disponibilité dans l'éventualité d'une partition réseau. Cette conhérence est cruciale pour ordonnancer
+la cohérence à la disponibilité dans l'éventualité d'une partition réseau. Cette cohérence est cruciale pour ordonnancer
 correctement les services opérants. Le serveur de l'API Kubernetes utilise l'API de visualisation d'etcd pour surveiller le cluster
 et déployer des changements configuration critiques ou simplement restaurer n'importe quelle divergence d'état du cluster tels qu'il
 était déclaré par celui qui l'a déployé.
@@ -682,20 +682,20 @@ et déployer des changements configuration critiques ou simplement restaurer n'i
 les interfaces internes et externes à Kubernetes. Le serveur d'API traite et valide les requêtes REST et met à jour l'état des
 objets dans etcd, de fait permettant aux clients de configurer les charges de travail et les conteneurs à travers les noeuds.
 * **L'ordonnanceur** : L'ordonnanceur est un composant qui, sur la base de la disponibilité ressource, sélectionne un noeud sur
-lequel s'exécute un pod non ordonnancé (entité de base géré par l'ordonnanceur). L'ordonnaceur suit l'usage ressource sur chacun des
-noeuds afin de s'assurer que la charge de travail n'est pas planifiée en excès de la ressource disponible. A cette fin,
+lequel s'exécute un pod non ordonnancé (entité de base géré par l'ordonnanceur). L'ordonnanceur suit l'usage ressource sur chacun
+des noeuds afin de s'assurer que la charge de travail n'est pas planifiée en excès de la ressource disponible. A cette fin,
 l'ordonnanceur doit connaître les conditions et disponibilités de la ressource et autres contraintes définies par l'utilisateur, les
 directives politiques telles que la qualité de service, les conditions d'affinité ou de non-affinité, la localisation des données
 etc. Le rôle de l'ordonnanceur est d'accorder la ressource disponible à la charge de travail demandée.
 * **Le gestionnaire de contrôle** : Un contrôleur est une boucle de réconciliation qui amène l'état courant du cluster vers l'état
 désiré du cluster, en communicant via le serveur d'API pour créer, mettre à jour et supprimer les ressources qu'il gère (pods,
 services, extrémités, etc.). Le gestionnaire de contrôle est un processus qui gère un ensemble de contrôleurs du noyau Kubernetes.
-Un type de contrôleur est un contrôleur de réplication, qui s'occupe de la réplication et de la mise à l'echelle en exécutant un
+Un type de contrôleur est un contrôleur de réplication, qui s'occupe de la réplication et de la mise à l'échelle en exécutant un
 nombre de copies de pods spécifiées à travers le cluster. Il s'occupe également de créer des pods de remplacement, si les noeuds
 sous-jacents sont en erreur. D'autres contrôleurs qui sont une partie du noyau Kubernetes incluent le contrôleur DaemonSet pour
 exécuter exactement un pod sur chaque machine (ou sous-ensemble de machines), et un contrôleur de travail pour exécuter des pods
 jusqu'à fin d'exécution par exemple pour des traitements batchs. L'ensemble des pods qu'un contrôleur gère est déterminé par
-l'étiquette des selecteurs faisant partie de la définition du contrôleur.
+l'étiquette des sélecteurs faisant partie de la définition du contrôleur.
 
 Un noeud, est une machine où des conteneurs (charge de travail) sont déployés. Chaque noeud à l'intérieur du cluster doit exécuter
 un environnement d'exécution de conteneurs tel que Docker, ainsi que les composants mentionnés ci-dessous, à des fins de
@@ -723,7 +723,7 @@ doit utiliser l'adresse IP du pod.
 
 Un pod peut définir un volume, tel qu'un répertoire du disque local ou un disque réseau, et l'exposer aux conteneurs du pod. Les
 pods peuvent être gérés manuellement via l'API Kubernetes, ou leur gestion peut être déléguée à un contrôleur. De tels volumes sont
-aussi la pase des fonctionnalités Kubernetes de ConfigMaps (pour fournir un accès à la configuration à travers le système de fichier
+aussi la base des fonctionnalités Kubernetes de ConfigMaps (pour fournir un accès à la configuration à travers le système de fichier
 visible au conteneur) et Secrets (pour fournir les certificats nécessaires à l'accès sécurisé à des ressources distantes, en donnant
 uniquement aux conteneurs autorisés, ces certificats sur leur système de fichier visible).
 
@@ -731,21 +731,21 @@ La fonction d'un ReplicaSet est de maintenir un ensemble stable de pods répliqu
 tel, il est souvent utilisé pour garantir la disponibilité d'un nombre de pods identiques spécifique.
 
 Les ReplicaSets est également un mécanisme de rassemblement qui permet à Kubernetes de maintenir pour un pod donné un nombre
-d'instance défini à l'avance. La définition d'un ensemble de réplique utilise un selecteur, dont l'évaluation résulte en
+d'instance défini à l'avance. La définition d'un ensemble de réplique utilise un sélecteur, dont l'évaluation résulte en
 l'évaluation de tous les pods qui lui sont associés.
 
 Un service Kubernetes est un ensemble de pods travaillant de concert, tel une couche d'une application multi-couche. L'ensemble de
 pods qui constitue un service sont définis par un sélecteur d'étiquette. Kubernetes fournit deux modes de découverte de service, en
 utilisant des variables d'environnement, ou en utilisant le DNS Kubernetes. La découverte de service assigne un adresse IP fixe et
 un nom DNS au service, et réparti la charge du traffic en utilisant un DNS round-robin pour les connections réseaux à cette adresse
-IP au milieu des pods vérifiant ce selecteur (même si des erreurs peuvent ammener les pods à passer d'une machine à une autre). Par
+IP au milieu des pods vérifiant ce sélecteur (même si des erreurs peuvent amener les pods à passer d'une machine à une autre). Par
 défaut un service est exposé à l'intérieur d'un cluster (par exemple les pods back-end peuvent être groupés en service, recevant des
 requêtes de la part des pods front-end réparties entre eux), mais un service peut également être exposé en dehors d'un cluster (par
 exemple pour que les clients puissent accéder aux pods front-end).
 
 Les systèmes de fichier dans le conteneur Kubernetes fournit par défaut un stockage éphémère. Cela signifie qu'un redémarrage du pod
 effacera toute les données sur ces conteneurs, et par conséquent, cette forme de stockage est, excepté dans le cas d'applications
-triviales, relativement limitante. Un volume Kubernetes fournit un stockage permanant qui existe pendant la durée d'existance du pod
+triviales, relativement limitante. Un volume Kubernetes fournit un stockage permanent qui existe pendant la durée d'existence du pod
 lui-même. Ce stockage peut également être utilisé comme disque partagé pour les conteneurs du pod. Ces volumes sont montés à des
 points de montages spécifique à l'intérieur du conteneur définit par la configuration du pod, et ne peuvent être montés aux autres
 volumes ou liés à ceux-ci. Le même volume peut être monté à différent endroits dans l'arbre du système de fichiers par différents
@@ -756,23 +756,23 @@ espaces de noms est destiné aux environnements possédant un grand nombre d'uti
 ou même à séparer des environnements tels que le développement, l'intégration et la production.
 
 Un problème applicatif thématique est de décider ou stocker et gérer les informations de configuration, dont certaines peuvent
-contenir des données sensibles. Les données de configuration peuvent être relativement hétérogènes comme de petis fichiers de
+contenir des données sensibles. Les données de configuration peuvent être relativement hétérogènes comme de petits fichiers de
 configurations individuels ou de grands fichiers de configuration ou des documents JSON/XML. Kubernetes permet de traiter ce genre
 de problème à l'aide de deux mécanismes assez proches : "configmaps" et "secrets", les deux permettent des changements de
 configuration sans nécessiter la reconstruction de l'application. Les données de configmaps et de secrets sont accessibles à chaque
 objets de l'instance de l'application auxquels ils ont été liés au déploiement. Un secret et/ou un configmaps sont uniquement envoyé
 à un noeud si un pod sur ce noeud le demande. Kubernetes le gardera en mémoire sur ce noeud. Un fois que le pod qui dépend du secret
 ou de la configmap est supprimé, la copie en mémoire de tous les secrets et configmaps liés est également supprimée. La donnée est
-accessible au pod de deux façons : en tant que variables d'environements (que Kubernetes créé lors du démarrage du pod) ou
+accessible au pod de deux façons : en tant que variables d'environnements (que Kubernetes créé lors du démarrage du pod) ou
 disponible dans le système de fichier du conteneur visible dans le pod.
 
 La donnée elle même est stockée sur le maître qui est hautement sécurisé et dont personne ne doit avoir d'accès de connexion. La
 plus grande différence entre un secret et une configmap est que le contenu de la donnée dans un secret est encodé en base 64. Il
-peut également être encrypté. Les secrets sont souvent utilisés pour stocker des certificats, des mots de passe et des clefs ssh.
+peut également être chiffré. Les secrets sont souvent utilisés pour stocker des certificats, des mots de passe et des clefs ssh.
 
 Il est très facile de réaliser une mise à l'échelle d'applications sans conditions d'état : Il suffit d'ajouter plus de pods
 d'exécution - quelque chose que Kubernetes fait très bien. Les charges de travail avec condition d'état sont bien plus difficiles,
-de fait que l'état doit être conservé si un pod est redémarré, et si l'application doit être redimmensionnée alors l'état devra
+de fait que l'état doit être conservé si un pod est redémarré, et si l'application doit être redimensionnée alors l'état devra
 possiblement être redistribué. Les bases de données sont des exemples de charge de travail avec condition d'état. Lors d'une
 exécution en mode haute disponibilité, beaucoup de bases de données ont la notion d'instance primaire et d'instance(s) secondaires.
 Dans ce cas la notion d'ordonnancement d'instances est important.
@@ -789,7 +789,7 @@ Un hyperviseur est un logiciel, microgiciel ou matériel qui créé et exécute 
 hyperviseur exécute une ou plusieurs machines virtuelles est appelé hôte, et chaque machine virtuelle est appelée invitée.
 L'hyperviseur présente le système d'exploitation invité à l'aide d'une plateforme d'exploitation virtuelle et gère l'exécution des
 systèmes d'exploitations invités. Plusieurs instances de divers systèmes d'exploitation peuvent partager les même ressources
-matérielles virtualisées. A l'instar des mécanismes de virtualisations implémentés au niveau du système d'exploitation (conteneurs),
+matérielles virtualisées. A l'instar des mécanismes de virtualisation implémentés au niveau du système d'exploitation (conteneurs),
 les systèmes d'exploitations invités ne doivent pas forcément partager un même noyau.
 
 Il existe deux types d'hyperviseurs :
@@ -797,7 +797,7 @@ Il existe deux types d'hyperviseurs :
 * **Type-1 natif** : Ces hyperviseurs s'exécutent directement sur le matériel de l'hôte pour contrôler le matériel et gérer les
 systèmes d'exploitation invités.
 * **Type-2 hébergés** : Ces hyperviseurs s'exécutent sur un système d'exploitation conventionnel comme n'importe quel autre
-programme. Un système d'exploitation invité s'exécute en tant que processus de l'hôte. Les hyperviseur de type-2 crééent une
+programme. Un système d'exploitation invité s'exécute en tant que processus de l'hôte. Les hyperviseur de type-2 créent une
 abstraction pour les systèmes d'exploitation invités depuis le système d'exploitation hôte.
 
 Cette distinction entre les deux types n'est pas toujours claire. Par exemple KVM et bhyve sont des modules noyau qui transforme
@@ -822,10 +822,10 @@ systemd fournit un système de dépendances entre des entités variées appelée
 des objets utiles pour le démarrage et la gestion du système. La grande majorité des unités sont configurées dans des fichiers de
 configuration d'unité, néanmoins certaines peuvent être créées automatiquement depuis d'autres configurations, dynamiquement d'un
 état système ou de façon programmée à l'exécution. Une unité peut être "active" (i.e. démarrée, liée, connectée, etc. selon le type
-d'unité), ou "inactive" (i.e. stoppée, déliée, déconnectée, etc.) ou bien dans le processus d'activation ou de déactivation,
+d'unité), ou "inactive" (i.e. stoppée, déliée, déconnectée, etc.) ou bien dans le processus d'activation ou de désactivation,
 c'est à dire entre les deux états. Un état spécial "échoué" est également disponible, très similaire à "inactive" il se déclenche
 lorsque le service a échoué d'une certaine façon (le processus a renvoyé un code d'erreur, ou a crashé, une opération a time out, ou
-après un nombre trop important de redémarrages). Si l'état apparaît, la cause sera tracée pour réference ultérieure. Il est à noté
+après un nombre trop important de redémarrages). Si l'état apparaît, la cause sera tracée pour référence ultérieure. Il est à noté
 que plusieurs types d'unité peuvent avoir un nombre de sous-états additionnels, qui sont reliés aux 5 états d'unité généraux décrits
 ici.
 

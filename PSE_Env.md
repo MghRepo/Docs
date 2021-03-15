@@ -61,13 +61,13 @@ mission.
 * **Réguler** :  La CNIL régule et recense les fichiers, autorise les traitements les plus sensibles avant leur mise en place.
 L'avis de la CNIL doit d'ailleurs être sollicité avant toute transmission au Parlement d'un projet de loi relatif à la protection
 des données personnelles ; il doit aussi être sollicité par le Gouvernement avant d'autoriser les traitements intéressant la sûreté
-de l'Etat, la défense ou la sécurité publique. La CNIL établit des normes simplifiées, afin que les traitements les plus courants
+de l'État, la défense ou la sécurité publique. La CNIL établit des normes simplifiées, afin que les traitements les plus courants
 fassent l'objet de formalités allégées. Elle peut aussi décider de dispenser de toute déclaration des catégories de traitement sans
 risque pour les libertés individuelles. Elle agit par voie de recommandations.
 * **Protéger** : La CNIL doit veiller à ce que les citoyens soient informés des données contenues dans les traitements les
 concernant et qu'ils puissent y accéder facilement. Elle reçoit et instruit les plaintes des personnes qui rencontrent des
 difficultés à exercer leurs droits. Elle exerce, pour le compte des citoyens qui le souhaitent, l'accès aux fichiers intéressant la
-sûreté de l'Etat, la défense et la sécurité publique, notamment des services de renseignements de la police judiciaire.
+sûreté de l'État, la défense et la sécurité publique, notamment des services de renseignements de la police judiciaire.
 * **Contrôler** : La CNIL vérifie que la loi est respectée en contrôlant les traitements informatiques. Elle peut de sa propre
 initiative se rendre dans tout local professionnel et vérifier sur place et sur pièce les fichiers. La Commission use de ses
 pouvoirs d'investigation pour instruire les plaintes et disposer d'une meilleure connaissance de certains fichiers. La CNIL
@@ -94,7 +94,7 @@ publicitaires ou de prospection commerciale ou que ces informations la concernan
 personne concernée doit être mise en mesure d'exercer son droit d'opposition à la cession de ses données à des tiers dès leur
 collecte.
 * **Droit d'accès indirect** : Toute personne peut demander à la CNIL de vérifier les informations la concernant éventuellement
-enregistrées dans des fichiers intéressant la sûreté de l'Etat, la défense, ou la sécurité publique (droit d'accès indirect). La
+enregistrées dans des fichiers intéressant la sûreté de l'État, la défense, ou la sécurité publique (droit d'accès indirect). La
 CNIL mandate l'un de ses membres magistrats (ou anciens magistrats) afin de vérifier leur rectification ou leur suppression. Avec
 l'accord du responsable du traitement, les information concernant une personne peuvent lui être communiquées.
 
@@ -125,7 +125,7 @@ période d'essai, l'utilisateur devra rétribuer l'auteur pour continuer à util
 besoins, de modification et de redistribution de l'oeuvre et des oeuvres dérivées, c'est à dire sa diffusion à d'autres usages, y
 compris commercialement.
 * **propriétaire** : ne permet pas légalement ou techniquement, ou par quelque autre moyen que ce soit d'exercer simultanément les
-quatres libertés logicielles.
+quatre libertés logicielles.
 
 ## Fonctions de PSE
 
@@ -142,7 +142,7 @@ implantées dans les services locaux.
 
 * Participer à la conception technique des systèmes de données et de traitements afin d'optimiser l'usage du système informatique et
 préparer les modalités de mise en exploitation.
-* Procéder aux études préalables, aux aquisitions de matériels informatiques et de logiciels système.
+* Procéder aux études préalables, aux acquisitions de matériels informatiques et de logiciels système.
 * Participer aux travaux sur les systèmes gros systèmes, X86, plateformes virtualisées et Cloud.
 * Gérer les techniques de cette exploitation ainsi que le suivi et l'environnement de cette exploitation.
 
@@ -222,7 +222,7 @@ heures). Un tel site revient quasiment à doubler les capacités informatiques d
 présente donc un poids budgétaire non négligeable.
 * **site froid** : site de secours qui peut avoir une autre utilisation en temps normal. Les serveurs et autres systèmes sont
 stockés mais non installés, connectés, etc. Lors d'un sinistre, un important travail doit être effectué pour mettre en service le
-site ce qui conduit à des temps de reprise long (quelques jours). Mais sont coût de fonctionement, hors période d'activation est
+site ce qui conduit à des temps de reprise long (quelques jours). Mais sont coût de fonctionnement, hors période d'activation est
 faible voire nul.
 
 Il est aussi possible d'utiliser des systèmes distribués sur plusieurs sites (diminution du risque de panne par effet de
@@ -252,7 +252,7 @@ risqués pour le système et éventuellement savoir accomplir des gestes techniq
     + de savoir reconnaître les symptômes d'une panne (distinguer un blocage d'accès d'un délai de réponse anormalement long par
     exemple) et savoir en rendre compte le plus vite possible.
 * Pour les opérateurs du SI, il s'agit d'avoir la meilleure connaissance du système en terme d'architecture (*cartographie* du SI)
-et de fonctionnement (en temps réel si posible), de faire régulièrement les sauvegardes et de **s'assurer qu'elles sont
+et de fonctionnement (en temps réel si possible), de faire régulièrement les sauvegardes et de **s'assurer qu'elles sont
 utilisables**.
 * Pour les responsables, il s'agit de faire les choix entre réalisations internes et prestations externes de manière à couvrir en
 totalité le champ des actions à conduire en cas de panne, de passer les contrats avec les prestataires, d'organiser les relations
@@ -265,8 +265,8 @@ Dans l'hypothèse de la reprise de données, seules des données ont été perdu
 méthode consiste à réimplanter le dernier jeu de sauvegardes. Cela peut se faire dans un laps de temps relativement court, si l'on a
 bien identifié les données à reprendre et si les méthodes et outils de réimplantation sont accessibles et connus.
 
-A un seuil de panne, plus important, une ou des applications sont indisponnibles. L'utilisation d'un site de secours est
-envisageable, le temps de rendre disponnible l'application en cause.
+A un seuil de panne, plus important, une ou des applications sont indisponibles. L'utilisation d'un site de secours est
+envisageable, le temps de rendre disponible l'application en cause.
 
 Le redémarrage des machines :
 
@@ -297,7 +297,7 @@ immédiate). Le but de l'exercice est multiple :
 * Vérifier que les procédures permettent d'assurer la continuité d'activité
 * Vérifier que le plan est complet et réalisable
 * Maintenir un niveau de compétence suffisant parmi les équipes de pilotage
-* Evaluer la résistance au stress des équipes de pilotage
+* Évaluer la résistance au stress des équipes de pilotage
 
 Un plan doit aussi être revu et mis à jour régulièrement pour tenir compte de l'évolution de la technologie et des objectifs de
 l'entreprise. La seule façon efficace de mettre à jour le PCA est d'en sous traiter la maintenance aux métiers afin qu'il soit

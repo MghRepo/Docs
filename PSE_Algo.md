@@ -51,7 +51,7 @@ Un programme s'arrête généralement après l'exécution de la dernière instru
 également une ou plusieurs instructions pour stopper l'exécution du programme à une position arbitraire.
 
 Selon l'environnement d'exécution sous-jacent (système d'exploitation ou microprocesseur), cet arrêt peut être définitif ou
-correspondre à une suspension de l'exécution du programme en attendant un évenement externe : c'est par exemple le fonctionnement
+correspondre à une suspension de l'exécution du programme en attendant un évènement externe : c'est par exemple le fonctionnement
 habituel de la plupart des instructions d'entrée sorties qui bloquent le flot d'exécution (mécanisme d'interruption avec stockage en
 mémoire tampon) jusqu'à ce que le périphérique concerné ait terminé de traiter les données.
 
@@ -60,7 +60,7 @@ mémoire tampon) jusqu'à ce que le périphérique concerné ait terminé de tra
 Ces instructions permettent de réaliser une machine à états finis, cela signifie que leur seul effet de bord est de modifier un
 registre qui correspond à l'état courant du programme.
 
-Dans un processeur, cet état correspond à la valeur du compter ordinal.
+Dans un processeur, cet état correspond à la valeur du compteur ordinal.
 
 Commandes à étiquettes :
 
@@ -93,7 +93,7 @@ la routine appelante.
 
 Il existe diverses extensions à la notion de procédure comme les coroutines (routine avec suspension), signaux, et slots (signaux
 implémentés pour les objets), fonctions de rappel (callback, traitement post-fonction), méthodes virtuelles (programmation par
-contrat, methode implémentée dans les classes héritées) Elles permettent de modifier dynamiquement, c'est à dire à l'exécution, la
+contrat, méthode implémentée dans les classes héritées) Elles permettent de modifier dynamiquement, c'est à dire à l'exécution, la
 structure du flot d'exécution du programme.
 
 ### Exceptions
@@ -107,19 +107,19 @@ programme.
 Dans un système multitâche, plusieurs flots d'exécutions, appelés processus légers, s'exécutent simultanément.
 
 Il est alors nécessaire d'assurer la synchronisation de ces flots d'exécution. Dans la plupart des langages, cela est réalisé via
-des bibliothèques externes ; certains d'entre eux intègrent néanmoins des structures de contrôle permentant d'agir sur des tâches
+des bibliothèques externes ; certains d'entre eux intègrent néanmoins des structures de contrôle permettant d'agir sur des tâches
 concourantes.
 
 ### Programmation événementielle
 
-La programmation évenementielle est une autre façon de contrôler le flot d'exécutions d'un programme. Il s'agit de créer des
+La programmation évènementielle est une autre façon de contrôler le flot d'exécutions d'un programme. Il s'agit de créer des
 gestionnaires qui viendront s'abonner à une boucle mère, chargée d'aiguiller les évènements qui affectent le logiciel.
 
 ## Algorithmes de tri
 
 Un algorithme de tri est, en informatique ou en mathématiques, un algorithme qui permet d'organiser une collection d'objets selon
 une relation d'ordre déterminée. Les objets à trier sont des éléments d'un ensemble muni d'un ordre total. Il est par exemple
-fréquent de trier des entier selon la relation d'ordre usuelle "est inférier ou égal à". Les algorithmes de tris sont utilisés dans
+fréquent de trier des entier selon la relation d'ordre usuelle "est inférieur ou égal à". Les algorithmes de tris sont utilisés dans
 de très nombreuses situations. Ils sont en particulier utiles à de nombreux algorithmes plus complexes dont certains algorithmes de
 recherche, comme la recherche dichotomique. Ils peuvent également servir pour mettre des données sous forme canonique ou les rendre
 plus lisibles pour l'utilisateur.
@@ -139,7 +139,7 @@ algorithmique ou la terminaison.
 ### Critère de classification
 
 La classification des algorithmes de tri est très importante, car elle permet de choisir l'algorithme le plus adapté au problème
-traité, tout en tenant compte des contraites imposées par celui-ci. Les principales caractéristiques qui permettent de différencier
+traité, tout en tenant compte des contraintes imposées par celui-ci. Les principales caractéristiques qui permettent de différencier
 les algorithmes de tri, outre leur principe de fonctionnement, sont la complexité temporelle, la complexité spatiale et le caractère
 stable.
 
@@ -176,7 +176,7 @@ trier et produire les données à trier en parallèle.
 #### Algorithmes rapides *T(n)=O(n.log n)*
 
 * **Tri fusion** (*merge sort*) : Pour une entrée donnée, l'algorithme la divise en deux parties de tailles similaires, trie chacune
-d'elles en utilisant le même algorithme, puis fusionne les deux parties triées. Il se prête aussi bien à des implémenations sur
+d'elles en utilisant le même algorithme, puis fusionne les deux parties triées. Il se prête aussi bien à des implémentations sur
 listes que sur tableaux.
 * **Tri rapide** (*quick sort*) : Une valeur est choisie comme pivot et les éléments plus petits que le pivot sont dissociés, par
 échanges successifs, des éléments plus grands que le pivot ; chacun de ces deux sous-ensembles est ensuite trié de la même manière.
@@ -211,7 +211,7 @@ insérées les unes après les autres dans une liste triée (initialement vide).
 trier les entrées de petite taille. Il est également efficace pour des entrées déjà presque triées.
 * **Tri à bulles** (*bubble sort*) : L'algorithme consiste à parcourir l'entrée du début à la fin et pour chaque couple d'éléments
 consécutifs, à les intervertir s'ils sont mal ordonnés. Cette opération est répétée jusqu'à ce que la structure soit triée (aucune
-intervention lors du dernier passage). Cet algorithme est peu efficace et rarement utilisé en pratique ; son intêret est
+intervention lors du dernier passage). Cet algorithme est peu efficace et rarement utilisé en pratique ; son intérêt est
 principalement pédagogique.
 * **Tri cocktail** (*cocktail sort*) : Il s'agit d'une variante du tri à bulles dans laquelle l'entrée est alternativement parcourue
 dans les deux sens. S'il permet de traiter de manière plus efficace quelques cas problématiques pour le tri à bulles, il reste
@@ -245,7 +245,7 @@ manipulation de pile. Leurs noms sont donc indiqués de manière informelle. Seu
 indispensables, les autres pouvant s'en déduire :
 
 * Empiler (*Push*) : ajoute un élément sur la pile.
-* Depiler (*Pull*) : enlève un élément de la pile et le renvoie.
+* Dépiler (*Pull*) : enlève un élément de la pile et le renvoie.
 * "La pile est-elle vide ?" (*IsNull*) : renvoie vrai si la pile est vide, faux sinon.
 * "Nombre d'éléments de la pile" (*Length*): renvoie le nombre d'élément de la pile.
 * "Quel est l'élément de tête ?" (*Peek* ou *Top*) : renvoie l'élément de tête sans le dépiler.
@@ -265,7 +265,7 @@ Cette structure est utilisée par exemple :
 
 * en général, pour mémoriser temporairement des transactions qui doivent attendre pour être traitées ;
 * les serveurs d'impression, qui traitent ainsi les requêtes dans l'ordre dans lequel elles arrivent, et les insèrent dans une file
-d'attente (spool) ; certains moteurs multitâches, dans les systèmes d'exploitation, qui doivent accorder du temps-machine à chaque
+d'attente (spool) ; certains moteurs multitâches, dans les systèmes d'exploitation, qui doivent accorder du temps machine à chaque
 tâche, sans en privilégier aucune ;
 * un algorithme de parcours en largeur utilise une file pour mémoriser les noeuds visités ;
 * pour créer toutes sortes de mémoires tampons (*buffers*) ;
@@ -331,7 +331,7 @@ parcours se fait dans un seul sens ;
 sur l'élément précédent (ou prédécesseur). Le parcours peut alors se faire dans deux sens, mutuellement opposés : de successeur en
 successeur, ou de prédécesseur en prédécesseur.
 
-A cela on peut ajouter une propriété : le cycle. Cette fois-ci, la liste chaînée forme une boucle. Dès qu'on atteint la "fin" de la
+A cela on peut ajouter une propriété : le cycle. Cette fois ci, la liste chaînée forme une boucle. Dès qu'on atteint la "fin" de la
 liste et qu'on désire continuer, on se retrouve sur le "premier" élément de la liste. Dans ce cas, la notion de début ou de fin de
 chaîne n'a plus de raison d'être.
 
@@ -460,7 +460,7 @@ le noeud comme fils de la feuille en comparant sa clé à celle de la feuille : 
 Sa complexité est la même que pour la recherche.
 
 Il est aussi possible d'écrire une procédure d'ajout d'élément à la racine d'un arbre binaire. Cette opération requiert la même
-compléxité mais est meilleure en terme d'accès aux éléments.
+complexité mais est meilleure en terme d'accès aux éléments.
 
 Pour la suppression, on commence par rechercher la clé du noeud à supprimer dans l'arbre. Plusieurs cas sont à considérer, une fois
 que le noeud à supprimer a été trouvé à partir de sa clé :
@@ -468,7 +468,7 @@ que le noeud à supprimer a été trouvé à partir de sa clé :
 * *Suppression d'une feuille* : Il suffit de l'enlever de l'arbre puisqu'elle n'a pas de fils.
 * *Suppression de noeud avec un enfant* : Il faut l'enlever de l'arbre en le remplaçant par son fils.
 * *Suppression d'un noeud avec deux enfants* : Supposons que le noeud à supprimer soit appelé N. On échange le noeud N avec son
-sucesseur le plus proche (le noeud le plus à gauche du sous-arbre droit) ou son plus proche prédécesseur (le noeud le plus à droite
+successeur le plus proche (le noeud le plus à gauche du sous-arbre droit) ou son plus proche prédécesseur (le noeud le plus à droite
 du sous-arbre gauche). Cela permet de garder à la fin de l'opération une structure d'arbre binaire de recherche. Puis on applique à
 nouveau la procédure de suppression à N, qui est maintenant une feuille ou un noeud avec un seul fils.
 
@@ -517,7 +517,7 @@ grandit à partir de la racine, contrairement à un arbre binaire de recherche q
 
 Un *arbre étiqueté* est un arbre tel qu'à chaque noeud on associe une étiquette ou clé (ou bien plusieurs étiquettes ou clés dans le
 cas des arbres B) prise(s) dans un ensemble donné. Donc formellement un arbre étiqueté est un couple formé d'un graphe orienté,
-acyclique et connexe et d'une fonction d'étiquetage des arbres qui attribue à chaque noeud une étiquette ou une clé. Parmis les
+acyclique et connexe et d'une fonction d'étiquetage des arbres qui attribue à chaque noeud une étiquette ou une clé. Parmi les
 arbres étiquetés, un *arbre B* possède quelques propriétés spécifiques supplémentaires.
 
 Soit *L* et *U* deux entiers naturels non nuls tels que *L&#8804;U*. En toute généralité, on définit alors un *L-U arbre B* de la
@@ -527,7 +527,7 @@ nombre de clés augmenté d'une unité. Si *n* est le nombre de fils, alors on p
 *n*-noeuds avec L&#8804;n&#8804;U. Souvent on choisit la configuration *L=t* et *U=2.t* : *t* est appelé le *degré minimal* de
 l'arbre B.
 
-De plus, la construction des arbres B garantit qu'un arbre B est toujour équilibré. Chaque clé d'un noeud interne est en fait une
+De plus, la construction des arbres B garantit qu'un arbre B est toujours équilibré. Chaque clé d'un noeud interne est en fait une
 borne qui distingue les sous-arbres de ce noeud.
 
 Un arbre B est implémenté par un arbre enraciné. Un noeud *x* est étiqueté par :
@@ -558,7 +558,7 @@ Un arbre B d'ordre *t* est défini alors plus simplement par un arbre qui satisf
 * Toutes les feuilles se situent à la même hauteur.
 
 Comme on le verra par la suite, la hauteur d'un B-arbre est logarithmique en le nombre d'éléments. Ainsi, les opérations de
-recherche, insertion et suppression sont implémetables en *O(log n)* dans le pire des cas, où *n* est le nombre d'éléments.
+recherche, insertion et suppression sont implémentables en *O(log n)* dans le pire des cas, où *n* est le nombre d'éléments.
 
 La recherche est effectué de la même manière que dans un arbre binaire de recherche. Partant de la racine, on parcourt récursivement
 l'arbre ; à chaque noeud, on choisit le sous-arbre fils dont les clés sont comprises entre les même bornes que celles de la clé
@@ -609,7 +609,7 @@ valeurs est tolérée.
 Un algorithme d'équilibrage simple consiste à :
 
 * Si le noeud voisin gauche existe et dispose de suffisamment de valeurs pour pouvoir en offrir une, réaliser une rotation gauche.
-* Sinon, si le noeud voisin droite existe et dispose de suffisammentd'éléments, réaliser une rotation droite.
+* Sinon, si le noeud voisin droite existe et dispose de suffisamment d'éléments, réaliser une rotation droite.
 * Sinon, le noeud déficient doit être fusionné avec un de ses voisins tel que la somme du nombre de leurs clés plus *1* soit
 inférieure ou égale à la capacité maximale (*taille_gauche*+*taille_droite*+1&#8804;*U-1*). La valeur supplémentaire correspond au
 séparateur présent dans le parent. Cette opération est toujours possible si *U-1*&#8805;*2L* avec *taille_gauche*=*L-2* et
@@ -673,7 +673,7 @@ propriétés est ainsi presque équilibré. Comme les opérations d'insertion, d
 cas un temps proportionnel à la hauteur de l'arbre, les arbres bicolores restent efficaces, contrairement aux arbres binaires de
 recherche ordinaires.
 
-Pour comprendre comment ces contraintes garantissent la propriété ci-dessus, il suffit de s'appercevoir qu'aucun chemin ne peut
+Pour comprendre comment ces contraintes garantissent la propriété ci-dessus, il suffit de s'apercevoir qu'aucun chemin ne peut
 avoir deux noeuds rouges consécutifs à cause de la propriété 3. Le plus petit chemin théorique de la racine à une feuille ne
 contient alors que des noeuds noirs tandis que le plus grand alterne entre les noeuds rouges et noirs. Et comme d'après la propriété
 chacun de ces chemins contient le même nombre de noeuds noirs, le plus grand chemin ne peut être deux fois plus grand que le plus
@@ -689,7 +689,7 @@ défavorables. Ceci leur permet non seulement d'être alors utilisables dans des
 comme fondement d'autres structures de données à temps d'exécution garanti dans les cas défavorables, par exemple en géométrie
 algorithmique. L'ordonnanceur du noyau Linux, le Completely Fair Scheduler utilise également un arbre rouge-noir.
 
-Les arbres rouge-noir sont également très utile en programmatioin fonctionnelle : c'est l'exemple le plus couramment utilisé de
+Les arbres rouge-noir sont également très utile en programmation fonctionnelle : c'est l'exemple le plus couramment utilisé de
 structure de données persistante qui peut être utilisée pour construire des tableaux associatifs capables de garder en mémoires les
 versions précédentes après un changement. Les versions persistantes des arbres rouge-noir requièrent *O(log n)* en mémoire
 supplémentaire pour chaque insertion ou suppressions.
@@ -728,18 +728,18 @@ en **noir** pour respecter la propriété 2.
 est inchangée puisque le nouveau noeud est **rouge**. Il n'y a donc rien d'autre à faire.
 3. Le parent du noeud inséré est **rouge**, alors la propriété 3 est invalide. L'action à effectuer dépend de la couleur de
 *l'oncle* du noeud inséré, c'est à dire le "frère" du parent du noeud inséré. En d'autres termes : en partant du noeud inséré (N),
-on considère son noeud parent (P), puis le noeud parent de P, ou grand-parent (G), et enfin l'oncle (U) qui est le fils de G qui
+on considère son noeud parent (P), puis le noeud parent de P, ou grand parent (G), et enfin l'oncle (U) qui est le fils de G qui
 n'est pas P. Si l'oncle est **rouge**, alors le parent et l'oncle sont coloriés en **noir**, et le grand parent (qui était
 nécessairement noir) est colorié en **rouge**. Ce changement de couleur a pu toutefois créer une nouvelle violation des propriétés
 bicolores plus haut dans l'arbre. Il faut maintenant recommencer la même analyse de cas mais cette fois *en partant du noeud
-grand-parent ainsi colorié en rouge*.
+grand parent ainsi colorié en rouge*.
 4. Dans le cas où l'oncle est **noir**, il faut effectuer des rotations qui dépendent de la configuration du noeud inséré autour de
-son parent et de son grand-parent, afin de ramener l'équilibre dans l'arbre. Le parent vient prendre la place du grand-parent, et le
-grand-parent celle de l'oncle. Le parent devient **noir** et le grand-parent **rouge** et l'arbre respecte alors les propriétés
+son parent et de son grand parent, afin de ramener l'équilibre dans l'arbre. Le parent vient prendre la place du grand parent, et le
+grand parent celle de l'oncle. Le parent devient **noir** et le grand parent **rouge** et l'arbre respecte alors les propriétés
 bicolores.
 
-Le seul cas où la correction ne se termine pas immédiatement est le cas 3, dans lequel on change le grand-parent de noir à rouge, ce
-qui oblige à effectuer une nouvelle vérification du grand-parent. Cependant, il est aisé de vérifier que la fonction se termine
+Le seul cas où la correction ne se termine pas immédiatement est le cas 3, dans lequel on change le grand parent de noir à rouge, ce
+qui oblige à effectuer une nouvelle vérification du grand parent. Cependant, il est aisé de vérifier que la fonction se termine
 toujours. Puisque le noeud à vérifier est toujours strictement plus haut que le précédent, on finira inévitablement par se retrouver
 dans l'un des cas non récursifs (dans le pire des cas, on remontera jusqu'à atteindre la racine de l'arbre, c'est à dire le cas 1).
 Il y aura donc au plus deux rotations, et un nombre de changements de couleurs inférieur à la moitié de la hauteur de l'arbre, c'est
@@ -749,7 +749,7 @@ en moyenne le coût de la correction des propriétés est donc presque constant.
 La suppression commence par une recherche du noeud à supprimer, comme dans un arbre binaire classique.
 
 On notera qu'on peut toujours se mettre dans le cas où le noeud à supprimer a *au plus* un enfant qui ne soit pas une feuille. Dans
-le cas où le noeud à retirer aurait deux enfants qui ne sont pas des feuilles, on recherchhe soit le plus grand élément du
+le cas où le noeud à retirer aurait deux enfants qui ne sont pas des feuilles, on recherche soit le plus grand élément du
 sous-arbre gauche (c'est à dire l'élément précédent immédiatement le noeud à supprimer dans l'ordre de l'arbre) soit le plus petit
 élément du sous-arbre droit (c'est à dire le successeur immédiat). La valeur du noeud à supprimer est remplacée par celle du
 prédécesseur ou du successeur, et c'est ce dernier noeud dont on vient de recopier la valeur qui est supprimé. On notera que la
@@ -767,7 +767,7 @@ en coloriant C en **noir**. Le cas le plus compliqué se produit si le noeud sup
 ### Tas
 
 Un tas est une structure de données de type arbre tel que pour tous noeuds A et B de l'arbre tels que B soit un fils de A :
-clé(A)&#8805;clé(B) (ou inversément). Les primitives du tas sont : enfiler et defiler.
+clé(A)&#8805;clé(B) (ou inversement). Les primitives du tas sont : enfiler et defiler.
 
 Pour enfiler un élément, on le place comme feuille, puis on fait "remonter" l'élément pour maintenir la priorité du tas. L'opération
 peut être réalisée en *O(log n)*.
@@ -789,7 +789,7 @@ concept *d'objets*, qui peuvent contenir du code et des données : les données 
 le code sous la forme de procédures (méthodes).
 
 Une capacité des objets est que ses procédures peuvent accéder et souvent modifier ses propres champs de données (*this* ou *self*).
-En POO, les programmes informatiques sont créés de façon à pouvoir intéragir les uns avec les autres. Les langages de POO peuvent
+En POO, les programmes informatiques sont créés de façon à pouvoir interagir les uns avec les autres. Les langages de POO peuvent
 être très divers, mais les plus populaires sont basés sur la notion de classe, cela signifie que les objets sont des instances de
 classes, qui déterminent également leurs types.
 
@@ -812,7 +812,7 @@ langage de programmation (le langage source), il est de haut niveau d'abstractio
 code objet est généralement écrit en langage de plus bas niveau (appelé langage cible), par exemple un langage d'assemblage ou
 langage machine, afin de créer un programme exécutable par une machine.
 
-Un compilateur effectue les opérations suivantes : analyse lexicale, pré-traitement (préprocesseur), analyse syntaxique (parsing),
+Un compilateur effectue les opérations suivantes : analyse lexicale, pré traitement (préprocesseur), analyse syntaxique (parsing),
 analyse sémantique, et génération de code optimisé. La compilation est souvent suivie d'une étape d'édition de liens, pour générer
 un fichier exécutable.
 

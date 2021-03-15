@@ -6,10 +6,10 @@
     + [Modèle OSI](#modèle-osi)
     + [Architecture TCP/IP](#architecture-tcpip)
     + [Protocoles](#protocoles)
-    + [Matériels d'inter-connexion](#matériel-dinterconnexion)
+    + [Matériels d'interconnexion](#matériel-dinterconnexion)
 * [Logiciels](#logiciels)
     + [Architecture logicielle](#architecture-logicielle)
-    + [Haute diponibilité](#haute-disponibilité)
+    + [Haute disponibilité](#haute-disponibilité)
     + [Langages de présentation](#langages-de-présentation)
     + [Métrologie](#métrologie)
 
@@ -91,9 +91,9 @@ en dessous d'elle. Ces classes de fonctionnalités sont réalisées dans le logi
     </tbody>
 </table>
 
-Les protocoles de communication permettent à une entité sur un hôte d'intéragir avec une entité correspondante sur la même couche
+Les protocoles de communication permettent à une entité sur un hôte d'interagir avec une entité correspondante sur la même couche
 dans un hôte différent. La définitions des services, comme le modèle OSI, décrit de manière abstraite la fonction de la couche (N-1)
-pour la couche (N), ou N est une des septs couches de protocoles opérante sur l'hôte local.
+pour la couche (N), ou N est une des sept couches de protocoles opérante sur l'hôte local.
 
 A chaque niveau N, deux entités d'appareils communicants (couches N pairs) échangent des unités de protocole de données (PDUs) par
 le moyen de la couche protocole N. Chaque PDU contient une charge, appelée unité de service de données (SDU), ainsi que les entêtes
@@ -119,12 +119,12 @@ réseaux informatiques similaires. Elle est connue plus communément sous le nom
 sur lesquels elles s'appuie sont, le protocole de contrôle de transmission (TCP) et le protocole internet (IP). Son implémentation
 est une pile de protocoles.
 
-La suite des protocoles internet fournit une communication de données boût en boût en spécifiant comment la donnée doit être
-enpaquetée, adressée, transmise, routée et reçue. Cette fonctionnalité est organisée en quatre couches d'abstraction, qui
+La suite des protocoles internet fournit une communication de données bout en bout en spécifiant comment la donnée doit être
+empaquetée, adressée, transmise, routée et reçue. Cette fonctionnalité est organisée en quatre couches d'abstraction, qui
 classifient tous les protocoles rattachés en fonction de l'étendue de leur implication réseau. De la couche la plus basse à la
 couche la plus haute :
 
-* Liaison : contient des méthodes de communications pour des données appartennant à un unique segment réseau (ou lien).
+* Liaison : contient des méthodes de communications pour des données appartenant à un unique segment réseau (ou lien).
 * Internet : fournit l'interconnexion entre réseaux indépendants.
 * Transport : gère la communication d'hôte à hôte.
 * Application : fournit l'échange de données inter-processus pour les applications.
@@ -152,18 +152,18 @@ communiquer avec d'autres réseaux IP. DHCP utilise le protocole UDP. (Port 67 p
 connectées à Internet ou un réseau privé. DNS utilise UDP pour les requêtes de moins de 512 octets sinon il utilise TCP. (Port 53)
 * **FTP** (*File Transfer Protocol*) : protocole réseau standard utilisé pour le transfert de fichiers depuis un serveur à un
 client.  FTP est construit sur un modèle d'architecture client-serveur en utilisant des connexions de contrôles et de données
-séparées entre le client et le serveur. Les utilisateurs FTP peuvent s'authentifier eux-même à l'aide d'un protocole
+séparées entre le client et le serveur. Les utilisateurs FTP peuvent s'authentifier eux-mêmes à l'aide d'un protocole
 d'authentification en clair, généralement sous la forme d'un nom d'utilisateur et d'un mot de passe, mais ils peuvent se connecter
 de manière anonyme si le serveur est configuré en ce sens. Pour des transmission sécurisées protégeant le nom d'utilisateur et le
-mot de passe, et qui encryptent le contenu, FTP est souvent sécurisé à l'aide de SSL/TLS (FTPS) ou bien remplacé par le protocole de
+mot de passe, et qui chiffrent le contenu, FTP est souvent sécurisé à l'aide de SSL/TLS (FTPS) ou bien remplacé par le protocole de
 transfert de fichier SSH (SFTP). Le client FTP initie des connexions TCP selon différents modes. (Port 21 pour le serveur)
 * **HTTP** (*Hypertext Transfer Protocol*) : protocole de la couche application pour systèmes d'information distribués,
 collaboratifs, hypermedia. HTTP est la base de la communication de données pour le World Wide Web, où des documents hypertextes
-incluent des hyperliens pour d'autres ressources que l'utilisateur peut accéder facilement, par exemple par un click utilisateur ou
+incluent des hyper liens pour d'autres ressources que l'utilisateur peut accéder facilement, par exemple par un click utilisateur ou
 en tapant à l'écran dans un navigateur web. Le client initie une connexion TCP. (Port 80 ou 8080)
 * **HTTPS** (*Hypertext Transfer Protocol Secure*) : est une extension de HTTP. Il est utilisé pour une communication sécurisé à
 travers un réseau, et très largement répandu sur Internet. En HTTPS, le protocole de communication est crypté avec la sécurité de la
-couche transport (TLS) ou, précedemment la couche de sockets sécurisée (SSL). Le protocole est par conséquent désigné également par
+couche transport (TLS) ou, précédemment la couche de sockets sécurisée (SSL). Le protocole est par conséquent désigné également par
 HTTP sur TLS, ou HTTP sur SSL. (Port 443)
 * **IMAP** (*Internet Message Access Protocol*) : est un protocole Internet standard utilisé par les clients emails pour récupérer
 les messages d'un serveur de messagerie à travers une connexion TCP/IP. (Port 143 et 993 pour IMAP sur SSL/TLS)
@@ -173,7 +173,7 @@ le développement des applications intranets et Internet en permettant le partag
 systèmes, de réseaux, de services, et d'applications à travers le réseau. LDAP utilise TCP et UDP. (Port 389 et 636 pour LDAP sur
 SSL/TLS)
 * **NFS** (*Network File System*) : est un protocole de système de fichiers distribué qui permet à un ordinateur client d'accéder à
-des fichiers à travers un réseau informatique. NFS comme de nombreux protocoles est contruit au-dessus du protocole ONC/RPC. NFS 3
+des fichiers à travers un réseau informatique. NFS comme de nombreux protocoles est construit au-dessus du protocole ONC/RPC. NFS 3
 et 4 utilisent le protocole TCP. (Port 2049 pour NFSv4)
 * **ONC/RPC** (*Open Networking Computing/Remote Procedure Call*) : est un système d'appel procedural distant. Il sérialise la
 donnée à l'aide de la représentation de données externes (XDR), qui permet également le transcodage pour l'accès sur de multiples
@@ -200,7 +200,7 @@ non-sécurisés. SSH utilise une architecture client-serveur en connectant un cl
 sécurisées à travers un réseau. Le protocole TLS a pour but principal de garantir le caractère privé et l'intégrité de la donnée
 entre deux applications communicantes ou plus. Une connexion entre un client et un serveur doit quand elle est sécurisé par TLS
 avoir une ou plusieurs des propriétés suivantes :
-    + La connexion est privée (ou sécurisée) par un algorithme cryptographique symmétrique pour chiffrer les données transmises. Les
+    + La connexion est privée (ou sécurisée) par un algorithme cryptographique symétrique pour chiffrer les données transmises. Les
     clefs de cette encryption symmétrique sont générées de manière unique et à chaque connexion, elle sont créées à partir d'un
     secret partagé négocié au début de la session. Le serveur et le client négocient les détails de l'algorithme cryptographique
     utilisé avant que le premier octet de données soit échangé. La négociation du secret partagé est à la fois sécurisé (ne peut
@@ -237,7 +237,7 @@ protection. Si une correction d'erreur est nécessaire au niveau de l'interface 
 de contrôle de transmission (TCP) ou le protocole de transmission de contrôle de flux (SCTP) implémentés pour cet usage. UDP est
 adapté aux usages où ni les contrôles ni les corrections d'erreurs ne sont nécessaires ou sont à la charge de l'application ; UDP
 évite la surchage d'un tel processus dans la pile de protocole. Les applications temporellement sensibles utilisent souvent UDP
-du fait qu'il est souvent préferable d'oublier des paquets plutôt que d'attendre des paquets retransmis, ce qui peut ne pas être une
+du fait qu'il est souvent préférable d'oublier des paquets plutôt que d'attendre des paquets retransmis, ce qui peut ne pas être une
 option dans un système temps réel.
 * **DCCP** (*Datagram Congestion Control Protocol*) : est un protocole orienté message. DCCP implémente une mise en place de
 connexion et une déconnexion fiables, une notification de congestion explicite (ECN), un contrôle de congestion, et des
@@ -257,27 +257,27 @@ le protocole de messages de contrôles internet (ICMP) ou le protocole de gestio
 des datagrammes à travers les frontières de réseaux. Ces fonctions de routage permettent l'aggrégation de réseaux, qui établit
 essentiellement Internet. IP a pour fonction de livrer des paquets depuis un hôte source à un hôte destination uniquement via
 l'adresse IP contenue dans l'entête. A cette fin, IP définit des structures de paquets qui encapsulent la donnée à envoyer. Le
-protocole définit également les méthodes d'adressage utiliser pour étiquetter le datagramme des informations concernant la source
+protocole définit également les méthodes d'adressage utiliser pour étiqueter le datagramme des informations concernant la source
 et la destination. IPv4 utilise des adresses de 32-bits qui fournissent un peu plus de 4 milliards d'adresses. Néanmoins une grande
 partie de ces adresses est réservée pour des méthodes réseaux spéciales.
 * **IPv6** (*Internet Protocol v.6*) : est la version la plus récente du protocole internet (IP). IPv6 a été développé pour résoudre
 le problème d'épuisement du nombre d'adresse IPv4. IPv6 utilise des adresses de 128-bits soit 3,4.10^38 adresses. Les deux
 protocoles ne sont pas interopérable, de fait aucune communication entre eux n'est possible. IPv6 fournit d'autres avantages
-techniques en plus du plus grand espace d'adressage. En particulier, il permet des methodes d'allocation d'adresses hierarchiques
+techniques en plus du plus grand espace d'adressage. En particulier, il permet des méthodes d'allocation d'adresses hiérarchiques
 qui facilite l'aggrégation de routes à travers Internet, limitant l'expansion des tables de routage. L'usage de l'adressage
 multicast est étendu et simplifié, il contient également d'autres optimisations pour la livraison de services. La mobilité des
 appareils, la sécurité, et la configuration ont été considérés lors de la création du protocole.
 * **ICMP** (*Internet Control Message Protocol*) : est un protocole de la suite des protocoles internet utilisé par les matériels
-d'interconnexion pour envoyer des messages d'erreurs et autres informations opérationelles indiquant la réussite ou l'échec lors
+d'interconnexion pour envoyer des messages d'erreurs et autres informations opérationnelles indiquant la réussite ou l'échec lors
 d'une communication avec une autre adresse IP. ICMP n'est pas utilisé pour envoyer des données applicatives entre systèmes (à part
 pour des outils de diagnostics tels ping et traceroute).
 * **ECN** (*Explicit Congestion Notification*) : est une extension du protocole internet (IP) et du protocole de contrôle de
-transmission (TCP). ECN permet la notification boût en boût d'une congestion réseau sans oublis de paquets. ECN est une
+transmission (TCP). ECN permet la notification bout en bout d'une congestion réseau sans oublis de paquets. ECN est une
 fonctionnalité optionnelle.
 * **IGMP** (*Internet Group Management Protocol*) : est un protocole de communication entres hôtes et routeurs adjacents pour
 établir une appartenance à des groupes de multicasts. IGMP fait partie du multicast IP et permet au réseau de diriger les
 transmissions multicasts uniquement aux hôtes qui les ont demandées.
-* **IPsec** (*Internet Protocol Secure*) : est une suite de procoles réseau sécurisée qui authentifie et chiffre les paquets de
+* **IPsec** (*Internet Protocol Secure*) : est une suite de protocoles réseau sécurisée qui authentifie et chiffre les paquets de
 données pour fournir une communication sécurisée à travers un réseau IP. Elle est utilisé par les réseaux privés virtuels (VPN).
 
 #### Couche Liaison
@@ -320,7 +320,7 @@ des programmes et des données aux processeurs et périphériques de stockages. 
 
 La condition si un ordinateur est un client, un serveur ou les deux, est déterminé par la nature de l'application qui demande les
 fonctions du service. Par exemple, un seul ordinateur peut exécuter un serveur web et un logiciel serveur de fichier en même temps
-pour servir différentes données aux clients effectuants diverses requêtes. Le logiciel client peut aussi communiquer avec un
+pour servir différentes données aux clients effectuant diverses requêtes. Le logiciel client peut aussi communiquer avec un
 logiciel serveur sur le même ordinateur. La communication entre serveurs tel que la synchronisation de données, est quelques fois
 appelée communication inter-serveur ou serveur à serveur.
 
@@ -371,8 +371,8 @@ Il existe trois principes de conception système en ingénierie de fiabilité pe
 défaillance d'un composant ne signifie pas la défaillance du système en entier.
 * Fiabilité des points de croisements. Au niveau des systèmes redondants, le point de croisement lui-même tend à devenir un point de
 défaillance unique. Les systèmes fiables doivent fournir des points de croisement fiables.
-* Détection des défaillances lors de leurs occurences. Si les deux principes ci-dessus sont observés, alors un utilisateur pourra ne
-jamais voir de défaillance - mais l'activité de maintenance le doit.
+* Détection des défaillances lors de leurs occurrences. Si les deux principes ci-dessus sont observés, alors un utilisateur pourra
+ne jamais voir de défaillance - mais l'activité de maintenance le doit.
 
 ### Langages de présentation
 
