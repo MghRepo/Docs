@@ -71,9 +71,9 @@ Haskell est un langage de programmation statiquement typé, purement fonctionnel
 ## Valeurs, Types, etc.
 
 Du fait que Haskell est un langage purement fonctionnel, tous les calculs sont issus de l'évaluation *d'expressions* (termes
-syntaxiques) afin de produire des *valeurs* (des entités abstraites désignées comme réponses). Chaque valeurs est associée à un
+syntaxiques) afin de produire des *valeurs* (des entités abstraites désignées comme réponses). Chaque valeur est associée à un
 *type*. (Intuitivement, les types peuvent être considérés comme des ensembles de valeurs.) Des exemples d'expressions incluent des
-valeurs atomiques telles que l'entier 5, le caractère 'a', et la fonctiomn \x -> x+1, ainsi que des valeurs structurées telles que
+valeurs atomiques telles que l'entier 5, le caractère 'a', et la fonction \x -> x+1, ainsi que des valeurs structurées telles que
 la liste [1, 2, 3] et le couple ('b', 4).
 
 De la même manière que les expressions dénotent des valeurs, les types d'expressions sont des termes syntaxiques qui dénotent des
@@ -83,7 +83,7 @@ structurés **[Integer]** (Listes d'entiers homogènes) et **(Char, Integer)** (
 
 Toutes les valeurs Haskell sont dites "first-class" -- elles peuvent être passées en tant qu'arguments à des fonctions, et
 retournées en tant que résultats, placées dans des structures de données, etc. En revanche, les types Haskell ne sont *pas*
-first-class. Les types décrivent des valeurs en un sens, et l'association d'une valeur avec un type et appellé *typage*. En
+first-class. Les types décrivent des valeurs en un sens, et l'association d'une valeur avec un type et appelé *typage*. En
 utilisant les exemples de valeurs et de types ci-dessus, on écrit des typages ainsi :
 
     5   ::  Integer
@@ -115,7 +115,7 @@ Par exemple, on notera :
 
 Le système de types statique de Haskell définit la relation formelle entre types et valeurs. Le système de types statique garantit
 que les programmes Haskell sont *type safe* ; c'est à dire, que le développeur n'a pas, d'une manière ou d'une autre, confondus des
-types. Par exemple, on ne peut pas additioner ensemble deux caractères, ainsi l'expression 'a'+'b' ne respecte pas le typage.
+types. Par exemple, on ne peut pas additionner ensemble deux caractères, ainsi l'expression 'a'+'b' ne respecte pas le typage.
 L'avantage principal des langages statiquement typés est bien connu : Toutes les erreurs de types sont détectées à la compilation.
 Toutes les erreurs ne sont pas détectées par le système de type ; une expression telle que 1/0 est typable mais son évaluation
 résultera en une erreur à l'exécution. Mais le système de type permet de trouver de nombreuses erreurs lors de la compilation, à
