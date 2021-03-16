@@ -92,7 +92,7 @@ utilisant les exemples de valeurs et de types ci-dessus, on écrit des typages a
     [1, 2, 3]   ::  [Integer]
     ('b', 4)    ::  (Char, Integer)
 
-Le "::" peut être lu "appartient au type."
+Le "::" peut être lu "appartient au type".
 
 Les fonctions en Haskell sont généralement définies par une série *d'équations*. Par exemple, la fonction **inc** peut être définie
 par une seule équation :
@@ -125,8 +125,13 @@ exemple, aucune marque de types à l'exécution ou de tests ne sont requis).
 Le système de type garantit également que les signatures de types fournies par l'utilisateur sont correctes. En fait, le système de
 type de Haskell est assez puissant pour permettre de nous éviter d'écrire n'importe quelle signature de type ; on dit que le système
 de types infère pour nous les bons types. Néanmoins le placement judicieux de signatures de types telles que nous l'avons donnée
-pour inc est une bonne idée, puisque les signatures de types sont une forme très efficace de documentation et aide à mettre en
+pour **inc** est une bonne idée, puisque les signatures de types sont une forme très efficace de documentation et aide à mettre en
 lumière les erreurs de programmation.
+
+> Note : Les identifiants dénotant des types spécifiques ont des identifiants capitalisés, tels que **Integer** et **Char**, mais
+pas les identifiants qui dénotent des valeurs, tels que **inc**. Ceci n'est pas seulement une convention : elle est requise par la
+syntaxe lexicale de Haskell. La casse des autres caractères est également prise en compte : **foo, fOo,** et **fOO** sont des
+identifiants distincts.
 
 ### Types polymorphiques
 
