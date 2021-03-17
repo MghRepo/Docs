@@ -52,7 +52,7 @@
     + [Sous-modules](#sous-modules)
     + [Rassembler](#rassembler)
     + [Remplacer](#remplacer)
-    + [Stockage certifié](#stockage certifié)
+    + [Stockage certifié](#stockage-certifié)
 * [Personnalisation](#personnalisation)
     + [Configuration](#configuration)
     + [Attributs](#attributs)
