@@ -39,12 +39,12 @@
     + [Fonctions chargées automatiquement](#fonctions-chargées-automatiquement)
     + [Fonctions anonymes](#fonctions-anonymes)
     + [Fonctions spéciales](#fonctions-spéciales)
-        - [Fonctions d'hameçonnage](#fonctions-dhameçonnage)
+        - [Fonctions Hooks](#fonctions-hooks)
         - [Fonctions pièges](#fonctions-pièges)
 * [Jobs et signaux](#jobs-et-signaux)
     + [jobs](#jobs)
     + [signaux](#signaux)
-* [Evaluation arithmétique](#évaluation-arithmétique)
+* [Évaluation arithmétique](#évaluation-arithmétique)
 * [Expressions conditionnelles](#expressions-conditionnelles)
 * [Expansion du prompt](#expansion-du-prompt)
     + [Expansion des séquences de prompt](#expansion-des-séquences-de-prompt)
@@ -58,9 +58,9 @@
 * [Expansion](#expansion)
     + [Expansion d'historique](#expansion-dhistorique)
         - [Aperçu](#aperçu)
-        - [Désignateurs d'évènement](#désignateurs-dévènements)
-        - [Désignateurs de mot](#désignateurs-de-mot)
-        - [Modifieurs](#modifieurs)
+        - [Désignateurs d'évènements](#désignateurs-dévènements)
+        - [Désignateurs de mots](#désignateurs-de-mots)
+        - [Modifieurs historique](#modifieurs-historique)
     + [Substitution de processus](#substitution-de-processus)
     + [Expansion de paramètres](#expansion-de-paramètres)
         - [Drapeaux d'expansion de paramètres](#drapeaux-dexpansion-de-paramètres)
@@ -267,3 +267,152 @@
     + [Rappeler les répertoires récents](#rappeler-les-répertoires-récents)
         - [Installation rappel](#installation-rappel)
         - [Utilisation rappel](#utilisation-rappel)
+        - [Options rappel](#options-rappel)
+        - [Configuration rappel](#configuration-rappel)
+        - [Utilisation avec nommage répertoire dynamique](#utilisation-avec-nommage-répertoire-dynamiquement)
+        - [Détails concernant le traitement des répertoires](#détails-concernant-le-traitement-des-répertoires)
+    + [Références dynamiques abrégées aux répertoires](#références-dynamiques-abrégées-aux-répertoires)
+        - [Utilisation des références dynamiques](#utilisation-des-références-dynamiques)
+        - [Configuration des références dynamiques](#configuration-des-références-dynamiques)
+    + [Récupérer des informations de système de contrôle de version](#récupérer-des-informations-de-système-de-contrôle-de-version)
+        - [Introduction rapide](#introduction-rapide)
+        - [Configuration récupération](#configuration-récupération)
+        - [Bizarreries](#bizarreries)
+        - [Support quilt](#support-quilt)
+        - [Description des fonctions (API publique)](#Description-des-fonctions-api-publiques)
+        - [Description variable](#description-variable)
+        - [Hooks vcs_info](#hooks-vcs_info)
+    + [Thèmes de prompt](#thèmes-de-prompt)
+        - [Installation de thèmes](#installation-de-thèmes)
+        - [Sélection de thèmes](#sélection-de-thèmes)
+        - [Thèmes utilitaires](#thèmes-utilitaires)
+        - [Écrire des thèmes](#écrire-des-thèmes)
+    + [Fonctions ZLE](#fonctions-zle)
+        - [Widgets ZLE](#widgets-zle)
+        - [Fonctions utilitaires zle](#fonctions-utilitaires-zle)
+        - [Styles ZLE](#styles-zle)
+    + [Gestion des exceptions](#gestion-des-exceptions)
+    + [Fonctions MIME](#fonctions-mime)
+    + [Fonctions mathématiques](#fonctions-mathématiques)
+    + [Fonctions de configuration utilisateurs](#fonctions-de-configuration-utilisateurs)
+    + [Autres fonctions](#autres-fonctions)
+        - [Descriptions des autres fonctions](#description-des-autres-fonctions)
+        - [Styles des autres fonctions](#styles-des-autres-fonctions)
+
+## Introduction
+
+## Feuille de route
+
+### Démarrage
+
+### Usage intéractif
+
+#### Complétion
+
+#### Étendre l'éditeur de ligne
+
+### Options
+
+### Correspondance de motifs
+
+### Commentaires généraux sur la syntaxe
+
+### Programmation
+
+## Invocation zsh
+
+### Invocation
+
+### Compatibilité
+
+### Shell restreint
+
+## Fichier zsh
+
+### Fichiers de démarrage/arrêt
+
+### Fichiers
+
+## Grammaire shell
+
+### Commandes simples et pipes
+
+### Modifieurs de précommande
+
+### Commandes complexes
+
+### Formes alternées pour commandes complexes
+
+### Mots réservés
+
+### Erreurs
+
+### Commentaires
+
+### Alias
+
+#### Difficultés d'alias
+
+### Citations
+
+## Redirection
+
+### Ouvrir des descripteurs de fichiers à l'aide de paramètres
+
+### Multio
+
+### Redirections sans commandes
+
+## Exécution de commande
+
+## Fonctions
+
+### Fonctions chargées automatiquement
+
+### Fonctions anonymes
+
+### Fonctions spéciales
+
+#### Fonctions hooks
+
+#### Fonctions pièges
+
+## Jobs et signaux
+
+### Jobs
+
+### Signaux
+
+## Évaluation arithmétique
+
+## Expressions conditionnelles
+
+## Expansion de prompt
+
+### Expansion des séquences de prompt
+
+### Échappements de prompt simples
+
+#### Caractères spéciaux
+
+#### Information de connexion
+
+#### État du shell
+
+#### Date et heure
+
+#### Effets visuels
+
+### Sous-chaînes conditionnelles dans les prompts
+
+## Expansion
+
+### Expasion d'historique
+
+#### Aperçu
+
+### Désignateurs d'évènements
+
+### Désignateurs de mots
+
+### Modifieurs historique
