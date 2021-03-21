@@ -54,7 +54,7 @@
         - [Etat du shell](#état-du-shell)
         - [Date et heure](#date-et-heure)
         - [Effets visuels](#effets-visuels)
-    + [Sous-chaînes conditionnelles dans les prompts](#sous-chaînes-conditionnelles-dans-les prompts)
+    + [Sous chaînes conditionnelles dans les prompts](#sous-chaînes-conditionnelles-dans-les prompts)
 * [Expansion](#expansion)
     + [Expansion d'historique](#expansion-dhistorique)
         - [Aperçu](#aperçu)
