@@ -64,7 +64,7 @@
     + [Substitution de processus](#substitution-de-processus)
     + [Expansion de paramètres](#expansion-de-paramètres)
         - [Drapeaux d'expansion de paramètres](#drapeaux-dexpansion-de-paramètres)
-        - [Règles](#règles)
+        - [Règles d'expansion](#règles-dexpansion)
     + [Substitution de commande](#substitution-de-commande)
     + [Expansion arithmétique](#expansion-arithmétique)
     + [Expansion accolade](#expansion-accolade)
@@ -72,7 +72,7 @@
         - [Répertoires nommés dynamiquement](#répertoires-nommés-dynamiquement)
         - [Répertoires nommés statiquement](#répertoires-nommés-statiquement)
         - [Expansion '='](#expansion-=)
-        - [Notes](#notes)
+        - [Notes expansion](#notes-expansion)
     + [Génération de noms de fichiers](#génération-de-noms-de-fichiers)
         - [Opérateurs globs](#opérateurs-globs)
         - [Précédence](#précédence)
@@ -81,7 +81,7 @@
         - [Globs récursif](#globs-récursif)
         - [Qualifieurs globs](#qualifieurs-globs)
 * [Paramètres](#paramètres)
-    + [Description](#description)
+    + [Description paramètres](#description-paramètres)
     + [Paramètres de tableau](#paramètres-de-tableau)
         - [Indice de tableau](#indice-de-tableau)
         - [Assignation d'élément de tableau](#assignation-délément-de-tableau)
@@ -95,9 +95,9 @@
     + [Spécifier des options](#spécifier-des-options)
     + [Descriptions des options](#descriptions-des-options)
         - [Changer de répertoires](#changer-de-répertoires)
-        - [Complétion](#complétion)
+        - [Complétion options](#complétion-options)
         - [Expansion et globs](#expansion-et-globs)
-        - [Historique](#historique)
+        - [Historique options](#historique-options)
         - [Initialisation](#initialisation)
         - [Entrées/Sorties](#entréessorties)
         - [Contrôle de job](#contrôle-de-job)
@@ -105,7 +105,7 @@
         - [Scripts et fonctions](#scripts-et-fonctions)
         - [Émulation de shell](#émulation-de-shell)
         - [État de shell](#état-de-shell)
-        - [Zle](#zle)
+        - [ZLE](#zle)
     + [Options d'alias](#options-dalias)
     + [Options courtes](#options-courtes)
         - [Ensemble par défaut](#ensemble-par-défaut)
@@ -113,11 +113,11 @@
         - [À noter également](#à-noter-également)
 * [Commandes intégrées au shell](#commandes-intégrées-au-shell)
 * [Éditeur de ligne zsh](#éditeur-de-ligne-zsh)
-    + [Description](#description)
+    + [Description de l'éditeur](#description-de-léditeur)
     + [Raccourcis](#raccourcis)
         - [Lecture de commandes](#lecture-de-commandes)
         - [Raccourcis locaux](#raccourcis-locaux)
-    + [Contenus Zle](#contenus-zle)
+    + [Contenus ZLE](#contenus-zle)
     + [Widgets](#widgets)
     + [Widgets définis par l'utilisateur](#widgets-définis-par-lutilisateur)
         - [Widgets spéciaux](#widgets-spéciaux)
@@ -126,7 +126,7 @@
         - [Contrôle de l'historique](#contrôle-de-lhistorique)
         - [Modifier du texte](#modifier-de-texte)
         - [Arguments](#arguments)
-        - [Complétion](#complétion)
+        - [Complétion widgets](#complétion-widgets)
         - [Divers](#divers)
         - [Objets de texte](#objets-de-texte)
     + [Surlignage de caractères](#surlignage-de-caractères)
@@ -147,7 +147,7 @@
         - [Marques standards](#marques-standards)
         - [Styles standards](#styles-standards)
     + [Fonctions de contrôle](#fonctions-de-contrôle)
-    + [Commandes reliables](#commandes-reliables)
+    + [Commandes liables](#commandes-liables)
     + [Fonctions d'utilité](#fonctions-dutilité)
     + [Système de complétion de variable](#système-de-complétion-de-variable)
     + [Complétion de répertoires](#complétion-de-répertoires)
@@ -198,19 +198,18 @@
     + [Module zsh/stat](#module-zshstat)
     + [Module zsh/systeme](#module-zshsysteme)
         - [Systeme intégrés](#systeme-intégrés)
-        - [Fonctions mathématiques](#fonctions-mathématiques)
+        - [Fonctions mathématiques systeme](#fonctions-mathématiques-systeme)
         - [Systeme paramètres](#systeme-paramètres)
     + [Module zsh/net/tcp](#module-zshnettcp)
-        - [Tcp connexions externes](#tcp-connexions-externes)
-        - [Tcp connexions internes](#tcp-connexions-internes)
+        - [TCP connexions externes](#tcp-connexions-externes)
+        - [TCP connexions internes](#tcp-connexions-internes)
         - [Fermer des connexions](#fermer-des-connexions)
     + [Module zsh/termcap](#module-zshtermcap)
     + [Module zsh/terminfo](#module-zshterminfo)
     + [Module zsh/zftp](#module-zshzftp)
-        - [Zftp sous-commandes](#zftp-sous-commandes)
-        - [Zftp paramètres](#zftp-paramètres)
-        - [Zftp fonctions](#zftp-fonctions)
-        - [Zftp problèmes](#zftp-problèmes)
+        - [ZFTP sous-commandes](#zftp-sous-commandes)
+        - [ZFTP paramètres](#zftp-paramètres)
+        - [ZFTP fonctions](#zftp-fonctions)
     + [Module zsh/zle](#module-zshzle)
     + [Module zsh/zleparameter](#module-zshzleparameter)
     + [Module zsh/zprof](#module-zshzprof)
@@ -228,34 +227,34 @@
         - [Qualifieurs globs fonctions calendaires](#qualifieurs-globs-fonctions-calendaires)
     + [Style fonctions calendaires](#style-fonctions-calendaires)
     + [Fonctions utilitaires](#fonctions-utilitaires)
-* [Fonction système TCP](#fonction-système-TCP)
+* [Fonctions système TCP](#fonctions-système-TCP)
     + [Description des fonctions TCP](#description-des-fonctions-tcp)
     + [Fonctions utilisateur TCP](#fonctions-utilisateur-tcp) 
-        - [Entrées/sorties basiques](#entréessorties-basiques)
+        - [Entrées/Sorties basiques](#entréessorties-basiques)
         - [Gestion de session tcp](#gestion-de-session-tcp)
-        - [Entrées/sorties complexes](#entréessorties-complexes)
+        - [Entrées/Sorties complexes](#entréessorties-complexes)
         - [Transfert de fichier d'une traite](#transfert-de-fichier-dune-traite)
     + [Fonctions TCP définies par l'utilisateur](#fonctions-tcp-définies-par-lutilisateur)
     + [Fonctions TCP utilitaires](#fonctions-tcp-utilitaires)
     + [Paramètres utilisateur TCP](#paramètres-utilisateur-tcp)
-* [Fonctions systèmes Zftp](#fonctions-systèmes-zftp)
-    + [Descriptions des fonctions zftp](#description-des-fonctions-zftp)
-    + [Installation zftp](#installation-zftp)
-    + [Fonctions zftp](#fonctions-zftp)
+* [Fonctions systèmes ZFTP](#fonctions-systèmes-zftp)
+    + [Descriptions des fonctions ZFTP](#description-des-fonctions-zftp)
+    + [Installation ZFTP](#installation-zftp)
+    + [Fonctions ZFTP](#fonctions-zftp)
         - [Ouvrir une connexion](#ouvrir-une-connexion)
         - [Gestion répertoire](#gestion-répertoire)
         - [Commandes de status](#commandes-de-status)
         - [Récupérer des fichiers](#récupérer-des-fichiers)
         - [Envoyer des fichiers](#envoyer-des-fichiers)
         - [Fermer la connexion](#fermer-la-connexion)
-        - [Gestion de session zftp](#gestion-de-session-zftp)
+        - [Gestion de session ZFTP](#gestion-de-session-zftp)
         - [Marques pages](#marques-pages)
-        - [Autres fonctions zftp](#autres-fonctions-zftp)
+        - [Autres fonctions ZFTP](#autres-fonctions-zftp)
     + [Diverses fonctionnalités](#diverses-fonctionnalités)
-        - [Configuration zftp](#configuration-zftp)
+        - [Configuration ZFTP](#configuration-zftp)
         - [Globs distants](#globs-distants)
         - [Réouvertures temporaires et automatiques](#réouvertures-temporaires-et-automatiques)
-        - [Complétion zftp](#complétion-zftp)
+        - [Complétion ZFTP](#complétion-zftp)
 * [Contributions des utilisateurs](#contributions-des-utilisateurs)
     + [Description des contributions](#description-des-contributions)
     + [Utilitaires](#utilitaires)
@@ -278,7 +277,7 @@
         - [Introduction rapide](#introduction-rapide)
         - [Configuration récupération](#configuration-récupération)
         - [Bizarreries](#bizarreries)
-        - [Support quilt](#support-quilt)
+        - [Support Quilt](#support-quilt)
         - [Description des fonctions (API publique)](#Description-des-fonctions-api-publiques)
         - [Description variable](#description-variable)
         - [Hooks vcs_info](#hooks-vcs_info)
@@ -289,7 +288,7 @@
         - [Écrire des thèmes](#écrire-des-thèmes)
     + [Fonctions ZLE](#fonctions-zle)
         - [Widgets ZLE](#widgets-zle)
-        - [Fonctions utilitaires zle](#fonctions-utilitaires-zle)
+        - [Fonctions utilitaires ZLE](#fonctions-utilitaires-zle)
         - [Styles ZLE](#styles-zle)
     + [Gestion des exceptions](#gestion-des-exceptions)
     + [Fonctions MIME](#fonctions-mime)
@@ -411,8 +410,479 @@
 
 #### Aperçu
 
-### Désignateurs d'évènements
+#### Désignateurs d'évènements
 
-### Désignateurs de mots
+#### Désignateurs de mots
 
-### Modifieurs historique
+#### Modifieurs historique
+
+### Substitution de processus
+
+### Expansion de paramètres
+
+#### Drapeaux d'expansion de paramètres
+
+#### Règles d'expansion
+
+### Substitution de commande
+
+### Expansion arithmétique
+
+### Expansion accolade
+
+### Expansion de nom de fichier
+
+#### Répertoires nommés dynamiquement
+
+#### Répertoires nommés statiquement
+
+#### Expansion '='
+
+#### Notes expansion
+
+### Génération de noms de fichiers
+
+#### Opérateurs globs
+
+#### Précédence
+
+#### Drapeaux globs
+
+#### Correspondance approximative
+
+#### Globs récursifs
+
+#### Qualifieurs globs
+
+## Paramètres
+
+### Description paramètres
+
+### Paramètres de tableau
+
+#### Indices de tableau
+
+#### Assignation d'élément de tableau
+
+#### Drapeau d'indice
+
+#### Analyse d'indice
+
+### Paramètres positionnels
+
+### Paramètres locaux
+
+### Paramètres définis par le shell
+
+## Options
+
+### Spécifier des options
+
+### Description des options
+
+#### Changer de répertoire
+
+#### Complétion options
+
+#### Expansion et globs
+
+#### Historique options
+
+#### Initialisation
+
+#### Entrées/Sorties
+
+#### Contrôle de job
+
+#### Affichage
+
+#### Scripts et fonctions
+
+#### Émulation de shell
+
+#### État de shell
+
+#### ZLE
+
+### Options d'alias
+
+### Options courtes
+
+#### Ensemble par défaut
+
+#### Ensemble d'émulation sh/ksh
+
+#### À noter également
+
+## Commandes intégrées au shell
+
+## Éditeur de ligne zsh
+
+### Description de l'éditeur
+
+### Raccourcis
+
+#### Lecture de commandes
+
+#### Raccourcis locaux
+
+### Contenus ZLE
+
+### Widgets
+
+### Widgets définis par l'utilisateur
+
+#### Widgets spéciaux
+
+### Widgets standards
+
+#### Mouvement
+
+#### Contrôle de l'historique
+
+#### Modifier du texte
+
+#### Arguments
+
+#### Complétion widgets
+
+#### Divers
+
+#### Objets de texte
+
+### Surlignage de caractères
+
+## Widgets de complétion
+
+### Description des widgets
+
+### Paramètres spéciaux de complétion
+
+### Commandes de complétion intégrées
+
+### Codes conditions de complétion
+
+### Contrôle de correspondance de complétion
+
+## Système de complétion
+
+### Description du système de complétion
+
+### Initialisation du système de complétion
+
+#### Utilisation de compinit
+
+#### Fichiers chargés automatiquement
+
+#### Fonctions du système de complétion
+
+### Configuration du système de complétion
+
+#### Apperçu de la configuration
+
+#### Marques standards
+
+#### Styles standards
+
+### Fonctions de contrôle
+
+### Commandes liables
+
+### Fonctions d'utilité
+
+### Système de complétion de variable
+
+### Complétion de répertoires
+
+## Complétion à l'aide de compctl
+
+### Types de complétions
+
+### Description compctl
+
+### Drapeaux de commandes
+
+### Drapeaux d'options
+
+#### Drapeaux simples
+
+#### Drapeaux avec arguments
+
+#### Drapeaux de contrôle
+
+### Complétion alternative
+
+### Complétion étendue
+
+## Modules zsh
+
+### Description des modules
+
+### Module zsh/attr
+
+### Module zsh/cap
+
+### Module zsh/clone
+
+### Module zsh/compctl
+
+### Module zsh/complete
+
+### Module zsh/complist
+
+#### Complétion de listes colorée
+
+#### Balayer des listes de complétion
+
+#### Menu de sélection
+
+### Module zsh/computil
+
+### Module zsh/curses
+
+#### Curses inclus
+
+#### Curses paramètres
+
+### Module zsh/datetime
+
+### Module zsh/gdbm
+
+### Module zsh/deltochar
+
+### Module zsh/example
+
+### Module zsh/files
+
+### Module zsh/langinfo
+
+### Module zsh/mapfile
+
+#### Limitations mapfiles
+
+### Module zsh/mathfunc
+
+### Module zsh/nearcolor
+
+### Module zsh/newuser
+
+### Module zsh/parameter
+
+### Module zsh/pcre
+
+### Module zsh/param/private
+
+### Module zsh/regex
+
+### Module zsh/sched
+
+### Module zsh/net/socket
+
+#### Socket connexions externes
+
+#### Socket connexions internes
+
+### Module zsh/stat
+
+### Module zsh/systeme
+
+#### Systeme intégrés
+
+#### Fonctions mathématiques systeme
+
+#### Systeme paramètres
+
+### Module zsh/net/tcp
+
+#### TCP connexions externes
+
+#### TCP connexions internes
+
+#### Fermer des connexions
+
+### Module zsh/termcap
+
+### Module zsh/terminfo
+
+### Module zsh/zftp
+
+#### ZFTP sous-commandes
+
+#### ZFTP paramètres
+
+#### ZFTP fonctions
+
+### Module zsh/zle
+
+### Module zsh/zleparameter
+
+### Module zsh/zprof
+
+### Module zsh/zpty
+
+### Module zsh/zselect
+
+### Module zsh/util
+
+## Fonctions calendaires du système
+
+### Description des fonctions calendaires
+
+### Formats de fichiers et de dates
+
+#### Format de fichier de calendrier
+
+#### Format de date
+
+#### Format de temps relatif
+
+### Fonctions utilisateur
+
+#### Fonctions système calendaires utilisateur
+
+#### Qualifieurs globs fonctions calendaires
+
+### Style fonctions calendaires
+
+### Fonctions utilitaires
+
+## Fonctions système TCP
+
+### Description des fonctions TCP
+
+### Fonctions utilisateur TCP
+
+#### Entrées/Sorties basiques
+
+#### Gestion de session tcp
+
+#### Entrée/Sorties complexes
+
+#### Transfert de fichier d'une traite
+
+### Fonctions TCP définies par l'utilisateur
+
+### Fonctions TCP utilitaires
+
+### Paramètres utilisateur TCP
+
+## Fonctions systèmes ZFTP
+
+### Description des fonctions ZFTP
+
+### Installation ZFTP
+
+### Fonctions ZFTP
+
+#### Ouvrir une connexion
+
+#### Gestion d'un répertoire
+
+#### Commandes de status
+
+#### Récupérer des fichiers
+
+#### Envoyer des fichiers
+
+#### Fermer la connexion
+
+#### Gestion de session ZFTP
+
+#### Marques pages
+
+#### Autres fonctions ZFTP
+
+### Diverses fonctionnalités
+
+#### Configuration ZFTP
+
+#### Globs distants
+
+#### Réouvertures temporaires et automatiques
+
+#### Complétion ZFTP
+
+## Contribution des utilisateurs
+
+### Description des contributions
+
+### Utilitaires
+
+#### Accéder à l'aide en ligne
+
+#### Recompiler des fonctions
+
+#### Définition clavier
+
+#### Vider l'état du shell
+
+#### Manipuler les fonctions de hook
+
+### Rappeler les répertoires récents
+
+#### Installation rappel
+
+#### Utilisation rappel
+
+#### Options rappel
+
+#### Configuration rappel
+
+#### Utilisation avec nommage répertoire dynamique
+
+#### Détails concernant le traitement des répertoires
+
+### Références dynamiques abrégées aux répertoires
+
+#### Utilisation des références dynamiques
+
+#### Configuration des références dynamiques
+
+### Récupérer des informations de système de contrôle de version
+
+#### Introduction rapide
+
+#### Configuration récupération
+
+#### Bizarreries
+
+#### Support Quilt
+
+#### Description des fonctions (API publique)
+
+#### Description variable
+
+#### Hooks vcs_info
+
+### Thèmes de prompt
+
+#### Installation de thèmes
+
+#### Sélection de thèmes
+
+#### Thème utilitaires
+
+#### Écrire des thèmes
+
+### Fonctions ZLE
+
+#### Widgets ZLE
+
+#### Fonctions utilitaires ZLE
+
+#### Style ZLE
+
+### Gestion des exceptions
+
+### Fonctions MIME
+
+### Fonctions mathématiques
+
+### Fonctions de configuration utilisateurs
+
+### Autres fonctions
+
+#### Description des autres fonctions
+
+#### Styles des autres fonctions
+
