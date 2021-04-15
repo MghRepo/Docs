@@ -300,11 +300,24 @@
 
 ## Introduction
 
+Zsh est un interpréteur de commande UNIX (shell) utilisable en tant que shell de connexion interactif et en tant que processeur de
+commande de script shell. De tous les shells standards, zsh ressemble le plus à *ksh* mais il inclut également de nombreuses
+améliorations. Il ne fournit pas de compatibilité POSIX ni avec d'autres shells dans son mode opérationnel par défaut.
+
+Zsh a l'édition de ligne de commande, la correction orthographique incluse, la complétion de commande programmable, les fonctions
+shell (avec chargement automatique), un mécanisme d'historique, ainsi que beaucoup d'autres fonctionnalités.
+
 ## Feuille de route
+
+Le manuel zsh, de même que le shell lui-même, est vaste et souvent compliqué. Cette section du manuel fournit quelques directions
+vers les aires du shell qui sont susceptibles d'intéresser les nouveaux utilisateurs, et indique où est-ce que le reste de la
+documentation du manuel peut se trouver.
 
 ### Démarrage
 
-### Usage intéractif
+Au démarrage, le shell lit des commandes de divers fichiers. Ceux-ci peuvent être créés ou édité pour personnaliser le shell.
+
+### Usage interactif
 
 #### Complétion
 
@@ -406,7 +419,7 @@
 
 ## Expansion
 
-### Expasion d'historique
+### Expansion d'historique
 
 #### Aperçu
 
@@ -578,7 +591,7 @@
 
 ### Configuration du système de complétion
 
-#### Apperçu de la configuration
+#### Aperçu de la configuration
 
 #### Marques standards
 

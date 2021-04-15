@@ -25,6 +25,11 @@
     + [Table de hachage](#table-de-hachage)
 * [Programmation orientée objet](#programmation-orientée-objet)
 * [Compilation](#compilation)
+* [API](#api)
+    + [SOAP](#soap)
+    + [REST](#rest)
+    + [gRPC](#grpc)
+    + [GraphQL](#graphql)
 
 ## Structures de contrôle
 
@@ -850,3 +855,39 @@ langage pour être produit.
 
 Dans ce cas, il est complexe de détecter un bogue de compilateur. Le *bootstrap* oblige donc les programmeurs de compilateurs à
 contourner les bugs des compilateurs existants.
+
+## API
+
+Une Interface de Programmation d'Application (API) est une interface qui définit des interactions entre des applications logicielles
+diverses. Elle définit le type d'appels ou de requêtes pouvant être exécutés, comment les faire, les formats de données qui doivent
+être utilisés, les conventions qui en découlent, etc. Elle peut également fournir des mécanismes d'extension de façon à ce que les
+utilisateurs puissent étendre les fonctionnalités existantes de plusieurs manières et à des degrés variés. Une API peut être
+entièrement personnalisé, spécifique à un composant, ou construite à partir d'un standard afin de garantir l'interopérabilité. À
+travers le masquage d'information, les APIs présente une approche modulaire et permet aux utilisateur d'accéder à l'interface
+indépendamment de son implémentation.
+
+### SOAP
+
+SOAP (*Simple Object Access Protocol*) est une spécification de protocole de messages pour des échanges d'information structurée
+dans l'implémentation de webs services à travers un réseau informatique. Son objectif est de fournir une extensibilité, une
+neutralité, une verbosité et une indépendance. Elle utilise un ensemble d'information XML pour son format de message, et s'appuie
+sur des protocoles de la couche application, la plupart du temps HTTP, bien que certains anciens systèmes communiquent via SMTP,
+pour la négociation et la transmission de messages.
+
+SOAP permet aux développeurs d'invoquer des processus s'exécutant sur des systèmes d'exploitation disparates d'authentifier,
+d'autoriser, et de communiquer à l'aide du langage de balisage extensible (XML). Puisque les protocoles webs tels que HTTP sont
+installés et actifs sur tous les systèmes d'exploitation, SOAP permet aux clients d'invoquer des services webs et de recevoir des
+réponses indépendantes du langage et des plateformes.
+
+SOAP fournit la couche de protocole de messages de la pile de protocoles des webs services. C'est un protocole basé sur le langage
+XML qui consiste en trois parties :
+
+* Une enveloppe, qui définit la structure du message et la façon de le traiter.
+* Un ensemble de règles d'encodage afin d'exprimer des instances de types de données définis par application.
+* Une convention pour représenter les appels de procédures et leurs réponses.
+
+### REST
+
+### gRPC
+
+### GraphQL
