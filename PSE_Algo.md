@@ -869,10 +869,10 @@ indépendamment de son implémentation.
 ### SOAP
 
 SOAP (*Simple Object Access Protocol*) est une spécification de protocole de messages pour des échanges d'information structurée
-dans l'implémentation de webs services à travers un réseau informatique. Son objectif est de fournir une extensibilité, une
-neutralité, une verbosité et une indépendance. Elle utilise un ensemble d'information XML pour son format de message, et s'appuie
-sur des protocoles de la couche application, la plupart du temps HTTP, bien que certains anciens systèmes communiquent via SMTP,
-pour la négociation et la transmission de messages.
+dans l'implémentation de webs services à travers un réseau informatique. Son objectif est de fournir extensibilité,
+neutralité, verbosité et indépendance. Elle utilise un ensemble d'information XML pour son format de message, et s'appuie sur des
+protocoles de la couche application, la plupart du temps HTTP, bien que certains anciens systèmes communiquent via SMTP, pour la
+négociation et la transmission de messages.
 
 SOAP permet aux développeurs d'invoquer des processus s'exécutant sur des systèmes d'exploitation disparates d'authentifier,
 d'autoriser, et de communiquer à l'aide du langage de balisage extensible (XML). Puisque les protocoles webs tels que HTTP sont
@@ -885,6 +885,20 @@ XML qui consiste en trois parties :
 * Une enveloppe, qui définit la structure du message et la façon de le traiter.
 * Un ensemble de règles d'encodage afin d'exprimer des instances de types de données définis par application.
 * Une convention pour représenter les appels de procédures et leurs réponses.
+
+SOAP a trois caractéristiques majeures :
+
+1. l'extensibilité
+2. la neutralité (SOAP peut opérer à travers des protocoles tels que HTTP, SMTP, TCP, UDP)
+3. l'idépendance (SOAP ne contraint en aucune façon le modèle de programmation)
+
+L'architecture SOAP consiste en plusieurs couches de spécifications pour :
+
+* le format de message
+* les motifs d'echange de message (MEP)
+* les liens au protocole de transport sous-jacent
+* les modèles de traitement de messages
+* l'extensibilité du protocole
 
 ### REST
 
