@@ -858,12 +858,12 @@ contourner les bugs des compilateurs existants.
 
 ## API
 
-Une Interface de Programmation d'Application (API) est une interface qui définit des interactions entre des applications logicielles
-diverses. Elle définit le type d'appels ou de requêtes pouvant être exécutés, comment les faire, les formats de données qui doivent
-être utilisés, les conventions qui en découlent, etc. Elle peut également fournir des mécanismes d'extension de façon à ce que les
-utilisateurs puissent étendre les fonctionnalités existantes de plusieurs manières et à des degrés variés. Une API peut être
-entièrement personnalisé, spécifique à un composant, ou construite à partir d'un standard afin de garantir l'interopérabilité. À
-travers le masquage d'information, les APIs présente une approche modulaire et permet aux utilisateur d'accéder à l'interface
+Une Interface de Programmation d'Application (API) est une interface qui définit des interactions entre des applications
+logicielles diverses. Elle définit le type d'appels ou de requêtes pouvant être exécutés, comment les faire, les formats de données
+qui doivent être utilisés, les conventions qui en découlent, etc. Elle peut également fournir des mécanismes d'extension de façon à
+ce que les utilisateurs puissent étendre les fonctionnalités existantes de plusieurs manières et à des degrés variés. Une API peut
+être entièrement personnalisé, spécifique à un composant, ou construite à partir d'un standard afin de garantir l'interopérabilité.
+À travers le masquage d'information, les APIs présente une approche modulaire et permet aux utilisateur d'accéder à l'interface
 indépendamment de son implémentation.
 
 ### SOAP
@@ -890,12 +890,12 @@ SOAP a trois caractéristiques majeures :
 
 1. l'extensibilité
 2. la neutralité (SOAP peut opérer à travers des protocoles tels que HTTP, SMTP, TCP, UDP)
-3. l'idépendance (SOAP ne contraint en aucune façon le modèle de programmation)
+3. l'indépendance (SOAP ne contraint en aucune façon le modèle de programmation)
 
 L'architecture SOAP consiste en plusieurs couches de spécifications pour :
 
 * le format de message
-* les motifs d'echange de message (MEP)
+* les motifs d'échange de message (MEP)
 * les liens au protocole de transport sous-jacent
 * les modèles de traitement de messages
 * l'extensibilité du protocole
@@ -907,7 +907,7 @@ La spécification SOAP peut être grossièrement définie comme étant constitu�
 protocole, les concepts d'encapsulation et les concepts de réseau.
 
 **SOAP** est un ensemble de règles qui formalisent et gouvernent le format et les règles de traitement pour l'information échangé
-entre l'emetteur et le receveur SOAP.
+entre l'émetteur et le receveur SOAP.
 
 **Les noeuds SOAP** sont des machines physiques/logiques avec des unités de traitement utilisées pour transmettre/relayer, recevoir
 et traiter les messages SOAP. Ils sont analogues aux noeuds d'un réseau.
@@ -927,7 +927,7 @@ sécurité etc. Il existe des règles à suivre lors de l'ajout de fonctionnalit
 fonctionnalité étendue s'ajoutant à SOAP. Un module requiert zéro ou plusieurs fonctionnalités. SOAP a besoin des modules pour
 adhérer au règles prescrites.
 
-**Le message SOAP** représete l'information échangée entre 2 noeuds SOAP.
+**Le message SOAP** représente l'information échangée entre 2 noeuds SOAP.
 
 **L'enveloppe SOAP** est l'ensemble des éléments délimiteurs d'un message XML qui l'identifie comme étant un message SOAP.
 
@@ -945,15 +945,15 @@ défini par le blocs d'entêtes.
 **L'erreur SOAP** est un élément qui contient l'information d'erreur dans le cas où un noeud SOAP échoue à traiter un message SOAP.
 Cet élément est contenu dans le corps SOAP en tant qu'élément enfant.
 
-**L'emetteur SOAP** est un noeud qui transmet un message SOAP.
+**L'émetteur SOAP** est un noeud qui transmet un message SOAP.
 
 **Le receveur SOAP** est un noeud recevant un message SOAP. (Il peut s'agir d'un noeud intermédiaire ou d'un noeud destination)
 
 **Le chemin du message SOAP** est l'ensemble des noeuds que le message SOAP a traversé pour atteindre le noeud destination.
 
-**L'emetteur initial SOAP** est le noeud à l'origine de message SOAP à transmettre. C'est la racine du chemin du message SOAP.
+**L'émetteur initial SOAP** est le noeud à l'origine de message SOAP à transmettre. C'est la racine du chemin du message SOAP.
 
-**L'intermédiaire SOAP** est le noeud situé entre l'emetteur initial et la destination SOAP voulue. Il traite les blocs d'entête
+**L'intermédiaire SOAP** est le noeud situé entre l'émetteur initial et la destination SOAP voulue. Il traite les blocs d'entête
 ciblés sur lui et agit pour relayer un message SOAP vers son ultime receveur SOAP.
 
 **L'ultime receveur SOAP** est le receveur destinataire du message SOAP. Ce noeud est responsable du traitement du corps du message
@@ -999,8 +999,8 @@ Un message SOAP est un document XML ordinaire contenant les éléments suivants 
 
 À la fois SMTP et HTTP sont des protocoles de la couche application valides en tant que transports pour SOAP, mais HTTP est plus
 largement utilisé du fait qu'il fonctionne bien avec l'infrastructure internet ; spécifiquement, HTTP fonctionne bien avec les
-pare-feux réseaux. SOAP peut également être utilisé par dessus HTTPS (qui est le même protocole qu'HTTP au niveau application, mais
-utilise un protocole de transport chiffré en-dessous) avec une authentification simple ou mutuelle ; c'est la méthode utilisée pour
+pare-feu réseaux. SOAP peut également être utilisé par dessus HTTPS (qui est le même protocole qu'HTTP au niveau application, mais
+utilise un protocole de transport chiffré en dessous) avec une authentification simple ou mutuelle ; c'est la méthode utilisée pour
 fournir une sécurité au niveau des webs services.
 
 L'ensemble des informations XML a été choisi comme format de message standard du fait de son très large usage dans l'industrie et
