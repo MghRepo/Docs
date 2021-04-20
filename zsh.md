@@ -273,7 +273,7 @@
     + [Références dynamiques abrégées aux répertoires](#références-dynamiques-abrégées-aux-répertoires)
         - [Utilisation des références dynamiques](#utilisation-des-références-dynamiques)
         - [Configuration des références dynamiques](#configuration-des-références-dynamiques)
-    + [Récupérer des informations de système de contrôle de version](#récupérer-des-informations-de-système-de-contrôle-de-version)
+    + [Récupérer des informations système de contrôle de version](#récupérer-des-informations-système-de-contrôle-de-version)
         - [Introduction rapide](#introduction-rapide)
         - [Configuration récupération](#configuration-récupération)
         - [Bizarreries](#bizarreries)
@@ -851,7 +851,7 @@ Au démarrage, le shell lit des commandes de divers fichiers. Ceux-ci peuvent ê
 
 #### Configuration des références dynamiques
 
-### Récupérer des informations de système de contrôle de version
+### Récupérer des informations système de contrôle de version
 
 #### Introduction rapide
 

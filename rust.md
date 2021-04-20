@@ -31,7 +31,7 @@
 * [Collections communes](#collections-communes)
     + [Stocker des listes de valeurs à l'aide de vecteurs](#stocker-des-listes-de-valeurs-à-laide-de-vecteurs)
     + [Stocker du texte encodé en UTF-8 à l'aide de chaînes](#stocker-du-texte-encodé-en-utf-8-à-laide-de-chaînes)
-    + [Stocker des clefs et leurs valeurs dans une table de hashage](#stocker-des-clefs-et-leurs-valeurs-dans-une-table-de-hashage)
+    + [Stockage clefs-valeurs dans une table de hashage](#stocktage-clefs-valeurs-dans-une-table-de-hashage)
 * [Gestion d'erreurs](#gestion-derreurs)
     + [Erreurs irrécupérables à l'aide de panic!](#erreurs-irrécupérables-à-laide-de-panic)
     + [Erreurs récupérables à l'aide de Result](#erreurs-récupérables-à-laide-de-result)
@@ -68,10 +68,10 @@
     + [Exécuter du code au nettoyage avec drop Trait](#exécuter-du-code-au-nettoyage-avec-drop-trait)
     + [Rc, le pointeur intelligent compté référence](#rc-le-pointeur-intelligent-compté-référence)
     + [RefCell et le motif de mutabilité interne](#refcell-et-le-motif-de-mutabilité-interne)
-    + [Les cycles de références et possibilités de fuites mémoires](#les-cycles-de-références-et-possibilités-de-fuites-mémoires)
+    + [Les cycles de références possibilités de fuites mémoires](#les-cycles-de-références-possibilités-de-fuites-mémoires)
 * [Concurrence](#concurrence)
     + [Utiliser des threads pour exécuter du code simultanément](#utiliser-des-threads-pour-exécuter-du-code-simultanément)
-    + [Passage de messages pour transférer la donnée entre threads](#passage-de-messages-pour-transferer-la-donnée-entre-threads)
+    + [Passage de messages transférer la donnée entre threads](#passage-de-messages-transferer-la-donnée-entre-threads)
     + [Concurrence et états partagés](#concurrence-et-états-partagés)
     + [Concurrence étendue à l'aide des traits Sync et Send](#concurrence-étendue-à-laide-des-traits-sync-et-send)
 * [Programmation orienté objet en Rust](#programmation-orienté-objet-en-rust)
@@ -155,7 +155,7 @@
 
 ### Stocker du texte encodé en UTF-8 à l'aide de chaînes
 
-### Stocker des clefs et leurs valeurs dans une table de hashage
+### Stockage clefs-valeurs dans une table de hashage
 
 ## Gestion d'erreurs
 
@@ -229,13 +229,13 @@
 
 ### RefCell et le motif de mutabilité interne
 
-### Les cycles de références et possibilité de fuites mémoires
+### Les cycles de références possibilité de fuites mémoires
 
 ## Concurrence
 
 ### Utiliser des threads pour exécuter du code simultanément
 
-### Passage de messages pour transférer la donnée entre threads
+### Passage de messages transférer la donnée entre threads
 
 ### Concurrence et états partagés
 

@@ -2,15 +2,15 @@
 
 ## Qu'est-ce que le Shell ?
 
-Le Shell est un programme qui permet d'interpréter les commandes de l'utilisateur. C'est l'un des tout premiers moyens d'interagir
-avec un ordinateur. Le shell est généralement plus puissant qu'une interface graphique utilisateur (GUI), dans le sens où il permet
-d'accéder très efficacement aux fonctionnalités internes du système d'exploitation (OS).
+Le Shell est un programme qui permet d'interpréter les commandes de l'utilisateur. C'est l'un des tout premiers moyens
+d'interagir avec un ordinateur. Le shell est généralement plus puissant qu'une interface graphique utilisateur (GUI), dans le
+sens où il permet d'accéder très efficacement aux fonctionnalités internes du système d'exploitation (OS).
 
 Souvent les outils textuels dont il dispose sont construits de manière à pouvoir être composés. Ainsi de multiples assemblages
 permettent à la fois une simplicité dans la décomposition des tâches, et une facilité de mise en oeuvre dans l'automatisation.
 
-Les shells peuvent généralement dépendre des OS, sachant qu'il en existe une quantité pour chacun d'entre eux. Dans le cas de Linux,
-le Bourne Again Shell ou bash est très largement répandu. C'est celui qui va nous intéresser ici.
+Les shells peuvent généralement dépendre des OS, sachant qu'il en existe une quantité pour chacun d'entre eux. Dans le cas de
+Linux, le Bourne Again Shell ou bash est très largement répandu. C'est celui qui va nous intéresser ici.
 
 Quand on ouvre un terminal, une fenêtre s'ouvre affichant un prompt shell. Dans le cadre du bash si aucune customisation n'a été
 faite il se décompose ainsi :
@@ -23,8 +23,8 @@ Généralement un shell est fait pour passer des commandes, c'est à dire, exéc
     sam. 09 mai 2020 17:36:09 CEST
 
 L'ajout de certains arguments permet de modifier le comportement de certains programmes. La commande *echo* permet par exemple
-d'afficher à l'écran les arguments qui la suivent. Un argument est une chaîne de caractère séparée du nom du programme par un espace
-:
+d'afficher à l'écran les arguments qui la suivent. Un argument est une chaîne de caractère séparée du nom du programme par un
+espace :
 
     $ echo hello
     hello
@@ -44,34 +44,34 @@ On peut également échapper le caractère espace à l'aide d'un anti-slash : $ 
 
 ## Les Chemins
 
-Le shell sait quel programme (dont un certain nombre sont installés avec l'OS) utiliser et où celui-ci se situe dans le système de
-fichiers à l'aide de ce que l'on appelle une variable d'environnement. Une variable connue et renseignée dès le lancement du shell.
-Il s'agit de la variable PATH :
+Le shell sait quel programme (dont un certain nombre sont installés avec l'OS) utiliser et où celui-ci se situe dans le système
+de fichiers à l'aide de ce que l'on appelle une variable d'environnement. Une variable connue et renseignée dès le lancement du
+shell. Il s'agit de la variable PATH :
 
     $ echo $PATH
     /usr/local/sbin:/usr/local/bin:/usr/bin
 
 Il s'agit d'une liste des chemins ordonnée dans lequel le shell va chercher les programmes.
 
-La commande which permet de savoir dans quel répertoire se trouve le programme passé en argument, lequel sera celui exécuté lors de
-l'appel par ce shell précisément :
+La commande which permet de savoir dans quel répertoire se trouve le programme passé en argument, lequel sera celui exécuté lors
+de l'appel par ce shell précisément :
 
     $ which echo
     /usr/bin/echo
 
-Les chemins sont la description des emplacements des fichiers dans l'architecture du système de fichiers. Sur Linux et MacOS, les
-répertoires sont séparés par des slashs. Le premier slash sur la gauche symbolise le sommet du système de fichiers (celui-ci étant
-hiérarchique) il est appelé root ou répertoire root, racine en français. Sous Windows les répertoires sont généralement séparés par
-des anti-slash et chaque partition est la racine de son propre système de fichier hiérarchique. La partition est généralement
-désignée par une lettre de l'alphabet (C:\ D:\ etc.).
+Les chemins sont la description des emplacements des fichiers dans l'architecture du système de fichiers. Sur Linux et MacOS,
+les répertoires sont séparés par des slashs. Le premier slash sur la gauche symbolise le sommet du système de fichiers (celui-ci
+étant hiérarchique) il est appelé root ou répertoire root, racine en français. Sous Windows les répertoires sont généralement
+séparés par des anti-slash et chaque partition est la racine de son propre système de fichier hiérarchique. La partition est
+généralement désignée par une lettre de l'alphabet (C:\ D:\ etc.).
 
 Il existe 2 types de chemins :
 
 - les chemins absolus : à partir de la racine.
 - les chemins relatifs : à partir du répertoire dans lequel on se situe.
 
-Pour savoir dans quel répertoire on se trouve actuellement il existe la commande *pwd* pour *print working directory* (affiche le
-répertoire de travail) :
+Pour savoir dans quel répertoire on se trouve actuellement il existe la commande *pwd* pour *print working directory* (affiche
+le répertoire de travail) :
 
     $ pwd
     /home/hugo
@@ -109,8 +109,8 @@ Par exemple :
 
 Cela permet de naviguer plus facilement à l'intérieur du système de fichiers.
 
-> Note : Dans le cas de script shell, lors de l'appel d'un programme on évite les chemins relatifs. On préfère travailler avec la
-variable d'environnement PATH ou bien on donne le chemin absolu.
+> Note : Dans le cas de script shell, lors de l'appel d'un programme on évite les chemins relatifs. On préfère travailler avec
+la variable d'environnement PATH ou bien on donne le chemin absolu.
 
 ---
 
@@ -201,12 +201,13 @@ ou plus facilement presser Ctrl + L.
 
 ## Redirection d'entrée/sortie, descripteurs de fichier et tubes
 
-Comme il a été évoqué plus haut, l'une des caractéristiques les plus importantes du shell est qu'il permet l'assemblage de multiples
-programmes via des flux. Cela permet de combiner les fonctionnalités de différents programmes afin d'exécuter une tâche spécifique.
+Comme il a été évoqué plus haut, l'une des caractéristiques les plus importantes du shell est qu'il permet l'assemblage de
+multiples programmes via des flux. Cela permet de combiner les fonctionnalités de différents programmes afin d'exécuter une
+tâche spécifique.
 
 Pour interagir avec ces flux le bash dispose de descripteurs de fichiers ou fd (pour file descriptor). Ceux-ci sont des chiffres
-utilisés comme référence abstraite vers un fichier ou une ressource d'entrée/sortie (e.g pipe, IPC etc.) Le terme de fichier est ici
-très large également (physique, virtuel, périphérique etc.)
+utilisés comme référence abstraite vers un fichier ou une ressource d'entrée/sortie (e.g pipe, IPC etc.) Le terme de fichier est
+ici très large également (physique, virtuel, périphérique etc.)
 
 Par défaut 3 ressources disposant de fd sont ouverts :
 
@@ -225,9 +226,9 @@ Pour vider le contenu de la sortie standard dans un fichier, on utilise le chevr
 > Note : Si aucun chiffre de descripteur ne préfixe les chevrons, ce sera le stdin (0) pour un gauche et le stdout (1) pour un
 > droit.
 
-Dans ce cas précis, uniquement la sortie d'erreur standard sera affichée dans le terminal. Dans ce cas précis également, le contenu
-préexistant au fichier est écrasé, ce qui peut être pratique si l'on souhaite vider un fichier ou créer un fichier vide on peut
-exécuter la commande :
+Dans ce cas précis, uniquement la sortie d'erreur standard sera affichée dans le terminal. Dans ce cas précis également, le
+contenu préexistant au fichier est écrasé, ce qui peut être pratique si l'on souhaite vider un fichier ou créer un fichier vide
+on peut exécuter la commande :
 
     $ > nom_fichier
 
@@ -273,25 +274,26 @@ Cela permet d'accéder au fichier :
 
     $ exec 3>&-
 
-Le script ci-dessus permet par exemple de remplacer le 4ème caractère de la deuxième ligne du fichier par un point. La où le shell
-se distingue réellement, c'est dans l'utilisation de pipe. Cet opérateur | permet de chaîner des programmes de façon à ce que la
-sortie de l'un devienne l'entrée d'un autre :
+Le script ci-dessus permet par exemple de remplacer le 4ème caractère de la deuxième ligne du fichier par un point. La où le
+shell se distingue réellement, c'est dans l'utilisation de pipe. Cet opérateur | permet de chaîner des programmes de façon à ce
+que la sortie de l'un devienne l'entrée d'un autre :
 
     $ ls -l / | tail -n1 $ pactl list sink-inputs | rg Volume | awk '{print $5}'
 
 La première commande affiche le dernier item de la liste de fichiers du répertoire /. La deuxième affiche le pourcentage de
-l'entrée son des destinations (sinks) audio (enceintes, casques etc.) Cela a de multiples avantages notamment pour l'exploitation de
-fichiers de données.
+l'entrée son des destinations (sinks) audio (enceintes, casques etc.) Cela a de multiples avantages notamment pour
+l'exploitation de fichiers de données.
 
-Une commande conçue pour fonctionner avec l'opérateur pipe est xargs. xargs lit l'entrée standard et passe chaque item en argument
-à la fonction suivante. Un exemple d'application :
+Une commande conçue pour fonctionner avec l'opérateur pipe est xargs. xargs lit l'entrée standard et passe chaque item en
+argument à la fonction suivante. Un exemple d'application :
 
     $ ls *.txt | xargs wc
 
-La première commande liste l'ensemble des fichiers .txt et wc compte le nombre de ligne de chacun des fichiers passés en argument.
+La première commande liste l'ensemble des fichiers .txt et wc compte le nombre de ligne de chacun des fichiers passés en
+argument.
 
-Pour savoir ce qu'une commande peut faire, savoir quelle est son utilisation généralement celle-ci implémente une option --help ou
-une référence (page) dans le man. man est une commande qui renvoie une section du manuel système. Pour plus de détail :
+Pour savoir ce qu'une commande peut faire, savoir quelle est son utilisation généralement celle-ci implémente une option --help
+ou une référence (page) dans le man. man est une commande qui renvoie une section du manuel système. Pour plus de détail :
 
     $ man man
 
@@ -306,9 +308,9 @@ Si on le souhaite (et qu'on dispose d'un lecteur pdf)...
 ## Un outil versatile et puissant
 
 Sur la plupart des systèmes Unix-like, il existe un utilisateur root. Cet utilisateur a le droit d'accéder à l'ensemble des
-fichiers du système sans restriction (écriture, lecture, modification, suppression). Généralement il est dangereux de se connecter
-en root sur une machine. De ce fait, on préfère donner des droits root à d'autres utilisateurs mais uniquement sur des commandes
-spécifiques. Pour cela on utilise l'utilitaire sudo.
+fichiers du système sans restriction (écriture, lecture, modification, suppression). Généralement il est dangereux de se
+connecter en root sur une machine. De ce fait, on préfère donner des droits root à d'autres utilisateurs mais uniquement sur des
+commandes spécifiques. Pour cela on utilise l'utilitaire sudo.
 
 Par exemple, la luminosité d'un ordinateur portable apparaît dans un fichier système :
 
@@ -331,13 +333,13 @@ choses intéressantes se trouve sous */sys* (contrôle des périphériques, les 
 ## Scripts Shell
 
 La plupart des shells ont un langage de script qui leur est propre. Ce qui fait que le langage de script shell est différent de
-langages de scripts plus traditionnels c'est qu'il est avant tout fait pour de l'administration système. Créer des commandes pipes,
-écrire dans des fichiers, lire l'entrée standard etc. Dans cette section, le langage bash étant le plus répandu, c'est celui que
-nous utiliserons.
+langages de scripts plus traditionnels c'est qu'il est avant tout fait pour de l'administration système. Créer des commandes
+pipes, écrire dans des fichiers, lire l'entrée standard etc. Dans cette section, le langage bash étant le plus répandu, c'est
+celui que nous utiliserons.
 
-Pour assigner des variable en bash, on utilise la syntaxe *foo=bar* et on accède au contenu de la variable avec *$foo*. *foo = bar*
-ne marche pas puisque le bash l'interprète comme l'appel du programme *foo* avec 2 arguments *=* et *bar*. En général dans les
-scripts shell le caractère espace sépare les arguments.
+Pour assigner des variable en bash, on utilise la syntaxe *foo=bar* et on accède au contenu de la variable avec *$foo*. *foo =
+bar* ne marche pas puisque le bash l'interprète comme l'appel du programme *foo* avec 2 arguments *=* et *bar*. En général dans
+les scripts shell le caractère espace sépare les arguments.
 
 Les chaînes de caractères en bash peuvent être définies à l'aide des délimiteurs ' et ", mais ils ne sont pas équivalents. Les
 chaînes délimitées à l'aide de la simple quote sont des littéraux et ne substituent pas de variables contrairement aux chaînes
@@ -350,16 +352,16 @@ délimitées à l'aide d'une double quote :
     $ echo '$foo'
       $foo
 
-Comme la plupart des langages de programmation, bash supporte des techniques de contrôle du flux d'exécution tel que if, case, while
-et for. On peut également définir des fonctions en bash qui peuvent prendre des arguments. Exemple :
+Comme la plupart des langages de programmation, bash supporte des techniques de contrôle du flux d'exécution tel que if, case,
+while et for. On peut également définir des fonctions en bash qui peuvent prendre des arguments. Exemple :
 
     mcd () {
         mkdir -p "$1"
         cd "$1"
     }
 
-Ici $1 est le premier argument de la fonction. Contrairement aux autres langages de script, bash utilise un nombre assez important
-de variables spéciales qui font référence à des arguments, codes d'erreurs etc. Voir liste ci-dessous :
+Ici $1 est le premier argument de la fonction. Contrairement aux autres langages de script, bash utilise un nombre assez
+important de variables spéciales qui font référence à des arguments, codes d'erreurs etc. Voir liste ci-dessous :
 
     - $0 - Nom du script
     - $1 à $9 - Arguments du script. $1 est le premier argument (resp. autres)
@@ -372,12 +374,12 @@ de variables spéciales qui font référence à des arguments, codes d'erreurs e
     - $_ - Dernier argument de la dernière commande. Dans un shell interactif on peut également faire Esc suivi du point.
 
 Les commandes génèrent généralement une sortie via stdout, des erreurs via stderr, et un code retour. Le code retour permet de
-savoir le résultat d'exécution, qui peut être utilisé à la suite par d'autres scripts ou commandes. Généralement, une valeur de 0
-signifie que tout s'est bien passé et tout autre valeur est une erreur.
+savoir le résultat d'exécution, qui peut être utilisé à la suite par d'autres scripts ou commandes. Généralement, une valeur de
+0 signifie que tout s'est bien passé et tout autre valeur est une erreur.
 
 Néanmoins, ce code peut aussi être utilisé pour des commandes conditionnées en utilisant les opérateurs && (et) et || (ou). Les
-commandes peuvent également être séparées sur la même ligne avec le ; . La commande true aura toujours un code retour à 0 tandis que
-false aura toujours un code à 1. Exemples :
+commandes peuvent également être séparées sur la même ligne avec le ; . La commande true aura toujours un code retour à 0 tandis
+que false aura toujours un code à 1. Exemples :
 
     false || echo "Oups, raté !"
 
@@ -389,9 +391,9 @@ false aura toujours un code à 1. Exemples :
 
     false ; echo "Ca marche !"
 
-Parfois on souhaite avoir le contenu de la sortie d'une commande dans une variable. On peut le faire à l'aide d'une substitution de
-commande. Quand on écrit $(commande) le bash exécutera la commande et substituera son contenu dans le script avant l'exécution de
-celui-ci. Par exemple, si on écrit :
+Parfois on souhaite avoir le contenu de la sortie d'une commande dans une variable. On peut le faire à l'aide d'une substitution
+de commande. Quand on écrit $(commande) le bash exécutera la commande et substituera son contenu dans le script avant
+l'exécution de celui-ci. Par exemple, si on écrit :
 
     for file in $(ls)
 
@@ -421,17 +423,17 @@ arguments que nous lui donnerons, grep la chaîne foobar, et l'ajoutera comme co
     done
 
 Dans le test de comparaison on teste si $? est égal à 0. Bash implémente de nombreuses comparaisons de la sorte (voir man test).
-Dans un test on essaye généralement d'utiliser les doubles crochets, les chances de faire des erreurs sont moindres. Même si cela
-n'est pas le standard POSIX.
+Dans un test on essaye généralement d'utiliser les doubles crochets, les chances de faire des erreurs sont moindres. Même si
+cela n'est pas le standard POSIX.
 
 Lors de l'exécution de scripts, on devra souvent fournir des arguments semblables. Bash rend les choses plus faciles, "étendant"
 les expressions en supportant des expansions de nom de fichiers :
 
-- Joker - On peut utiliser *?* et *\** pour respectivement vérifier 1 ou n'importe quel nombre de caractère. Par exemple, soit les
-fichiers *foo1* *foo2*, *foo10* et *bar*, la commande *rm foo?* supprimera *foo1* et *foo2* alors que *rm foo\** supprimera tout
-sauf *bar*.
-- Accolades *{}* - Quand il existe une sous-chaîne commune dans une série de commandes, on peut utiliser les accolades pour étendre
-automatiquement. Cela peut-être pratique pour déplacer ou convertir des fichiers.
+- Joker - On peut utiliser *?* et *\** pour respectivement vérifier 1 ou n'importe quel nombre de caractère. Par exemple, soit
+les fichiers *foo1* *foo2*, *foo10* et *bar*, la commande *rm foo?* supprimera *foo1* et *foo2* alors que *rm foo\** supprimera
+tout sauf *bar*.
+- Accolades *{}* - Quand il existe une sous-chaîne commune dans une série de commandes, on peut utiliser les accolades pour
+étendre automatiquement. Cela peut-être pratique pour déplacer ou convertir des fichiers.
 
 Exemples :
 
@@ -475,11 +477,11 @@ commande *which*.
 
 Quelques différences entre les fonctions shell et les scripts shell à garder en tête sont :
 
-- Les fonctions doivent être écrites dans le même langage shell, alors que les scripts n'ont pas cette contrainte. D'où l'utilité du
-sheebang.
+- Les fonctions doivent être écrites dans le même langage shell, alors que les scripts n'ont pas cette contrainte. D'où
+l'utilité du sheebang.
 - Les fonctions sont chargées une fois que leur définition est lue. Les scripts sont chargés à chaque exécution.
-- Les fonctions sont exécutées dans le shell courant alors que les scripts exécutent leurs propres processus. Les fonctions peuvent
-donc modifier des variables d'environnement, par exemple changer le répertoire de travail. A ce titre, les scripts peuvent
-hériter de variables d'environnement si celles-ci ont été exportées précédemment à l'aide du mot-clef *export*.
-- Comme avec n'importe quel langage de programmation, les fonctions sont des outils modulaires permettant une réutilisation et une
-meilleure clarté du code.
+- Les fonctions sont exécutées dans le shell courant alors que les scripts exécutent leurs propres processus. Les fonctions
+peuvent donc modifier des variables d'environnement, par exemple changer le répertoire de travail. A ce titre, les scripts
+peuvent hériter de variables d'environnement si celles-ci ont été exportées précédemment à l'aide du mot-clef *export*.
+- Comme avec n'importe quel langage de programmation, les fonctions sont des outils modulaires permettant une réutilisation et
+une meilleure clarté du code.
