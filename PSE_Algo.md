@@ -790,7 +790,19 @@ l'arbre privé de sa racine pour en faire un nouveau tas.
 
 Une table de hachage est une structure de données qui implémente un type abstrait de tableau associatif. Une table de hachage
 utilise une fonction de hachage afin de calculer l'index d'un tableau d'emplacements desquels la valeur attendue peut être
-trouvée. Pendant la recherche, la clef est hachée et le hash résultant indique l'emplacement de la valeur.
+trouvée. Pendant la recherche, la clef est hachée et le hash résultant indique l'emplacement de la valeur. Durant la recherche,
+la clef est hachée et le hash résultant indique où la valeur correspondante est stockée.
+
+Idéalement, la fonction de hachage assignera chaque clef à un réceptacle unique, mais la plupart des tables de hachage utilisent
+des fonctions de hachages imparfaites, qui peuvent causer des collisions quand la fonction de hachage attribue un même index
+pour plus d'une clef. Ces collisions sont alors traitées de diverses manières.
+
+Dans une table de hachage bien dimensionnée, le coût moyen (nombre d'instructions) pour chaque recherche est indépendant du
+nombre d'élément stockés dans la table. Beaucoup de tables de hachages permettent également des insertion et des suppressions
+arbitraires de paires clef-valeur, à un coût (amorti) moyen constant par opération.
+
+Dans de nombreuses situations, les tables de hachage sont en moyenne plus efficaces que des arbres de recherche ou de n'importe
+quelle autre structure de table de recherche.
  
 ## Programmation orientée objet
 
@@ -1056,3 +1068,14 @@ nombreux langages de programmations.
 
 ### gRPC
 
+gRPC est un système d'appel de procédures distantes. Il utilise HTTP/2 pour le transport, et protobuf en tant que langage de
+description d'interface, et fournit des fonctionnalités telles que l'authentification, le streaming bidirectionnel et le
+contrôle de flux, les liaisons bloquantes ou non bloquantes, l'annulation et les dépassements de délais. Il génère des liaisons
+entre les clients multi-plateformes et le serveur pour de nombreux langages. Les usages généraux incluent l'interconnexion de
+services dans un style architectural microservices, ou la connexion de clients mobiles à des services backend.
+
+gRPC supporte l'usage de TLS et d'une authentification basée token. Il y a deux types de certificats : les certificats de
+canaux et les certificats d'appels.
+
+gRPC utilise protobuf pour encoder la donnée. Contrairement aux APIs HTTP avec JSON, elles obéissent à une spécification
+stricte.
