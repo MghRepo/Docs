@@ -1013,8 +1013,8 @@ et des efforts de développements open source. Typiquement, l'ensemble des infor
 
 ### REST
 
-Le transfert d'état représentationnel (REST) est un style d'architecture logicielle qui utilise un sous-ensemble d'HTTP. Il est
-communément utilisé pour créer des applications intéractives qui utilisent des services webs. Un service web qui suit ces lignes
+Le transfert d'état de représentations (REST) est un style d'architecture logicielle qui utilise un sous-ensemble d'HTTP. Il est
+communément utilisé pour créer des applications interactives qui utilisent des services webs. Un service web qui suit ces lignes
 directrices est appelé RESTful. Un tel service web doit fournir ces ressources web dans une représentation textuelle et
 permettre de les lire et de les modifier à l'aide d'un protocole sans état et d'un ensemble d'opérations prédéfinies. Cette
 approche permet l'interopérabilité entre les systèmes informatiques sur l'Internet qui fournissent ces services. REST est une
@@ -1027,10 +1027,10 @@ requêtes effectuées à une URI de ressource obtiennent une réponse avec un ch
 autre format. Par exemple, la réponse peut confirmer que l'état de la ressource a changé. La réponse peut également inclure des
 liens hypertextes vers des ressources liées. Le protocole le plus commun pour ces requêtes et ces réponses est HTTP. Il fournit
 des opérations (méthodes HTTP) telles que GET, POST, PUT, et DELETE. En utilisant des protocoles sans état et des opérations
-standards, les systèmes RESTful essaient de tendre vers la performance, la fiablité et la capacité à s'étendre en réutilisant
+standards, les systèmes RESTful essaient de tendre vers la performance, la fiabilité et la capacité à s'étendre en réutilisant
 des composants pouvant être gérés et mis à jours sans affecter le système dans son entièreté, même en cours d'exécution.
 
-Le but de REST est d'améliorer la performace, la mise à l'echelle, la simplicité, l'adaptabilité, la visibilité, la portabilité,
+Le but de REST est d'améliorer la performance, la mise à l'échelle, la simplicité, l'adaptabilité, la visibilité, la portabilité,
 et la fiabilité. Ceci est réalisé à travers le respect des principes de REST tels que l'architecture client-serveur, l'absence
 d'états, la possibilité de mise en cache, l'utilisation de systèmes multi-couches, le support de code à la demande, et l'usage
 d'interfaces uniformisées. Ces principes doivent être suivis pour qu'un système soit classifié en tant que système REST.
@@ -1051,7 +1051,7 @@ retourner en une seule requête, l'ensemble de ses ancêtres.
 
 GraphQL consiste en un système de types, un langage de requêtage et une sémantique d'exécution, une validation statique, et une
 introspection de type. Il supporte la lecture, l'écriture (mutation), et la souscription à des modifications de la donnée (mis à
-jour en temps réel -- implémentée le plus souvent à l'aide de websockets). Les serveurs GraphQL sont disponnibles pour de
+jour en temps réel -- implémentée le plus souvent à l'aide de websockets). Les serveurs GraphQL sont disponibles pour de
 nombreux langages de programmations.
 
 ### gRPC
