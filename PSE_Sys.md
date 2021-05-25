@@ -16,6 +16,8 @@
     + [Passage de messages](#passage-de-messages)
     + [Fichier mappé en mémoire](#fichier-mappé-en-mémoire)
     + [Partitionnement de la mémoire](#partitionnement-de-la-mémoire)
+    + [MBR](#mbr)
+    + [GPT](#gpt)
     + [Mémoire virtuelle](#mémoire-virtuelle)
     + [Pagination](#pagination)
     + [Segmentation](#segmentation)
@@ -24,6 +26,8 @@
     + [Bus](#bus)
     + [Accès direct à la mémoire](#accès-direct-à-la-mémoire)
     + [Pilotes](#pilotes)
+    + [BIOS](#bios)
+    + [UEFI](#uefi)
     + [Shell](#shell)
     + [Cgroups](#cgroups)
     + [Espaces de noms](#espaces-de-noms)
@@ -372,6 +376,10 @@ qui rendrait le système inutilisable. Le partitionnement permet aussi de simpli
 partitionnement est qu'il peut être difficile d'allouer la taille adéquate à chacune des partitions, ce qui peut avoir pour
 conséquence de laisser une partition avec énormément d'espace libre et une autre totalement saturée.
 
+### MBR
+
+### GPT
+
 ### Mémoire virtuelle
 
 Le principe de mémoire virtuelle repose sur l'utilisation de traduction à la volée des adresses virtuelles vue du logiciel, en
@@ -537,6 +545,10 @@ données au pilote, le pilote peut invoquer des routines du programme à l'origi
 
 Les pilotes sont dépendant du matériel et spécifiques au système d'exploitation. Il fournissent généralement la gestion des
 interruptions à n'importe quelle interface matérielle asynchrone nécessaire.
+
+### BIOS
+
+### UEFI
 
 ### Shell
 
