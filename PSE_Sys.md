@@ -378,7 +378,30 @@ conséquence de laisser une partition avec énormément d'espace libre et une au
 
 ### MBR
 
+Un **enregistrement de démarrage maître (MBR)** est type spécial de secteur de démarrage situé au commencement d'un appareil de
+stockage informatique partitionné tel qu'un disque dur.
+
+Le MBR contient l'information du comment les partitions logiques, contenant le système de fichiers, sont organisées sur cet
+appareil. Le MBR contient également du code exécutable pour fonctionner comme chargeur pour un système d'exploitation installé
+généralement en laissant la main au second étage du chargeur, ou en conjonction avec chacun des enregistrement de démarrage de
+volume (VBR). Ce code MBR est généralement désigné comme un chargeur d'ammorçage.
+
+L'organisation de la table de partition au niveau du MBR limite le maximum d'espace de stockage adressable d'un disque
+partitionné à 2To. Par conséquent, le shema de partitionnement MBR est progressivement remplacé par le schema de table de
+partitionnement GUID (GPT).
+
+<TODO>
+
 ### GPT
+
+La **table de partition GUID (GPT)** est un standard pour la disposition de tables de partitions sur un appareil de stockage
+informatique, tels que les disques durs ou les SSDs, en utilisant des identifiants uniques universels, aussi connus en tant
+qu'identifiants uniques globaux (GUIDs). Ce standard fait parti des standards d'interface microgicielle extensible unifiée
+(UEFI), il peut néanmoins être utilisé pour des système BIOS, du fait des limitations des tables de partitions MBR.
+
+Tous les systèmes d'exploitation récents supportent GPT.
+
+<TODO>
 
 ### Mémoire virtuelle
 
@@ -986,6 +1009,12 @@ le contexte en entier. Le type SELinux finit habituellement par *_t* (e.g. *http
 
 ### Algèbre relationnelle
 
+<TODO>
+
 ### Langage SQL
 
+<TODO>
+
 ### Administration SGBD
+
+<TODO>

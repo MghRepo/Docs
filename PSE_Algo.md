@@ -803,6 +803,8 @@ arbitraires de paires clef-valeur, à un coût (amorti) moyen constant par opér
 
 Dans de nombreuses situations, les tables de hachage sont en moyenne plus efficaces que des arbres de recherche ou de n'importe
 quelle autre structure de table de recherche.
+
+<TODO>
  
 ## Programmation orientée objet
 
@@ -1023,6 +1025,8 @@ utilisée pour fournir une sécurité au niveau des webs services.
 L'ensemble des informations XML a été choisi comme format de message standard du fait de son très large usage dans l'industrie
 et des efforts de développements open source. Typiquement, l'ensemble des informations XML est sérialisé comme du XML.
 
+<TODO>
+
 ### REST
 
 Le transfert d'état de représentations (REST) est un style d'architecture logicielle qui utilise un sous-ensemble d'HTTP. Il est
@@ -1046,6 +1050,8 @@ Le but de REST est d'améliorer la performance, la mise à l'échelle, la simpli
 et la fiabilité. Ceci est réalisé à travers le respect des principes de REST tels que l'architecture client-serveur, l'absence
 d'états, la possibilité de mise en cache, l'utilisation de systèmes multi-couches, le support de code à la demande, et l'usage
 d'interfaces uniformisées. Ces principes doivent être suivis pour qu'un système soit classifié en tant que système REST.
+
+<TODO>
 
 ### GraphQL
 
