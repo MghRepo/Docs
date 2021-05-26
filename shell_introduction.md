@@ -1,6 +1,16 @@
 # Introduction au Shell
 
-## Qu'est-ce que le Shell ?
+#### Table des matières
+
++ [Qu'est-ce que le shell ?](#quest-ce-que-le-shell-)
++ [Les chemins](#les-chemins)
++ [Lister le contenu d'un répertoire et droits](#lister-le-contenu-dun-répertoire-et-droits)
++ [D'autres commandes](#dautres-commandes)
++ [Redirection d'entrée/sortie, descripteurs de fichiers et tubes](#redirection-dentréesortie-descripteurs-de-fichiers-et-tubes)
++ [Un outil versatile et puissant](#un-outil-versatile-et-puissant)
++ [Scripts shell](#scripts-shell)
+
+## Qu'est-ce que le shell ?
 
 Le Shell est un programme qui permet d'interpréter les commandes de l'utilisateur. C'est l'un des tout premiers moyens
 d'interagir avec un ordinateur. Le shell est généralement plus puissant qu'une interface graphique utilisateur (GUI), dans le
@@ -42,7 +52,7 @@ On peut également échapper le caractère espace à l'aide d'un anti-slash : $ 
 
 ---
 
-## Les Chemins
+## Les chemins
 
 Le shell sait quel programme (dont un certain nombre sont installés avec l'OS) utiliser et où celui-ci se situe dans le système
 de fichiers à l'aide de ce que l'on appelle une variable d'environnement. Une variable connue et renseignée dès le lancement du
@@ -114,7 +124,7 @@ la variable d'environnement PATH ou bien on donne le chemin absolu.
 
 ---
 
-## Lister le Contenu d'un Répertoire et Droits
+## Lister le contenu d'un répertoire et droits
 
 Par défaut (sans argument) un programme agit sur le répertoire de travail. Il est alors généralement intéressant de savoir que
 contient ce répertoire. La commande ls permet de lister le contenu d'un répertoire.
@@ -162,7 +172,7 @@ signifie l'absence du droit.
 
 ---
 
-## D'autres Commandes
+## D'autres commandes
 
 La commande mv permet de renommer et/ou (non exclusif) déplacer un fichier:
 
@@ -199,7 +209,7 @@ ou plus facilement presser Ctrl + L.
 
 ---
 
-## Redirection d'entrée/sortie, descripteurs de fichier et tubes
+## Redirection d'entrée/sortie, descripteurs de fichiers et tubes
 
 Comme il a été évoqué plus haut, l'une des caractéristiques les plus importantes du shell est qu'il permet l'assemblage de
 multiples programmes via des flux. Cela permet de combiner les fonctionnalités de différents programmes afin d'exécuter une
@@ -330,7 +340,7 @@ problème on utilise un autre outil pour écrire le fichier :
 Puisque c'est le programme tee qui ouvre */sys* pour l'écriture en tant que root, les permissions sont vérifiées. Un nombre de
 choses intéressantes se trouve sous */sys* (contrôle des périphériques, les infos cpu, mémoire etc.)
 
-## Scripts Shell
+## Scripts shell
 
 La plupart des shells ont un langage de script qui leur est propre. Ce qui fait que le langage de script shell est différent de
 langages de scripts plus traditionnels c'est qu'il est avant tout fait pour de l'administration système. Créer des commandes
