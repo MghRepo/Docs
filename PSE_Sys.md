@@ -558,9 +558,9 @@ interruption.
 
 ### Pilotes
 
-En informatique un pilote est un programme qui opère et contrôle un périphérique. Un pilote fournit une interface logicielle au
-matériel, permettant au système d'exploitation et aux autres programmes d'accéder aux fonctions matérielles sans avoir besoin de
-connaître en détail le périphérique à utiliser.
+Un pilote est un programme qui opère et contrôle un périphérique. Un pilote fournit une interface logicielle au matériel,
+permettant au système d'exploitation et aux autres programmes d'accéder aux fonctions matérielles sans avoir besoin de connaître
+en détail le périphérique à utiliser.
 
 Le pilote communique avec le périphérique via le bus informatique auquel celui-ci est connecté. Lorsqu'un programme appelant
 invoque une routine du pilote, celui-ci va envoyer une commande au périphérique. Une fois que le périphérique renvoie des
@@ -571,7 +571,29 @@ interruptions à n'importe quelle interface matérielle asynchrone nécessaire.
 
 ### BIOS
 
+Le **BIOS** est un microgiciel utilisé pour l'initialisation du matériel pendant le processus de démarrage, et pour fournir des
+services à l'exécution pour les systèmes d'exploitation et les programmes. Le microgiciel BIOS est préinstallé sur la carte
+mère, c'est le premier logiciel à s'exécuter lors de la mise sous tension.
+
+Le BIOS dans les PCs modernes initialise et teste les composants matériels du système, et charge un chargeur d'amorçage depuis
+l'appareil de stockage de masse qui initialise un système d'exploitation.
+
+La plupart des implémentations du BIOS sont spécifique à un modèle de carte mère, en s'interfaçant avec différents appareil et
+en particulier le chipset. Anciennement, le microgiciel BIOS était stocké sur une puce ROM de la carte mère. De nos jours, le
+contenu du BIOS est stocké sur de la mémoire flash de façon à pouvoir être réécrite sans enlever la puce de la carte mère. Ceci
+permet une mise à jour aisée du BIOS, mais également l'infection de l'ordinateur via des rootkits du BIOS. De plus, si une mise
+à jour du BIOS échoue cele peut potentiellement rendre la carte mère inutilisable.
+
+L'interface microgicielle extensible unifiée (UEFI) est un successeur du BIOS, il vise à résoudre ses limitations techniques.
+
 ### UEFI
+
+**L'interface microgicielle extensible unifiée (UEFI)** est une spécification qui définit une interface logicielle entre un
+système d'exploitation et une plateforme microgicielle. UEFI remplace l'ancienne interface microgicielle BIOS dont elle reprend
+généralement l'ensemble des services. L'UEFI peut supporter les diagnostics et réparations distants, même sans système
+d'exploitation.
+
+<TODO>
 
 ### Shell
 
