@@ -1086,8 +1086,8 @@ répondre aux requêtes à l'aide de données existantes.
 
 Il fournit une approche au développement d'APIs webs et est souvent comparé à REST et autres architectures de services webs. Il
 permet aux clients de définir une structure de la donnée requise, et cette même structure de la donnée est retournée par le
-serveur, prévenant ainsi le retour de trop grandes quantité de données, mais ceci a des implications sur l'efficacité de la mise
-en cache web des résultats de requêtes. La flexibilité et la richesse du langage de requêtage ajoute également une complexité
+serveur, prévenant ainsi le retour d'une trop grande quantité de données, mais ceci a des implications sur l'efficacité de la
+mise en cache web des résultats de requêtes. La flexibilité et la richesse du langage de requêtage ajoute également une complexité
 qui n'est pas forcément nécessaire pour des APIs simples. Malgré le nom, GraphQL ne fournit pas la richesse des opérations de
 graphe que l'on peut trouver dans les bases de données orientées graphes tels que Neo4j, ou même certains dialectes de SQL qui
 supportent les fermetures transitives. Par exemple, une interface GraphQL qui rapporte les parents d'un individu ne peu pas
