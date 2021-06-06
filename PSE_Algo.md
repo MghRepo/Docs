@@ -798,11 +798,37 @@ des fonctions de hachages imparfaites, qui peuvent causer des collisions quand l
 pour plus d'une clef. Ces collisions sont alors traitées de diverses manières.
 
 Dans une table de hachage bien dimensionnée, le coût moyen (nombre d'instructions) pour chaque recherche est indépendant du
-nombre d'élément stockés dans la table. Beaucoup de tables de hachages permettent également des insertion et des suppressions
+nombre d'élément stockés dans la table. Beaucoup de tables de hachages permettent également des insertions et des suppressions
 arbitraires de paires clef-valeur, à un coût (amorti) moyen constant par opération.
 
 Dans de nombreuses situations, les tables de hachage sont en moyenne plus efficaces que des arbres de recherche ou de n'importe
-quelle autre structure de table de recherche.
+quelle autre structure de table de recherche. C'est pour cette raison, qu'elles sont largement utilisé dans un large panel de
+logiciels informatiques, particulièrement les tableaux associatifs, l'indexation des bases de données, les caches, et les
+ensembles.
+
+L'idée du hachage est de distribuer les entrées (paires clefs/valeurs) à travers un tableau de réceptacles. Étant donné une
+clef, l'algorithme calcule un index qui suggère où l'entrée peut se trouver :
+
+    index = f(clef, taille_tableau)
+
+Souvent cette opération est réalisée en deux étapes :
+
+    hash = hashfunc(key)
+    index = hash % array_size
+
+Avec cette méthode, le hash est indépendant de la taille du tableau, et est réduit à postériori à un index (un nombre entre *0*
+et *taille_tableau - 1*) à l'aide de l'opérateur modulo (*%*).
+
+Dans le cas où la taille du tableau est une puissance de 2, l'opération de reste est réduite à un masquage, ce qui améliore la
+performance, mais aussi fait croître le nombre de problèmes si la fonction de hachage est mauvaise.
+
+Une condition basique pour la fonction est de fournir une distribution uniforme des valeurs de hash. Une distribution
+non-uniforme augmente le nombre de collision est le coût pour les résoudre. L'uniformité est quelques fois difficile à garantir,
+mais elle peut être évaluée de manière empirique via des tests statistiques.
+
+La distribution doit être uniforme uniquement pour les tailles de tables de l'application. Si l'application utilise un
+redimensionnement dynamique de la table avec un doublement ou une division par deux de la taille, alors la fonction de hachage
+doit être uniforme uniquement lorsque la taille est une puissance de deux.
 
 <TODO>
  
